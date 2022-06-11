@@ -1,0 +1,280 @@
+<!DOCTYPE html><html lang="zh-TW" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Aircrack-NG - 完整的評估 WiFi 網絡安全的工具 | Halohalo :3</title><meta name="keywords" content="指令"><meta name="author" content="Halohalo"><meta name="copyright" content="Halohalo"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="Aircrack-ngAircrack-ng 是一套完整的評估 WiFi 網絡安全的工具。 它專注於 WiFi 安全的不同領域：  監控：數據包捕獲和數據導出到文本文件以供第三方工具進一步處理。 攻擊：通過數據包注入重放攻擊、解除身份驗證、虛假接入點等。 測試：檢查 WiFi 卡和驅動程序功能（捕獲和注入）。 破解：WEP 和 WPA PSK（WPA 1 和 2）。  所有工具都是命令行，允">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Aircrack-NG - 完整的評估 WiFi 網絡安全的工具">
+<meta property="og:url" content="https://bmjvvhbuen9d7upw.github.io/2021/12/11/Aircrack-NG-commands/index.html">
+<meta property="og:site_name" content="Halohalo :3">
+<meta property="og:description" content="Aircrack-ngAircrack-ng 是一套完整的評估 WiFi 網絡安全的工具。 它專注於 WiFi 安全的不同領域：  監控：數據包捕獲和數據導出到文本文件以供第三方工具進一步處理。 攻擊：通過數據包注入重放攻擊、解除身份驗證、虛假接入點等。 測試：檢查 WiFi 卡和驅動程序功能（捕獲和注入）。 破解：WEP 和 WPA PSK（WPA 1 和 2）。  所有工具都是命令行，允">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://bmjvvhbuen9d7upw.github.io/2021/12/11/Aircrack-NG-commands/cover.svg">
+<meta property="article:published_time" content="2021-12-11T14:31:22.000Z">
+<meta property="article:modified_time" content="2022-05-20T11:53:15.313Z">
+<meta property="article:author" content="Halohalo">
+<meta property="article:tag" content="指令">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bmjvvhbuen9d7upw.github.io/2021/12/11/Aircrack-NG-commands/cover.svg"><link rel="shortcut icon" href="/img/lala.png"><link rel="canonical" href="https://bmjvvhbuen9d7upw.github.io/2021/12/11/Aircrack-NG-commands/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查詢的內容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '複製成功',
+    error: '複製錯誤',
+    noSupport: '瀏覽器不支援'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '剛剛',
+    min: '分鐘前',
+    hour: '小時前',
+    day: '天前',
+    month: '個月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Aircrack-NG - 完整的評估 WiFi 網絡安全的工具',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-05-20 19:53:15'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/lala.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">278</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">標籤</div><div class="length-num">85</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分類</div><div class="length-num">68</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-user"></i><span> 關於</span></a></div><div class="menus_item"><a class="site-page" href="/nothing/"><i class="fa-fw fa fa-clipboard"></i><span> 沒有</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/2021/12/11/Aircrack-NG-commands/top_img.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Halohalo :3</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜尋</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-user"></i><span> 關於</span></a></div><div class="menus_item"><a class="site-page" href="/nothing/"><i class="fa-fw fa fa-clipboard"></i><span> 沒有</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Aircrack-NG - 完整的評估 WiFi 網絡安全的工具</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">發表於</span><time class="post-meta-date-created" datetime="2021-12-11T14:31:22.000Z" title="發表於 2021-12-11 22:31:22">2021-12-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新於</span><time class="post-meta-date-updated" datetime="2022-05-20T11:53:15.313Z" title="更新於 2022-05-20 19:53:15">2022-05-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Kali/">Kali</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><img src ="cover.svg" width="300px" hegiht="300px"/>
+
+<h1 id="Aircrack-ng"><a href="#Aircrack-ng" class="headerlink" title=" Aircrack-ng"></a><i class="fas fa-wifi"></i> Aircrack-ng</h1><p><a target="_blank" rel="noopener" href="https://www.kali.org/tools/aircrack-ng/">Aircrack-ng</a> 是一套完整的評估 WiFi 網絡安全的工具。</p>
+<p>它專注於 WiFi 安全的不同領域：</p>
+<ul>
+<li>監控：數據包捕獲和數據導出到文本文件以供第三方工具進一步處理。</li>
+<li>攻擊：通過數據包注入重放攻擊、解除身份驗證、虛假接入點等。</li>
+<li>測試：檢查 WiFi 卡和驅動程序功能（捕獲和注入）。</li>
+<li>破解：WEP 和 WPA PSK（WPA 1 和 2）。</li>
+</ul>
+<p>所有工具都是命令行，允許編寫大量腳本，許多 GUI 都利用了此功能。<br>主要適用於 Linux，也適用於 Windows、macOS、FreeBSD、OpenBSD、NetBSD，以及 Solaris 甚至 eComStation 2。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/aircrack-ng/aircrack-ng/blob/master/README.md">https://github.com/aircrack-ng/aircrack-ng/blob/master/README.md</a></p>
+<h1 id="睇下自己張卡Work唔Work"><a href="#睇下自己張卡Work唔Work" class="headerlink" title="睇下自己張卡Work唔Work"></a>睇下自己張卡Work唔Work</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~<span class="comment"># iwconfig</span></span><br></pre></td></tr></table></figure>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2021/12/11/Aircrack-NG-commands/iwconfig.png" class="">
+
+<p>通常都係會display wlan0 唔係既係下一步轉一守個名就得</p>
+<p>已經確定你係入左 WIFI <code>NETGEAR64</code> 咁就可以繼續落去</p>
+<ul>
+<li>ESSID #WIFI名</li>
+<li>Access Point #你入左去Wifi 既 MAC Address</li>
+<li>Mode # 我地而加張卡係處於一個咩狀態 (未開係會顯示 Managed)</li>
+</ul>
+<span id="more"></span>
+
+<h1 id="開啟-monitor-mode"><a href="#開啟-monitor-mode" class="headerlink" title="開啟 monitor mode"></a>開啟 monitor mode</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~<span class="comment"># airmon-ng start wlan0</span></span><br></pre></td></tr></table></figure>
+<p>如果你 iwconfig 完睇唔係 wlan0 就打返你 iwconfig 出左既名就得<br>打完呢句就會入左 Monitor Mode，喺呢個Mode 低下會將你 而加張 Wireless 卡 Disconnect</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2021/12/11/Aircrack-NG-commands/airmon-ng-start-wlan0.png" class="">
+
+<h1 id="搵-Wifi-目標"><a href="#搵-Wifi-目標" class="headerlink" title="搵 Wifi 目標"></a>搵 Wifi 目標</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~<span class="comment"># airodump-ng wlan0mon </span></span><br></pre></td></tr></table></figure>
+<p>我地可以見到你而加呢個Area Detect到既 Wifi 有乜<br>搵你想要既目標，我地攞到佢既 BSSID，ESSID，CH 就夠<br>當你搵到既時候，你可以 Ctrl+c Stop 停止 Searching</p>
+<ul>
+<li>ESSID = WIFI名</li>
+<li>BSSID = WIFI Mac Address</li>
+<li>CH = 頻度編號</li>
+</ul>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2021/12/11/Aircrack-NG-commands/airodump-ng-wlan0mon.png" class="">
+
+
+<h1 id="建立-cap-file"><a href="#建立-cap-file" class="headerlink" title="建立 cap file"></a>建立 cap file</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">airodump-ng -d [BSSID] -c[CH] -w [Cap file Name] wlan0mon</span><br></pre></td></tr></table></figure>
+
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2021/12/11/Aircrack-NG-commands/captrue.png" class="">
+
+<h1 id="Deauth-Attack-Device，Captrue-cap-files"><a href="#Deauth-Attack-Device，Captrue-cap-files" class="headerlink" title="Deauth Attack Device，Captrue cap files"></a>Deauth Attack Device，Captrue cap files</h1><p>呢步係為左令人地斷線，再等佢重新連Wifi，咁就會出現 <code>HandShake</code> Or <code>PMKID</code></p>
+<p>成個 Device :</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aireplay-ng --deauth 0 -a [BSSID] wlan0mon</span><br></pre></td></tr></table></figure>
+
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2021/12/11/Aircrack-NG-commands/aireplay-ng.png" class="">
+
+<p>指定一部 Device :</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aireplay-ng --deauth 0 -a [BSSID] -c [ESSID] wlan0mon</span><br></pre></td></tr></table></figure>
+
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2021/12/11/Aircrack-NG-commands/aireplay-ng-2.png" class="">
+
+<ul>
+<li>0 係功擊次數; 打 0 = 無限Loop, 打 10 就 打10下，如此類推</li>
+</ul>
+<p>當我地攞到 <code>HandShark</code> or <code>PMKID</code> 就可以 Brute Force Wifi password</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2021/12/11/Aircrack-NG-commands/handshake.png" class="">
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aircrack-ng [Cap file name] -w [password list file]</span><br></pre></td></tr></table></figure>
+
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2021/12/11/Aircrack-NG-commands/aircrack.png" class="">
+
+<h1 id="關閉-Monitor-Mode"><a href="#關閉-Monitor-Mode" class="headerlink" title="關閉 Monitor Mode"></a>關閉 Monitor Mode</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# airmon-ng stop wlan0mon</span><br></pre></td></tr></table></figure>
+
+<p>教學完畢。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">airmon-ng start wlan0</span><br><span class="line"></span><br><span class="line">airodump-ng wlan0mon</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">PS PS PS PS PS, YOU NEED TO GET HANDSHARK,AFTER YOU CAN DO ATTACK OR BRUTEFORCE PASSWORD.</span><br><span class="line">airodump-ng -d [BSSID] -c[CH] -w [ESSID Cap Name] wlan0mon</span><br><span class="line"></span><br><span class="line">Attack :</span><br><span class="line">aireplay-ng --deauth 0 -a [BSSID] wlan0mon</span><br><span class="line"></span><br><span class="line">only attack one :</span><br><span class="line">aireplay-ng --deauth 0 -a [BSSID] -c [ESSID] wlan0mon</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">BruteForce Password :</span><br><span class="line">aircrack-ng [Cap file name] -w [password list file]</span><br></pre></td></tr></table></figure></article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%8C%87%E4%BB%A4/">指令</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/12/11/ddos-server/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/DDoS/DDoS.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">DDoS - Server By Scarface</div></div></a></div><div class="next-post pull-right"><a href="/2021/12/11/ArpSpoof-commands/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2021/12/11/ArpSpoof-commands/cover.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">ArpSpoof - 一個執行 ARP 欺騙攻擊的工具</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相關推薦</span></div><div class="relatedPosts-list"><div><a href="/2022/01/14/Arch-Linux-install-make/" title="Arch Linux - 安裝 make"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/Arch%20Linux/cover.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-14</div><div class="title">Arch Linux - 安裝 make</div></div></a></div><div><a href="/2022/02/15/Arch-Linux-install-nodejs-npm/" title="Arch Linux - 裝 NPM NodeJS"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/Arch%20Linux/cover.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-15</div><div class="title">Arch Linux - 裝 NPM NodeJS</div></div></a></div><div><a href="/2022/02/15/Arch-Linux-install-vscode/" title="Arch Linux - 裝 Visual Studio Code"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/Arch%20Linux/cover.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-15</div><div class="title">Arch Linux - 裝 Visual Studio Code</div></div></a></div><div><a href="/2021/12/22/Aria2c-commands/" title="Aria2 - 多線程下載工具"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/Linux/cover.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-22</div><div class="title">Aria2 - 多線程下載工具</div></div></a></div><div><a href="/2021/12/11/ArpSpoof-commands/" title="ArpSpoof - 一個執行 ARP 欺騙攻擊的工具"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2021/12/11/ArpSpoof-commands/cover.svg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-11</div><div class="title">ArpSpoof - 一個執行 ARP 欺騙攻擊的工具</div></div></a></div><div><a href="/2022/01/15/Command-check-your-computer-motherboard-model-in-windows/" title="Windows - 使用指令查看主機版型號"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/Windows/cover.svg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-15</div><div class="title">Windows - 使用指令查看主機版型號</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/lala.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Halohalo</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">278</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">標籤</div><div class="length-num">85</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分類</div><div class="length-num">68</div></a></div></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">我中學雞黎架炸 xD</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目錄</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Aircrack-ng"><span class="toc-number">1.</span> <span class="toc-text"> Aircrack-ng</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9D%87%E4%B8%8B%E8%87%AA%E5%B7%B1%E5%BC%B5%E5%8D%A1Work%E5%94%94Work"><span class="toc-number">2.</span> <span class="toc-text">睇下自己張卡Work唔Work</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%96%8B%E5%95%9F-monitor-mode"><span class="toc-number">3.</span> <span class="toc-text">開啟 monitor mode</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%90%B5-Wifi-%E7%9B%AE%E6%A8%99"><span class="toc-number">4.</span> <span class="toc-text">搵 Wifi 目標</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B-cap-file"><span class="toc-number">5.</span> <span class="toc-text">建立 cap file</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Deauth-Attack-Device%EF%BC%8CCaptrue-cap-files"><span class="toc-number">6.</span> <span class="toc-text">Deauth Attack Device，Captrue cap files</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%9C%E9%96%89-Monitor-Mode"><span class="toc-number">7.</span> <span class="toc-text">關閉 Monitor Mode</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/06/11/hexo-backup-to-new-device/" title="Hexo - 備份至新電腦繼續寫文章"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/Hexo/cover.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo - 備份至新電腦繼續寫文章"/></a><div class="content"><a class="title" href="/2022/06/11/hexo-backup-to-new-device/" title="Hexo - 備份至新電腦繼續寫文章">Hexo - 備份至新電腦繼續寫文章</a><time datetime="2022-06-11T09:02:54.000Z" title="發表於 2022-06-11 17:02:54">2022-06-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/09/minecraft-change-version/" title="Minecraft - 更改版本方法"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/06/09/minecraft-change-version/cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Minecraft - 更改版本方法"/></a><div class="content"><a class="title" href="/2022/06/09/minecraft-change-version/" title="Minecraft - 更改版本方法">Minecraft - 更改版本方法</a><time datetime="2022-06-09T15:38:13.000Z" title="發表於 2022-06-09 23:38:13">2022-06-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/08/Wickr-Me-Apps/" title="Wickr Me - Private Messenger"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/06/08/Wickr-Me-Apps/cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Wickr Me - Private Messenger"/></a><div class="content"><a class="title" href="/2022/06/08/Wickr-Me-Apps/" title="Wickr Me - Private Messenger">Wickr Me - Private Messenger</a><time datetime="2022-06-08T06:30:37.000Z" title="發表於 2022-06-08 14:30:37">2022-06-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/08/High-Orbit-Ion-Cannon-Apps-DOS/" title="Hoic 高軌道離子炮 - DoS 網路測試工具"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/06/08/High-Orbit-Ion-Cannon-Apps-DOS/cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hoic 高軌道離子炮 - DoS 網路測試工具"/></a><div class="content"><a class="title" href="/2022/06/08/High-Orbit-Ion-Cannon-Apps-DOS/" title="Hoic 高軌道離子炮 - DoS 網路測試工具">Hoic 高軌道離子炮 - DoS 網路測試工具</a><time datetime="2022-06-08T06:21:06.000Z" title="發表於 2022-06-08 14:21:06">2022-06-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/08/Low-Orbit-Ion-Cannon-Apps-DOS/" title="Loic 低軌道離子炮 - DoS 網路測試工具"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/06/08/Low-Orbit-Ion-Cannon-Apps-DOS/cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Loic 低軌道離子炮 - DoS 網路測試工具"/></a><div class="content"><a class="title" href="/2022/06/08/Low-Orbit-Ion-Cannon-Apps-DOS/" title="Loic 低軌道離子炮 - DoS 網路測試工具">Loic 低軌道離子炮 - DoS 網路測試工具</a><time datetime="2022-06-08T06:11:37.000Z" title="發表於 2022-06-08 14:11:37">2022-06-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/07/Github-change-username/" title="Github - 更改用戶名稱"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/06/07/Github-change-username/cover2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Github - 更改用戶名稱"/></a><div class="content"><a class="title" href="/2022/06/07/Github-change-username/" title="Github - 更改用戶名稱">Github - 更改用戶名稱</a><time datetime="2022-06-07T12:40:19.000Z" title="發表於 2022-06-07 20:40:19">2022-06-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/07/Minecraft-Server-list/" title="Minecraft - 伺服器列表 Server list"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/06/07/Minecraft-Server-list/cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Minecraft - 伺服器列表 Server list"/></a><div class="content"><a class="title" href="/2022/06/07/Minecraft-Server-list/" title="Minecraft - 伺服器列表 Server list">Minecraft - 伺服器列表 Server list</a><time datetime="2022-06-07T09:36:13.000Z" title="發表於 2022-06-07 17:36:13">2022-06-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/07/Counter-Strike-1-6-AMXX-Upgrade-to-1-9-0/" title="Counter Strike 1.6 - AMX X Mod 升級至 1.9.0"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/06/07/Counter-Strike-1-6-AMXX-Upgrade-to-1-9-0/cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Counter Strike 1.6 - AMX X Mod 升級至 1.9.0"/></a><div class="content"><a class="title" href="/2022/06/07/Counter-Strike-1-6-AMXX-Upgrade-to-1-9-0/" title="Counter Strike 1.6 - AMX X Mod 升級至 1.9.0">Counter Strike 1.6 - AMX X Mod 升級至 1.9.0</a><time datetime="2022-06-07T09:21:56.000Z" title="發表於 2022-06-07 17:21:56">2022-06-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/07/Counter-Strike-1-6-Zombie-Plauge-config-files/" title="Counter Strike 1.6 - ZP Config 檔案說明"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/06/07/Counter-Strike-1-6-Zombie-Plauge-config-files/cover.gif" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Counter Strike 1.6 - ZP Config 檔案說明"/></a><div class="content"><a class="title" href="/2022/06/07/Counter-Strike-1-6-Zombie-Plauge-config-files/" title="Counter Strike 1.6 - ZP Config 檔案說明">Counter Strike 1.6 - ZP Config 檔案說明</a><time datetime="2022-06-07T09:03:23.000Z" title="發表於 2022-06-07 17:03:23">2022-06-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/07/Linux-ip-Commands/" title="Linux - ip 指令說明"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/Linux/cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux - ip 指令說明"/></a><div class="content"><a class="title" href="/2022/06/07/Linux-ip-Commands/" title="Linux - ip 指令說明">Linux - ip 指令說明</a><time datetime="2022-06-07T08:44:07.000Z" title="發表於 2022-06-07 16:44:07">2022-06-07</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/2021/12/11/Aircrack-NG-commands/top_img.png')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Halohalo</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="閱讀模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="淺色和深色模式轉換"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="單欄和雙欄切換"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="設定"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目錄"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到頂部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜尋</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  資料庫載入中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜尋文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.3" zIndex="-1" mobile="true" data-click="false"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script></div></body></html>
