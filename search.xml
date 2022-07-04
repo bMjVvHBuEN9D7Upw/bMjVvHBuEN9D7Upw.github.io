@@ -270,6 +270,27 @@
       </tags>
   </entry>
   <entry>
+    <title>Android Studio - EditText 只允許輸入數字</title>
+    <url>/2022/01/26/Android-Studio-EditText-only-allow-enter-number/</url>
+    <content><![CDATA[<h1 id="只允許輸入數字"><a href="#只允許輸入數字" class="headerlink" title="只允許輸入數字"></a>只允許輸入數字</h1><p>去 <code>activity_main.xml</code> 入面既 <code>code</code> 將你要改既 <code>EditText</code></p>
+<p>入面加 / 改 <code>android:inputType=&quot;number&quot;</code></p>
+<p>Full code </p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">EditText</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:inputType</span>=<span class="string">&quot;number&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>之後你再 run 一次 Apps 再撳個 EditText 就會得出以下效果。</p>
+<img src="/2022/01/26/Android-Studio-EditText-only-allow-enter-number/done.png" class="">
+
+<p>完成。</p>
+]]></content>
+      <categories>
+        <category>Android Studio</category>
+      </categories>
+      <tags>
+        <tag>Apps</tag>
+        <tag>XML</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Android Studio - 改程式 title</title>
     <url>/2022/01/22/Android-Studio-Change-Apps-title/</url>
     <content><![CDATA[<h1 id="改-Title-名"><a href="#改-Title-名" class="headerlink" title="改 Title 名"></a>改 Title 名</h1><p>開左你既 Project 之後，</p>
@@ -285,6 +306,26 @@
       <tags>
         <tag>Apps</tag>
         <tag>XML</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Android Studio - 插件上安裝另外的 Themes</title>
+    <url>/2022/01/12/Android-Studio-Install-plugin-themes/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>覺唔覺 Android Studio 原本既 Themes 睇落真係好唔順眼？<br>如果你同我一樣係咁諗，咁你就一定要學識點樣裝一個新 Theme 喺 Android Studio 入面啦！</p>
+<p>我地入到去 Project 再撳 <code>File</code> &gt; <code>Settings...</code> &gt; <code>Plugins</code> 再查 <code>Theme</code></p>
+<p>選擇你想要既 Theme 再安裝就成功！</p>
+<img src="/2022/01/12/Android-Studio-Install-plugin-themes/1.png" class="">
+
+
+<p>參考資料 :<br><a href="https://www.geeksforgeeks.org/different-ways-to-change-or-add-themes-to-android-studio/">https://www.geeksforgeeks.org/different-ways-to-change-or-add-themes-to-android-studio/</a></p>
+]]></content>
+      <categories>
+        <category>Android Studio</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Apps</tag>
+        <tag>安裝</tag>
       </tags>
   </entry>
   <entry>
@@ -323,47 +364,6 @@
       </categories>
       <tags>
         <tag>Apps</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Android Studio - EditText 只允許輸入數字</title>
-    <url>/2022/01/26/Android-Studio-EditText-only-allow-enter-number/</url>
-    <content><![CDATA[<h1 id="只允許輸入數字"><a href="#只允許輸入數字" class="headerlink" title="只允許輸入數字"></a>只允許輸入數字</h1><p>去 <code>activity_main.xml</code> 入面既 <code>code</code> 將你要改既 <code>EditText</code></p>
-<p>入面加 / 改 <code>android:inputType=&quot;number&quot;</code></p>
-<p>Full code </p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">EditText</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:inputType</span>=<span class="string">&quot;number&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>之後你再 run 一次 Apps 再撳個 EditText 就會得出以下效果。</p>
-<img src="/2022/01/26/Android-Studio-EditText-only-allow-enter-number/done.png" class="">
-
-<p>完成。</p>
-]]></content>
-      <categories>
-        <category>Android Studio</category>
-      </categories>
-      <tags>
-        <tag>Apps</tag>
-        <tag>XML</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Android Studio - 插件上安裝另外的 Themes</title>
-    <url>/2022/01/12/Android-Studio-Install-plugin-themes/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>覺唔覺 Android Studio 原本既 Themes 睇落真係好唔順眼？<br>如果你同我一樣係咁諗，咁你就一定要學識點樣裝一個新 Theme 喺 Android Studio 入面啦！</p>
-<p>我地入到去 Project 再撳 <code>File</code> &gt; <code>Settings...</code> &gt; <code>Plugins</code> 再查 <code>Theme</code></p>
-<p>選擇你想要既 Theme 再安裝就成功！</p>
-<img src="/2022/01/12/Android-Studio-Install-plugin-themes/1.png" class="">
-
-
-<p>參考資料 :<br><a href="https://www.geeksforgeeks.org/different-ways-to-change-or-add-themes-to-android-studio/">https://www.geeksforgeeks.org/different-ways-to-change-or-add-themes-to-android-studio/</a></p>
-]]></content>
-      <categories>
-        <category>Android Studio</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Apps</tag>
-        <tag>安裝</tag>
       </tags>
   </entry>
   <entry>
@@ -889,6 +889,20 @@
       </tags>
   </entry>
   <entry>
+    <title>Chrome - 即時修改網頁文字 (表面)</title>
+    <url>/2022/05/31/Chrome-javascript-edittext-content/</url>
+    <content><![CDATA[<img src="cover.png" width="200px"/>
+
+<h2 id="即時修改內容"><a href="#即時修改內容" class="headerlink" title="即時修改內容"></a>即時修改內容</h2><p>用 Bookmarks 加呢段野</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">javascript:<span class="built_in">document</span>.body.contentEditable = <span class="string">&#x27;true&#x27;</span>; <span class="built_in">document</span>.designMode=<span class="string">&#x27;on&#x27;</span>; <span class="keyword">void</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Browser</category>
+      </categories>
+      <tags>
+        <tag>Javascript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Windows - 使用指令查看主機版型號</title>
     <url>/2022/01/15/Command-check-your-computer-motherboard-model-in-windows/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>免用另外的程式。</p>
@@ -903,20 +917,6 @@
       </categories>
       <tags>
         <tag>指令</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Chrome - 即時修改網頁文字 (表面)</title>
-    <url>/2022/05/31/Chrome-javascript-edittext-content/</url>
-    <content><![CDATA[<img src="cover.png" width="200px"/>
-
-<h2 id="即時修改內容"><a href="#即時修改內容" class="headerlink" title="即時修改內容"></a>即時修改內容</h2><p>用 Bookmarks 加呢段野</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">javascript:<span class="built_in">document</span>.body.contentEditable = <span class="string">&#x27;true&#x27;</span>; <span class="built_in">document</span>.designMode=<span class="string">&#x27;on&#x27;</span>; <span class="keyword">void</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Browser</category>
-      </categories>
-      <tags>
-        <tag>Javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -938,42 +938,6 @@
       </categories>
       <tags>
         <tag>Malware</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ConvertZZ - 殘體字轉繁體字的工具</title>
-    <url>/2022/01/11/ConvertZZ/</url>
-    <content><![CDATA[<img src="ConvertZZ.svg" height="200" width="200"/>
-
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>經常下載簡體文件的朋友們應該都有這個困擾吧，文件下載下來，常常看到的都是一堆亂碼<br>亂碼的原因是因為兩國的慣用編碼不同，簡體使用GBK，而繁體使用BIG5，當GBK的文字「直接」看做BIG5時，就會出現亂碼</p>
-<p>一直以來，我慣用的簡繁轉換程式’ConvertZ’，但一直不太喜歡它的設計，為什麼上面總是要有一條Bar在那邊?為什麼開啟要等好幾秒?為什麼它有時候還會轉換失敗?為什麼作者好像都沒再更新了?<br>於是我開始計畫，意圖取代舊有的ConvertZ，改善這些問題。</p>
-<p>由於是繼承自ConvertZ，因此取名ConvertZZ</p>
-<h1 id="Feature"><a href="#Feature" class="headerlink" title="Feature"></a>Feature</h1><ul>
-<li>仿造自ConvertZ，因此功能近似ConvertZ，修正ConvertZ的部分BUG</li>
-<li>具有懸浮球，使用自定的手勢，使用各種快捷功能</li>
-<li>漂亮的UI</li>
-<li>ID3 tag轉換</li>
-</ul>
-<h2 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h2><ul>
-<li><a href="https://github.com/flier268/ConvertZZ/releases" title="Release">Release</a></li>
-</ul>
-<h2 id="Wiki"><a href="#Wiki" class="headerlink" title="Wiki"></a>Wiki</h2><ul>
-<li><a href="https://github.com/flier268/ConvertZZ/wiki">Github Wiki</a></li>
-</ul>
-<h2 id="Require"><a href="#Require" class="headerlink" title="Require"></a>Require</h2><ul>
-<li>.Net 4.7.2以上</li>
-</ul>
-<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><ul>
-<li><a href="https://github.com/flier268/ConvertZZ">Github</a></li>
-</ul>
-<h2 id="程式畫面"><a href="#程式畫面" class="headerlink" title="程式畫面"></a>程式畫面</h2><img src="/2022/01/11/ConvertZZ/hi.png" class="">
-<img src="/2022/01/11/ConvertZZ/settings.png" class="">
-<img src="/2022/01/11/ConvertZZ/right%20click.png" class="">]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>Gui</tag>
       </tags>
   </entry>
   <entry>
@@ -1003,6 +967,25 @@
         <tag>Games</tag>
         <tag>Server</tag>
         <tag>AMX Mod X</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Counter-Strike 1.6 - 更改為 CS 模型</title>
+    <url>/2022/06/01/Counter-Strike-1-6-Change-CS-Default-Model/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>原本 CS1.6 既 Model 係用緊 CZ (見圖下)，<br>呢種既 Model 係大家認識既 CSO Model，<br>但其實佢係由 CZ 出黎既 Model (Counter-Strike: Condition Zero)，<br>呢隻 Model 我並唔鍾意用，<br>所以今日會講點樣改返做 CS1.6 既 Model。</p>
+<img src="/2022/06/01/Counter-Strike-1-6-Change-CS-Default-Model/CE.png" class="">
+
+<h1 id="開始"><a href="#開始" class="headerlink" title="開始"></a>開始</h1><p>我地需要開啟 CS1.6 既 Optinos，<br>然後再將撳 <code>Video</code>，<br>再將原本 Tick 左既 <code>Enable HD Models if available</code>，<br>Disable 左佢。</p>
+<p>重開後就會見到唔見左 CE Model。</p>
+<img src="/2022/06/01/Counter-Strike-1-6-Change-CS-Default-Model/done.gif" class="">
+
+<h1 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h1><p>搞掂。</p>
+<img src="/2022/06/01/Counter-Strike-1-6-Change-CS-Default-Model/done.png" class="">]]></content>
+      <categories>
+        <category>Counter-Strike 1.6</category>
+      </categories>
+      <tags>
+        <tag>Games</tag>
       </tags>
   </entry>
   <entry>
@@ -1039,25 +1022,6 @@
         <tag>Games</tag>
         <tag>Server</tag>
         <tag>AMX Mod X</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Counter-Strike 1.6 - 更改為 CS 模型</title>
-    <url>/2022/06/01/Counter-Strike-1-6-Change-CS-Default-Model/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>原本 CS1.6 既 Model 係用緊 CZ (見圖下)，<br>呢種既 Model 係大家認識既 CSO Model，<br>但其實佢係由 CZ 出黎既 Model (Counter-Strike: Condition Zero)，<br>呢隻 Model 我並唔鍾意用，<br>所以今日會講點樣改返做 CS1.6 既 Model。</p>
-<img src="/2022/06/01/Counter-Strike-1-6-Change-CS-Default-Model/CE.png" class="">
-
-<h1 id="開始"><a href="#開始" class="headerlink" title="開始"></a>開始</h1><p>我地需要開啟 CS1.6 既 Optinos，<br>然後再將撳 <code>Video</code>，<br>再將原本 Tick 左既 <code>Enable HD Models if available</code>，<br>Disable 左佢。</p>
-<p>重開後就會見到唔見左 CE Model。</p>
-<img src="/2022/06/01/Counter-Strike-1-6-Change-CS-Default-Model/done.gif" class="">
-
-<h1 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h1><p>搞掂。</p>
-<img src="/2022/06/01/Counter-Strike-1-6-Change-CS-Default-Model/done.png" class="">]]></content>
-      <categories>
-        <category>Counter-Strike 1.6</category>
-      </categories>
-      <tags>
-        <tag>Games</tag>
       </tags>
   </entry>
   <entry>
@@ -1167,6 +1131,42 @@
         <tag>Games</tag>
         <tag>Server</tag>
         <tag>AMX Mod X</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ConvertZZ - 殘體字轉繁體字的工具</title>
+    <url>/2022/01/11/ConvertZZ/</url>
+    <content><![CDATA[<img src="ConvertZZ.svg" height="200" width="200"/>
+
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>經常下載簡體文件的朋友們應該都有這個困擾吧，文件下載下來，常常看到的都是一堆亂碼<br>亂碼的原因是因為兩國的慣用編碼不同，簡體使用GBK，而繁體使用BIG5，當GBK的文字「直接」看做BIG5時，就會出現亂碼</p>
+<p>一直以來，我慣用的簡繁轉換程式’ConvertZ’，但一直不太喜歡它的設計，為什麼上面總是要有一條Bar在那邊?為什麼開啟要等好幾秒?為什麼它有時候還會轉換失敗?為什麼作者好像都沒再更新了?<br>於是我開始計畫，意圖取代舊有的ConvertZ，改善這些問題。</p>
+<p>由於是繼承自ConvertZ，因此取名ConvertZZ</p>
+<h1 id="Feature"><a href="#Feature" class="headerlink" title="Feature"></a>Feature</h1><ul>
+<li>仿造自ConvertZ，因此功能近似ConvertZ，修正ConvertZ的部分BUG</li>
+<li>具有懸浮球，使用自定的手勢，使用各種快捷功能</li>
+<li>漂亮的UI</li>
+<li>ID3 tag轉換</li>
+</ul>
+<h2 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h2><ul>
+<li><a href="https://github.com/flier268/ConvertZZ/releases" title="Release">Release</a></li>
+</ul>
+<h2 id="Wiki"><a href="#Wiki" class="headerlink" title="Wiki"></a>Wiki</h2><ul>
+<li><a href="https://github.com/flier268/ConvertZZ/wiki">Github Wiki</a></li>
+</ul>
+<h2 id="Require"><a href="#Require" class="headerlink" title="Require"></a>Require</h2><ul>
+<li>.Net 4.7.2以上</li>
+</ul>
+<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><ul>
+<li><a href="https://github.com/flier268/ConvertZZ">Github</a></li>
+</ul>
+<h2 id="程式畫面"><a href="#程式畫面" class="headerlink" title="程式畫面"></a>程式畫面</h2><img src="/2022/01/11/ConvertZZ/hi.png" class="">
+<img src="/2022/01/11/ConvertZZ/settings.png" class="">
+<img src="/2022/01/11/ConvertZZ/right%20click.png" class="">]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>Gui</tag>
       </tags>
   </entry>
   <entry>
@@ -1428,6 +1428,36 @@
       </tags>
   </entry>
   <entry>
+    <title>Counter Strike 1.6 - ZP Config 檔案說明</title>
+    <url>/2022/06/07/Counter-Strike-1-6-Zombie-Plauge-config-files/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Config 檔案係用黎方便你改你既 Model，Sounds，數值呢啲野。</p>
+<h2 id="zombieplague-cfg"><a href="#zombieplague-cfg" class="headerlink" title="zombieplague.cfg"></a>zombieplague.cfg</h2><p>數值設置用既檔案</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">zp_nemesis_health 0.1</span><br><span class="line"></span><br><span class="line">zp_gamemode_delay 10</span><br><span class="line"></span><br><span class="line">zp_admin_models_human_player 1</span><br><span class="line"></span><br><span class="line">zp_deathmatch 2</span><br><span class="line"></span><br><span class="line">zp_nvision_zombie 2</span><br><span class="line">zp_nvision_zombie_color_R 155	</span><br><span class="line">zp_nvision_zombie_color_G 155	</span><br><span class="line">zp_nvision_zombie_color_B 0</span><br></pre></td></tr></table></figure>
+
+<h2 id="zombieplague-ini"><a href="#zombieplague-ini" class="headerlink" title="zombieplague.ini"></a>zombieplague.ini</h2><p>路徑設置</p>
+<ul>
+<li>聲音</li>
+<li>模型</li>
+<li>spr</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">[Weapon Models]</span><br><span class="line">V_KNIFE HUMAN = models/zombie_plague/TIG_MODEL/v_human_knife.mdl</span><br><span class="line">V_KNIFE NEMESIS = models/zombie_plague/TIG_MODEL/v_n2.mdl</span><br><span class="line">V_WEAPON SURVIVOR = models/v_ak47.mdl</span><br><span class="line">GRENADE INFECT = models/zombie_plague/v_grenade_infect.mdl</span><br><span class="line">GRENADE FIRE = models/v_hegrenade.mdl</span><br><span class="line">GRENADE FROST = models/v_flashbang.mdl</span><br><span class="line">GRENADE FLARE = models/v_smokegrenade.mdl</span><br><span class="line">V_KNIFE ADMIN HUMAN = models/v_knife.mdl</span><br><span class="line">V_KNIFE ADMIN ZOMBIE = models/zombie_plague/v_knife_zombie.mdl</span><br></pre></td></tr></table></figure>
+
+<h2 id="zp-extraitems-ini"><a href="#zp-extraitems-ini" class="headerlink" title="zp_extraitems.ini"></a>zp_extraitems.ini</h2><p>你買野既野</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[Infection Bomb]</span><br><span class="line">NAME = T-病毒</span><br><span class="line">COST = 15</span><br></pre></td></tr></table></figure>
+
+<h2 id="zp-zombieclasses-ini"><a href="#zp-zombieclasses-ini" class="headerlink" title="zp_zombieclasses.ini"></a>zp_zombieclasses.ini</h2><p>喪屍類別</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[Classic Zombie]</span><br><span class="line">NAME = Classic Zombie</span><br><span class="line">INFO = =Balanced=</span><br><span class="line">MODELS = zombie_source</span><br><span class="line">CLAWMODEL = models/zombie_plague/v_knife_zombie.mdl</span><br><span class="line">HEALTH = 1800</span><br><span class="line">SPEED = 0.75</span><br><span class="line">GRAVITY = 1.00</span><br><span class="line">KNOCKBACK = 1.00</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Counter-Strike 1.6</category>
+      </categories>
+      <tags>
+        <tag>Games</tag>
+        <tag>Server</tag>
+        <tag>AMX Mod X</tag>
+        <tag>Zombie Plague</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Counter-Strike 1.6 - 於 Steam CS 安裝 AMX X Mod (Windows)</title>
     <url>/2022/05/31/Counter-Strike-1.6%20Steam%20CS%20Local%20install%20AMXX(Windows)/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>要喺 1.6 度玩唔同既 Mod，<br>我地需要用到 AMXX，<br>然後今篇文係講點樣裝 AMXX。</p>
@@ -1493,36 +1523,6 @@
         <tag>Games</tag>
         <tag>Server</tag>
         <tag>AMX Mod X</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Counter Strike 1.6 - ZP Config 檔案說明</title>
-    <url>/2022/06/07/Counter-Strike-1-6-Zombie-Plauge-config-files/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Config 檔案係用黎方便你改你既 Model，Sounds，數值呢啲野。</p>
-<h2 id="zombieplague-cfg"><a href="#zombieplague-cfg" class="headerlink" title="zombieplague.cfg"></a>zombieplague.cfg</h2><p>數值設置用既檔案</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">zp_nemesis_health 0.1</span><br><span class="line"></span><br><span class="line">zp_gamemode_delay 10</span><br><span class="line"></span><br><span class="line">zp_admin_models_human_player 1</span><br><span class="line"></span><br><span class="line">zp_deathmatch 2</span><br><span class="line"></span><br><span class="line">zp_nvision_zombie 2</span><br><span class="line">zp_nvision_zombie_color_R 155	</span><br><span class="line">zp_nvision_zombie_color_G 155	</span><br><span class="line">zp_nvision_zombie_color_B 0</span><br></pre></td></tr></table></figure>
-
-<h2 id="zombieplague-ini"><a href="#zombieplague-ini" class="headerlink" title="zombieplague.ini"></a>zombieplague.ini</h2><p>路徑設置</p>
-<ul>
-<li>聲音</li>
-<li>模型</li>
-<li>spr</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">[Weapon Models]</span><br><span class="line">V_KNIFE HUMAN = models/zombie_plague/TIG_MODEL/v_human_knife.mdl</span><br><span class="line">V_KNIFE NEMESIS = models/zombie_plague/TIG_MODEL/v_n2.mdl</span><br><span class="line">V_WEAPON SURVIVOR = models/v_ak47.mdl</span><br><span class="line">GRENADE INFECT = models/zombie_plague/v_grenade_infect.mdl</span><br><span class="line">GRENADE FIRE = models/v_hegrenade.mdl</span><br><span class="line">GRENADE FROST = models/v_flashbang.mdl</span><br><span class="line">GRENADE FLARE = models/v_smokegrenade.mdl</span><br><span class="line">V_KNIFE ADMIN HUMAN = models/v_knife.mdl</span><br><span class="line">V_KNIFE ADMIN ZOMBIE = models/zombie_plague/v_knife_zombie.mdl</span><br></pre></td></tr></table></figure>
-
-<h2 id="zp-extraitems-ini"><a href="#zp-extraitems-ini" class="headerlink" title="zp_extraitems.ini"></a>zp_extraitems.ini</h2><p>你買野既野</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[Infection Bomb]</span><br><span class="line">NAME = T-病毒</span><br><span class="line">COST = 15</span><br></pre></td></tr></table></figure>
-
-<h2 id="zp-zombieclasses-ini"><a href="#zp-zombieclasses-ini" class="headerlink" title="zp_zombieclasses.ini"></a>zp_zombieclasses.ini</h2><p>喪屍類別</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[Classic Zombie]</span><br><span class="line">NAME = Classic Zombie</span><br><span class="line">INFO = =Balanced=</span><br><span class="line">MODELS = zombie_source</span><br><span class="line">CLAWMODEL = models/zombie_plague/v_knife_zombie.mdl</span><br><span class="line">HEALTH = 1800</span><br><span class="line">SPEED = 0.75</span><br><span class="line">GRAVITY = 1.00</span><br><span class="line">KNOCKBACK = 1.00</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Counter-Strike 1.6</category>
-      </categories>
-      <tags>
-        <tag>Games</tag>
-        <tag>Server</tag>
-        <tag>AMX Mod X</tag>
-        <tag>Zombie Plague</tag>
       </tags>
   </entry>
   <entry>
@@ -1818,23 +1818,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Counter-Strike: Global Offensive - Csgo Offsets</title>
-    <url>/2022/01/29/Csgo-Offsets/</url>
-    <content><![CDATA[<h1 id="Offsets"><a href="#Offsets" class="headerlink" title="Offsets"></a>Offsets</h1><figure class="highlight hpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> once</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdint&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2022-01-21 07:37:33.981800900 UTC</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> hazedumper &#123;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">int64_t</span> timestamp = <span class="number">1642750653</span>;</span><br><span class="line"><span class="keyword">namespace</span> netvars &#123;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> cs_gamerules_data = <span class="number">0x0</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_ArmorValue = <span class="number">0x117CC</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_Collision = <span class="number">0x320</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_CollisionGroup = <span class="number">0x474</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_Local = <span class="number">0x2FCC</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_MoveType = <span class="number">0x25C</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_OriginalOwnerXuidHigh = <span class="number">0x31D4</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_OriginalOwnerXuidLow = <span class="number">0x31D0</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_SurvivalGameRuleDecisionTypes = <span class="number">0x1328</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_SurvivalRules = <span class="number">0xD00</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_aimPunchAngle = <span class="number">0x303C</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_aimPunchAngleVel = <span class="number">0x3048</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_angEyeAnglesX = <span class="number">0x117D0</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_angEyeAnglesY = <span class="number">0x117D4</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_bBombDefused = <span class="number">0x29C0</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_bBombPlanted = <span class="number">0x9A5</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_bBombTicking = <span class="number">0x2990</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_bFreezePeriod = <span class="number">0x20</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_bGunGameImmunity = <span class="number">0x9990</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_bHasDefuser = <span class="number">0x117DC</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_bHasHelmet = <span class="number">0x117C0</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_bInReload = <span class="number">0x32B5</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_bIsDefusing = <span class="number">0x997C</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_bIsQueuedMatchmaking = <span class="number">0x74</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_bIsScoped = <span class="number">0x9974</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_bIsValveDS = <span class="number">0x7C</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_bSpotted = <span class="number">0x93D</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_bSpottedByMask = <span class="number">0x980</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_bStartedArming = <span class="number">0x3400</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_bUseCustomAutoExposureMax = <span class="number">0x9D9</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_bUseCustomAutoExposureMin = <span class="number">0x9D8</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_bUseCustomBloomScale = <span class="number">0x9DA</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_clrRender = <span class="number">0x70</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_dwBoneMatrix = <span class="number">0x26A8</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_fAccuracyPenalty = <span class="number">0x3340</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_fFlags = <span class="number">0x104</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_flC4Blow = <span class="number">0x29A0</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_flCustomAutoExposureMax = <span class="number">0x9E0</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_flCustomAutoExposureMin = <span class="number">0x9DC</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_flCustomBloomScale = <span class="number">0x9E4</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_flDefuseCountDown = <span class="number">0x29BC</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_flDefuseLength = <span class="number">0x29B8</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_flFallbackWear = <span class="number">0x31E0</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_flFlashDuration = <span class="number">0x10470</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_flFlashMaxAlpha = <span class="number">0x1046C</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_flLastBoneSetupTime = <span class="number">0x2928</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_flLowerBodyYawTarget = <span class="number">0x9ADC</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_flNextAttack = <span class="number">0x2D80</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_flNextPrimaryAttack = <span class="number">0x3248</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_flSimulationTime = <span class="number">0x268</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_flTimerLength = <span class="number">0x29A4</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_hActiveWeapon = <span class="number">0x2F08</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_hBombDefuser = <span class="number">0x29C4</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_hMyWeapons = <span class="number">0x2E08</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_hObserverTarget = <span class="number">0x339C</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_hOwner = <span class="number">0x29DC</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_hOwnerEntity = <span class="number">0x14C</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_hViewModel = <span class="number">0x3308</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_iAccountID = <span class="number">0x2FD8</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_iClip1 = <span class="number">0x3274</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_iCompetitiveRanking = <span class="number">0x1A84</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_iCompetitiveWins = <span class="number">0x1B88</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_iCrosshairId = <span class="number">0x11838</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_iDefaultFOV = <span class="number">0x333C</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_iEntityQuality = <span class="number">0x2FBC</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_iFOV = <span class="number">0x31F4</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_iFOVStart = <span class="number">0x31F8</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_iGlowIndex = <span class="number">0x10488</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_iHealth = <span class="number">0x100</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_iItemDefinitionIndex = <span class="number">0x2FBA</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_iItemIDHigh = <span class="number">0x2FD0</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_iMostRecentModelBoneCounter = <span class="number">0x2690</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_iObserverMode = <span class="number">0x3388</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_iShotsFired = <span class="number">0x103E0</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_iState = <span class="number">0x3268</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_iTeamNum = <span class="number">0xF4</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_lifeState = <span class="number">0x25F</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_nBombSite = <span class="number">0x2994</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_nFallbackPaintKit = <span class="number">0x31D8</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_nFallbackSeed = <span class="number">0x31DC</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_nFallbackStatTrak = <span class="number">0x31E4</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_nForceBone = <span class="number">0x268C</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_nTickBase = <span class="number">0x3440</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_nViewModelIndex = <span class="number">0x29D0</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_rgflCoordinateFrame = <span class="number">0x444</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_szCustomName = <span class="number">0x304C</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_szLastPlaceName = <span class="number">0x35C4</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_thirdPersonViewAngles = <span class="number">0x31E8</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_vecOrigin = <span class="number">0x138</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_vecVelocity = <span class="number">0x114</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_vecViewOffset = <span class="number">0x108</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_viewPunchAngle = <span class="number">0x3030</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_zoomLevel = <span class="number">0x33E0</span>;</span><br><span class="line">&#125; <span class="comment">// namespace netvars</span></span><br><span class="line"><span class="keyword">namespace</span> signatures &#123;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> anim_overlays = <span class="number">0x2990</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> clientstate_choked_commands = <span class="number">0x4D30</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> clientstate_delta_ticks = <span class="number">0x174</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> clientstate_last_outgoing_command = <span class="number">0x4D2C</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> clientstate_net_channel = <span class="number">0x9C</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> convar_name_hash_table = <span class="number">0x2F0F8</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwClientState = <span class="number">0x589FC4</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwClientState_GetLocalPlayer = <span class="number">0x180</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwClientState_IsHLTV = <span class="number">0x4D48</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwClientState_Map = <span class="number">0x28C</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwClientState_MapDirectory = <span class="number">0x188</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwClientState_MaxPlayer = <span class="number">0x388</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwClientState_PlayerInfo = <span class="number">0x52C0</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwClientState_State = <span class="number">0x108</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwClientState_ViewAngles = <span class="number">0x4D90</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwEntityList = <span class="number">0x4DD1E1C</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwForceAttack = <span class="number">0x32022D0</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwForceAttack2 = <span class="number">0x32022DC</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwForceBackward = <span class="number">0x320230C</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwForceForward = <span class="number">0x3202300</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwForceJump = <span class="number">0x527BC98</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwForceLeft = <span class="number">0x3202318</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwForceRight = <span class="number">0x3202324</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwGameDir = <span class="number">0x628700</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwGameRulesProxy = <span class="number">0x52EECFC</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwGetAllClasses = <span class="number">0xDDFBFC</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwGlobalVars = <span class="number">0x589CC8</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwGlowObjectManager = <span class="number">0x531A118</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwInput = <span class="number">0x52233F0</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwInterfaceLinkList = <span class="number">0x963264</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwLocalPlayer = <span class="number">0xDB65EC</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwMouseEnable = <span class="number">0xDBC288</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwMouseEnablePtr = <span class="number">0xDBC258</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwPlayerResource = <span class="number">0x3200680</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwRadarBase = <span class="number">0x5206B94</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwSensitivity = <span class="number">0xDBC124</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwSensitivityPtr = <span class="number">0xDBC0F8</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwSetClanTag = <span class="number">0x8A290</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwViewMatrix = <span class="number">0x4DC3734</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwWeaponTable = <span class="number">0x5223EB8</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwWeaponTableIndex = <span class="number">0x326C</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwYawPtr = <span class="number">0xDBBEE8</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwZoomSensitivityRatioPtr = <span class="number">0xDC1D38</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwbSendPackets = <span class="number">0xD93D2</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwppDirect3DDevice9 = <span class="number">0xA5050</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> find_hud_element = <span class="number">0x2CD64760</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> force_update_spectator_glow = <span class="number">0x3B88AA</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> interface_engine_cvar = <span class="number">0x3E9EC</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> is_c4_owner = <span class="number">0x3C5890</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_bDormant = <span class="number">0xED</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_flSpawnTime = <span class="number">0x103C0</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_pStudioHdr = <span class="number">0x2950</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_pitchClassPtr = <span class="number">0x5206E30</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_yawClassPtr = <span class="number">0xDBBEE8</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> model_ambient_min = <span class="number">0x58D03C</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> set_abs_angles = <span class="number">0x1E5010</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> set_abs_origin = <span class="number">0x1E4E50</span>;</span><br><span class="line">&#125; <span class="comment">// namespace signatures</span></span><br><span class="line">&#125; <span class="comment">// namespace hazedumper</span></span><br></pre></td></tr></table></figure>
-
-<p><a href="https://github.com/frk1/hazedumper">https://github.com/frk1/hazedumper</a></p>
-]]></content>
-      <categories>
-        <category>Counter-Strike Global Offensive</category>
-        <category>Programming</category>
-      </categories>
-      <tags>
-        <tag>Games</tag>
-        <tag>Game Hacking</tag>
-        <tag>dumper</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C# Memory DLL - VAMemory (Windows)</title>
     <url>/2022/01/29/Csgo-C-cheating-VAMemory/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一個用黎喺 C#.NET 環境底下令你更加容易咁 READ WRITE Memory既 dll，簡單黎講，俾你用黎寫外掛用既 dll (c#)。</p>
@@ -1853,6 +1836,23 @@
         <tag>Games</tag>
         <tag>Game Hacking</tag>
         <tag>CShrap</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Counter-Strike: Global Offensive - Csgo Offsets</title>
+    <url>/2022/01/29/Csgo-Offsets/</url>
+    <content><![CDATA[<h1 id="Offsets"><a href="#Offsets" class="headerlink" title="Offsets"></a>Offsets</h1><figure class="highlight hpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> once</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdint&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2022-01-21 07:37:33.981800900 UTC</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> hazedumper &#123;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">int64_t</span> timestamp = <span class="number">1642750653</span>;</span><br><span class="line"><span class="keyword">namespace</span> netvars &#123;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> cs_gamerules_data = <span class="number">0x0</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_ArmorValue = <span class="number">0x117CC</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_Collision = <span class="number">0x320</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_CollisionGroup = <span class="number">0x474</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_Local = <span class="number">0x2FCC</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_MoveType = <span class="number">0x25C</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_OriginalOwnerXuidHigh = <span class="number">0x31D4</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_OriginalOwnerXuidLow = <span class="number">0x31D0</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_SurvivalGameRuleDecisionTypes = <span class="number">0x1328</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_SurvivalRules = <span class="number">0xD00</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_aimPunchAngle = <span class="number">0x303C</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_aimPunchAngleVel = <span class="number">0x3048</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_angEyeAnglesX = <span class="number">0x117D0</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_angEyeAnglesY = <span class="number">0x117D4</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_bBombDefused = <span class="number">0x29C0</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_bBombPlanted = <span class="number">0x9A5</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_bBombTicking = <span class="number">0x2990</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_bFreezePeriod = <span class="number">0x20</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_bGunGameImmunity = <span class="number">0x9990</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_bHasDefuser = <span class="number">0x117DC</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_bHasHelmet = <span class="number">0x117C0</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_bInReload = <span class="number">0x32B5</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_bIsDefusing = <span class="number">0x997C</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_bIsQueuedMatchmaking = <span class="number">0x74</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_bIsScoped = <span class="number">0x9974</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_bIsValveDS = <span class="number">0x7C</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_bSpotted = <span class="number">0x93D</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_bSpottedByMask = <span class="number">0x980</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_bStartedArming = <span class="number">0x3400</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_bUseCustomAutoExposureMax = <span class="number">0x9D9</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_bUseCustomAutoExposureMin = <span class="number">0x9D8</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_bUseCustomBloomScale = <span class="number">0x9DA</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_clrRender = <span class="number">0x70</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_dwBoneMatrix = <span class="number">0x26A8</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_fAccuracyPenalty = <span class="number">0x3340</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_fFlags = <span class="number">0x104</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_flC4Blow = <span class="number">0x29A0</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_flCustomAutoExposureMax = <span class="number">0x9E0</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_flCustomAutoExposureMin = <span class="number">0x9DC</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_flCustomBloomScale = <span class="number">0x9E4</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_flDefuseCountDown = <span class="number">0x29BC</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_flDefuseLength = <span class="number">0x29B8</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_flFallbackWear = <span class="number">0x31E0</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_flFlashDuration = <span class="number">0x10470</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_flFlashMaxAlpha = <span class="number">0x1046C</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_flLastBoneSetupTime = <span class="number">0x2928</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_flLowerBodyYawTarget = <span class="number">0x9ADC</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_flNextAttack = <span class="number">0x2D80</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_flNextPrimaryAttack = <span class="number">0x3248</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_flSimulationTime = <span class="number">0x268</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_flTimerLength = <span class="number">0x29A4</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_hActiveWeapon = <span class="number">0x2F08</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_hBombDefuser = <span class="number">0x29C4</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_hMyWeapons = <span class="number">0x2E08</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_hObserverTarget = <span class="number">0x339C</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_hOwner = <span class="number">0x29DC</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_hOwnerEntity = <span class="number">0x14C</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_hViewModel = <span class="number">0x3308</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_iAccountID = <span class="number">0x2FD8</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_iClip1 = <span class="number">0x3274</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_iCompetitiveRanking = <span class="number">0x1A84</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_iCompetitiveWins = <span class="number">0x1B88</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_iCrosshairId = <span class="number">0x11838</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_iDefaultFOV = <span class="number">0x333C</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_iEntityQuality = <span class="number">0x2FBC</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_iFOV = <span class="number">0x31F4</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_iFOVStart = <span class="number">0x31F8</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_iGlowIndex = <span class="number">0x10488</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_iHealth = <span class="number">0x100</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_iItemDefinitionIndex = <span class="number">0x2FBA</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_iItemIDHigh = <span class="number">0x2FD0</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_iMostRecentModelBoneCounter = <span class="number">0x2690</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_iObserverMode = <span class="number">0x3388</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_iShotsFired = <span class="number">0x103E0</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_iState = <span class="number">0x3268</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_iTeamNum = <span class="number">0xF4</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_lifeState = <span class="number">0x25F</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_nBombSite = <span class="number">0x2994</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_nFallbackPaintKit = <span class="number">0x31D8</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_nFallbackSeed = <span class="number">0x31DC</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_nFallbackStatTrak = <span class="number">0x31E4</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_nForceBone = <span class="number">0x268C</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_nTickBase = <span class="number">0x3440</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_nViewModelIndex = <span class="number">0x29D0</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_rgflCoordinateFrame = <span class="number">0x444</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_szCustomName = <span class="number">0x304C</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_szLastPlaceName = <span class="number">0x35C4</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_thirdPersonViewAngles = <span class="number">0x31E8</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_vecOrigin = <span class="number">0x138</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_vecVelocity = <span class="number">0x114</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_vecViewOffset = <span class="number">0x108</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_viewPunchAngle = <span class="number">0x3030</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_zoomLevel = <span class="number">0x33E0</span>;</span><br><span class="line">&#125; <span class="comment">// namespace netvars</span></span><br><span class="line"><span class="keyword">namespace</span> signatures &#123;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> anim_overlays = <span class="number">0x2990</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> clientstate_choked_commands = <span class="number">0x4D30</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> clientstate_delta_ticks = <span class="number">0x174</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> clientstate_last_outgoing_command = <span class="number">0x4D2C</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> clientstate_net_channel = <span class="number">0x9C</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> convar_name_hash_table = <span class="number">0x2F0F8</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwClientState = <span class="number">0x589FC4</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwClientState_GetLocalPlayer = <span class="number">0x180</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwClientState_IsHLTV = <span class="number">0x4D48</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwClientState_Map = <span class="number">0x28C</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwClientState_MapDirectory = <span class="number">0x188</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwClientState_MaxPlayer = <span class="number">0x388</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwClientState_PlayerInfo = <span class="number">0x52C0</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwClientState_State = <span class="number">0x108</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwClientState_ViewAngles = <span class="number">0x4D90</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwEntityList = <span class="number">0x4DD1E1C</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwForceAttack = <span class="number">0x32022D0</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwForceAttack2 = <span class="number">0x32022DC</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwForceBackward = <span class="number">0x320230C</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwForceForward = <span class="number">0x3202300</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwForceJump = <span class="number">0x527BC98</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwForceLeft = <span class="number">0x3202318</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwForceRight = <span class="number">0x3202324</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwGameDir = <span class="number">0x628700</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwGameRulesProxy = <span class="number">0x52EECFC</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwGetAllClasses = <span class="number">0xDDFBFC</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwGlobalVars = <span class="number">0x589CC8</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwGlowObjectManager = <span class="number">0x531A118</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwInput = <span class="number">0x52233F0</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwInterfaceLinkList = <span class="number">0x963264</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwLocalPlayer = <span class="number">0xDB65EC</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwMouseEnable = <span class="number">0xDBC288</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwMouseEnablePtr = <span class="number">0xDBC258</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwPlayerResource = <span class="number">0x3200680</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwRadarBase = <span class="number">0x5206B94</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwSensitivity = <span class="number">0xDBC124</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwSensitivityPtr = <span class="number">0xDBC0F8</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwSetClanTag = <span class="number">0x8A290</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwViewMatrix = <span class="number">0x4DC3734</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwWeaponTable = <span class="number">0x5223EB8</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwWeaponTableIndex = <span class="number">0x326C</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwYawPtr = <span class="number">0xDBBEE8</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwZoomSensitivityRatioPtr = <span class="number">0xDC1D38</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwbSendPackets = <span class="number">0xD93D2</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> dwppDirect3DDevice9 = <span class="number">0xA5050</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> find_hud_element = <span class="number">0x2CD64760</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> force_update_spectator_glow = <span class="number">0x3B88AA</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> interface_engine_cvar = <span class="number">0x3E9EC</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> is_c4_owner = <span class="number">0x3C5890</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_bDormant = <span class="number">0xED</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_flSpawnTime = <span class="number">0x103C0</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_pStudioHdr = <span class="number">0x2950</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_pitchClassPtr = <span class="number">0x5206E30</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> m_yawClassPtr = <span class="number">0xDBBEE8</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> model_ambient_min = <span class="number">0x58D03C</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> set_abs_angles = <span class="number">0x1E5010</span>;</span><br><span class="line"><span class="keyword">constexpr</span> ::std::<span class="keyword">ptrdiff_t</span> set_abs_origin = <span class="number">0x1E4E50</span>;</span><br><span class="line">&#125; <span class="comment">// namespace signatures</span></span><br><span class="line">&#125; <span class="comment">// namespace hazedumper</span></span><br></pre></td></tr></table></figure>
+
+<p><a href="https://github.com/frk1/hazedumper">https://github.com/frk1/hazedumper</a></p>
+]]></content>
+      <categories>
+        <category>Counter-Strike Global Offensive</category>
+        <category>Programming</category>
+      </categories>
+      <tags>
+        <tag>Games</tag>
+        <tag>Game Hacking</tag>
+        <tag>dumper</tag>
       </tags>
   </entry>
   <entry>
@@ -1948,56 +1948,62 @@
       </tags>
   </entry>
   <entry>
-    <title>Debian 裝 nodejs 同 npm</title>
-    <url>/2022/01/28/Debian-install-nodejs-and-npm/</url>
-    <content><![CDATA[<h1 id="開始"><a href="#開始" class="headerlink" title="開始"></a>開始</h1><p>今篇會係裝 Node.js v17.x ~</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt update -y</span><br></pre></td></tr></table></figure>
+    <title>Debian - 安裝 Hugo</title>
+    <url>/2022/01/28/Debian-install-Hugo/</url>
+    <content><![CDATA[<img src="/img/Post/image/Hugo/Hugo.svg" width="300px"/>
 
-<p>再打</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -</span><br></pre></td></tr></table></figure>
-
-<p>再打</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt install nodejs npm -y</span><br></pre></td></tr></table></figure>
-
-<p>完成。</p>
-<p>Detail<br><a href="https://github.com/nodesource/distributions/blob/master/README.md#debinstall">https://github.com/nodesource/distributions/blob/master/README.md#debinstall</a></p>
-]]></content>
+<h1 id="Hugo"><a href="#Hugo" class="headerlink" title="Hugo"></a>Hugo</h1><p>Hugo 是一個用 Go 編寫的靜態網站生成器，2013由 Steve Francia 原創。<br>自 v0.14 由 Bjørn Erik Pedersen 主力開發，並由全球各地的開發者和使用者提交貢獻。<br>Hugo 以 Apache License 2.0 授權的開放原始碼專案。</p>
+<h2 id="APT-安裝"><a href="#APT-安裝" class="headerlink" title="APT 安裝"></a>APT 安裝</h2><p>只需要一句指令就可以安裝成功。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt install hugo -y</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>Debian</category>
+        <category>Hugo</category>
       </categories>
       <tags>
         <tag>指令</tag>
       </tags>
   </entry>
   <entry>
-    <title>DuckDuckgo - 反追蹤器的網路搜索引擎</title>
-    <url>/2022/05/24/DuckDuckgo-SearchEngine/</url>
-    <content><![CDATA[<p align="center">
-    <img alt="Session Messenger" src="cover.png" width="200px"/>
-    <h1 align="center">DuckDuckGo (DDG)</h1>
-</p>
+    <title>Debain: user is not in the sudoers file. This incident will be reported</title>
+    <url>/2022/01/28/Debian-user-is-not-in-the-sudoers-file-This-incident-will-be-reported/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Debian 本身既設定係唔俾你用 sudo 權限，<br>我地係需要入去改返，<br>呢篇文就係教你點改.</p>
+<h1 id="開始"><a href="#開始" class="headerlink" title="開始"></a>開始</h1><p>我地開你既 Terminal 然後登入 root user<br>又或者你 logout 而加個個入返去 root user.</p>
+<p>normal user 就打呢句</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">su -</span><br></pre></td></tr></table></figure>
 
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>DuckDuckGo (DDG) 是一個互聯網搜索引擎，強調反追蹤的一個互聯網搜索引擎。</p>
-<p>而 TorBrowser 預設也是使用 DuckDuckGo 做 Search Engine。</p>
-<p><a href="https://duckduckgo.com/">https://duckduckgo.com/</a></p>
-<img src="/2022/05/24/DuckDuckgo-SearchEngine/DDG.png" class="">
+<p>再打你既 root user 密碼</p>
+<img src="/2022/01/28/Debian-user-is-not-in-the-sudoers-file-This-incident-will-be-reported/su%20-.gif" class="%">
 
+<p>入左之後我地需要改一 <code>/etc/sudoers</code> files</p>
+<p>我地打</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nano /etc/sudoers</span><br></pre></td></tr></table></figure>
 
-<h2 id="為什麼使用-DuckDuckGo"><a href="#為什麼使用-DuckDuckGo" class="headerlink" title="為什麼使用 DuckDuckGo"></a>為什麼使用 DuckDuckGo</h2><p>在網路世界，追蹤器幾乎所有大公司也存在，<br>但是總有幾間公司會強調不追蹤，<br>不收集用戶資料，<br>不收集用戶數據，<br>就像 Mullvad VPN 一樣，<br>而 DuckDuckGo 就是一個不追蹤的 Search Engine。</p>
-<p>使用 Google Search 的時候，<br>Google 會將你的搜索記錄上傳至大數據中，<br>裝置沒有裝設有反追蹤的插件的時候，<br>那麼你的數據就會被 Google 看到，<br>這樣是不是很沒有安全感？<br>當你的個人私隱受侵犯的時候，<br>這個問題是非常大的，<br>所以為什麼要使用一些沒有追蹤的東西。 </p>
-<p>而如果大家想知道有什麼反追蹤 Privacy 向的插件，<br>可以參考這篇文章。</p>
-<p><a href="https://bmjvvhbuen9d7upw.github.io//2021/12/11/web-extensions-privacy/">https://bmjvvhbuen9d7upw.github.io//2021/12/11/web-extensions-privacy/</a></p>
-<h2 id="支援"><a href="#支援" class="headerlink" title="支援"></a>支援</h2><ul>
-<li>網站 (<a href="https://duckduckgo.com/">https://duckduckgo.com/</a>)</li>
-<li>程式 (IOS, Android)</li>
-</ul>
-<h2 id="Addons"><a href="#Addons" class="headerlink" title="Addons"></a>Addons</h2><p><a href="https://addons.mozilla.org/en-US/firefox/addon/duckduckgo-for-firefox/">https://addons.mozilla.org/en-US/firefox/addon/duckduckgo-for-firefox/</a></p>
-<img src="/2022/05/24/DuckDuckgo-SearchEngine/ddg-addons.png" class="">]]></content>
+<p>入到去搵</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">root    ALL=(ALL:ALL) ALL</span><br></pre></td></tr></table></figure>
+
+<img src="/2022/01/28/Debian-user-is-not-in-the-sudoers-file-This-incident-will-be-reported/two.png" class="">
+
+<p>加一行叫做</p>
+<p>例如你而加既 <code>Username</code> 係叫 <code>Halohalo</code><br>咁就打</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Halohalo    ALL=(ALL:ALL) ALL</span><br></pre></td></tr></table></figure>
+
+<img src="/2022/01/28/Debian-user-is-not-in-the-sudoers-file-This-incident-will-be-reported/three.png" class="">
+
+<p>然後就撳 <code>Ctrl + S</code> Save<br>再撳 <code>Ctrl + X</code> Exit</p>
+<p>然後我地再打 <code>exit</code> logout 而加用緊既 root user Terminal</p>
+<img src="/2022/01/28/Debian-user-is-not-in-the-sudoers-file-This-incident-will-be-reported/exit.png" class="">
+
+<p>我地再試下用唔用到 sudo (隨便打個 command 試下用唔用到 root)</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt update -y </span><br></pre></td></tr></table></figure>
+
+<img src="/2022/01/28/Debian-user-is-not-in-the-sudoers-file-This-incident-will-be-reported/ok.png" class="">
+
+<p>完成。</p>
+<h2 id="完整示範"><a href="#完整示範" class="headerlink" title="完整示範"></a>完整示範</h2><img src="/2022/01/28/Debian-user-is-not-in-the-sudoers-file-This-incident-will-be-reported/all.gif" class="">]]></content>
       <categories>
-        <category>匿名</category>
+        <category>Debian</category>
       </categories>
       <tags>
-        <tag>SearchEngine</tag>
+        <tag>指令</tag>
       </tags>
   </entry>
   <entry>
@@ -2313,6 +2319,28 @@
       </tags>
   </entry>
   <entry>
+    <title>Debian 裝 nodejs 同 npm</title>
+    <url>/2022/01/28/Debian-install-nodejs-and-npm/</url>
+    <content><![CDATA[<h1 id="開始"><a href="#開始" class="headerlink" title="開始"></a>開始</h1><p>今篇會係裝 Node.js v17.x ~</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt update -y</span><br></pre></td></tr></table></figure>
+
+<p>再打</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -</span><br></pre></td></tr></table></figure>
+
+<p>再打</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt install nodejs npm -y</span><br></pre></td></tr></table></figure>
+
+<p>完成。</p>
+<p>Detail<br><a href="https://github.com/nodesource/distributions/blob/master/README.md#debinstall">https://github.com/nodesource/distributions/blob/master/README.md#debinstall</a></p>
+]]></content>
+      <categories>
+        <category>Debian</category>
+      </categories>
+      <tags>
+        <tag>指令</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>English - 詞語列表</title>
     <url>/2021/12/13/English-Notes-Vocabulary/</url>
     <content><![CDATA[<img src="cover.png" width="200px"/>
@@ -2358,73 +2386,34 @@
       </tags>
   </entry>
   <entry>
-    <title>Debain: user is not in the sudoers file. This incident will be reported</title>
-    <url>/2022/01/28/Debian-user-is-not-in-the-sudoers-file-This-incident-will-be-reported/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Debian 本身既設定係唔俾你用 sudo 權限，<br>我地係需要入去改返，<br>呢篇文就係教你點改.</p>
-<h1 id="開始"><a href="#開始" class="headerlink" title="開始"></a>開始</h1><p>我地開你既 Terminal 然後登入 root user<br>又或者你 logout 而加個個入返去 root user.</p>
-<p>normal user 就打呢句</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">su -</span><br></pre></td></tr></table></figure>
+    <title>DuckDuckgo - 反追蹤器的網路搜索引擎</title>
+    <url>/2022/05/24/DuckDuckgo-SearchEngine/</url>
+    <content><![CDATA[<p align="center">
+    <img alt="Session Messenger" src="cover.png" width="200px"/>
+    <h1 align="center">DuckDuckGo (DDG)</h1>
+</p>
 
-<p>再打你既 root user 密碼</p>
-<img src="/2022/01/28/Debian-user-is-not-in-the-sudoers-file-This-incident-will-be-reported/su%20-.gif" class="%">
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>DuckDuckGo (DDG) 是一個互聯網搜索引擎，強調反追蹤的一個互聯網搜索引擎。</p>
+<p>而 TorBrowser 預設也是使用 DuckDuckGo 做 Search Engine。</p>
+<p><a href="https://duckduckgo.com/">https://duckduckgo.com/</a></p>
+<img src="/2022/05/24/DuckDuckgo-SearchEngine/DDG.png" class="">
 
-<p>入左之後我地需要改一 <code>/etc/sudoers</code> files</p>
-<p>我地打</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nano /etc/sudoers</span><br></pre></td></tr></table></figure>
 
-<p>入到去搵</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">root    ALL=(ALL:ALL) ALL</span><br></pre></td></tr></table></figure>
-
-<img src="/2022/01/28/Debian-user-is-not-in-the-sudoers-file-This-incident-will-be-reported/two.png" class="">
-
-<p>加一行叫做</p>
-<p>例如你而加既 <code>Username</code> 係叫 <code>Halohalo</code><br>咁就打</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Halohalo    ALL=(ALL:ALL) ALL</span><br></pre></td></tr></table></figure>
-
-<img src="/2022/01/28/Debian-user-is-not-in-the-sudoers-file-This-incident-will-be-reported/three.png" class="">
-
-<p>然後就撳 <code>Ctrl + S</code> Save<br>再撳 <code>Ctrl + X</code> Exit</p>
-<p>然後我地再打 <code>exit</code> logout 而加用緊既 root user Terminal</p>
-<img src="/2022/01/28/Debian-user-is-not-in-the-sudoers-file-This-incident-will-be-reported/exit.png" class="">
-
-<p>我地再試下用唔用到 sudo (隨便打個 command 試下用唔用到 root)</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt update -y </span><br></pre></td></tr></table></figure>
-
-<img src="/2022/01/28/Debian-user-is-not-in-the-sudoers-file-This-incident-will-be-reported/ok.png" class="">
-
-<p>完成。</p>
-<h2 id="完整示範"><a href="#完整示範" class="headerlink" title="完整示範"></a>完整示範</h2><img src="/2022/01/28/Debian-user-is-not-in-the-sudoers-file-This-incident-will-be-reported/all.gif" class="">]]></content>
+<h2 id="為什麼使用-DuckDuckGo"><a href="#為什麼使用-DuckDuckGo" class="headerlink" title="為什麼使用 DuckDuckGo"></a>為什麼使用 DuckDuckGo</h2><p>在網路世界，追蹤器幾乎所有大公司也存在，<br>但是總有幾間公司會強調不追蹤，<br>不收集用戶資料，<br>不收集用戶數據，<br>就像 Mullvad VPN 一樣，<br>而 DuckDuckGo 就是一個不追蹤的 Search Engine。</p>
+<p>使用 Google Search 的時候，<br>Google 會將你的搜索記錄上傳至大數據中，<br>裝置沒有裝設有反追蹤的插件的時候，<br>那麼你的數據就會被 Google 看到，<br>這樣是不是很沒有安全感？<br>當你的個人私隱受侵犯的時候，<br>這個問題是非常大的，<br>所以為什麼要使用一些沒有追蹤的東西。 </p>
+<p>而如果大家想知道有什麼反追蹤 Privacy 向的插件，<br>可以參考這篇文章。</p>
+<p><a href="https://bmjvvhbuen9d7upw.github.io//2021/12/11/web-extensions-privacy/">https://bmjvvhbuen9d7upw.github.io//2021/12/11/web-extensions-privacy/</a></p>
+<h2 id="支援"><a href="#支援" class="headerlink" title="支援"></a>支援</h2><ul>
+<li>網站 (<a href="https://duckduckgo.com/">https://duckduckgo.com/</a>)</li>
+<li>程式 (IOS, Android)</li>
+</ul>
+<h2 id="Addons"><a href="#Addons" class="headerlink" title="Addons"></a>Addons</h2><p><a href="https://addons.mozilla.org/en-US/firefox/addon/duckduckgo-for-firefox/">https://addons.mozilla.org/en-US/firefox/addon/duckduckgo-for-firefox/</a></p>
+<img src="/2022/05/24/DuckDuckgo-SearchEngine/ddg-addons.png" class="">]]></content>
       <categories>
-        <category>Debian</category>
+        <category>匿名</category>
       </categories>
       <tags>
-        <tag>指令</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>FFMPEG - Bypass 403 權限問題</title>
-    <url>/2022/06/16/FFMPEG-Bypass-403-m3u8/</url>
-    <content><![CDATA[<img src="/img/Post/image/FFMPEG/cover.png" width="200px"/>
-
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>當你下載某網站的影片的時候，出現 403 問題不給你下載，解決方法只需使用 User Agents 就可以。</p>
-<blockquote>
-<p>說明 : 隨便找一個使用就好。</p>
-</blockquote>
-<p>User Agents :</p>
-<pre><code>https://developers.whatismybrowser.com/useragents/explore/
-</code></pre>
-<h1 id="下載"><a href="#下載" class="headerlink" title="下載"></a>下載</h1><p>輸入以下指令。</p>
-<p><strong>格式 :</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ffmpeg -user_agent [User Agents] -i [m3u8 file] -c copy [output name.mp4]</span><br></pre></td></tr></table></figure>
-
-<p><strong>完整示範 :</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ffmpeg -user_agent <span class="string">&quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36&quot;</span> -i  file.m3u8 -c copy file.mp4</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>FFMPEG</category>
-      </categories>
-      <tags>
-        <tag>指令</tag>
-        <tag>問題</tag>
+        <tag>SearchEngine</tag>
       </tags>
   </entry>
   <entry>
@@ -2514,6 +2503,32 @@
       </tags>
   </entry>
   <entry>
+    <title>FFMPEG - Bypass 403 權限問題</title>
+    <url>/2022/06/16/FFMPEG-Bypass-403-m3u8/</url>
+    <content><![CDATA[<img src="/img/Post/image/FFMPEG/cover.png" width="200px"/>
+
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>當你下載某網站的影片的時候，出現 403 問題不給你下載，解決方法只需使用 User Agents 就可以。</p>
+<blockquote>
+<p>說明 : 隨便找一個使用就好。</p>
+</blockquote>
+<p>User Agents :</p>
+<pre><code>https://developers.whatismybrowser.com/useragents/explore/
+</code></pre>
+<h1 id="下載"><a href="#下載" class="headerlink" title="下載"></a>下載</h1><p>輸入以下指令。</p>
+<p><strong>格式 :</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ffmpeg -user_agent [User Agents] -i [m3u8 file] -c copy [output name.mp4]</span><br></pre></td></tr></table></figure>
+
+<p><strong>完整示範 :</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ffmpeg -user_agent <span class="string">&quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36&quot;</span> -i  file.m3u8 -c copy file.mp4</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>FFMPEG</category>
+      </categories>
+      <tags>
+        <tag>指令</tag>
+        <tag>問題</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>FFplay - 詳情參數播放器</title>
     <url>/2022/01/14/FFplay-commands/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>ffplay 可以用黎播片，分析影片數據，改片大細，視頻圖像的運動估計方向，音頻數據的波形等。</p>
@@ -2527,21 +2542,6 @@
 ]]></content>
       <categories>
         <category>FFMPEG</category>
-      </categories>
-      <tags>
-        <tag>指令</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Debian - 安裝 Hugo</title>
-    <url>/2022/01/28/Debian-install-Hugo/</url>
-    <content><![CDATA[<img src="/img/Post/image/Hugo/Hugo.svg" width="300px"/>
-
-<h1 id="Hugo"><a href="#Hugo" class="headerlink" title="Hugo"></a>Hugo</h1><p>Hugo 是一個用 Go 編寫的靜態網站生成器，2013由 Steve Francia 原創。<br>自 v0.14 由 Bjørn Erik Pedersen 主力開發，並由全球各地的開發者和使用者提交貢獻。<br>Hugo 以 Apache License 2.0 授權的開放原始碼專案。</p>
-<h2 id="APT-安裝"><a href="#APT-安裝" class="headerlink" title="APT 安裝"></a>APT 安裝</h2><p>只需要一句指令就可以安裝成功。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt install hugo -y</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Hugo</category>
       </categories>
       <tags>
         <tag>指令</tag>
@@ -2908,30 +2908,6 @@
       </tags>
   </entry>
   <entry>
-    <title>LogMeIn Hamachi - 建立私人網路 Lan</title>
-    <url>/2022/05/20/Hamachi-create-private-network/</url>
-    <content><![CDATA[<img src="main-logo.png"/>
-
-<p>LogMeIn Hamachi 是一項託管 VPN 服務，在幾分鐘內讓您將類似 LAN 的網絡安全地擴展到分佈式團隊、移動工作人員和您的遊戲玩家朋友等。</p>
-<h2 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h2><p>只需申請一個帳號，就能使用，即時為你建立屬於你的私人網路，即使你和朋友在不同的 wifi 底下，使用後即可變成同一個網路底下 (Lan)，那麼就能和你的朋友一起玩，非常簡單的就開設了伺服器。</p>
-<p>而免費版最多 5 人，</p>
-<ul>
-<li>49$ 一年 Standard 6-32</li>
-<li>199 一年 Premium 33-256</li>
-<li>299 一年 Multi-Network 256/無上限</li>
-</ul>
-<h2 id="官方網站"><a href="#官方網站" class="headerlink" title="官方網站"></a>官方網站</h2><ul>
-<li><a href="https://www.vpn.net/">https://www.vpn.net/</a></li>
-</ul>
-<h2 id="程式圖片"><a href="#程式圖片" class="headerlink" title="程式圖片"></a>程式圖片</h2><img src="/2022/05/20/Hamachi-create-private-network/program.png" class="">
-
-<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>網路 ID 隨便輸入一個就可以了，密碼也是，對方要進入只需要打創建人建立的 ID 和密碼。</p>
-<img src="/2022/05/20/Hamachi-create-private-network/how.png" class="">]]></content>
-      <tags>
-        <tag>VPN</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Half-Life Model Viewer - 模型檢視器</title>
     <url>/2022/05/23/Half-Life-Model-Viewer-Apps/</url>
     <content><![CDATA[<img alt="Half-Life Model Viewer" src="cover.png" width="200px"/>
@@ -2984,6 +2960,30 @@
         <tag>Framework</tag>
         <tag>Themes</tag>
         <tag>Hexo Butterfly</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LogMeIn Hamachi - 建立私人網路 Lan</title>
+    <url>/2022/05/20/Hamachi-create-private-network/</url>
+    <content><![CDATA[<img src="main-logo.png"/>
+
+<p>LogMeIn Hamachi 是一項託管 VPN 服務，在幾分鐘內讓您將類似 LAN 的網絡安全地擴展到分佈式團隊、移動工作人員和您的遊戲玩家朋友等。</p>
+<h2 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h2><p>只需申請一個帳號，就能使用，即時為你建立屬於你的私人網路，即使你和朋友在不同的 wifi 底下，使用後即可變成同一個網路底下 (Lan)，那麼就能和你的朋友一起玩，非常簡單的就開設了伺服器。</p>
+<p>而免費版最多 5 人，</p>
+<ul>
+<li>49$ 一年 Standard 6-32</li>
+<li>199 一年 Premium 33-256</li>
+<li>299 一年 Multi-Network 256/無上限</li>
+</ul>
+<h2 id="官方網站"><a href="#官方網站" class="headerlink" title="官方網站"></a>官方網站</h2><ul>
+<li><a href="https://www.vpn.net/">https://www.vpn.net/</a></li>
+</ul>
+<h2 id="程式圖片"><a href="#程式圖片" class="headerlink" title="程式圖片"></a>程式圖片</h2><img src="/2022/05/20/Hamachi-create-private-network/program.png" class="">
+
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>網路 ID 隨便輸入一個就可以了，密碼也是，對方要進入只需要打創建人建立的 ID 和密碼。</p>
+<img src="/2022/05/20/Hamachi-create-private-network/how.png" class="">]]></content>
+      <tags>
+        <tag>VPN</tag>
       </tags>
   </entry>
   <entry>
@@ -3289,6 +3289,21 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo Tab 功能</title>
+    <url>/2022/02/22/Hexo-tab-functions-some-themes/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>應該就唔係款款 Theme 都用到 tab 功能 …</p>
+<h2 id="開始"><a href="#開始" class="headerlink" title="開始"></a>開始</h2><p>我唔解釋啦…<br>自己睇 code</p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">&#123;%  tabs test1 %&#125;</span><br><span class="line">&lt;!-- tab g1 --&gt;</span><br><span class="line">g1</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab g2--&gt;</span><br><span class="line">g2</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab g3--&gt;</span><br><span class="line">g3</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h2><div class="tabs" id="test1"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#test1-1">g1</button></li><li class="tab"><button type="button" data-href="#test1-2">g2</button></li><li class="tab"><button type="button" data-href="#test1-3">g3</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="test1-1"><p>g1</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test1-2"><p>g2</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test1-3"><p>g3</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo: ! [remote rejected] HEAD -&gt; master (pre-receive hook declined)</title>
     <url>/2022/01/29/Hexo-remote-rejected-HEAD-master-pre-receive-hook-declined/</url>
     <content><![CDATA[<h1 id="唔知點解"><a href="#唔知點解" class="headerlink" title="唔知點解"></a>唔知點解</h1><p>岩岩諗住 push 野上黎既時候，<br>發現出左 error，<br>明明好地地，<br>睇完 error 出乜之後，<br>原來佢話我個 <code>gif</code> 太大<br>over 左 <code>100 MB</code>，<br>唔俾我 upload。</p>
@@ -3307,21 +3322,6 @@
       <tags>
         <tag>問題</tag>
         <tag>CLI</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo Tab 功能</title>
-    <url>/2022/02/22/Hexo-tab-functions-some-themes/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>應該就唔係款款 Theme 都用到 tab 功能 …</p>
-<h2 id="開始"><a href="#開始" class="headerlink" title="開始"></a>開始</h2><p>我唔解釋啦…<br>自己睇 code</p>
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">&#123;%  tabs test1 %&#125;</span><br><span class="line">&lt;!-- tab g1 --&gt;</span><br><span class="line">g1</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab g2--&gt;</span><br><span class="line">g2</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab g3--&gt;</span><br><span class="line">g3</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h2><div class="tabs" id="test1"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#test1-1">g1</button></li><li class="tab"><button type="button" data-href="#test1-2">g2</button></li><li class="tab"><button type="button" data-href="#test1-3">g3</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="test1-1"><p>g1</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test1-2"><p>g2</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test1-3"><p>g3</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Markdown</tag>
       </tags>
   </entry>
   <entry>
@@ -3608,6 +3608,32 @@
       </tags>
   </entry>
   <entry>
+    <title>Kali Linux - 升級系統至最新版本</title>
+    <url>/2022/01/07/Kali-update/</url>
+    <content><![CDATA[<h1 id="確定-Sources-list"><a href="#確定-Sources-list" class="headerlink" title="確定 Sources.list"></a>確定 Sources.list</h1><p>要升級 Kali，首先確保 <code>/etc/apt/sources.lis</code> 內容係正確，輸入以下指令查看 list。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cat /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+
+<h2 id="結果顯示"><a href="#結果顯示" class="headerlink" title="結果顯示"></a>結果顯示</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">┌──(kali㉿kali)-[~]</span><br><span class="line">└─$ cat /etc/apt/sources.list</span><br><span class="line"><span class="meta">#</span><span class="bash"> See https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/</span></span><br><span class="line">deb http://http.kali.org/kali kali-rolling main contrib non-free</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Additional line <span class="keyword">for</span> <span class="built_in">source</span> packages</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> deb-src http://http.kali.org/kali kali-rolling main contrib non-free</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>deb http://http.kali.org/kali kali-rolling main contrib non-free
+</code></pre>
+<p>看到以上是這個連結，沒有問題就可以繼續下去。</p>
+<h2 id="確定後更新-update"><a href="#確定後更新-update" class="headerlink" title="確定後更新 (update)"></a>確定後更新 (update)</h2><p>將 Kali <code>Full upgrade</code> 之前，請先將 <code>apt update</code>。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt update -y</span><br></pre></td></tr></table></figure>
+
+<h2 id="確定後升級-Full-upgrade"><a href="#確定後升級-Full-upgrade" class="headerlink" title="確定後升級 (Full upgrade)"></a>確定後升級 (Full upgrade)</h2><p>update 完再輸入指令 full upgrade。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt full-upgrade -y</span><br></pre></td></tr></table></figure>
+
+<p>參考資料 :<br><a href="https://www.kali.org/docs/general-use/updating-kali/">https://www.kali.org/docs/general-use/updating-kali/</a></p>
+]]></content>
+      <categories>
+        <category>Kali</category>
+      </categories>
+      <tags>
+        <tag>Updates</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LaZagne - 爆破軟件密碼工具 (Windows)</title>
     <url>/2021/12/15/LaZagne-command/</url>
     <content><![CDATA[<h1 id="LaZagne"><a href="#LaZagne" class="headerlink" title="LaZagne"></a>LaZagne</h1><p><a href="https://github.com/AlessandroZ/LaZagne">LaZagne</a> 是一個開源應用程序。它檢索系統上存儲的密碼。它直接將 Python 代碼注入內存中，無需在磁盤上寫入任何內容。這使得追踪變得困難。通常，當我們在目標系統上獲得會話時，我們的主要目的是收集憑據。當攻擊者攻擊目標時，有兩種方法可以危害目標。如果攻擊者獲得了 Meterpreter 會話，那麼它所做的就是危及設備安全。</p>
@@ -3658,32 +3684,6 @@
       </categories>
       <tags>
         <tag>Ethical hacking</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Kali Linux - 升級系統至最新版本</title>
-    <url>/2022/01/07/Kali-update/</url>
-    <content><![CDATA[<h1 id="確定-Sources-list"><a href="#確定-Sources-list" class="headerlink" title="確定 Sources.list"></a>確定 Sources.list</h1><p>要升級 Kali，首先確保 <code>/etc/apt/sources.lis</code> 內容係正確，輸入以下指令查看 list。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cat /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
-
-<h2 id="結果顯示"><a href="#結果顯示" class="headerlink" title="結果顯示"></a>結果顯示</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">┌──(kali㉿kali)-[~]</span><br><span class="line">└─$ cat /etc/apt/sources.list</span><br><span class="line"><span class="meta">#</span><span class="bash"> See https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/</span></span><br><span class="line">deb http://http.kali.org/kali kali-rolling main contrib non-free</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Additional line <span class="keyword">for</span> <span class="built_in">source</span> packages</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> deb-src http://http.kali.org/kali kali-rolling main contrib non-free</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>deb http://http.kali.org/kali kali-rolling main contrib non-free
-</code></pre>
-<p>看到以上是這個連結，沒有問題就可以繼續下去。</p>
-<h2 id="確定後更新-update"><a href="#確定後更新-update" class="headerlink" title="確定後更新 (update)"></a>確定後更新 (update)</h2><p>將 Kali <code>Full upgrade</code> 之前，請先將 <code>apt update</code>。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt update -y</span><br></pre></td></tr></table></figure>
-
-<h2 id="確定後升級-Full-upgrade"><a href="#確定後升級-Full-upgrade" class="headerlink" title="確定後升級 (Full upgrade)"></a>確定後升級 (Full upgrade)</h2><p>update 完再輸入指令 full upgrade。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt full-upgrade -y</span><br></pre></td></tr></table></figure>
-
-<p>參考資料 :<br><a href="https://www.kali.org/docs/general-use/updating-kali/">https://www.kali.org/docs/general-use/updating-kali/</a></p>
-]]></content>
-      <categories>
-        <category>Kali</category>
-      </categories>
-      <tags>
-        <tag>Updates</tag>
       </tags>
   </entry>
   <entry>
@@ -3881,6 +3881,21 @@
       </tags>
   </entry>
   <entry>
+    <title>Linux - 指令查 Pulic ip</title>
+    <url>/2022/01/14/Linux-find-publicip-with-commands/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>有機部機喺冇 Gui 又或者唔想用 Browser 既情況下又想查下你而加既 Public ip 係乜既時候，你得返 Terminal俾你用，呢個時候就要學識點樣用指令查 Public ip.</p>
+<h1 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">curl ifconfig.me</span><br><span class="line">curl -4/-6 icanhazip.com</span><br><span class="line">curl ipinfo.io/ip</span><br><span class="line">curl api.ipify.org</span><br><span class="line">curl checkip.dyndns.org</span><br><span class="line">dig +short myip.opendns.com @resolver1.opendns.com</span><br><span class="line">host myip.opendns.com resolver1.opendns.com</span><br><span class="line">curl ident.me</span><br><span class="line">curl bot.whatismyipaddress.com</span><br><span class="line">curl ipecho.net/plain</span><br></pre></td></tr></table></figure>
+
+<p>參考資料:<br><a href="https://opensource.com/article/18/5/how-find-ip-address-linux">https://opensource.com/article/18/5/how-find-ip-address-linux</a></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>指令</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux gzip 壓縮檔案工具</title>
     <url>/2022/01/14/Linux-gzip-commands/</url>
     <content><![CDATA[<h1 id="gzip"><a href="#gzip" class="headerlink" title="gzip"></a>gzip</h1><p>要建立和提取 <code>gz</code> <code>tar</code> 檔案，可以使用工具 <code>gzip</code>。</p>
@@ -3910,21 +3925,6 @@
         <tag>指令</tag>
         <tag>Linux cli</tag>
         <tag>壓縮</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux - 指令查 Pulic ip</title>
-    <url>/2022/01/14/Linux-find-publicip-with-commands/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>有機部機喺冇 Gui 又或者唔想用 Browser 既情況下又想查下你而加既 Public ip 係乜既時候，你得返 Terminal俾你用，呢個時候就要學識點樣用指令查 Public ip.</p>
-<h1 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">curl ifconfig.me</span><br><span class="line">curl -4/-6 icanhazip.com</span><br><span class="line">curl ipinfo.io/ip</span><br><span class="line">curl api.ipify.org</span><br><span class="line">curl checkip.dyndns.org</span><br><span class="line">dig +short myip.opendns.com @resolver1.opendns.com</span><br><span class="line">host myip.opendns.com resolver1.opendns.com</span><br><span class="line">curl ident.me</span><br><span class="line">curl bot.whatismyipaddress.com</span><br><span class="line">curl ipecho.net/plain</span><br></pre></td></tr></table></figure>
-
-<p>參考資料:<br><a href="https://opensource.com/article/18/5/how-find-ip-address-linux">https://opensource.com/article/18/5/how-find-ip-address-linux</a></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>指令</tag>
       </tags>
   </entry>
   <entry>
@@ -4035,91 +4035,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux 顯示登入資訊 | Last</title>
-    <url>/2022/02/02/Linux-last-commands/</url>
-    <content><![CDATA[<h1 id="last"><a href="#last" class="headerlink" title="last"></a>last</h1><p>last 係一個用黎睇呢部機既最近操作時間，例如可以睇到以下既資料：</p>
-<ul>
-<li>幾時熄機</li>
-<li>幾時重開機</li>
-<li>幾時登入過</li>
-</ul>
-<p><img src="--help.png"></p>
-<h1 id="熄機既時間"><a href="#熄機既時間" class="headerlink" title="熄機既時間"></a>熄機既時間</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">last -x shutdown</span><br></pre></td></tr></table></figure>
-
-<p><img src="shutdown.png"></p>
-<h1 id="重新開機既時間"><a href="#重新開機既時間" class="headerlink" title="重新開機既時間"></a>重新開機既時間</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">last -x reboot</span><br></pre></td></tr></table></figure>
-
-<p><img src="reboot.png"></p>
-<h1 id="最近五次既登入資料"><a href="#最近五次既登入資料" class="headerlink" title="最近五次既登入資料"></a>最近五次既登入資料</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">last -5</span><br></pre></td></tr></table></figure>
-
-<img src="last -5.png"/>
-
-
-<p>參考資料<br><a href="https://iter01.com/255176.html">https://iter01.com/255176.html</a></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>指令</tag>
-        <tag>Linux cli</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux 查程式網路連線 - lsof</title>
-    <url>/2022/02/02/Linux-lsof-commands/</url>
-    <content><![CDATA[<h1 id="lsof"><a href="#lsof" class="headerlink" title="lsof"></a>lsof</h1><p>lsof 意思是 <code>List Open Files</code>，用於找出哪些文件由哪個程式打開。</p>
-<p><img src="--help.png"></p>
-<h2 id="安裝-lsof"><a href="#安裝-lsof" class="headerlink" title="安裝 lsof"></a>安裝 lsof</h2><p>基本上大部分的套裝管理員都會有 <code>lsof</code>。<br>另外，有一些系統可能本身已經幫你安裝好，如果沒有，輸入以下指令安裝：</p>
-<div class="note info flat">
-    這邊是使用 <code>apt</code> 的安裝示範。
-</div> 
-
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get install lsof -y</span><br></pre></td></tr></table></figure>
-
-<p><img src="-y.png"></p>
-<h1 id="PID-尋找程式"><a href="#PID-尋找程式" class="headerlink" title="PID 尋找程式"></a>PID 尋找程式</h1><p>簡易：PID 是每個程式都會有的獨立數字，用來辨認程式 ~~</p>
-<h2 id="根據-PID-列出程式"><a href="#根據-PID-列出程式" class="headerlink" title="根據 PID 列出程式"></a>根據 PID 列出程式</h2><p>列出 PID 是 <code>1629</code> 的程式。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">lsof -p 1629</span><br></pre></td></tr></table></figure>
-
-<p><img src="-p.gif"></p>
-<h2 id="根據-PID-列出程式-多個"><a href="#根據-PID-列出程式-多個" class="headerlink" title="根據 PID 列出程式 (多個)"></a>根據 PID 列出程式 (多個)</h2><p>列出 PID 是 <code>721</code>, <code>831</code>, <code>1001</code> 的程式。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">lsof -p 721,831,1001</span><br></pre></td></tr></table></figure>
-
-<h2 id="指定-Port-80"><a href="#指定-Port-80" class="headerlink" title="指定 Port (80)"></a>指定 Port (80)</h2><p>尋找進程 Port 80 (HTTP) 有哪些程式使用。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">lsof -i :80</span><br></pre></td></tr></table></figure>
-
-<p><img src="80p.gif"></p>
-<h1 id="UDP-尋找程式"><a href="#UDP-尋找程式" class="headerlink" title="UDP 尋找程式"></a>UDP 尋找程式</h1><p>以下指令會使用 UDP Protocol 尋找。</p>
-<h2 id="指定-UDP-連線"><a href="#指定-UDP-連線" class="headerlink" title="指定 UDP 連線"></a>指定 UDP 連線</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">lsof -i udp</span><br></pre></td></tr></table></figure>
-
-<p><img src="udp.png"></p>
-<h2 id="指定-udp-連線內的-1234-Port"><a href="#指定-udp-連線內的-1234-Port" class="headerlink" title="指定 udp 連線內的 1234 Port"></a>指定 udp 連線內的 1234 Port</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">lsof -i udp:1234</span><br></pre></td></tr></table></figure>
-
-<h1 id="TCP-尋找程式"><a href="#TCP-尋找程式" class="headerlink" title="TCP 尋找程式"></a>TCP 尋找程式</h1><p>以下指令會使用 TCP Protocol 尋找。</p>
-<h2 id="列出-TCP-LISTEN-狀態"><a href="#列出-TCP-LISTEN-狀態" class="headerlink" title="列出 TCP LISTEN 狀態"></a>列出 TCP LISTEN 狀態</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">lsof -i TCP -s TCP:LISTEN</span><br></pre></td></tr></table></figure>
-
-<h2 id="列出已建立-TCP-網路連線"><a href="#列出已建立-TCP-網路連線" class="headerlink" title="列出已建立 TCP 網路連線"></a>列出已建立 TCP 網路連線</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">lsof -i TCP -s TCP:ESTABLISHED</span><br></pre></td></tr></table></figure>
-
-<h2 id="指定-TCP-連線"><a href="#指定-TCP-連線" class="headerlink" title="指定 TCP 連線"></a>指定 TCP 連線</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">lsof -i tcp</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="所有網路連線"><a href="#所有網路連線" class="headerlink" title="所有網路連線"></a>所有網路連線</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">lsof -i</span><br></pre></td></tr></table></figure>
-
-<p><img src="-i.gif"></p>
-<h1 id="列出-69-626-網路連線"><a href="#列出-69-626-網路連線" class="headerlink" title="列出 69-626 網路連線"></a>列出 69-626 網路連線</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">lsof -i :69-626</span><br></pre></td></tr></table></figure>
-
-<p>參考資料<br><a href="https://blog.gtwang.org/linux/linux-lsof-command-list-open-files-tutorial-examples/">https://blog.gtwang.org/linux/linux-lsof-command-list-open-files-tutorial-examples/</a></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>指令</tag>
-        <tag>Linux cli</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Linux - 熄機指令 | Poweroff</title>
     <url>/2022/01/15/Linux-poweroff-commands/</url>
     <content><![CDATA[<h1 id="Poweroff"><a href="#Poweroff" class="headerlink" title="Poweroff"></a>Poweroff</h1><p>shutdown 同 poweroff 既分別就係</p>
@@ -4211,6 +4126,37 @@
 <h2 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">scp fuckyou.exe root@0.0.0.0:/root/</span><br></pre></td></tr></table></figure>
 
 <h2 id="格式-1"><a href="#格式-1" class="headerlink" title="格式"></a>格式</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">scp file username@0.0.0.0:/path/</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>指令</tag>
+        <tag>Linux cli</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux 顯示登入資訊 | Last</title>
+    <url>/2022/02/02/Linux-last-commands/</url>
+    <content><![CDATA[<h1 id="last"><a href="#last" class="headerlink" title="last"></a>last</h1><p>last 係一個用黎睇呢部機既最近操作時間，例如可以睇到以下既資料：</p>
+<ul>
+<li>幾時熄機</li>
+<li>幾時重開機</li>
+<li>幾時登入過</li>
+</ul>
+<p><img src="--help.png"></p>
+<h1 id="熄機既時間"><a href="#熄機既時間" class="headerlink" title="熄機既時間"></a>熄機既時間</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">last -x shutdown</span><br></pre></td></tr></table></figure>
+
+<p><img src="shutdown.png"></p>
+<h1 id="重新開機既時間"><a href="#重新開機既時間" class="headerlink" title="重新開機既時間"></a>重新開機既時間</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">last -x reboot</span><br></pre></td></tr></table></figure>
+
+<p><img src="reboot.png"></p>
+<h1 id="最近五次既登入資料"><a href="#最近五次既登入資料" class="headerlink" title="最近五次既登入資料"></a>最近五次既登入資料</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">last -5</span><br></pre></td></tr></table></figure>
+
+<img src="last -5.png"/>
+
+
+<p>參考資料<br><a href="https://iter01.com/255176.html">https://iter01.com/255176.html</a></p>
+]]></content>
       <categories>
         <category>Linux</category>
       </categories>
@@ -4326,6 +4272,60 @@
       </categories>
       <tags>
         <tag>指令</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux 查程式網路連線 - lsof</title>
+    <url>/2022/02/02/Linux-lsof-commands/</url>
+    <content><![CDATA[<h1 id="lsof"><a href="#lsof" class="headerlink" title="lsof"></a>lsof</h1><p>lsof 意思是 <code>List Open Files</code>，用於找出哪些文件由哪個程式打開。</p>
+<p><img src="--help.png"></p>
+<h2 id="安裝-lsof"><a href="#安裝-lsof" class="headerlink" title="安裝 lsof"></a>安裝 lsof</h2><p>基本上大部分的套裝管理員都會有 <code>lsof</code>。<br>另外，有一些系統可能本身已經幫你安裝好，如果沒有，輸入以下指令安裝：</p>
+<div class="note info flat">
+    這邊是使用 <code>apt</code> 的安裝示範。
+</div> 
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get install lsof -y</span><br></pre></td></tr></table></figure>
+
+<p><img src="-y.png"></p>
+<h1 id="PID-尋找程式"><a href="#PID-尋找程式" class="headerlink" title="PID 尋找程式"></a>PID 尋找程式</h1><p>簡易：PID 是每個程式都會有的獨立數字，用來辨認程式 ~~</p>
+<h2 id="根據-PID-列出程式"><a href="#根據-PID-列出程式" class="headerlink" title="根據 PID 列出程式"></a>根據 PID 列出程式</h2><p>列出 PID 是 <code>1629</code> 的程式。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">lsof -p 1629</span><br></pre></td></tr></table></figure>
+
+<p><img src="-p.gif"></p>
+<h2 id="根據-PID-列出程式-多個"><a href="#根據-PID-列出程式-多個" class="headerlink" title="根據 PID 列出程式 (多個)"></a>根據 PID 列出程式 (多個)</h2><p>列出 PID 是 <code>721</code>, <code>831</code>, <code>1001</code> 的程式。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">lsof -p 721,831,1001</span><br></pre></td></tr></table></figure>
+
+<h2 id="指定-Port-80"><a href="#指定-Port-80" class="headerlink" title="指定 Port (80)"></a>指定 Port (80)</h2><p>尋找進程 Port 80 (HTTP) 有哪些程式使用。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">lsof -i :80</span><br></pre></td></tr></table></figure>
+
+<p><img src="80p.gif"></p>
+<h1 id="UDP-尋找程式"><a href="#UDP-尋找程式" class="headerlink" title="UDP 尋找程式"></a>UDP 尋找程式</h1><p>以下指令會使用 UDP Protocol 尋找。</p>
+<h2 id="指定-UDP-連線"><a href="#指定-UDP-連線" class="headerlink" title="指定 UDP 連線"></a>指定 UDP 連線</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">lsof -i udp</span><br></pre></td></tr></table></figure>
+
+<p><img src="udp.png"></p>
+<h2 id="指定-udp-連線內的-1234-Port"><a href="#指定-udp-連線內的-1234-Port" class="headerlink" title="指定 udp 連線內的 1234 Port"></a>指定 udp 連線內的 1234 Port</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">lsof -i udp:1234</span><br></pre></td></tr></table></figure>
+
+<h1 id="TCP-尋找程式"><a href="#TCP-尋找程式" class="headerlink" title="TCP 尋找程式"></a>TCP 尋找程式</h1><p>以下指令會使用 TCP Protocol 尋找。</p>
+<h2 id="列出-TCP-LISTEN-狀態"><a href="#列出-TCP-LISTEN-狀態" class="headerlink" title="列出 TCP LISTEN 狀態"></a>列出 TCP LISTEN 狀態</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">lsof -i TCP -s TCP:LISTEN</span><br></pre></td></tr></table></figure>
+
+<h2 id="列出已建立-TCP-網路連線"><a href="#列出已建立-TCP-網路連線" class="headerlink" title="列出已建立 TCP 網路連線"></a>列出已建立 TCP 網路連線</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">lsof -i TCP -s TCP:ESTABLISHED</span><br></pre></td></tr></table></figure>
+
+<h2 id="指定-TCP-連線"><a href="#指定-TCP-連線" class="headerlink" title="指定 TCP 連線"></a>指定 TCP 連線</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">lsof -i tcp</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="所有網路連線"><a href="#所有網路連線" class="headerlink" title="所有網路連線"></a>所有網路連線</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">lsof -i</span><br></pre></td></tr></table></figure>
+
+<p><img src="-i.gif"></p>
+<h1 id="列出-69-626-網路連線"><a href="#列出-69-626-網路連線" class="headerlink" title="列出 69-626 網路連線"></a>列出 69-626 網路連線</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">lsof -i :69-626</span><br></pre></td></tr></table></figure>
+
+<p>參考資料<br><a href="https://blog.gtwang.org/linux/linux-lsof-command-list-open-files-tutorial-examples/">https://blog.gtwang.org/linux/linux-lsof-command-list-open-files-tutorial-examples/</a></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>指令</tag>
+        <tag>Linux cli</tag>
       </tags>
   </entry>
   <entry>
@@ -4543,6 +4543,58 @@
       </tags>
   </entry>
   <entry>
+    <title>Loic 低軌道離子炮 - DoS 網路測試工具</title>
+    <url>/2022/06/08/Low-Orbit-Ion-Cannon-Apps-DOS/</url>
+    <content><![CDATA[<h1 id="LOIC"><a href="#LOIC" class="headerlink" title="LOIC"></a>LOIC</h1><p>Low Orbit Ion Cannon (LOIC) 是一個用 C# 編寫的開源網絡壓力測試和拒絕服務攻擊應用程序。<br>LOIC 通過向服務器發送 TCP、UDP 或 HTTP 數據包來對目標站點執行 DoS 攻擊，目的是中斷特定主機的服務。</p>
+<p>【軟件名稱】：Low Orbit Ion Cannon (LOIC)<br>【支援系統】：Windows 7 或以上<br>【軟件語言】：英文<br>【Github】：<a href="https://github.com/NewEraCracker/LOIC/">按這裡</a><br>【下載軟件】：<a href="https://github.com/NewEraCracker/LOIC/releases/tag/2.0.0.4-1">按這裡</a></p>
+<h2 id="程式圖片"><a href="#程式圖片" class="headerlink" title="程式圖片"></a>程式圖片</h2><img src="/2022/06/08/Low-Orbit-Ion-Cannon-Apps-DOS/loic.png" class="">]]></content>
+      <categories>
+        <category>工具介紹</category>
+      </categories>
+      <tags>
+        <tag>DoS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MacOS - 安裝 OpenVanilla</title>
+    <url>/2022/01/16/MacOS-install-OpenVanilla/</url>
+    <content><![CDATA[<img src="/img/Post/image/MacOS/cover.png" width="200px"/>
+
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>以下內容轉自 OpenVanilla 官網。</p>
+<p><a href="https://openvanilla.org/">OpenVanilla</a> 是一套為 Mac 設計的輸入法套件。<br>內建的輸入法包括了倉頡、簡易（速成）、大易、行列、符號與日文假名、粵拼共六種。<br>使用者可透過偏好設定，匯入其他輸入法的表格，來建立符合自己需要的輸入法。</p>
+<h1 id="檔案"><a href="#檔案" class="headerlink" title="檔案"></a>檔案</h1><p>最新版本: 1.6.2 <a href="https://github.com/openvanilla/openvanilla/releases/download/1.6.2/OpenVanilla-Installer-Mac-1.6.2.zip">由此處下載</a><br>發布日期: 2021-11-25<br>MD5 hash: 0d4a197f0a3f2c1b95b891e1867190c3<br>新版摘要：支援新版 macOS、.cin 表格新功能、選字窗問題修正。<a href="https://github.com/openvanilla/openvanilla/releases/tag/1.6.2">詳細說明</a> </p>
+<h2 id="系統需求"><a href="#系統需求" class="headerlink" title="系統需求"></a>系統需求</h2><p>OpenVanilla 並不是所有 macOS 也可以安裝，以下是安裝系統需求 : </p>
+<ul>
+<li>macOS 10.10 以上（含）版本</li>
+</ul>
+<h1 id="解除安裝"><a href="#解除安裝" class="headerlink" title="解除安裝"></a>解除安裝</h1><p>要解除安裝 OpenVanilla，請在 Finder 視窗中按著  鍵 (Command 鍵) 不放，繼續按 Shift 鍵和 G 鍵 (Cmd-Shift-G)，這時會出現對話框，打入 ~/Library/Input Methods/ 按下 Enter 鍵，這時會跳出一個資料夾，將裡面的 OpenVanilla 檔拖入垃圾桶，登出目前帳號再登入即可。</p>
+<h1 id="安裝方式"><a href="#安裝方式" class="headerlink" title="安裝方式"></a>安裝方式</h1><p>下載最新版本，瀏覽器解壓縮安裝包後，會看到「安裝 OpenVanilla」的安裝程式 (dmg檔)。<br>執行安裝程式後，即可從螢幕右上方的輸入法選單（所謂的國旗選單）選取 OpenVanilla。</p>
+<p>第一次安裝，預設的輸入法為倉頡。使用者可依需要選取內建輸入法，或是從「OpenVanilla 偏好設定…」中匯入自己所需的輸入法。</p>
+<h2 id="打開"><a href="#打開" class="headerlink" title="打開"></a>打開</h2><p>將下載回來的檔案按兩下右鍵打開。</p>
+<img src="/2022/01/16/MacOS-install-OpenVanilla/1.png" class="">
+
+<h2 id="同意安裝"><a href="#同意安裝" class="headerlink" title="同意安裝"></a>同意安裝</h2><p>他會問你是否同意，按下 <code>同意安裝</code>，然後就會開始安裝。</p>
+<img src="/2022/01/16/MacOS-install-OpenVanilla/2.png" class="">
+
+
+<h2 id="安裝成功"><a href="#安裝成功" class="headerlink" title="安裝成功"></a>安裝成功</h2><p>已經成功安裝。<br>按 <code>好</code>。</p>
+<img src="/2022/01/16/MacOS-install-OpenVanilla/3.png" class="">
+
+
+<h2 id="更改輸入法"><a href="#更改輸入法" class="headerlink" title="更改輸入法"></a>更改輸入法</h2><p>現在在右上角切換輸入法你會看到 <code>OpenVanilla</code>，將他切換後你就可以使用了。</p>
+<img src="/2022/01/16/MacOS-install-OpenVanilla/5.png" class="">
+
+<p><a href="https://openvanilla.org/">https://openvanilla.org/</a><br><a href="https://lihkg.com/thread/2197929/page/1">https://lihkg.com/thread/2197929/page/1</a></p>
+]]></content>
+      <categories>
+        <category>MacOS</category>
+      </categories>
+      <tags>
+        <tag>安裝</tag>
+        <tag>Gui</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MacOS - 安裝 Homebrew</title>
     <url>/2022/01/09/MacOS-install-homebrew/</url>
     <content><![CDATA[<h1 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h1><p><a href="https://brew.sh/">Homebrew</a> 是一款自由及開放原始碼的軟體套件管理系統，用以簡化macOS系統上的軟體安裝過程，最初由馬克斯·霍威爾（Max Howell）寫成。因其可延伸性得到了一致好評，而在Ruby on Rails社群廣為人知。<br>Homebrew使用GitHub，通過使用者的貢獻擴大對軟體套件的支援。2012年，Homebrew是GitHub上擁有最多新貢獻者的專案[4]。2013年，Homebrew同時成為GitHub上最多貢獻者及最多已關閉問題的專案。 </p>
@@ -4678,45 +4730,6 @@
       </tags>
   </entry>
   <entry>
-    <title>MacOS - 安裝 OpenVanilla</title>
-    <url>/2022/01/16/MacOS-install-OpenVanilla/</url>
-    <content><![CDATA[<img src="/img/Post/image/MacOS/cover.png" width="200px"/>
-
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>以下內容轉自 OpenVanilla 官網。</p>
-<p><a href="https://openvanilla.org/">OpenVanilla</a> 是一套為 Mac 設計的輸入法套件。<br>內建的輸入法包括了倉頡、簡易（速成）、大易、行列、符號與日文假名、粵拼共六種。<br>使用者可透過偏好設定，匯入其他輸入法的表格，來建立符合自己需要的輸入法。</p>
-<h1 id="檔案"><a href="#檔案" class="headerlink" title="檔案"></a>檔案</h1><p>最新版本: 1.6.2 <a href="https://github.com/openvanilla/openvanilla/releases/download/1.6.2/OpenVanilla-Installer-Mac-1.6.2.zip">由此處下載</a><br>發布日期: 2021-11-25<br>MD5 hash: 0d4a197f0a3f2c1b95b891e1867190c3<br>新版摘要：支援新版 macOS、.cin 表格新功能、選字窗問題修正。<a href="https://github.com/openvanilla/openvanilla/releases/tag/1.6.2">詳細說明</a> </p>
-<h2 id="系統需求"><a href="#系統需求" class="headerlink" title="系統需求"></a>系統需求</h2><p>OpenVanilla 並不是所有 macOS 也可以安裝，以下是安裝系統需求 : </p>
-<ul>
-<li>macOS 10.10 以上（含）版本</li>
-</ul>
-<h1 id="解除安裝"><a href="#解除安裝" class="headerlink" title="解除安裝"></a>解除安裝</h1><p>要解除安裝 OpenVanilla，請在 Finder 視窗中按著  鍵 (Command 鍵) 不放，繼續按 Shift 鍵和 G 鍵 (Cmd-Shift-G)，這時會出現對話框，打入 ~/Library/Input Methods/ 按下 Enter 鍵，這時會跳出一個資料夾，將裡面的 OpenVanilla 檔拖入垃圾桶，登出目前帳號再登入即可。</p>
-<h1 id="安裝方式"><a href="#安裝方式" class="headerlink" title="安裝方式"></a>安裝方式</h1><p>下載最新版本，瀏覽器解壓縮安裝包後，會看到「安裝 OpenVanilla」的安裝程式 (dmg檔)。<br>執行安裝程式後，即可從螢幕右上方的輸入法選單（所謂的國旗選單）選取 OpenVanilla。</p>
-<p>第一次安裝，預設的輸入法為倉頡。使用者可依需要選取內建輸入法，或是從「OpenVanilla 偏好設定…」中匯入自己所需的輸入法。</p>
-<h2 id="打開"><a href="#打開" class="headerlink" title="打開"></a>打開</h2><p>將下載回來的檔案按兩下右鍵打開。</p>
-<img src="/2022/01/16/MacOS-install-OpenVanilla/1.png" class="">
-
-<h2 id="同意安裝"><a href="#同意安裝" class="headerlink" title="同意安裝"></a>同意安裝</h2><p>他會問你是否同意，按下 <code>同意安裝</code>，然後就會開始安裝。</p>
-<img src="/2022/01/16/MacOS-install-OpenVanilla/2.png" class="">
-
-
-<h2 id="安裝成功"><a href="#安裝成功" class="headerlink" title="安裝成功"></a>安裝成功</h2><p>已經成功安裝。<br>按 <code>好</code>。</p>
-<img src="/2022/01/16/MacOS-install-OpenVanilla/3.png" class="">
-
-
-<h2 id="更改輸入法"><a href="#更改輸入法" class="headerlink" title="更改輸入法"></a>更改輸入法</h2><p>現在在右上角切換輸入法你會看到 <code>OpenVanilla</code>，將他切換後你就可以使用了。</p>
-<img src="/2022/01/16/MacOS-install-OpenVanilla/5.png" class="">
-
-<p><a href="https://openvanilla.org/">https://openvanilla.org/</a><br><a href="https://lihkg.com/thread/2197929/page/1">https://lihkg.com/thread/2197929/page/1</a></p>
-]]></content>
-      <categories>
-        <category>MacOS</category>
-      </categories>
-      <tags>
-        <tag>安裝</tag>
-        <tag>Gui</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Manjaro pacman 指令</title>
     <url>/2022/01/29/Manjaro-pacman-commands/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>pacman 係 Manjaro 同 arch 會用既 Package Manager，以下列出常用指令。</p>
@@ -4814,19 +4827,6 @@
       <tags>
         <tag>指令</tag>
         <tag>Ransomware</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Loic 低軌道離子炮 - DoS 網路測試工具</title>
-    <url>/2022/06/08/Low-Orbit-Ion-Cannon-Apps-DOS/</url>
-    <content><![CDATA[<h1 id="LOIC"><a href="#LOIC" class="headerlink" title="LOIC"></a>LOIC</h1><p>Low Orbit Ion Cannon (LOIC) 是一個用 C# 編寫的開源網絡壓力測試和拒絕服務攻擊應用程序。<br>LOIC 通過向服務器發送 TCP、UDP 或 HTTP 數據包來對目標站點執行 DoS 攻擊，目的是中斷特定主機的服務。</p>
-<p>【軟件名稱】：Low Orbit Ion Cannon (LOIC)<br>【支援系統】：Windows 7 或以上<br>【軟件語言】：英文<br>【Github】：<a href="https://github.com/NewEraCracker/LOIC/">按這裡</a><br>【下載軟件】：<a href="https://github.com/NewEraCracker/LOIC/releases/tag/2.0.0.4-1">按這裡</a></p>
-<h2 id="程式圖片"><a href="#程式圖片" class="headerlink" title="程式圖片"></a>程式圖片</h2><img src="/2022/06/08/Low-Orbit-Ion-Cannon-Apps-DOS/loic.png" class="">]]></content>
-      <categories>
-        <category>工具介紹</category>
-      </categories>
-      <tags>
-        <tag>DoS</tag>
       </tags>
   </entry>
   <entry>
@@ -5462,6 +5462,32 @@
       </tags>
   </entry>
   <entry>
+    <title>PCSX2 - PlayStation 2 模擬器</title>
+    <url>/2022/05/20/PS2-Virtual-Machine-emalator-pcsx2/</url>
+    <content><![CDATA[<img src="/2022/05/20/PS2-Virtual-Machine-emalator-pcsx2/cover.webp" class="">
+
+<h1 id="PCSX2"><a href="#PCSX2" class="headerlink" title="PCSX2"></a>PCSX2</h1><p>PCSX2 係一個可以令你喺電腦上玩 PS2 Games 既模擬器，<br>支援既系統有 :</p>
+<ul>
+<li>Linux</li>
+<li>Windows</li>
+</ul>
+<p>官網 : <a href="https://pcsx2.net/">https://pcsx2.net/</a><br>Bios : <a href="https://consolegames.down10.software/bios/pcsx2-playstation-2-bios-3">https://consolegames.down10.software/bios/pcsx2-playstation-2-bios-3</a></p>
+<h2 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h2><ul>
+<li>開源 (Open Source)</li>
+<li>可保存狀態 (Save point 返去上一個狀態)</li>
+<li>唔需要勁既電腦，超低效能都玩得順暢</li>
+</ul>
+<h2 id="需要"><a href="#需要" class="headerlink" title="需要"></a>需要</h2><ul>
+<li>bios 檔 (需要自行上網搵)</li>
+<li>iso 遊戲光碟檔 (需要自行上網搵)</li>
+<li>手制 (可選，你唔用手制都可以用電腦keyboard玩)</li>
+</ul>
+<h2 id="程式圖片"><a href="#程式圖片" class="headerlink" title="程式圖片"></a>程式圖片</h2><img src="/2022/05/20/PS2-Virtual-Machine-emalator-pcsx2/program.png" class="">]]></content>
+      <tags>
+        <tag>Games</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PDF-XChange Viewer - PDF 檢視器</title>
     <url>/2022/05/29/PDF-XChange-Editor-Apps/</url>
     <content><![CDATA[<p align="center">
@@ -5506,29 +5532,33 @@
       </tags>
   </entry>
   <entry>
-    <title>PCSX2 - PlayStation 2 模擬器</title>
-    <url>/2022/05/20/PS2-Virtual-Machine-emalator-pcsx2/</url>
-    <content><![CDATA[<img src="/2022/05/20/PS2-Virtual-Machine-emalator-pcsx2/cover.webp" class="">
+    <title>PowerShell - 常用基本指令</title>
+    <url>/2022/02/17/Power-Shell-Commands/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Windows 內建除左 <code>cmd</code>，<br>其實係仲有個叫 <code>PowerShell</code></p>
+<img src="iconn.png"/>
 
-<h1 id="PCSX2"><a href="#PCSX2" class="headerlink" title="PCSX2"></a>PCSX2</h1><p>PCSX2 係一個可以令你喺電腦上玩 PS2 Games 既模擬器，<br>支援既系統有 :</p>
-<ul>
-<li>Linux</li>
-<li>Windows</li>
-</ul>
-<p>官網 : <a href="https://pcsx2.net/">https://pcsx2.net/</a><br>Bios : <a href="https://consolegames.down10.software/bios/pcsx2-playstation-2-bios-3">https://consolegames.down10.software/bios/pcsx2-playstation-2-bios-3</a></p>
-<h2 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h2><ul>
-<li>開源 (Open Source)</li>
-<li>可保存狀態 (Save point 返去上一個狀態)</li>
-<li>唔需要勁既電腦，超低效能都玩得順暢</li>
-</ul>
-<h2 id="需要"><a href="#需要" class="headerlink" title="需要"></a>需要</h2><ul>
-<li>bios 檔 (需要自行上網搵)</li>
-<li>iso 遊戲光碟檔 (需要自行上網搵)</li>
-<li>手制 (可選，你唔用手制都可以用電腦keyboard玩)</li>
-</ul>
-<h2 id="程式圖片"><a href="#程式圖片" class="headerlink" title="程式圖片"></a>程式圖片</h2><img src="/2022/05/20/PS2-Virtual-Machine-emalator-pcsx2/program.png" class="">]]></content>
+<p>今篇文只會講 Powershell 既 commands，<br>並唔會講 Powershell 都用到既 Linux commands.</p>
+<h2 id="指令"><a href="#指令" class="headerlink" title="指令"></a><span style="color:darkred">指令</span></h2><h3 id="刪除檔案"><a href="#刪除檔案" class="headerlink" title=" 刪除檔案"></a><i class="fas fa-terminal"></i> 刪除檔案</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Remove-item file_or_folder -Force</span><br></pre></td></tr></table></figure>
+
+<h3 id="新增檔案"><a href="#新增檔案" class="headerlink" title=" 新增檔案"></a><i class="fas fa-terminal"></i> 新增檔案</h3><p>喺而加呢個位加個檔案</p>
+<div class="tabs" id="test1"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#test1-1"><i class="fas fa-terminal"></i> 新增檔案 方法1</button></li><li class="tab"><button type="button" data-href="#test1-2"><i class="fas fa-terminal"></i> 新增檔案 方法2</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="test1-1"><blockquote>
+<p>簡單冇咁 Detail 方法</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">New-Item &quot;woo.txt&quot; -Value &quot;txt 入面既內容&quot;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test1-2"><blockquote>
+<p>更加詳細既方法</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">New-Item -Path . -Name &quot;woo.txt&quot; -ItemType &quot;file&quot; -Value &quot;txt 入面既內容&quot;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+
+<h3 id="新增資料夾"><a href="#新增資料夾" class="headerlink" title=" 新增資料夾"></a><i class="fas fa-terminal"></i> 新增資料夾</h3><p>add 個 folder 喺 <code>c drive</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">New-Item -Path &quot;c:\&quot; -Name &quot;Folder_new&quot; -ItemType &quot;directory&quot;</span><br></pre></td></tr></table></figure>
+
+<p>參考資料<br><a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/new-item?view=powershell-7.2">https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/new-item?view=powershell-7.2</a><br><a href="https://shellgeek.com/powershell-mkdir-to-create-directory/">https://shellgeek.com/powershell-mkdir-to-create-directory/</a></p>
+]]></content>
+      <categories>
+        <category>Power Shell</category>
+      </categories>
       <tags>
-        <tag>Games</tag>
+        <tag>指令</tag>
       </tags>
   </entry>
   <entry>
@@ -5558,36 +5588,6 @@
       </categories>
       <tags>
         <tag>成人</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PowerShell - 常用基本指令</title>
-    <url>/2022/02/17/Power-Shell-Commands/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Windows 內建除左 <code>cmd</code>，<br>其實係仲有個叫 <code>PowerShell</code></p>
-<img src="iconn.png"/>
-
-<p>今篇文只會講 Powershell 既 commands，<br>並唔會講 Powershell 都用到既 Linux commands.</p>
-<h2 id="指令"><a href="#指令" class="headerlink" title="指令"></a><span style="color:darkred">指令</span></h2><h3 id="刪除檔案"><a href="#刪除檔案" class="headerlink" title=" 刪除檔案"></a><i class="fas fa-terminal"></i> 刪除檔案</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Remove-item file_or_folder -Force</span><br></pre></td></tr></table></figure>
-
-<h3 id="新增檔案"><a href="#新增檔案" class="headerlink" title=" 新增檔案"></a><i class="fas fa-terminal"></i> 新增檔案</h3><p>喺而加呢個位加個檔案</p>
-<div class="tabs" id="test1"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#test1-1"><i class="fas fa-terminal"></i> 新增檔案 方法1</button></li><li class="tab"><button type="button" data-href="#test1-2"><i class="fas fa-terminal"></i> 新增檔案 方法2</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="test1-1"><blockquote>
-<p>簡單冇咁 Detail 方法</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">New-Item &quot;woo.txt&quot; -Value &quot;txt 入面既內容&quot;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="test1-2"><blockquote>
-<p>更加詳細既方法</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">New-Item -Path . -Name &quot;woo.txt&quot; -ItemType &quot;file&quot; -Value &quot;txt 入面既內容&quot;</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
-
-<h3 id="新增資料夾"><a href="#新增資料夾" class="headerlink" title=" 新增資料夾"></a><i class="fas fa-terminal"></i> 新增資料夾</h3><p>add 個 folder 喺 <code>c drive</code></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">New-Item -Path &quot;c:\&quot; -Name &quot;Folder_new&quot; -ItemType &quot;directory&quot;</span><br></pre></td></tr></table></figure>
-
-<p>參考資料<br><a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/new-item?view=powershell-7.2">https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/new-item?view=powershell-7.2</a><br><a href="https://shellgeek.com/powershell-mkdir-to-create-directory/">https://shellgeek.com/powershell-mkdir-to-create-directory/</a></p>
-]]></content>
-      <categories>
-        <category>Power Shell</category>
-      </categories>
-      <tags>
-        <tag>指令</tag>
       </tags>
   </entry>
   <entry>
@@ -6301,6 +6301,26 @@
       </categories>
   </entry>
   <entry>
+    <title>VMware - Keyborad Shortcuts</title>
+    <url>/2022/01/28/VMware-Keyborad-Shortcuts/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>用 VMware 如果下下都要慢慢搵粒制，做野既效率會慢好多。<br>相反，用鍵盤取代撳制黎操作，效率會快幾倍。</p>
+<p>如果要講，我本人建議兩邊都要學識點用，咁先至係熟悉用既高手。</p>
+<h2 id="Exit-Virtual-Machine-control"><a href="#Exit-Virtual-Machine-control" class="headerlink" title="Exit Virtual Machine control"></a>Exit Virtual Machine control</h2><blockquote>
+<p><kbd>Ctrl</kbd>+<kbd>ALT</kbd></p>
+</blockquote>
+<h2 id="Send-Ctrl-Alt-Del"><a href="#Send-Ctrl-Alt-Del" class="headerlink" title="Send Ctrl + Alt + Del"></a>Send Ctrl + Alt + Del</h2><blockquote>
+<p><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Insert</kbd></p>
+</blockquote>
+<p>Detail<br><a href="https://gist.github.com/datacodesolutions/3730430">https://gist.github.com/datacodesolutions/3730430</a><br><a href="https://gist.github.com/cemerson/9616792">https://gist.github.com/cemerson/9616792</a></p>
+]]></content>
+      <categories>
+        <category>VMware</category>
+      </categories>
+      <tags>
+        <tag>Shortcuts</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2022 年 - VPN 評價</title>
     <url>/2022/02/08/VPN-List/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>以下為站長的評分，評分準則為以下 :</p>
@@ -6364,26 +6384,6 @@
       </categories>
       <tags>
         <tag>VPN</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>VMware - Keyborad Shortcuts</title>
-    <url>/2022/01/28/VMware-Keyborad-Shortcuts/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>用 VMware 如果下下都要慢慢搵粒制，做野既效率會慢好多。<br>相反，用鍵盤取代撳制黎操作，效率會快幾倍。</p>
-<p>如果要講，我本人建議兩邊都要學識點用，咁先至係熟悉用既高手。</p>
-<h2 id="Exit-Virtual-Machine-control"><a href="#Exit-Virtual-Machine-control" class="headerlink" title="Exit Virtual Machine control"></a>Exit Virtual Machine control</h2><blockquote>
-<p><kbd>Ctrl</kbd>+<kbd>ALT</kbd></p>
-</blockquote>
-<h2 id="Send-Ctrl-Alt-Del"><a href="#Send-Ctrl-Alt-Del" class="headerlink" title="Send Ctrl + Alt + Del"></a>Send Ctrl + Alt + Del</h2><blockquote>
-<p><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Insert</kbd></p>
-</blockquote>
-<p>Detail<br><a href="https://gist.github.com/datacodesolutions/3730430">https://gist.github.com/datacodesolutions/3730430</a><br><a href="https://gist.github.com/cemerson/9616792">https://gist.github.com/cemerson/9616792</a></p>
-]]></content>
-      <categories>
-        <category>VMware</category>
-      </categories>
-      <tags>
-        <tag>Shortcuts</tag>
       </tags>
   </entry>
   <entry>
@@ -7087,6 +7087,23 @@
       </tags>
   </entry>
   <entry>
+    <title>Wannacry - 全球性勒索病毒蠕蟲</title>
+    <url>/2022/01/09/Wannacry/</url>
+    <content><![CDATA[<h1 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h1><p>WannaCry（直譯「想哭」或稱WannaCrypt、WanaCrypt0r 2.0、Wanna Decryptor）是一種利用NSA的「永恆之藍」（EternalBlue）漏洞利用程式透過網際網路對全球執行 Microsoft Windows作業系統的電腦進行攻擊的加密型勒索軟體兼蠕蟲病毒（Encrypting Ransomware Worm）。該病毒利用AES-128和RSA演算法惡意加密使用者檔案以勒索比特幣，使用Tor進行通訊，為WanaCrypt0r 1.0的變種。</p>
+<p>通過利用 445 Port 再加上 Windows 上的漏洞(MS17-010)進行全球性功擊。</p>
+<h1 id="防範"><a href="#防範" class="headerlink" title="防範"></a>防範</h1><ul>
+<li>下載 Microsoft 官方的修補漏洞檔。</li>
+<li>使用防火牆封鎖 445 Port。</li>
+</ul>
+<p>Wannacry 樣本 :<br><a href="https://www.upload.ee/files/7001087/1.7z.html">https://www.upload.ee/files/7001087/1.7z.html</a></p>
+<p>如果真係中左咁點算？</p>
+<p>你可以用 <a href="https://github.com/gentilkiwi/wanakiwi">WanaKiwi</a> 解密。</p>
+<iframe width="774" height="480" src="https://www.youtube.com/embed/PGg2th0wSVY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]]></content>
+      <tags>
+        <tag>Ransomware</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Wanakiwi - 將已受 Wannacry 加密的檔案解密</title>
     <url>/2022/01/09/Wanakiwi/</url>
     <content><![CDATA[<h1 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h1><p>This utility allows machines infected by the WannaCry ransomware to recover their files.</p>
@@ -7105,23 +7122,6 @@
 ]]></content>
       <tags>
         <tag>decrypt</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Wannacry - 全球性勒索病毒蠕蟲</title>
-    <url>/2022/01/09/Wannacry/</url>
-    <content><![CDATA[<h1 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h1><p>WannaCry（直譯「想哭」或稱WannaCrypt、WanaCrypt0r 2.0、Wanna Decryptor）是一種利用NSA的「永恆之藍」（EternalBlue）漏洞利用程式透過網際網路對全球執行 Microsoft Windows作業系統的電腦進行攻擊的加密型勒索軟體兼蠕蟲病毒（Encrypting Ransomware Worm）。該病毒利用AES-128和RSA演算法惡意加密使用者檔案以勒索比特幣，使用Tor進行通訊，為WanaCrypt0r 1.0的變種。</p>
-<p>通過利用 445 Port 再加上 Windows 上的漏洞(MS17-010)進行全球性功擊。</p>
-<h1 id="防範"><a href="#防範" class="headerlink" title="防範"></a>防範</h1><ul>
-<li>下載 Microsoft 官方的修補漏洞檔。</li>
-<li>使用防火牆封鎖 445 Port。</li>
-</ul>
-<p>Wannacry 樣本 :<br><a href="https://www.upload.ee/files/7001087/1.7z.html">https://www.upload.ee/files/7001087/1.7z.html</a></p>
-<p>如果真係中左咁點算？</p>
-<p>你可以用 <a href="https://github.com/gentilkiwi/wanakiwi">WanaKiwi</a> 解密。</p>
-<iframe width="774" height="480" src="https://www.youtube.com/embed/PGg2th0wSVY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]]></content>
-      <tags>
-        <tag>Ransomware</tag>
       </tags>
   </entry>
   <entry>
@@ -7164,45 +7164,179 @@
       </tags>
   </entry>
   <entry>
-    <title>Windows 10 系統 - 免啟動系統更改背景圖片</title>
-    <url>/2022/06/12/Windows-10-Change-Wallpaper-Without-Activation/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Windows 10 入面，如果你未啟動係用唔到一啲功能，<br>例如係轉唔到 Wallpaper，<br>佢會話 “你必須先啟用 Windows，才能個人化電腦。”</p>
-<img src="/2022/06/12/Windows-10-Change-Wallpaper-Without-Activation/1.png" class="">
+    <title>Windows - 改變 DNS 位置</title>
+    <url>/2022/06/13/Windows-Change-DNS-Settings/</url>
+    <content><![CDATA[<h1 id="什麼是-DNS？"><a href="#什麼是-DNS？" class="headerlink" title="什麼是 DNS？"></a>什麼是 DNS？</h1><p><span style="font-size:larger;"><strong>根據 Cloudeflare 所說 :</strong></span></p>
+<p>網域名稱系統 （DNS） 是網際網路的電話簿，<br>人們透過例如 nytimes.com 或 espn.com 等網域名稱線上存取資訊。<br>Web 瀏覽器透過 網際網路通訊協定 （IP） 位址進行互動。<br>DNS 將網域名稱轉換為 IP 位址，以便瀏覽器能夠載入網際網路資源。</p>
+<h1 id="為何要改變-DNS-位置？"><a href="#為何要改變-DNS-位置？" class="headerlink" title="為何要改變 DNS 位置？"></a>為何要改變 DNS 位置？</h1><p><span style="font-size:larger;"><strong>原因一 : 私隱問題</strong></span></p>
+<p>我們預設使用的 DNS 位置是由網路供應商提供的，<br>這個意味著如果這個位置是有用到記錄的操作，<br>網路供應商是可以知道你在上什麼網站。<br>因此，我們要使用其他 DNS 位置，<br>將你上網的匿名性加強。</p>
+<p><span style="font-size:larger;"><strong>原因二 : 速度問題</strong></span></p>
+<p>加強你上網的速度，<br>使用 Cloudflare DNS 使你上網速度更快，<br>公司聲稱會於24小時內由系統自動刪除記錄，<br>然而世界上最快的 DNS 位置是由 Cloudflare 提供的<br><code>1.1.1.1</code> 和 <code>1.0.0.1</code> 位置 (ipv4)。</p>
+<p><span style="font-size:larger;"><strong>原因三 : 保安問題</strong></span><br>使用不同的 DNS 位置，<br>例如 VPN 供應商提供的 DNS 位置，<br>他們會於伺服器內設立防火牆，<br>當你可能進入了他們的黑名單網站 (有毒網站)，<br>這樣就可以防止你進入了不明網站 (有毒網站)，<br>從而加強了你上網的保護。</p>
+<h1 id="為何不使用預設-DNS-位置？"><a href="#為何不使用預設-DNS-位置？" class="headerlink" title="為何不使用預設 DNS 位置？"></a>為何不使用預設 DNS 位置？</h1><p>簡單一句說完，<br>就是以上的三個原因，沒有一樣是預設 DNS 有的。</p>
+<ul>
+<li>他會追蹤你上網</li>
+<li>可以隨便封鎖你上什麼網站</li>
+<li>速度不及其他 DNS Server</li>
+<li>沒有為你設立任何的保安</li>
+</ul>
+<h2 id="開始教學-前言"><a href="#開始教學-前言" class="headerlink" title="開始教學 (前言)"></a>開始教學 (前言)</h2><p><span style="font-size:larger;"><strong>本篇文章使用 Windows 10 系統示範。</strong></span></p>
+<p>以下教學如果你是使用 Windows 7 / 11 系統的話，<br>方法大同小異，<br>分別是 <code>網路和網際網路</code> 的位置不同的開啟方法，</p>
+<h3 id="開啟設定"><a href="#開啟設定" class="headerlink" title="開啟設定"></a>開啟設定</h3><p>首先請按右下角電腦的 <i class="fa-brands fa-windows"></i><br>然後再按 <i class="fa-solid fa-gear"></i></p>
+<img src="/2022/06/13/Windows-Change-DNS-Settings/open-settings.png" class="">
 
-<h1 id="更改方法"><a href="#更改方法" class="headerlink" title="更改方法"></a>更改方法</h1><p>只需直接對住張圖右鍵，<br>再撳 <code>設成桌面背景 (B)</code>，<br>咁就改到了。</p>
-<img src="/2022/06/12/Windows-10-Change-Wallpaper-Without-Activation/change.png" class="">]]></content>
+<h3 id="網路和網際網路"><a href="#網路和網際網路" class="headerlink" title="網路和網際網路"></a>網路和網際網路</h3><p>到此畫面後，請按下 <code>網路和網際網路</code>。</p>
+<img src="/2022/06/13/Windows-Change-DNS-Settings/settings.png" class="">
+
+<h3 id="變更介面卡選項"><a href="#變更介面卡選項" class="headerlink" title="變更介面卡選項"></a>變更介面卡選項</h3><p>到此畫面後，請按下 <code>變更介面卡選項</code>。</p>
+<img src="/2022/06/13/Windows-Change-DNS-Settings/status.png" class="">
+
+<h3 id="網路連線"><a href="#網路連線" class="headerlink" title="網路連線"></a>網路連線</h3><p>到此畫面後，請尋找你上網的位置 (通常是 <code>乙太網路</code>)，<br>找到之後請跟以下步驟 :</p>
+<blockquote>
+<p>注意 : 以下步驟需要使用 <code>系統管理員</code></p>
+</blockquote>
+<ol>
+<li>按下右鍵</li>
+<li>按下最底的 <code>內容(R)</code></li>
+</ol>
+<img src="/2022/06/13/Windows-Change-DNS-Settings/r.png" class="">
+
+<h3 id="乙太網路-內容-1-IPV4"><a href="#乙太網路-內容-1-IPV4" class="headerlink" title="乙太網路 內容 (1) - IPV4"></a>乙太網路 內容 (1) - IPV4</h3><p>到此畫面後，請在中間拉下去尋找這個東西 :</p>
+<ul>
+<li><strong>網路網際通訊協定第 4 版 (TCP/IPV4)</strong></li>
+</ul>
+<img src="/2022/06/13/Windows-Change-DNS-Settings/content.png" class="">
+
+<h3 id="乙太網路-內容-2-IPV4"><a href="#乙太網路-內容-2-IPV4" class="headerlink" title="乙太網路 內容 (2) - IPV4"></a>乙太網路 內容 (2) - IPV4</h3><p>找到之後請對他左鍵一下，<br>然後再按下面的 <code>內容(R)</code></p>
+<img src="/2022/06/13/Windows-Change-DNS-Settings/RR.png" class="">
+
+<h2 id="網路網路通訊協定第-4-版-TCP-IPV4-內容"><a href="#網路網路通訊協定第-4-版-TCP-IPV4-內容" class="headerlink" title="網路網路通訊協定第 4 版 (TCP/IPV4) - 內容"></a>網路網路通訊協定第 4 版 (TCP/IPV4) - 內容</h2><p>到此畫面後，是真正修改 DNS 位置的時候了 ~~</p>
+<img src="/2022/06/13/Windows-Change-DNS-Settings/ipv4.png" class="">
+
+<h2 id="網路網路通訊協定第-4-版-TCP-IPV4-修改"><a href="#網路網路通訊協定第-4-版-TCP-IPV4-修改" class="headerlink" title="網路網路通訊協定第 4 版 (TCP/IPV4) - 修改"></a>網路網路通訊協定第 4 版 (TCP/IPV4) - 修改</h2><p>按下 <strong><code>使用下列的 DNS 伺服器位置(E):</code></strong><br>接下來你可以選擇你想用的 DNS 供應商。</p>
+<p><strong><span style="font-size:larger;">Google Public DNS IP addresses</span></strong></p>
+<h3 id="Google-公共-DNS-IP-地址-IPv4-如下："><a href="#Google-公共-DNS-IP-地址-IPv4-如下：" class="headerlink" title="Google 公共 DNS IP 地址 (IPv4) 如下："></a>Google 公共 DNS IP 地址 (IPv4) 如下：</h3><ul>
+<li>8.8.8.8</li>
+<li>8.8.4.4</li>
+</ul>
+<p>輸入完成後按下確定即可。</p>
+<img src="/2022/06/13/Windows-Change-DNS-Settings/change.png" class="">
+
+<h3 id="Cloudflare-公共-DNS-IP-地址-IPv4-如下："><a href="#Cloudflare-公共-DNS-IP-地址-IPv4-如下：" class="headerlink" title="Cloudflare 公共 DNS IP 地址 (IPv4) 如下："></a>Cloudflare 公共 DNS IP 地址 (IPv4) 如下：</h3><ul>
+<li>1.1.1.1</li>
+<li>1.0.0.1</li>
+</ul>
+<p>輸入完成後按下確定即可。</p>
+<img src="/2022/06/13/Windows-Change-DNS-Settings/change-2.png" class="">
+
+
+<h3 id="乙太網路-內容-1-IPV6"><a href="#乙太網路-內容-1-IPV6" class="headerlink" title="乙太網路 內容 (1) - IPV6"></a>乙太網路 內容 (1) - IPV6</h3><p>接下來我們跟剛剛一樣做法，<br>這次是修改 IPV6 位置，<br>將剛剛的視窗關閉，<br>然後尋找 :</p>
+<ul>
+<li><strong>網路網際通訊協定第 6 版 (TCP/IPV6)</strong></li>
+</ul>
+<img src="/2022/06/13/Windows-Change-DNS-Settings/ipv6.png" class="">
+
+<h2 id="乙太網路-內容-2-IPV6"><a href="#乙太網路-內容-2-IPV6" class="headerlink" title="乙太網路 內容 (2) - IPV6"></a>乙太網路 內容 (2) - IPV6</h2><p>按下 <strong><code>內容(R)</code></strong> 後，<br>按下 <strong><code>使用下列的 DNS 伺服器位置(E):</code></strong></p>
+<h3 id="Cloudflare-公共-DNS-IP-地址-IPv6-如下："><a href="#Cloudflare-公共-DNS-IP-地址-IPv6-如下：" class="headerlink" title="Cloudflare 公共 DNS IP 地址 (IPv6) 如下："></a>Cloudflare 公共 DNS IP 地址 (IPv6) 如下：</h3><ul>
+<li>2606:4700:4700::1111</li>
+<li>2606:4700:4700::1001</li>
+</ul>
+<p>輸入完成後按下確定即可。</p>
+<img src="/2022/06/13/Windows-Change-DNS-Settings/ipv66.png" class="">
+
+<h3 id="Google-公共-DNS-IP-地址-IPv6-如下："><a href="#Google-公共-DNS-IP-地址-IPv6-如下：" class="headerlink" title="Google 公共 DNS IP 地址 (IPv6) 如下："></a>Google 公共 DNS IP 地址 (IPv6) 如下：</h3><ul>
+<li>2001:4860:4860::8888</li>
+<li>2001:4860:4860::8844</li>
+</ul>
+<p>輸入完成後按下確定即可。</p>
+<img src="/2022/06/13/Windows-Change-DNS-Settings/ip6.png" class="">
+
+<h2 id="完畢"><a href="#完畢" class="headerlink" title="完畢"></a>完畢</h2><p>教學完畢。</p>
+<p><span style="font-size:larger;"><strong>以下整合位置 :</strong></span></p>
+<h3 id="Cloudflare-公共-DNS-IP-地址-IPv4-如下：-1"><a href="#Cloudflare-公共-DNS-IP-地址-IPv4-如下：-1" class="headerlink" title="Cloudflare 公共 DNS IP 地址 (IPv4) 如下："></a>Cloudflare 公共 DNS IP 地址 (IPv4) 如下：</h3><ul>
+<li>1.1.1.1</li>
+<li>1.0.0.1</li>
+</ul>
+<h3 id="Cloudflare-公共-DNS-IP-地址-IPv6-如下：-1"><a href="#Cloudflare-公共-DNS-IP-地址-IPv6-如下：-1" class="headerlink" title="Cloudflare 公共 DNS IP 地址 (IPv6) 如下："></a>Cloudflare 公共 DNS IP 地址 (IPv6) 如下：</h3><ul>
+<li>2606:4700:4700::1111</li>
+<li>2606:4700:4700::1001</li>
+</ul>
+<h3 id="Google-公共-DNS-IP-地址-IPv6-如下：-1"><a href="#Google-公共-DNS-IP-地址-IPv6-如下：-1" class="headerlink" title="Google 公共 DNS IP 地址 (IPv6) 如下："></a>Google 公共 DNS IP 地址 (IPv6) 如下：</h3><ul>
+<li>2001:4860:4860::8888</li>
+<li>2001:4860:4860::8844</li>
+</ul>
+<h3 id="Google-公共-DNS-IP-地址-IPv4-如下：-1"><a href="#Google-公共-DNS-IP-地址-IPv4-如下：-1" class="headerlink" title="Google 公共 DNS IP 地址 (IPv4) 如下："></a>Google 公共 DNS IP 地址 (IPv4) 如下：</h3><ul>
+<li>8.8.8.8</li>
+<li>8.8.4.4</li>
+</ul>
+<h1 id="WTF"><a href="#WTF" class="headerlink" title="WTF"></a>WTF</h1><p>呢篇文寫左成兩個鐘…</p>
+<img src="/2022/06/13/Windows-Change-DNS-Settings/cls.png" class="">]]></content>
       <categories>
         <category>Windows</category>
       </categories>
       <tags>
         <tag>撳制</tag>
+        <tag>DNS</tag>
       </tags>
   </entry>
   <entry>
-    <title>Windows 10 系統 - 免啟動系統更改主題為黑暗</title>
-    <url>/2022/06/12/Windows-10-enabled-Dark-themes-without-Activation/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Windows 10 入面，如果你未啟動係用唔到一啲功能，<br>例如係轉唔到你既主題 (Themes)，<br>佢會話 “你必須先啟用 Windows，才能個人化電腦。”</p>
-<img src="/2022/06/12/Windows-10-enabled-Dark-themes-without-Activation/1.png" class="">
+    <title>RoboCopy - Windows 超實用管理檔案指令</title>
+    <url>/2022/06/02/Windows-RoboCopy-Commands/</url>
+    <content><![CDATA[<h1 id="RoboCopy"><a href="#RoboCopy" class="headerlink" title="RoboCopy"></a>RoboCopy</h1><p>RoboCopy 係一個多線程既檔案管理功具，意味著會比起你 <kbd>Ctrl</kbd>+<kbd>C</kbd> <kbd>Ctrl</kbd>+<kbd>V</kbd> 快幾倍。</p>
+<h1 id="假設情況"><a href="#假設情況" class="headerlink" title="假設情況"></a>假設情況</h1><p>當你管理超多 Files 既時候，你又想將佢分類，整理，Backup，但係入面有好多唔需要既檔案。<br>你要選擇性咁拉佢出黎 Backup，呢個操作哂你好多時間，呢個時候可以用 RoboCopy，以下講解。</p>
+<h1 id="指令說明"><a href="#指令說明" class="headerlink" title="指令說明"></a>指令說明</h1><hr>
+<h2 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">robocopy &quot;你想入去既位置&quot; &quot;你要擺檔案既位置&quot; 你要擺乜檔案 參數</span><br></pre></td></tr></table></figure>
 
-<h2 id="開啟-Regedit"><a href="#開啟-Regedit" class="headerlink" title="開啟 Regedit"></a>開啟 Regedit</h2><p>首先我地喺 Windows 查 <code>regedit</code> (登錄檔)，</p>
-<blockquote>
-<p>注意 : 用系統管理員行程式係唔同用普通用戶行程式，兩個係分開，如果你改左喺系統管理員既野，咁只會喺管理員個 Account 度生效，並唔會喺普通用戶度生效。</p>
-</blockquote>
-<h2 id="進入路徑"><a href="#進入路徑" class="headerlink" title="進入路徑"></a>進入路徑</h2><p>黎到呢度我地入呢個 Paths，</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">電腦\HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize</span><br></pre></td></tr></table></figure>
+<h2 id="示範-最基本"><a href="#示範-最基本" class="headerlink" title="示範 (最基本)"></a>示範 (最基本)</h2><p>最基本既示範 (無任何參數)</p>
+<ul>
+<li>Server (入去 “Server” 呢個位置)</li>
+<li>“Server” “assets/yoyo” (將野擺入 “Server assets/yoyo” 呢個位置入面)</li>
+<li>*.png (將所有副檔係 png 既檔案擺入 “Server assets/yoyo”)</li>
+</ul>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">robocopy Server &quot;Server assets/yoyo&quot; *.png</span><br></pre></td></tr></table></figure>
 
-<img src="/2022/06/12/Windows-10-enabled-Dark-themes-without-Activation/2.png" class="">
+<h2 id="示範-參數加入"><a href="#示範-參數加入" class="headerlink" title="示範 (參數加入)"></a>示範 (參數加入)</h2><p>參數加入示範</p>
+<ul>
+<li>Server (入去 “Server” 呢個位置)</li>
+<li>“Server assets/yoyo” (將野擺入 “Server assets/yoyo” 呢個位置入面)</li>
+<li>*.png (將所有副檔係 png 既檔案擺入 “Server assets/yoyo”)</li>
+<li>/PURGE (即係會跟返你要求既來源檔既所有野都係一樣)</li>
+<li>/S (將 Folder 複製)</li>
+</ul>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">robocopy Server &quot;Server assets/yoyo&quot; *.png /PURGE /S</span><br></pre></td></tr></table></figure>
 
-<h2 id="修改檔案"><a href="#修改檔案" class="headerlink" title="修改檔案"></a>修改檔案</h2><p>我地搵一舊叫做 <code>AppsUseLightTheme</code>，<br>將佢打開再將入面既數值改做 <code>0</code>。</p>
-<img src="/2022/06/12/Windows-10-enabled-Dark-themes-without-Activation/appsuselt.png" class="">
+<h2 id="進入其他-Storage"><a href="#進入其他-Storage" class="headerlink" title="進入其他 Storage"></a>進入其他 Storage</h2><p>成句意思係，入去 d drive，再入去 d drive 入面既 folder1，入到去再將所有 html files types，擺入去 e drive 入面既 folder2。</p>
+<ul>
+<li>d:folder1 (入 d drive 既 folder1)</li>
+<li>e:folder2 (將檔案擺入 e drive 既 folder2)</li>
+<li>*.html (指定淨係要 html files types)</li>
+</ul>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">robocopy d:folder1 e:folder2 *.html</span><br></pre></td></tr></table></figure>
 
-<h2 id="成功"><a href="#成功" class="headerlink" title="成功"></a>成功</h2><p>當你改完撳確定，<br>你會發現已經幫你轉左做 Dark Themes。</p>
-<img src="/2022/06/12/Windows-10-enabled-Dark-themes-without-Activation/done.png" class="">]]></content>
+
+<h1 id="實用參數"><a href="#實用參數" class="headerlink" title="實用參數"></a>實用參數</h1><hr>
+<h2 id="Folder-參數"><a href="#Folder-參數" class="headerlink" title="Folder 參數"></a>Folder 參數</h2><ul>
+<li>/XD (排除 Folder)</li>
+<li>/PURGE (會跟返你要求既來源檔既所有野都係一樣)</li>
+<li>/S (Folder 複製，唔加就唔會 copy Folder，淨係 copy files)</li>
+<li>/MOVE (移動 Folder 同 files)</li>
+<li>/E 複製空既 Folder</li>
+</ul>
+<h2 id="Files-參數"><a href="#Files-參數" class="headerlink" title="Files 參數"></a>Files 參數</h2><ul>
+<li>/XF (排除 files)</li>
+<li>/PURGE (會跟返你要求既來源檔既所有野都係一樣)</li>
+<li>/MOV (移動 files)</li>
+<li>/MOVE (移動 Folder 同 files)</li>
+</ul>
+<p>參考資料 :<br><a href="http://www.happystreet.com.tw/index.php/system-dynamic-teaching/windows/247-examples-robocopy-command-reference-mir-many-problems-with-care-1">http://www.happystreet.com.tw/index.php/system-dynamic-teaching/windows/247-examples-robocopy-command-reference-mir-many-problems-with-care-1</a></p>
+]]></content>
       <categories>
         <category>Windows</category>
       </categories>
       <tags>
-        <tag>撳制</tag>
+        <tag>指令</tag>
+        <tag>Batch</tag>
+        <tag>RoboCopy</tag>
       </tags>
   </entry>
   <entry>
@@ -7254,6 +7388,21 @@
       </categories>
       <tags>
         <tag>Shortkeys</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Windows 10 系統 - 免啟動系統更改背景圖片</title>
+    <url>/2022/06/12/Windows-10-Change-Wallpaper-Without-Activation/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Windows 10 入面，如果你未啟動係用唔到一啲功能，<br>例如係轉唔到 Wallpaper，<br>佢會話 “你必須先啟用 Windows，才能個人化電腦。”</p>
+<img src="/2022/06/12/Windows-10-Change-Wallpaper-Without-Activation/1.png" class="">
+
+<h1 id="更改方法"><a href="#更改方法" class="headerlink" title="更改方法"></a>更改方法</h1><p>只需直接對住張圖右鍵，<br>再撳 <code>設成桌面背景 (B)</code>，<br>咁就改到了。</p>
+<img src="/2022/06/12/Windows-10-Change-Wallpaper-Without-Activation/change.png" class="">]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>撳制</tag>
       </tags>
   </entry>
   <entry>
@@ -7329,63 +7478,30 @@
       </tags>
   </entry>
   <entry>
-    <title>RoboCopy - Windows 超實用管理檔案指令</title>
-    <url>/2022/06/02/Windows-RoboCopy-Commands/</url>
-    <content><![CDATA[<h1 id="RoboCopy"><a href="#RoboCopy" class="headerlink" title="RoboCopy"></a>RoboCopy</h1><p>RoboCopy 係一個多線程既檔案管理功具，意味著會比起你 <kbd>Ctrl</kbd>+<kbd>C</kbd> <kbd>Ctrl</kbd>+<kbd>V</kbd> 快幾倍。</p>
-<h1 id="假設情況"><a href="#假設情況" class="headerlink" title="假設情況"></a>假設情況</h1><p>當你管理超多 Files 既時候，你又想將佢分類，整理，Backup，但係入面有好多唔需要既檔案。<br>你要選擇性咁拉佢出黎 Backup，呢個操作哂你好多時間，呢個時候可以用 RoboCopy，以下講解。</p>
-<h1 id="指令說明"><a href="#指令說明" class="headerlink" title="指令說明"></a>指令說明</h1><hr>
-<h2 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">robocopy &quot;你想入去既位置&quot; &quot;你要擺檔案既位置&quot; 你要擺乜檔案 參數</span><br></pre></td></tr></table></figure>
+    <title>Windows 10 系統 - 免啟動系統更改主題為黑暗</title>
+    <url>/2022/06/12/Windows-10-enabled-Dark-themes-without-Activation/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Windows 10 入面，如果你未啟動係用唔到一啲功能，<br>例如係轉唔到你既主題 (Themes)，<br>佢會話 “你必須先啟用 Windows，才能個人化電腦。”</p>
+<img src="/2022/06/12/Windows-10-enabled-Dark-themes-without-Activation/1.png" class="">
 
-<h2 id="示範-最基本"><a href="#示範-最基本" class="headerlink" title="示範 (最基本)"></a>示範 (最基本)</h2><p>最基本既示範 (無任何參數)</p>
-<ul>
-<li>Server (入去 “Server” 呢個位置)</li>
-<li>“Server” “assets/yoyo” (將野擺入 “Server assets/yoyo” 呢個位置入面)</li>
-<li>*.png (將所有副檔係 png 既檔案擺入 “Server assets/yoyo”)</li>
-</ul>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">robocopy Server &quot;Server assets/yoyo&quot; *.png</span><br></pre></td></tr></table></figure>
+<h2 id="開啟-Regedit"><a href="#開啟-Regedit" class="headerlink" title="開啟 Regedit"></a>開啟 Regedit</h2><p>首先我地喺 Windows 查 <code>regedit</code> (登錄檔)，</p>
+<blockquote>
+<p>注意 : 用系統管理員行程式係唔同用普通用戶行程式，兩個係分開，如果你改左喺系統管理員既野，咁只會喺管理員個 Account 度生效，並唔會喺普通用戶度生效。</p>
+</blockquote>
+<h2 id="進入路徑"><a href="#進入路徑" class="headerlink" title="進入路徑"></a>進入路徑</h2><p>黎到呢度我地入呢個 Paths，</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">電腦\HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize</span><br></pre></td></tr></table></figure>
 
-<h2 id="示範-參數加入"><a href="#示範-參數加入" class="headerlink" title="示範 (參數加入)"></a>示範 (參數加入)</h2><p>參數加入示範</p>
-<ul>
-<li>Server (入去 “Server” 呢個位置)</li>
-<li>“Server assets/yoyo” (將野擺入 “Server assets/yoyo” 呢個位置入面)</li>
-<li>*.png (將所有副檔係 png 既檔案擺入 “Server assets/yoyo”)</li>
-<li>/PURGE (即係會跟返你要求既來源檔既所有野都係一樣)</li>
-<li>/S (將 Folder 複製)</li>
-</ul>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">robocopy Server &quot;Server assets/yoyo&quot; *.png /PURGE /S</span><br></pre></td></tr></table></figure>
+<img src="/2022/06/12/Windows-10-enabled-Dark-themes-without-Activation/2.png" class="">
 
-<h2 id="進入其他-Storage"><a href="#進入其他-Storage" class="headerlink" title="進入其他 Storage"></a>進入其他 Storage</h2><p>成句意思係，入去 d drive，再入去 d drive 入面既 folder1，入到去再將所有 html files types，擺入去 e drive 入面既 folder2。</p>
-<ul>
-<li>d:folder1 (入 d drive 既 folder1)</li>
-<li>e:folder2 (將檔案擺入 e drive 既 folder2)</li>
-<li>*.html (指定淨係要 html files types)</li>
-</ul>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">robocopy d:folder1 e:folder2 *.html</span><br></pre></td></tr></table></figure>
+<h2 id="修改檔案"><a href="#修改檔案" class="headerlink" title="修改檔案"></a>修改檔案</h2><p>我地搵一舊叫做 <code>AppsUseLightTheme</code>，<br>將佢打開再將入面既數值改做 <code>0</code>。</p>
+<img src="/2022/06/12/Windows-10-enabled-Dark-themes-without-Activation/appsuselt.png" class="">
 
-
-<h1 id="實用參數"><a href="#實用參數" class="headerlink" title="實用參數"></a>實用參數</h1><hr>
-<h2 id="Folder-參數"><a href="#Folder-參數" class="headerlink" title="Folder 參數"></a>Folder 參數</h2><ul>
-<li>/XD (排除 Folder)</li>
-<li>/PURGE (會跟返你要求既來源檔既所有野都係一樣)</li>
-<li>/S (Folder 複製，唔加就唔會 copy Folder，淨係 copy files)</li>
-<li>/MOVE (移動 Folder 同 files)</li>
-<li>/E 複製空既 Folder</li>
-</ul>
-<h2 id="Files-參數"><a href="#Files-參數" class="headerlink" title="Files 參數"></a>Files 參數</h2><ul>
-<li>/XF (排除 files)</li>
-<li>/PURGE (會跟返你要求既來源檔既所有野都係一樣)</li>
-<li>/MOV (移動 files)</li>
-<li>/MOVE (移動 Folder 同 files)</li>
-</ul>
-<p>參考資料 :<br><a href="http://www.happystreet.com.tw/index.php/system-dynamic-teaching/windows/247-examples-robocopy-command-reference-mir-many-problems-with-care-1">http://www.happystreet.com.tw/index.php/system-dynamic-teaching/windows/247-examples-robocopy-command-reference-mir-many-problems-with-care-1</a></p>
-]]></content>
+<h2 id="成功"><a href="#成功" class="headerlink" title="成功"></a>成功</h2><p>當你改完撳確定，<br>你會發現已經幫你轉左做 Dark Themes。</p>
+<img src="/2022/06/12/Windows-10-enabled-Dark-themes-without-Activation/done.png" class="">]]></content>
       <categories>
         <category>Windows</category>
       </categories>
       <tags>
-        <tag>指令</tag>
-        <tag>Batch</tag>
-        <tag>RoboCopy</tag>
+        <tag>撳制</tag>
       </tags>
   </entry>
   <entry>
@@ -7507,122 +7623,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Windows - 改變 DNS 位置</title>
-    <url>/2022/06/13/Windows-Change-DNS-Settings/</url>
-    <content><![CDATA[<h1 id="什麼是-DNS？"><a href="#什麼是-DNS？" class="headerlink" title="什麼是 DNS？"></a>什麼是 DNS？</h1><p><span style="font-size:larger;"><strong>根據 Cloudeflare 所說 :</strong></span></p>
-<p>網域名稱系統 （DNS） 是網際網路的電話簿，<br>人們透過例如 nytimes.com 或 espn.com 等網域名稱線上存取資訊。<br>Web 瀏覽器透過 網際網路通訊協定 （IP） 位址進行互動。<br>DNS 將網域名稱轉換為 IP 位址，以便瀏覽器能夠載入網際網路資源。</p>
-<h1 id="為何要改變-DNS-位置？"><a href="#為何要改變-DNS-位置？" class="headerlink" title="為何要改變 DNS 位置？"></a>為何要改變 DNS 位置？</h1><p><span style="font-size:larger;"><strong>原因一 : 私隱問題</strong></span></p>
-<p>我們預設使用的 DNS 位置是由網路供應商提供的，<br>這個意味著如果這個位置是有用到記錄的操作，<br>網路供應商是可以知道你在上什麼網站。<br>因此，我們要使用其他 DNS 位置，<br>將你上網的匿名性加強。</p>
-<p><span style="font-size:larger;"><strong>原因二 : 速度問題</strong></span></p>
-<p>加強你上網的速度，<br>使用 Cloudflare DNS 使你上網速度更快，<br>公司聲稱會於24小時內由系統自動刪除記錄，<br>然而世界上最快的 DNS 位置是由 Cloudflare 提供的<br><code>1.1.1.1</code> 和 <code>1.0.0.1</code> 位置 (ipv4)。</p>
-<p><span style="font-size:larger;"><strong>原因三 : 保安問題</strong></span><br>使用不同的 DNS 位置，<br>例如 VPN 供應商提供的 DNS 位置，<br>他們會於伺服器內設立防火牆，<br>當你可能進入了他們的黑名單網站 (有毒網站)，<br>這樣就可以防止你進入了不明網站 (有毒網站)，<br>從而加強了你上網的保護。</p>
-<h1 id="為何不使用預設-DNS-位置？"><a href="#為何不使用預設-DNS-位置？" class="headerlink" title="為何不使用預設 DNS 位置？"></a>為何不使用預設 DNS 位置？</h1><p>簡單一句說完，<br>就是以上的三個原因，沒有一樣是預設 DNS 有的。</p>
-<ul>
-<li>他會追蹤你上網</li>
-<li>可以隨便封鎖你上什麼網站</li>
-<li>速度不及其他 DNS Server</li>
-<li>沒有為你設立任何的保安</li>
-</ul>
-<h2 id="開始教學-前言"><a href="#開始教學-前言" class="headerlink" title="開始教學 (前言)"></a>開始教學 (前言)</h2><p><span style="font-size:larger;"><strong>本篇文章使用 Windows 10 系統示範。</strong></span></p>
-<p>以下教學如果你是使用 Windows 7 / 11 系統的話，<br>方法大同小異，<br>分別是 <code>網路和網際網路</code> 的位置不同的開啟方法，</p>
-<h3 id="開啟設定"><a href="#開啟設定" class="headerlink" title="開啟設定"></a>開啟設定</h3><p>首先請按右下角電腦的 <i class="fa-brands fa-windows"></i><br>然後再按 <i class="fa-solid fa-gear"></i></p>
-<img src="/2022/06/13/Windows-Change-DNS-Settings/open-settings.png" class="">
-
-<h3 id="網路和網際網路"><a href="#網路和網際網路" class="headerlink" title="網路和網際網路"></a>網路和網際網路</h3><p>到此畫面後，請按下 <code>網路和網際網路</code>。</p>
-<img src="/2022/06/13/Windows-Change-DNS-Settings/settings.png" class="">
-
-<h3 id="變更介面卡選項"><a href="#變更介面卡選項" class="headerlink" title="變更介面卡選項"></a>變更介面卡選項</h3><p>到此畫面後，請按下 <code>變更介面卡選項</code>。</p>
-<img src="/2022/06/13/Windows-Change-DNS-Settings/status.png" class="">
-
-<h3 id="網路連線"><a href="#網路連線" class="headerlink" title="網路連線"></a>網路連線</h3><p>到此畫面後，請尋找你上網的位置 (通常是 <code>乙太網路</code>)，<br>找到之後請跟以下步驟 :</p>
-<blockquote>
-<p>注意 : 以下步驟需要使用 <code>系統管理員</code></p>
-</blockquote>
-<ol>
-<li>按下右鍵</li>
-<li>按下最底的 <code>內容(R)</code></li>
-</ol>
-<img src="/2022/06/13/Windows-Change-DNS-Settings/r.png" class="">
-
-<h3 id="乙太網路-內容-1-IPV4"><a href="#乙太網路-內容-1-IPV4" class="headerlink" title="乙太網路 內容 (1) - IPV4"></a>乙太網路 內容 (1) - IPV4</h3><p>到此畫面後，請在中間拉下去尋找這個東西 :</p>
-<ul>
-<li><strong>網路網際通訊協定第 4 版 (TCP/IPV4)</strong></li>
-</ul>
-<img src="/2022/06/13/Windows-Change-DNS-Settings/content.png" class="">
-
-<h3 id="乙太網路-內容-2-IPV4"><a href="#乙太網路-內容-2-IPV4" class="headerlink" title="乙太網路 內容 (2) - IPV4"></a>乙太網路 內容 (2) - IPV4</h3><p>找到之後請對他左鍵一下，<br>然後再按下面的 <code>內容(R)</code></p>
-<img src="/2022/06/13/Windows-Change-DNS-Settings/RR.png" class="">
-
-<h2 id="網路網路通訊協定第-4-版-TCP-IPV4-內容"><a href="#網路網路通訊協定第-4-版-TCP-IPV4-內容" class="headerlink" title="網路網路通訊協定第 4 版 (TCP/IPV4) - 內容"></a>網路網路通訊協定第 4 版 (TCP/IPV4) - 內容</h2><p>到此畫面後，是真正修改 DNS 位置的時候了 ~~</p>
-<img src="/2022/06/13/Windows-Change-DNS-Settings/ipv4.png" class="">
-
-<h2 id="網路網路通訊協定第-4-版-TCP-IPV4-修改"><a href="#網路網路通訊協定第-4-版-TCP-IPV4-修改" class="headerlink" title="網路網路通訊協定第 4 版 (TCP/IPV4) - 修改"></a>網路網路通訊協定第 4 版 (TCP/IPV4) - 修改</h2><p>按下 <strong><code>使用下列的 DNS 伺服器位置(E):</code></strong><br>接下來你可以選擇你想用的 DNS 供應商。</p>
-<p><strong><span style="font-size:larger;">Google Public DNS IP addresses</span></strong></p>
-<h3 id="Google-公共-DNS-IP-地址-IPv4-如下："><a href="#Google-公共-DNS-IP-地址-IPv4-如下：" class="headerlink" title="Google 公共 DNS IP 地址 (IPv4) 如下："></a>Google 公共 DNS IP 地址 (IPv4) 如下：</h3><ul>
-<li>8.8.8.8</li>
-<li>8.8.4.4</li>
-</ul>
-<p>輸入完成後按下確定即可。</p>
-<img src="/2022/06/13/Windows-Change-DNS-Settings/change.png" class="">
-
-<h3 id="Cloudflare-公共-DNS-IP-地址-IPv4-如下："><a href="#Cloudflare-公共-DNS-IP-地址-IPv4-如下：" class="headerlink" title="Cloudflare 公共 DNS IP 地址 (IPv4) 如下："></a>Cloudflare 公共 DNS IP 地址 (IPv4) 如下：</h3><ul>
-<li>1.1.1.1</li>
-<li>1.0.0.1</li>
-</ul>
-<p>輸入完成後按下確定即可。</p>
-<img src="/2022/06/13/Windows-Change-DNS-Settings/change-2.png" class="">
-
-
-<h3 id="乙太網路-內容-1-IPV6"><a href="#乙太網路-內容-1-IPV6" class="headerlink" title="乙太網路 內容 (1) - IPV6"></a>乙太網路 內容 (1) - IPV6</h3><p>接下來我們跟剛剛一樣做法，<br>這次是修改 IPV6 位置，<br>將剛剛的視窗關閉，<br>然後尋找 :</p>
-<ul>
-<li><strong>網路網際通訊協定第 6 版 (TCP/IPV6)</strong></li>
-</ul>
-<img src="/2022/06/13/Windows-Change-DNS-Settings/ipv6.png" class="">
-
-<h2 id="乙太網路-內容-2-IPV6"><a href="#乙太網路-內容-2-IPV6" class="headerlink" title="乙太網路 內容 (2) - IPV6"></a>乙太網路 內容 (2) - IPV6</h2><p>按下 <strong><code>內容(R)</code></strong> 後，<br>按下 <strong><code>使用下列的 DNS 伺服器位置(E):</code></strong></p>
-<h3 id="Cloudflare-公共-DNS-IP-地址-IPv6-如下："><a href="#Cloudflare-公共-DNS-IP-地址-IPv6-如下：" class="headerlink" title="Cloudflare 公共 DNS IP 地址 (IPv6) 如下："></a>Cloudflare 公共 DNS IP 地址 (IPv6) 如下：</h3><ul>
-<li>2606:4700:4700::1111</li>
-<li>2606:4700:4700::1001</li>
-</ul>
-<p>輸入完成後按下確定即可。</p>
-<img src="/2022/06/13/Windows-Change-DNS-Settings/ipv66.png" class="">
-
-<h3 id="Google-公共-DNS-IP-地址-IPv6-如下："><a href="#Google-公共-DNS-IP-地址-IPv6-如下：" class="headerlink" title="Google 公共 DNS IP 地址 (IPv6) 如下："></a>Google 公共 DNS IP 地址 (IPv6) 如下：</h3><ul>
-<li>2001:4860:4860::8888</li>
-<li>2001:4860:4860::8844</li>
-</ul>
-<p>輸入完成後按下確定即可。</p>
-<img src="/2022/06/13/Windows-Change-DNS-Settings/ip6.png" class="">
-
-<h2 id="完畢"><a href="#完畢" class="headerlink" title="完畢"></a>完畢</h2><p>教學完畢。</p>
-<p><span style="font-size:larger;"><strong>以下整合位置 :</strong></span></p>
-<h3 id="Cloudflare-公共-DNS-IP-地址-IPv4-如下：-1"><a href="#Cloudflare-公共-DNS-IP-地址-IPv4-如下：-1" class="headerlink" title="Cloudflare 公共 DNS IP 地址 (IPv4) 如下："></a>Cloudflare 公共 DNS IP 地址 (IPv4) 如下：</h3><ul>
-<li>1.1.1.1</li>
-<li>1.0.0.1</li>
-</ul>
-<h3 id="Cloudflare-公共-DNS-IP-地址-IPv6-如下：-1"><a href="#Cloudflare-公共-DNS-IP-地址-IPv6-如下：-1" class="headerlink" title="Cloudflare 公共 DNS IP 地址 (IPv6) 如下："></a>Cloudflare 公共 DNS IP 地址 (IPv6) 如下：</h3><ul>
-<li>2606:4700:4700::1111</li>
-<li>2606:4700:4700::1001</li>
-</ul>
-<h3 id="Google-公共-DNS-IP-地址-IPv6-如下：-1"><a href="#Google-公共-DNS-IP-地址-IPv6-如下：-1" class="headerlink" title="Google 公共 DNS IP 地址 (IPv6) 如下："></a>Google 公共 DNS IP 地址 (IPv6) 如下：</h3><ul>
-<li>2001:4860:4860::8888</li>
-<li>2001:4860:4860::8844</li>
-</ul>
-<h3 id="Google-公共-DNS-IP-地址-IPv4-如下：-1"><a href="#Google-公共-DNS-IP-地址-IPv4-如下：-1" class="headerlink" title="Google 公共 DNS IP 地址 (IPv4) 如下："></a>Google 公共 DNS IP 地址 (IPv4) 如下：</h3><ul>
-<li>8.8.8.8</li>
-<li>8.8.4.4</li>
-</ul>
-<h1 id="WTF"><a href="#WTF" class="headerlink" title="WTF"></a>WTF</h1><p>呢篇文寫左成兩個鐘…</p>
-<img src="/2022/06/13/Windows-Change-DNS-Settings/cls.png" class="">]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>撳制</tag>
-        <tag>DNS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>YubiKeys USB Security Key - 硬件認證裝置</title>
     <url>/2022/05/30/YubiKeys-Hardware/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>假設電腦一早已經俾人入侵左既時候，<br>而你呢個時候又用電腦黎登入唔同既野，<br>咁樣 Hacker (入侵者)，<br>就會好易拎到你既密碼，<br>拎到之後就可以入去搞搞震。</p>
@@ -7658,6 +7658,47 @@
       <tags>
         <tag>Security</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>ImgBot - Compress your Repositories image size</title>
+    <url>/2022/07/04/add-imgbot-to-your-repositories/</url>
+    <content><![CDATA[<img src="imgbot.svg" width="200px"/>
+
+<h1 id="Imgbot"><a href="#Imgbot" class="headerlink" title="Imgbot"></a>Imgbot</h1><p>imgbot is a tool that compresses all the images in your repo, thereby reducing the image size required by the repo.</p>
+<ul>
+<li>if repo is open source, imgbot is free for you</li>
+<li>This is a gift from the github page (i think)</li>
+</ul>
+<h1 id="Install-Imgbot"><a href="#Install-Imgbot" class="headerlink" title="Install Imgbot"></a>Install Imgbot</h1><p>before start, We need to enter the official website of imgbot.</p>
+<pre><code>https://imgbot.net/
+</code></pre>
+<p><img src="1.png"></p>
+<hr>
+<h2 id="Install-Step-1-Try-for-free"><a href="#Install-Step-1-Try-for-free" class="headerlink" title="Install - Step 1 (Try for free)"></a>Install - Step 1 (Try for free)</h2><p>click the button <code>Try for free</code>.</p>
+<p><img src="2.png"></p>
+<h2 id="Install-Step-2-Set-up-a-free-trial"><a href="#Install-Step-2-Set-up-a-free-trial" class="headerlink" title="Install - Step 2 (Set up a free trial)"></a>Install - Step 2 (Set up a free trial)</h2><p>after that, we now will redirect to this page (look below image).</p>
+<p>now click the button <code>Set up a free trial</code>.</p>
+<pre><code>https://github.com/marketplace/imgbot
+</code></pre>
+<p><img src="3.png"></p>
+<h2 id="Install-Step-3-Price-and-setup"><a href="#Install-Step-3-Price-and-setup" class="headerlink" title="Install - Step 3 (Price and setup)"></a>Install - Step 3 (Price and setup)</h2><p>now, select the <code>Open source</code> item, and then click the <code>Install it for free</code> button.</p>
+<p><img src="4.png"></p>
+<h2 id="Install-Step-4-Review-your-order"><a href="#Install-Step-4-Review-your-order" class="headerlink" title="Install - Step 4 (Review your order)"></a>Install - Step 4 (Review your order)</h2><p>now,look your order, Check if there is any problem with your information, if not click the button <code>Complete order and begin installation</code>.</p>
+<p><img src="5.gif"></p>
+<h2 id="Install-Step-5-Install-Imgbot"><a href="#Install-Step-5-Install-Imgbot" class="headerlink" title="Install - Step 5 (Install Imgbot)"></a>Install - Step 5 (Install Imgbot)</h2><p>now, select what repo your what to install,in my case is only select one repo, that is my github page.</p>
+<p><img src="7.gif"></p>
+<h2 id="Install-Step-56-Authorize-Imgbot"><a href="#Install-Step-56-Authorize-Imgbot" class="headerlink" title="Install - Step 56 (Authorize Imgbot)"></a>Install - Step 56 (Authorize Imgbot)</h2><p>click the button <code>Authorize Imgbot</code>.</p>
+<div class="note info flat">
+    this step is for Requires your repo permissions.
+</div>
+
+<p><img src="8.gif"></p>
+<h2 id="Install-Done"><a href="#Install-Done" class="headerlink" title="Install - Done"></a>Install - Done</h2><p>finally, finish the install for your repo.</p>
+<p><img src="9.png"></p>
+<h1 id="Check-your-Account-Applications"><a href="#Check-your-Account-Applications" class="headerlink" title="Check your Account Applications"></a>Check your Account Applications</h1><p>right now you can go to your account settings,and then on below click the <code>Applications</code> button.</p>
+<p>after that, you can see the Imgbot has been added.</p>
+<p><img src="c.png"></p>
+]]></content>
   </entry>
   <entry>
     <title>Bettercap arp.spoof - ARP 欺騙攻擊工具</title>
@@ -10834,6 +10875,19 @@
       </tags>
   </entry>
   <entry>
+    <title>網站版本動向 - 2022.6.20 Start</title>
+    <url>/2022/06/20/this-blog-version/</url>
+    <content><![CDATA[<h1 id="2022-6-20-Main"><a href="#2022-6-20-Main" class="headerlink" title="2022.6.20 Main"></a>2022.6.20 Main</h1><ul>
+<li>正式加入 Google Analytics</li>
+<li>大量文章修改至更詳細</li>
+<li>小量不必要文章刪除</li>
+</ul>
+<h1 id="2022-6-22-Main"><a href="#2022-6-22-Main" class="headerlink" title="2022.6.22 Main"></a>2022.6.22 Main</h1><ul>
+<li>加入 Google AdSense</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>Traceroute 指令 - 追蹤封包傳遞</title>
     <url>/2022/02/03/traceroute-commands/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>簡單黎講，<br>就係睇你連線去呢個位置既時候，<br>會更 Detail 咁睇到，<br>會連到去既位置，</p>
@@ -10934,19 +10988,6 @@
       <tags>
         <tag>指令</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>網站版本動向 - 2022.6.20 Start</title>
-    <url>/2022/06/20/this-blog-version/</url>
-    <content><![CDATA[<h1 id="2022-6-20-Main"><a href="#2022-6-20-Main" class="headerlink" title="2022.6.20 Main"></a>2022.6.20 Main</h1><ul>
-<li>正式加入 Google Analytics</li>
-<li>大量文章修改至更詳細</li>
-<li>小量不必要文章刪除</li>
-</ul>
-<h1 id="2022-6-22-Main"><a href="#2022-6-22-Main" class="headerlink" title="2022.6.22 Main"></a>2022.6.22 Main</h1><ul>
-<li>加入 Google AdSense</li>
-</ul>
-]]></content>
   </entry>
   <entry>
     <title>Ubuntu - 安裝 Chromium</title>
@@ -11252,47 +11293,6 @@
       </tags>
   </entry>
   <entry>
-    <title>瀏覽器插件推薦 - 讓你的瀏覽器更美麗 (Themes)</title>
-    <url>/2022/02/08/web-extensions-themes/</url>
-    <content><![CDATA[<p align="center">
-    <img src="/img/Post/image/Browser/cover.png" width="auto" style="border-radius: 60%;"/>
-    <b><span style="font-size:larger;">瀏覽器插件</span></b>
-    <center>讓你的瀏覽器更美麗。</center>
-</p>
-
-<h1 id="主題類的瀏覽器插件推薦-排名不分先後"><a href="#主題類的瀏覽器插件推薦-排名不分先後" class="headerlink" title="主題類的瀏覽器插件推薦 (排名不分先後)"></a>主題類的瀏覽器插件推薦 (排名不分先後)</h1><p>以下連結會帶你去到官方網站或者 Github。</p>
-<ul>
-<li><a href="https://color.firefox.com/">Firefox Color</a></li>
-<li><a href="https://darkreader.org/">Dark Reader</a></li>
-</ul>
-<h2 id="1-Firefox-Color"><a href="#1-Firefox-Color" class="headerlink" title="1. Firefox Color"></a><a href="https://addons.mozilla.org/zh-TW/firefox/addon/firefox-color/">1. Firefox Color</a></h2><p>構建、保存和分享漂亮的 Firefox 主題。</p>
-<img src="/2022/02/08/web-extensions-themes/firefox%20color.png" class="">
-
-<hr>
-<h2 id="2-Dark-Rader"><a href="#2-Dark-Rader" class="headerlink" title="2. Dark Rader"></a><a href="https://addons.mozilla.org/en-US/firefox/addon/darkreader/">2. Dark Rader</a></h2><p>每個網站的暗模式。<br>照顧好你的眼睛，使用深色主題進行夜間和日常瀏覽。</p>
-<img src="/2022/02/08/web-extensions-themes/dark%20reader.png" class="">
-
-<hr style="border:2px solid grey"></hr>]]></content>
-      <categories>
-        <category>Browser</category>
-      </categories>
-      <tags>
-        <tag>Extensions</tag>
-        <tag>推薦</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>uBlock Origin - 黑名單名單</title>
-    <url>/2022/02/08/web-extensions-ublock-origin-list/</url>
-    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">!Youtube Cookies</span><br><span class="line">www.youtube.com##.opened</span><br><span class="line">www.youtube.com###dialog</span><br><span class="line">##.no-transition.yt-upsell-dialog-renderer.style-scope &gt; .yt-img-shadow.style-scope</span><br><span class="line"></span><br><span class="line">!Youtube Search With your voice</span><br><span class="line">###voice-search-button &gt; .size-default.style-default.ytd-masthead.style-scope &gt; .ytd-button-renderer.style-scope.yt-simple-endpoint &gt; .size-default.style-default.ytd-button-renderer.style-scope</span><br><span class="line">###voice-search-button</span><br><span class="line"></span><br><span class="line">!Google cookies</span><br><span class="line">www.google.com###i04Uwc</span><br><span class="line"></span><br><span class="line">##.TW_UTtoy</span><br><span class="line"></span><br><span class="line">!Jable.tv</span><br><span class="line">https://r.trwl1.com</span><br><span class="line">http://adserve.work</span><br><span class="line">http://dsj66.cn</span><br><span class="line">https://theporndude.com</span><br><span class="line">https://r.trwl1.com</span><br><span class="line">https://uuw73.com</span><br><span class="line">http://uus52.com</span><br><span class="line">https://r.trwl1.com</span><br><span class="line"></span><br><span class="line">!18av.mm-cg.com</span><br><span class="line">https://avapp.tv</span><br><span class="line">https://ioshow.mm-cg.com</span><br><span class="line">https://hhte18.com/</span><br><span class="line">https://ammcg.imgscloud.com</span><br><span class="line">https://bbs.mm-cg.com/</span><br><span class="line">https://52toy.cc/</span><br><span class="line">https://plumetoy.blogspot.com/</span><br><span class="line">https://lihi1.com/xixO2</span><br><span class="line">https://asex168.com</span><br><span class="line">https://asex0909316199.wixsite.com</span><br><span class="line">https://wwww.1919hdtv.com</span><br><span class="line">https://appdownload.1919hdtv.com</span><br><span class="line">http://www.homematch.com.tw </span><br><span class="line">https://m.asex168.com/</span><br><span class="line">18av.mm-cg.com##.TW_UTtoy</span><br><span class="line">18av.mm-cg.com###friendLink</span><br><span class="line">18av.mm-cg.com##.redbig</span><br><span class="line">18av.mm-cg.com###menu1Content &gt; .altto &gt; ul &gt; li</span><br><span class="line">18av.mm-cg.com##.ut_ad_box</span><br><span class="line">18av.mm-cg.com##span &gt; b</span><br><span class="line">18av.mm-cg.com##span:nth-of-type(4)</span><br><span class="line">18av.mm-cg.com##span:nth-of-type(7)</span><br><span class="line">18av.mm-cg.com##span:nth-of-type(5)</span><br><span class="line"></span><br><span class="line">!youav.com</span><br><span class="line">https://windycoding.com</span><br><span class="line"></span><br><span class="line">!Thisav</span><br><span class="line">https://thisav.54647.online</span><br><span class="line">https://click.dtiserv2.com</span><br><span class="line"></span><br><span class="line">!Avgle</span><br><span class="line">https://avgle.com</span><br><span class="line">https://javhd.com</span><br><span class="line">https://avgle.github.io</span><br><span class="line">http://www.poweredbyliquidfire.mobi</span><br><span class="line">https://l.tyrantdb.com</span><br><span class="line">http://avgle.io</span><br><span class="line">https://juicyads.in</span><br><span class="line"></span><br><span class="line">!Tube8</span><br><span class="line">https://www.tube8vip.com</span><br><span class="line">https://www.tube8.fr</span><br><span class="line">https://sexsimulator.game</span><br><span class="line">https://ads.trafficjunky.net</span><br><span class="line">http://as.sexad.net</span><br><span class="line">https://www.tube8.es</span><br><span class="line"></span><br><span class="line">!NetFlav</span><br><span class="line">https://netflav.com</span><br><span class="line">https://mitao69.pw</span><br><span class="line">http://cheersunny.com/</span><br><span class="line">https://mzone.pw</span><br><span class="line">https://yc13.net</span><br><span class="line">https://www.qingse.one/</span><br><span class="line">http://jzyh1.xyz</span><br><span class="line">http://kkdh7.top/</span><br><span class="line">https://nentt8.com/</span><br><span class="line">https://www.sejie8.xyz</span><br><span class="line">https://mimitd.com</span><br><span class="line">https://h365event.wine-api.net</span><br><span class="line"></span><br><span class="line">!Pornhub</span><br><span class="line">www.pornhub.com##.qkdfnhupjd</span><br><span class="line">www.pornhub.com###videoCategory &gt; .alpha</span><br><span class="line">www.pornhub.com##.backgroundImg</span><br><span class="line"></span><br><span class="line">! 2021-05-13 https://www.learnpython.org</span><br><span class="line">www.learnpython.org##.mt-2.d-lg-block.d-none.col-2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">!BingFeng</span><br><span class="line">bingfeng.tw##div:nth-of-type(14)</span><br><span class="line">bingfeng.tw##div:nth-of-type(10)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">! 2021-11-16 https://www.linetv.tw</span><br><span class="line">www.linetv.tw##.whitespace-nowrap.text-center.font-500.text-ffffff.bg-opacity-70.bg-000000.items-center.justify-center.flex-col.flex.inset-0.absolute</span><br><span class="line">www.linetv.tw###player_html5_api</span><br><span class="line">www.linetv.tw##.vjs-big-play-button</span><br><span class="line">www.linetv.tw##.vjs-user-active.vjs-v7.vjs-workinghover.vjs-controls-enabled.player-dimensions.vjs-paused.vjs-linetv.vjs-fill.vjs-big-play-centered.video-js</span><br><span class="line">www.linetv.tw##div.aspect-ratio-content</span><br><span class="line">www.linetv.tw##.bg-000000.aspect-ratio--16x9.aspect-ratio &gt; .object-cover.aspect-ratio-content</span><br><span class="line"></span><br><span class="line">! 2021-11-19 https://www.wealth.com.tw</span><br><span class="line">www.wealth.com.tw##.C4LHX</span><br><span class="line"></span><br><span class="line">! 2021-12-04 https://studymoose.com</span><br><span class="line">studymoose.com##.open.showPopup-1.popup-wrapper.popup &gt; .popup-wrapper__overlay</span><br><span class="line">studymoose.com##.open.showPopup-1.popup-wrapper.popup</span><br><span class="line"></span><br><span class="line">! 2021-12-09 https://gradesfixer.com</span><br><span class="line">gradesfixer.com##.exit-popup</span><br><span class="line"></span><br><span class="line">! 2021-12-16 https://lagunawang.pixnet.net</span><br><span class="line">lagunawang.pixnet.net##.not-full-page.content-wrap</span><br><span class="line">lagunawang.pixnet.net##.new-style</span><br><span class="line">lagunawang.pixnet.net###ad-full-page</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Browser</category>
-      </categories>
-      <tags>
-        <tag>Extensions</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>暗瘡成因</title>
     <url>/2022/01/26/why-make-acne/</url>
     <content><![CDATA[<h1 id="身體健康看面子，痘痘透露出的身體狀況"><a href="#身體健康看面子，痘痘透露出的身體狀況" class="headerlink" title="身體健康看面子，痘痘透露出的身體狀況"></a>身體健康看面子，痘痘透露出的身體狀況</h1><p>痘痘不只是年輕人的困擾，其實成年人也會深受其困擾，更有不少人是從青春期到成年都一直與痘痘對抗著。人的皮膚狀況能反映出身體是否健康，特別是臉上的皮膚狀況。痘痘的形成與日常生活作息有很大的關係，如果經常在某個部位長痘痘，可以藉由觀察痘痘的生長位置與形態，推測身體哪部分出了問題，調整生活型態以改善。</p>
@@ -11454,6 +11454,17 @@
       </tags>
   </entry>
   <entry>
+    <title>uBlock Origin - 黑名單名單</title>
+    <url>/2022/02/08/web-extensions-ublock-origin-list/</url>
+    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">!Youtube Cookies</span><br><span class="line">www.youtube.com##.opened</span><br><span class="line">www.youtube.com###dialog</span><br><span class="line">##.no-transition.yt-upsell-dialog-renderer.style-scope &gt; .yt-img-shadow.style-scope</span><br><span class="line"></span><br><span class="line">!Youtube Search With your voice</span><br><span class="line">###voice-search-button &gt; .size-default.style-default.ytd-masthead.style-scope &gt; .ytd-button-renderer.style-scope.yt-simple-endpoint &gt; .size-default.style-default.ytd-button-renderer.style-scope</span><br><span class="line">###voice-search-button</span><br><span class="line"></span><br><span class="line">!Google cookies</span><br><span class="line">www.google.com###i04Uwc</span><br><span class="line"></span><br><span class="line">##.TW_UTtoy</span><br><span class="line"></span><br><span class="line">!Jable.tv</span><br><span class="line">https://r.trwl1.com</span><br><span class="line">http://adserve.work</span><br><span class="line">http://dsj66.cn</span><br><span class="line">https://theporndude.com</span><br><span class="line">https://r.trwl1.com</span><br><span class="line">https://uuw73.com</span><br><span class="line">http://uus52.com</span><br><span class="line">https://r.trwl1.com</span><br><span class="line"></span><br><span class="line">!18av.mm-cg.com</span><br><span class="line">https://avapp.tv</span><br><span class="line">https://ioshow.mm-cg.com</span><br><span class="line">https://hhte18.com/</span><br><span class="line">https://ammcg.imgscloud.com</span><br><span class="line">https://bbs.mm-cg.com/</span><br><span class="line">https://52toy.cc/</span><br><span class="line">https://plumetoy.blogspot.com/</span><br><span class="line">https://lihi1.com/xixO2</span><br><span class="line">https://asex168.com</span><br><span class="line">https://asex0909316199.wixsite.com</span><br><span class="line">https://wwww.1919hdtv.com</span><br><span class="line">https://appdownload.1919hdtv.com</span><br><span class="line">http://www.homematch.com.tw </span><br><span class="line">https://m.asex168.com/</span><br><span class="line">18av.mm-cg.com##.TW_UTtoy</span><br><span class="line">18av.mm-cg.com###friendLink</span><br><span class="line">18av.mm-cg.com##.redbig</span><br><span class="line">18av.mm-cg.com###menu1Content &gt; .altto &gt; ul &gt; li</span><br><span class="line">18av.mm-cg.com##.ut_ad_box</span><br><span class="line">18av.mm-cg.com##span &gt; b</span><br><span class="line">18av.mm-cg.com##span:nth-of-type(4)</span><br><span class="line">18av.mm-cg.com##span:nth-of-type(7)</span><br><span class="line">18av.mm-cg.com##span:nth-of-type(5)</span><br><span class="line"></span><br><span class="line">!youav.com</span><br><span class="line">https://windycoding.com</span><br><span class="line"></span><br><span class="line">!Thisav</span><br><span class="line">https://thisav.54647.online</span><br><span class="line">https://click.dtiserv2.com</span><br><span class="line"></span><br><span class="line">!Avgle</span><br><span class="line">https://avgle.com</span><br><span class="line">https://javhd.com</span><br><span class="line">https://avgle.github.io</span><br><span class="line">http://www.poweredbyliquidfire.mobi</span><br><span class="line">https://l.tyrantdb.com</span><br><span class="line">http://avgle.io</span><br><span class="line">https://juicyads.in</span><br><span class="line"></span><br><span class="line">!Tube8</span><br><span class="line">https://www.tube8vip.com</span><br><span class="line">https://www.tube8.fr</span><br><span class="line">https://sexsimulator.game</span><br><span class="line">https://ads.trafficjunky.net</span><br><span class="line">http://as.sexad.net</span><br><span class="line">https://www.tube8.es</span><br><span class="line"></span><br><span class="line">!NetFlav</span><br><span class="line">https://netflav.com</span><br><span class="line">https://mitao69.pw</span><br><span class="line">http://cheersunny.com/</span><br><span class="line">https://mzone.pw</span><br><span class="line">https://yc13.net</span><br><span class="line">https://www.qingse.one/</span><br><span class="line">http://jzyh1.xyz</span><br><span class="line">http://kkdh7.top/</span><br><span class="line">https://nentt8.com/</span><br><span class="line">https://www.sejie8.xyz</span><br><span class="line">https://mimitd.com</span><br><span class="line">https://h365event.wine-api.net</span><br><span class="line"></span><br><span class="line">!Pornhub</span><br><span class="line">www.pornhub.com##.qkdfnhupjd</span><br><span class="line">www.pornhub.com###videoCategory &gt; .alpha</span><br><span class="line">www.pornhub.com##.backgroundImg</span><br><span class="line"></span><br><span class="line">! 2021-05-13 https://www.learnpython.org</span><br><span class="line">www.learnpython.org##.mt-2.d-lg-block.d-none.col-2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">!BingFeng</span><br><span class="line">bingfeng.tw##div:nth-of-type(14)</span><br><span class="line">bingfeng.tw##div:nth-of-type(10)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">! 2021-11-16 https://www.linetv.tw</span><br><span class="line">www.linetv.tw##.whitespace-nowrap.text-center.font-500.text-ffffff.bg-opacity-70.bg-000000.items-center.justify-center.flex-col.flex.inset-0.absolute</span><br><span class="line">www.linetv.tw###player_html5_api</span><br><span class="line">www.linetv.tw##.vjs-big-play-button</span><br><span class="line">www.linetv.tw##.vjs-user-active.vjs-v7.vjs-workinghover.vjs-controls-enabled.player-dimensions.vjs-paused.vjs-linetv.vjs-fill.vjs-big-play-centered.video-js</span><br><span class="line">www.linetv.tw##div.aspect-ratio-content</span><br><span class="line">www.linetv.tw##.bg-000000.aspect-ratio--16x9.aspect-ratio &gt; .object-cover.aspect-ratio-content</span><br><span class="line"></span><br><span class="line">! 2021-11-19 https://www.wealth.com.tw</span><br><span class="line">www.wealth.com.tw##.C4LHX</span><br><span class="line"></span><br><span class="line">! 2021-12-04 https://studymoose.com</span><br><span class="line">studymoose.com##.open.showPopup-1.popup-wrapper.popup &gt; .popup-wrapper__overlay</span><br><span class="line">studymoose.com##.open.showPopup-1.popup-wrapper.popup</span><br><span class="line"></span><br><span class="line">! 2021-12-09 https://gradesfixer.com</span><br><span class="line">gradesfixer.com##.exit-popup</span><br><span class="line"></span><br><span class="line">! 2021-12-16 https://lagunawang.pixnet.net</span><br><span class="line">lagunawang.pixnet.net##.not-full-page.content-wrap</span><br><span class="line">lagunawang.pixnet.net##.new-style</span><br><span class="line">lagunawang.pixnet.net###ad-full-page</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Browser</category>
+      </categories>
+      <tags>
+        <tag>Extensions</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Windows - Process Hacker 監控系統資源的工具</title>
     <url>/2022/01/09/windows-Process-Hacker-tools/</url>
     <content><![CDATA[<img src="/2022/01/09/windows-Process-Hacker-tools/ProcessHacker.png" class="">
@@ -11537,6 +11548,36 @@
       <categories>
         <category>工具介紹</category>
       </categories>
+  </entry>
+  <entry>
+    <title>瀏覽器插件推薦 - 讓你的瀏覽器更美麗 (Themes)</title>
+    <url>/2022/02/08/web-extensions-themes/</url>
+    <content><![CDATA[<p align="center">
+    <img src="/img/Post/image/Browser/cover.png" width="auto" style="border-radius: 60%;"/>
+    <b><span style="font-size:larger;">瀏覽器插件</span></b>
+    <center>讓你的瀏覽器更美麗。</center>
+</p>
+
+<h1 id="主題類的瀏覽器插件推薦-排名不分先後"><a href="#主題類的瀏覽器插件推薦-排名不分先後" class="headerlink" title="主題類的瀏覽器插件推薦 (排名不分先後)"></a>主題類的瀏覽器插件推薦 (排名不分先後)</h1><p>以下連結會帶你去到官方網站或者 Github。</p>
+<ul>
+<li><a href="https://color.firefox.com/">Firefox Color</a></li>
+<li><a href="https://darkreader.org/">Dark Reader</a></li>
+</ul>
+<h2 id="1-Firefox-Color"><a href="#1-Firefox-Color" class="headerlink" title="1. Firefox Color"></a><a href="https://addons.mozilla.org/zh-TW/firefox/addon/firefox-color/">1. Firefox Color</a></h2><p>構建、保存和分享漂亮的 Firefox 主題。</p>
+<img src="/2022/02/08/web-extensions-themes/firefox%20color.png" class="">
+
+<hr>
+<h2 id="2-Dark-Rader"><a href="#2-Dark-Rader" class="headerlink" title="2. Dark Rader"></a><a href="https://addons.mozilla.org/en-US/firefox/addon/darkreader/">2. Dark Rader</a></h2><p>每個網站的暗模式。<br>照顧好你的眼睛，使用深色主題進行夜間和日常瀏覽。</p>
+<img src="/2022/02/08/web-extensions-themes/dark%20reader.png" class="">
+
+<hr style="border:2px solid grey"></hr>]]></content>
+      <categories>
+        <category>Browser</category>
+      </categories>
+      <tags>
+        <tag>Extensions</tag>
+        <tag>推薦</tag>
+      </tags>
   </entry>
   <entry>
     <title>Windows 指令 - Tracert 追蹤封包傳遞</title>
@@ -12262,6 +12303,73 @@
       </tags>
   </entry>
   <entry>
+    <title>yt-dlp - 下載影片或音樂</title>
+    <url>/2022/05/28/yt-dlp-commands/</url>
+    <content><![CDATA[<img alt="yt-dlp" src="cover.svg" width="auto"/>
+
+<h1 id="Youtube-dl"><a href="#Youtube-dl" class="headerlink" title="Youtube-dl "></a>Youtube-dl <i class="fa-brands fa-youtube"></i></h1><p>yt-dlp 係一個 youtube-dl 既加強版本，基本上所有功能都比起原本既 youtube-dl 好好多，例如喺下載速度方面，因為 youtube-dl 係用單線程，而 yt-dlp 呢邊就係用緊多線程下載，所以速度方面係快好撚多。<br>另外，喺更新速度方面，佢比起 youtube-dl 本身既快好多倍。指令方面會比起 youtube-dl 本身仲多左。</p>
+<h2 id="第三方程式"><a href="#第三方程式" class="headerlink" title="第三方程式 "></a>第三方程式 <i class="fa-brands fa-youtube"></i></h2><p>因應 youtube-dl 係開源 github 作品，所以出現左好多唔同版本由社群創造既版本，以下係三個作品既分別資訊</p>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>更新速度</th>
+<th>連接方法</th>
+<th>支援系統</th>
+<th>指令分別</th>
+<th>介面</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://github.com/ytdl-org/youtube-dl">Youtube-dl</a></td>
+<td>超慢</td>
+<td>單線程</td>
+<td>Linux, Mac, Windows</td>
+<td>唔夠 yt-dlp 多指令</td>
+<td>指令操作，白色字顯示</td>
+</tr>
+<tr>
+<td><a href="https://github.com/yt-dlp/yt-dlp">yt-dlp</a></td>
+<td>頻繁</td>
+<td>多線程</td>
+<td>Linux, Mac, Windows</td>
+<td>比起 youtube-dl 多指令</td>
+<td>指令操作，顏色字顯示</td>
+</tr>
+<tr>
+<td><a href="https://github.com/jely2002/youtube-dl-gui">youtube-dl-gui</a></td>
+<td>似乎已停更</td>
+<td>Unknown</td>
+<td>Mac, Windows</td>
+<td>圖形用戶介面</td>
+<td>圖形用戶介面</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="多線程下載影片"><a href="#多線程下載影片" class="headerlink" title="多線程下載影片"></a>多線程下載影片</h1><p>其實呢個指令係唔洗打都得，因為佢預設係已經會用多線程下載，不過你想指定既數字咁下載就用啦 ~~</p>
+<p><code>--concurrent-fragments [number]</code> 使用你想要的線程下載影片。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yt-dlp [link] --concurrent-fragments (number)</span><br></pre></td></tr></table></figure>
+
+<p><strong>例子 :</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yt-dlp --concurrent-fragments 10 https://www.youtube.com/watch?v=d59Qe_Ov2k8</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="改變下載速度"><a href="#改變下載速度" class="headerlink" title="改變下載速度"></a>改變下載速度</h1><p>下載片既時候係會用左你既頻寛 (流量)，呢個時候就會將你部機既上網變慢左，<br>咁有可能會造成你上網既體驗變差左，呢個時候就可以用呢個指令去指定你想要既速度。</p>
+<p><code>--throttled-rate [number]K</code> 限制使用你想要的速度下載影片。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yt-dlp [link] --throttled-rate [number]K</span><br></pre></td></tr></table></figure>
+
+<p><strong>例子 :</strong></p>
+<p>限制使用 100K 下載影片。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yt-dlp --throttled-rate 100K https://www.youtube.com/watch?v=d59Qe_Ov2k8</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>youtube-dl</category>
+      </categories>
+      <tags>
+        <tag>指令</tag>
+        <tag>Cheat Sheet</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Youtube-dl - 下載影片或音樂</title>
     <url>/2021/12/11/youtube-dl-commands/</url>
     <content><![CDATA[<img src="youtube.png" width="200px"/>
@@ -12655,73 +12763,6 @@
 <li>2022-06-30 (修改內文至更易明白)</li>
 </ul>
 ]]></content>
-      <categories>
-        <category>youtube-dl</category>
-      </categories>
-      <tags>
-        <tag>指令</tag>
-        <tag>Cheat Sheet</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>yt-dlp - 下載影片或音樂</title>
-    <url>/2022/05/28/yt-dlp-commands/</url>
-    <content><![CDATA[<img alt="yt-dlp" src="cover.svg" width="auto"/>
-
-<h1 id="Youtube-dl"><a href="#Youtube-dl" class="headerlink" title="Youtube-dl "></a>Youtube-dl <i class="fa-brands fa-youtube"></i></h1><p>yt-dlp 係一個 youtube-dl 既加強版本，基本上所有功能都比起原本既 youtube-dl 好好多，例如喺下載速度方面，因為 youtube-dl 係用單線程，而 yt-dlp 呢邊就係用緊多線程下載，所以速度方面係快好撚多。<br>另外，喺更新速度方面，佢比起 youtube-dl 本身既快好多倍。指令方面會比起 youtube-dl 本身仲多左。</p>
-<h2 id="第三方程式"><a href="#第三方程式" class="headerlink" title="第三方程式 "></a>第三方程式 <i class="fa-brands fa-youtube"></i></h2><p>因應 youtube-dl 係開源 github 作品，所以出現左好多唔同版本由社群創造既版本，以下係三個作品既分別資訊</p>
-<table>
-<thead>
-<tr>
-<th>版本</th>
-<th>更新速度</th>
-<th>連接方法</th>
-<th>支援系統</th>
-<th>指令分別</th>
-<th>介面</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a href="https://github.com/ytdl-org/youtube-dl">Youtube-dl</a></td>
-<td>超慢</td>
-<td>單線程</td>
-<td>Linux, Mac, Windows</td>
-<td>唔夠 yt-dlp 多指令</td>
-<td>指令操作，白色字顯示</td>
-</tr>
-<tr>
-<td><a href="https://github.com/yt-dlp/yt-dlp">yt-dlp</a></td>
-<td>頻繁</td>
-<td>多線程</td>
-<td>Linux, Mac, Windows</td>
-<td>比起 youtube-dl 多指令</td>
-<td>指令操作，顏色字顯示</td>
-</tr>
-<tr>
-<td><a href="https://github.com/jely2002/youtube-dl-gui">youtube-dl-gui</a></td>
-<td>似乎已停更</td>
-<td>Unknown</td>
-<td>Mac, Windows</td>
-<td>圖形用戶介面</td>
-<td>圖形用戶介面</td>
-</tr>
-</tbody></table>
-<hr>
-<h1 id="多線程下載影片"><a href="#多線程下載影片" class="headerlink" title="多線程下載影片"></a>多線程下載影片</h1><p>其實呢個指令係唔洗打都得，因為佢預設係已經會用多線程下載，不過你想指定既數字咁下載就用啦 ~~</p>
-<p><code>--concurrent-fragments [number]</code> 使用你想要的線程下載影片。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yt-dlp [link] --concurrent-fragments (number)</span><br></pre></td></tr></table></figure>
-
-<p><strong>例子 :</strong></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yt-dlp --concurrent-fragments 10 https://www.youtube.com/watch?v=d59Qe_Ov2k8</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h1 id="改變下載速度"><a href="#改變下載速度" class="headerlink" title="改變下載速度"></a>改變下載速度</h1><p>下載片既時候係會用左你既頻寛 (流量)，呢個時候就會將你部機既上網變慢左，<br>咁有可能會造成你上網既體驗變差左，呢個時候就可以用呢個指令去指定你想要既速度。</p>
-<p><code>--throttled-rate [number]K</code> 限制使用你想要的速度下載影片。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yt-dlp [link] --throttled-rate [number]K</span><br></pre></td></tr></table></figure>
-
-<p><strong>例子 :</strong></p>
-<p>限制使用 100K 下載影片。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yt-dlp --throttled-rate 100K https://www.youtube.com/watch?v=d59Qe_Ov2k8</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>youtube-dl</category>
       </categories>
