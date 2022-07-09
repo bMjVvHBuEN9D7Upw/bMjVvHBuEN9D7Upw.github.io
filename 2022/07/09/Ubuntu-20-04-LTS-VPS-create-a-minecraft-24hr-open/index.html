@@ -1,0 +1,402 @@
+<!DOCTYPE html><html lang="zh-TW" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Ubuntu 20.04 LTS VPS - 建立 Minecraft 伺服器並廿四小時開放不停止 | Halohalo :3</title><meta name="keywords" content="Games,Server,Digitalocean"><meta name="author" content="Halohalo :3"><meta name="copyright" content="Halohalo :3"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="開啟伺服器需求如要開啟伺服器，必須開放目前主機的 IP 位置並且開放一個 Port 位置讓其他人可以進入到你的伺服器。本篇文章會使用以下的工具開啟 Minecraft 伺服器 ~  VPS Server - 2Ram 的配置 SSH 連接工具 (必要) Filezilla - Gui 工具放置檔案用 (可選) SCP - 指令放置檔案用 (可選) Java Edition server - M">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu 20.04 LTS VPS - 建立 Minecraft 伺服器並廿四小時開放不停止">
+<meta property="og:url" content="https://bmjvvhbuen9d7upw.github.io/2022/07/09/Ubuntu-20-04-LTS-VPS-create-a-minecraft-24hr-open/index.html">
+<meta property="og:site_name" content="Halohalo :3">
+<meta property="og:description" content="開啟伺服器需求如要開啟伺服器，必須開放目前主機的 IP 位置並且開放一個 Port 位置讓其他人可以進入到你的伺服器。本篇文章會使用以下的工具開啟 Minecraft 伺服器 ~  VPS Server - 2Ram 的配置 SSH 連接工具 (必要) Filezilla - Gui 工具放置檔案用 (可選) SCP - 指令放置檔案用 (可選) Java Edition server - M">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://bmjvvhbuen9d7upw.github.io/img/Post/image/Ubuntu/cover.png">
+<meta property="article:published_time" content="2022-07-09T09:13:09.000Z">
+<meta property="article:modified_time" content="2022-07-09T18:00:31.843Z">
+<meta property="article:author" content="Halohalo :3">
+<meta property="article:tag" content="Games">
+<meta property="article:tag" content="Server">
+<meta property="article:tag" content="Digitalocean">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bmjvvhbuen9d7upw.github.io/img/Post/image/Ubuntu/cover.png"><link rel="shortcut icon" href="/img/lala.png"><link rel="canonical" href="https://bmjvvhbuen9d7upw.github.io/2022/07/09/Ubuntu-20-04-LTS-VPS-create-a-minecraft-24hr-open/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-4975299875131134',
+  enable_page_level_ads: 'true'
+});</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-76ZCQXT5Q5"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-76ZCQXT5Q5');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查詢的內容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":500},
+  copy: {
+    success: '複製成功',
+    error: '複製錯誤',
+    noSupport: '瀏覽器不支援'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '剛剛',
+    min: '分鐘前',
+    hour: '小時前',
+    day: '天前',
+    month: '個月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Ubuntu 20.04 LTS VPS - 建立 Minecraft 伺服器並廿四小時開放不停止',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-07-10 02:00:31'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" /><meta name="generator" content="Hexo 6.0.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">Loading ...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/lala.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">291</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">標籤</div><div class="length-num">92</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分類</div><div class="length-num">65</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Post</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> Linux</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Kali/"><span> Kali Linux</span></a></li><li><a class="site-page child" href="/categories/Arch-Linux/"><span> Arch Linux</span></a></li><li><a class="site-page child" href="/categories/Debian/"><span> Debian Linux</span></a></li><li><a class="site-page child" href="/categories/Manjaro/"><span> Manjaro Linux</span></a></li><li><a class="site-page child" href="/categories/Gnome/"><span> Gnome</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> Hacking</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Kali/"><span> Kali Linux</span></a></li><li><a class="site-page child" href="/categories/Metasploit/"><span> Metasploit</span></a></li><li><a class="site-page child" href="/categories/Reverse-engineering/"><span> Reverse Engineering</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> Programming</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Android-Studio/"><i class="fa-fw fa-brands fa-android"></i><span> Android Studio</span></a></li><li><a class="site-page child" href="/tags/Python/"><i class="fa-fw fa-brands fa-python"></i><span> Python</span></a></li><li><a class="site-page child" href="/tags/Java/"><i class="fa-fw fa-brands fa-java"></i><span> Java</span></a></li><li><a class="site-page child" href="/tags/CSharp/"><span> C#</span></a></li><li><a class="site-page child" href="/tags/C/"><span> C++</span></a></li><li><a class="site-page child" href="/tags/Javascript/"><i class="fa-fw fa-brands fa-js"></i><span> Javascript</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> Games</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Counter-Strike-1-6/"><span> Counter Strike 1.6</span></a></li><li><a class="site-page child" href="/categories/Counter-Strike-Global-Offensive/"><span> Counter-Strike Global Offensive</span></a></li><li><a class="site-page child" href="/categories/Minecraft/"><span> Minecraft</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/nothing/"><i class="fa-fw fa fa-clipboard"></i><span> Todo</span></a></div><div class="menus_item"><a class="site-page" href="/thisav/"><span> AV list</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-user"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/2022/07/09/Ubuntu-20-04-LTS-VPS-create-a-minecraft-24hr-open/top_img.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Halohalo :3</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Post</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> Linux</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Kali/"><span> Kali Linux</span></a></li><li><a class="site-page child" href="/categories/Arch-Linux/"><span> Arch Linux</span></a></li><li><a class="site-page child" href="/categories/Debian/"><span> Debian Linux</span></a></li><li><a class="site-page child" href="/categories/Manjaro/"><span> Manjaro Linux</span></a></li><li><a class="site-page child" href="/categories/Gnome/"><span> Gnome</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> Hacking</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Kali/"><span> Kali Linux</span></a></li><li><a class="site-page child" href="/categories/Metasploit/"><span> Metasploit</span></a></li><li><a class="site-page child" href="/categories/Reverse-engineering/"><span> Reverse Engineering</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> Programming</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Android-Studio/"><i class="fa-fw fa-brands fa-android"></i><span> Android Studio</span></a></li><li><a class="site-page child" href="/tags/Python/"><i class="fa-fw fa-brands fa-python"></i><span> Python</span></a></li><li><a class="site-page child" href="/tags/Java/"><i class="fa-fw fa-brands fa-java"></i><span> Java</span></a></li><li><a class="site-page child" href="/tags/CSharp/"><span> C#</span></a></li><li><a class="site-page child" href="/tags/C/"><span> C++</span></a></li><li><a class="site-page child" href="/tags/Javascript/"><i class="fa-fw fa-brands fa-js"></i><span> Javascript</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> Games</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Counter-Strike-1-6/"><span> Counter Strike 1.6</span></a></li><li><a class="site-page child" href="/categories/Counter-Strike-Global-Offensive/"><span> Counter-Strike Global Offensive</span></a></li><li><a class="site-page child" href="/categories/Minecraft/"><span> Minecraft</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/nothing/"><i class="fa-fw fa fa-clipboard"></i><span> Todo</span></a></div><div class="menus_item"><a class="site-page" href="/thisav/"><span> AV list</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-user"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Ubuntu 20.04 LTS VPS - 建立 Minecraft 伺服器並廿四小時開放不停止</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">發表於</span><time class="post-meta-date-created" datetime="2022-07-09T09:13:09.000Z" title="發表於 2022-07-09 17:13:09">2022-07-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新於</span><time class="post-meta-date-updated" datetime="2022-07-09T18:00:31.843Z" title="更新於 2022-07-10 02:00:31">2022-07-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Minecraft/">Minecraft</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="cover.png" width="200px"/>
+
+<h1 id="開啟伺服器需求"><a href="#開啟伺服器需求" class="headerlink" title="開啟伺服器需求"></a>開啟伺服器需求</h1><p>如要開啟伺服器，必須開放目前主機的 IP 位置並且開放一個 Port 位置讓其他人可以進入到你的伺服器。<br>本篇文章會使用以下的工具開啟 Minecraft 伺服器 ~</p>
+<ul>
+<li>VPS Server - 2Ram 的配置</li>
+<li>SSH 連接工具 (必要)</li>
+<li>Filezilla - Gui 工具放置檔案用 (可選)</li>
+<li>SCP - 指令放置檔案用 (可選)</li>
+<li>Java Edition server - Mincecraft 必須要用 (必要)</li>
+<li>Screen (後台運行伺服器程式) (必要)</li>
+</ul>
+<h1 id="第一步-新增新的-Project"><a href="#第一步-新增新的-Project" class="headerlink" title="第一步 - 新增新的 Project"></a>第一步 - 新增新的 Project</h1><p>這邊我會使用 <a target="_blank" rel="noopener" href="https://www.digitalocean.com/">DigitalOcean</a>，申請和輸入付款資料就不多說明了，如果連申請帳號都不懂，那麼真的很難繼續下去…</p>
+<p>直接跳到主頁，首先新增一個用來建立 VPS 的 Project，名稱和資料隨便就好了，你認到就可以。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="1-1.png"></p>
+<h2 id="第二步-新增-VPS-Server"><a href="#第二步-新增-VPS-Server" class="headerlink" title="第二步 - 新增 VPS Server"></a>第二步 - 新增 VPS Server</h2><p>於右上角按 <code>Create</code> 後按下第一個選項 <code>Droplets</code>。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="1.png"></p>
+<h2 id="第三步-選擇伺服器-Distro"><a href="#第三步-選擇伺服器-Distro" class="headerlink" title="第三步 - 選擇伺服器 Distro"></a>第三步 - 選擇伺服器 Distro</h2><p>這邊會示範使用 Ubuntu 20.04 LTS x64 版本，選擇他就繼續下一步 ~</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="2.png"></p>
+<h2 id="第三步-選擇伺服器配置"><a href="#第三步-選擇伺服器配置" class="headerlink" title="第三步 - 選擇伺服器配置"></a>第三步 - 選擇伺服器配置</h2><p>配置的方面，Minecraft 伺服器需要最低 2Ram … 選擇 $12/mo 的配置方案。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="3.png"></p>
+<h2 id="第四步-額外硬碟空間"><a href="#第四步-額外硬碟空間" class="headerlink" title="第四步 - 額外硬碟空間"></a>第四步 - 額外硬碟空間</h2><p>這邊會問你是否需要額外的硬碟空間，如果不需要的話直接跳過就可以了。</p>
+<p>另外，原本最低的是 10GB Disk，基本上這個數量如果不是超多媒體的話一般的伺服器是夠用的，加上這邊的 Disk 是可以後期再加的。</p>
+<p>還有，如果要加的話他的說明是 10GB = 1$/mo, $0.001/hour。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="4-2.png"></p>
+<h2 id="第五步-選擇伺服器位置"><a href="#第五步-選擇伺服器位置" class="headerlink" title="第五步 - 選擇伺服器位置"></a>第五步 - 選擇伺服器位置</h2><p>選擇一個你想要的國家吧，這邊我選擇新咖波，原因比較近台灣和香港的位置，連線速度比較理想 ~</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="4.png"></p>
+<h2 id="第六步-密碼認證"><a href="#第六步-密碼認證" class="headerlink" title="第六步 - 密碼認證"></a>第六步 - 密碼認證</h2><p>VPC Netork，這個可以不用理就好 ~</p>
+<p>你可以選擇 SSH Keys 或者使用純密碼建立你的 SSH 密碼，我這邊會使用 <code>Password</code> 繼續，輸入你想要的密碳繼續下一步。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="5.png"></p>
+<h2 id="第七步-另外選項"><a href="#第七步-另外選項" class="headerlink" title="第七步 - 另外選項"></a>第七步 - 另外選項</h2><p>這邊有幾樣東西你可以選擇加入至你的伺服器內：</p>
+<ul>
+<li>Enable backups - 自動備份你的伺服器 (但需要另外加錢)</li>
+<li>IPV6 - 開啟 IPV6 連線</li>
+<li>Monitoring - 即時查看 Server 狀態</li>
+<li>User Data</li>
+</ul>
+<p>我這邊示範就全部都不使用了，直接跳過就好。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="6.png"></p>
+<h2 id="第七步-建立多小部伺服器和決定伺服器名稱"><a href="#第七步-建立多小部伺服器和決定伺服器名稱" class="headerlink" title="第七步 - 建立多小部伺服器和決定伺服器名稱"></a>第七步 - 建立多小部伺服器和決定伺服器名稱</h2><p>他會問你要建立多小部 Droplets (VPS)，只使用一部就好。<br>名稱你選擇一個你喜歡的名字就好。<br>Tags 的話是方便你尋找這 VPS，不加也沒關係<br>Select Project 的話是要將這個 Droplets 放在哪一個，因應他是將每個 Server 都會分類，而這邊只有一個的話就不用管，繼續直接按下 <code>Create Droplet</code>。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="7.png"></p>
+<h2 id="最後一步-等待建立完成-VPS"><a href="#最後一步-等待建立完成-VPS" class="headerlink" title="最後一步 - 等待建立完成 VPS"></a>最後一步 - 等待建立完成 VPS</h2><p>現在會重定向位置到你的主頁，然後你會看到你的伺服器正在建立中… 等待大概 20 秒左右就 OK 了。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="8.png"></p>
+<h2 id="完成建立-VPS"><a href="#完成建立-VPS" class="headerlink" title="完成建立 VPS"></a>完成建立 VPS</h2><p>你現在可以看到你的伺服器 IP 位置是多小。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="9.png"></p>
+<h1 id="第一步-安裝-SSH-連接工具"><a href="#第一步-安裝-SSH-連接工具" class="headerlink" title="第一步 - 安裝 SSH 連接工具"></a>第一步 - 安裝 SSH 連接工具</h1><ul>
+<li>Windows 10 /11 系統原本已經預設有 SSH 連接工具，</li>
+<li>Linux 系統大部分都已經預設有 SSH 連接工具。</li>
+</ul>
+<p>如果沒有的話輸入以下指令安裝 ~</p>
+<p>Debian :</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install ssh -y</span><br></pre></td></tr></table></figure>
+
+<p>Arch :</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S ssh</span><br></pre></td></tr></table></figure>
+
+<p>Fedora :</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install ssh</span><br></pre></td></tr></table></figure>
+
+<h2 id="第二步-登入-SSH-伺服器"><a href="#第二步-登入-SSH-伺服器" class="headerlink" title="第二步 - 登入 SSH 伺服器"></a>第二步 - 登入 SSH 伺服器</h2><p>到剛剛看到的 VPS Server IP 位置，將看到的 IP 複製，然後開啟你的終端機輸入以下指令：</p>
+<div class="note info flat">
+    留意：他會問你是否信任來源，輸入 <code>yes</code> 繼續。
+</div>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@159.223.33.2</span><br></pre></td></tr></table></figure>
+
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="connect-1.gif"></p>
+<h1 id="第三步-Accept-Port-22"><a href="#第三步-Accept-Port-22" class="headerlink" title="第三步 - Accept Port 22"></a>第三步 - Accept Port 22</h1><p>然後我地要將你既 Default Reject Port22 登入既開返做 Accept<br>呢個動作係為左唔好令你日後入返個 VPS Server 會 Reject左你既登入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -p tcp --dport 22 -j ACCEPT</span><br></pre></td></tr></table></figure>
+
+<h1 id="第四步-更新套裝管理員"><a href="#第四步-更新套裝管理員" class="headerlink" title="第四步 - 更新套裝管理員"></a>第四步 - 更新套裝管理員</h1><p>安裝之前，我們需要將新的系統的套裝管理員更新，輸入以下指令更新：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update -y</span><br></pre></td></tr></table></figure>
+
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="connect-2.png"></p>
+<h2 id="第五步-安裝-Java-JDK"><a href="#第五步-安裝-Java-JDK" class="headerlink" title="第五步 - 安裝 Java JDK"></a>第五步 - 安裝 Java JDK</h2><p>接下來，安裝 Java 的 OpenJDK 版本 17 (JRE)，這是 Java 的最小版本，它刪除了對 GUI 應用程序的支持，所以在 VPS 上運行是非常適合，去除沒必要的檔案大小 ~</p>
+<p>另外，OpenJDK 版本 17 是支援 Minecraft 最新版本的 1.19 ~~</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install openjdk-17-jre-headless -y</span><br></pre></td></tr></table></figure>
+
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="connect-3.png"></p>
+<h2 id="第六步-安裝-Screen"><a href="#第六步-安裝-Screen" class="headerlink" title="第六步 - 安裝 Screen"></a>第六步 - 安裝 Screen</h2><p>這工具會使你可以在後台運行伺服器，應該是叫做分離視窗，即使你將視窗關閉也不影響你伺服器的運行。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install screen -y</span><br></pre></td></tr></table></figure>
+
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="connect-4.png"></p>
+<h2 id="第七步-下載最新版本-Minecraft-伺服器檔案"><a href="#第七步-下載最新版本-Minecraft-伺服器檔案" class="headerlink" title="第七步 - 下載最新版本 Minecraft 伺服器檔案"></a>第七步 - 下載最新版本 Minecraft 伺服器檔案</h2><p>現在你需要下載目前最新版本的 Minecraft 服務器，直接進到 <a target="_blank" rel="noopener" href="https://www.minecraft.net/en-us/download/server">Minecraft</a> 的網站並複製連結 minecraft_server.X.X.X.jar</p>
+<p>或者使用 <code>wget</code> 將檔案下載：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://launcher.mojang.com/v1/objects/e00c4052dac1d59a1188b2aa9d5a87113aaf1122/server.jar</span><br></pre></td></tr></table></figure>
+
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="connect-5-wget.png"></p>
+<h1 id="第八步-設定-Firewall"><a href="#第八步-設定-Firewall" class="headerlink" title="第八步 - 設定 Firewall"></a>第八步 - 設定 Firewall</h1><p>我會使用 ufw 設置 firewall，ufw 預設是關閉狀態，所以我們需要將他啟動：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ufw enable</span><br></pre></td></tr></table></figure>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="ufw-1.png"></p>
+<h2 id="第九步-OpenPort-25565"><a href="#第九步-OpenPort-25565" class="headerlink" title="第九步 - OpenPort 25565"></a>第九步 - OpenPort 25565</h2><p>開啟這部伺服器的 25565 端口，讓其他人可以進入你的伺服器：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow 25565</span><br></pre></td></tr></table></figure>
+
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="ufw-2.png"></p>
+<h1 id="第十步-啟動伺服器"><a href="#第十步-啟動伺服器" class="headerlink" title="第十步 - 啟動伺服器"></a>第十步 - 啟動伺服器</h1><p>輸入以下指令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -Xms1024M -Xmx1024M -jar server.jar nogui</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>Xms1024M - 伺服器配置會以 1024MB 或 1GB 的 RAM 開始運行，如果您希望伺服器以更多 RAM 啟動，可以提高數字。<br>M 代表兆字節，G 代表千兆字節都是受支持的選項。</p>
+</li>
+<li><p>Xmx1024M - 這會將伺服器配置為最多使用 1024M 的 RAM，如果您希望伺服器以更大的 Ram 運行，允許更多玩家，或者如果您覺得服務器運行緩慢，您可以提高此限制。</p>
+</li>
+<li><p>jar - 此標誌指定要運行的服務器 jar 文件。</p>
+</li>
+<li><p>nogui - 這告訴伺服器不要啟動 GUI，因為這是一個 VPS 伺服器，而且你沒有圖形用戶界面 (gui)。</p>
+</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="start-server.gif"></p>
+<h2 id="第十一步-伺服器錯誤"><a href="#第十一步-伺服器錯誤" class="headerlink" title="第十一步 - 伺服器錯誤"></a>第十一步 - 伺服器錯誤</h2><p>第一次運行後會出現以下的錯誤，不用擔心，這是正常的，因為你沒有啟用到兩個重要的文件，載入一次後生產相應的文件我們再作修改。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Starting net.minecraft.server.Main</span><br><span class="line">[14:01:39] [ServerMain/INFO]: Building unoptimized datafixer</span><br><span class="line">[14:01:42] [ServerMain/ERROR]: Failed to load properties from file: server.properties</span><br><span class="line">[14:01:42] [ServerMain/WARN]: Failed to load eula.txt</span><br><span class="line">[14:01:42] [ServerMain/INFO]: You need to agree to the EULA in order to run the server. Go to eula.txt for more info.</span><br></pre></td></tr></table></figure>
+
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="fix.png"></p>
+<h1 id="第十二步-修改-eula-txt-檔案"><a href="#第十二步-修改-eula-txt-檔案" class="headerlink" title="第十二步 - 修改 eula.txt 檔案"></a>第十二步 - 修改 eula.txt 檔案</h1><p>現在我們需要修改以下兩個檔案：</p>
+<ul>
+<li>eula.txt - EULA (End User License Agreement)</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="eula.png"></p>
+<p>修改 <code>eula.txt</code> 內容，我會使用 <code>nano</code> 進行修改，將原本內容的 <code>eula=false</code> 改為 <code>eula=true</code>，然後再儲存檔案。</p>
+<div class="note info flat">
+    nano 教學：<kbd>Ctrl</kbd>+<kbd>S</kbd> 儲存，然後 <kbd>Ctrl</kbd>+<kbd>X</kbd> 是退出。
+</div>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano eula.txt</span><br></pre></td></tr></table></figure>
+
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="nano-1.png"></p>
+<p>完成之後，輸入以下指令列出檔案內容確定是否已經修改成功：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat eula.txt</span><br></pre></td></tr></table></figure>
+
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="cat-1.png"></p>
+<h1 id="第十三步-修改-server-properties-檔案"><a href="#第十三步-修改-server-properties-檔案" class="headerlink" title="第十三步 - 修改 server.properties 檔案"></a>第十三步 - 修改 server.properties 檔案</h1><p>現在，我們看看 <code>server.properties</code> 檔案的內容，這個檔案會包含你伺服器的一些 config，例如 伺服器名稱, 伺服器 IP 位置, PVP 模式開關, 模式。</p>
+<p>尋找以下三樣東西，像以下這樣子，確定已經更改為你想要的內容後，儲存檔案後退出。</p>
+<ul>
+<li><p>rcon.port=25575</p>
+</li>
+<li><p>rcon.password=hi</p>
+</li>
+<li><p>enable-rcon=true</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">Minecraft server properties</span></span><br><span class="line"><span class="meta">#</span><span class="bash">Sat Jul 09 14:01:42 UTC 2022</span></span><br><span class="line">enable-jmx-monitoring=false</span><br><span class="line">rcon.port=25575</span><br><span class="line">level-seed=</span><br><span class="line">gamemode=survival</span><br><span class="line">enable-command-block=false</span><br><span class="line">enable-query=false</span><br><span class="line">generator-settings=&#123;&#125;</span><br><span class="line">enforce-secure-profile=false</span><br><span class="line">level-name=world</span><br><span class="line">motd=A Minecraft Server</span><br><span class="line">query.port=25565</span><br><span class="line">pvp=true</span><br><span class="line">generate-structures=true</span><br><span class="line">max-chained-neighbor-updates=1000000</span><br><span class="line">difficulty=easy</span><br><span class="line">network-compression-threshold=256</span><br><span class="line">max-tick-time=60000</span><br><span class="line">require-resource-pack=false</span><br><span class="line">use-native-transport=true</span><br><span class="line">max-players=20</span><br><span class="line">online-mode=true</span><br><span class="line">enable-status=true</span><br><span class="line">allow-flight=false</span><br><span class="line">broadcast-rcon-to-ops=true</span><br><span class="line">view-distance=10</span><br><span class="line">server-ip=</span><br><span class="line">resource-pack-prompt=</span><br><span class="line">allow-nether=true</span><br><span class="line">server-port=25565</span><br><span class="line">enable-rcon=true</span><br><span class="line">sync-chunk-writes=true</span><br><span class="line">op-permission-level=4</span><br><span class="line">prevent-proxy-connections=false</span><br><span class="line">hide-online-players=false</span><br><span class="line">resource-pack=</span><br><span class="line">entity-broadcast-range-percentage=100</span><br><span class="line">simulation-distance=10</span><br><span class="line">rcon.password=hi</span><br><span class="line">player-idle-timeout=0</span><br><span class="line">force-gamemode=false</span><br><span class="line">rate-limit=0</span><br></pre></td></tr></table></figure>
+
+<h1 id="最後一步-使用-Screen-保持伺服器運行中"><a href="#最後一步-使用-Screen-保持伺服器運行中" class="headerlink" title="最後一步 - 使用 Screen 保持伺服器運行中"></a>最後一步 - 使用 Screen 保持伺服器運行中</h1><p>首先輸入 <code>screen</code>，然後按鍵盤的 <code>空白鍵</code> 後再輸入以下指令 ~</p>
+<p>載入時間會比較長，請耐心等候。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -Xms1024M -Xmx2048M -jar server.jar nogui</span><br></pre></td></tr></table></figure>
+
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="done-2.png"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="finally.gif"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="okla.gif"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[15:49:16] [Server thread/INFO]: Time elapsed: 31957 ms</span><br><span class="line">[15:49:17] [Server thread/INFO]: Done (61.939s)! For help, type &quot;help&quot;</span><br><span class="line">[15:49:17] [Server thread/INFO]: Starting remote control listener</span><br><span class="line">[15:49:17] [Server thread/INFO]: Thread RCON Listener started</span><br><span class="line">[15:49:17] [Server thread/INFO]: RCON running on 206.189.159.206:25575</span><br></pre></td></tr></table></figure>
+
+<p>當你看到列出以上內容後，就代表已經成功啟動伺服器 ~</p>
+<p>如果想退出目前視窗至後台的話請按鍵盤 <kbd>Ctrl</kbd>+<kbd>A</kbd>+<kbd>D</kbd> 退出。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="ad.png"></p>
+<h1 id="最終步驟-開啟-Minecraft進入伺服器"><a href="#最終步驟-開啟-Minecraft進入伺服器" class="headerlink" title="最終步驟 - 開啟 Minecraft進入伺服器"></a>最終步驟 - 開啟 Minecraft進入伺服器</h1><p>開啟後點擊 <code>多人遊戲</code>。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="2022-07-10_00.25.25.gif"></p>
+<p>點擊右下方 <code>新增伺服器</code></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="2022-07-10_00.25.31.gif"></p>
+<p>輸入 IP 位置後點擊 <code>完成</code></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="2022-07-10_00.25.46.gif"></p>
+<p>點擊你的伺服器後點擊 <code>加入伺服器</code>，然後就會進入伺服器其後再 <code>載入地圖中 ...</code></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="loading.gif"></p>
+<p>載入完成 ~ 成功進入伺服器 ~</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="2022-07-10_00.26.27.gif"></p>
+<h1 id="後記-篇文寫左八個鐘"><a href="#後記-篇文寫左八個鐘" class="headerlink" title="後記 - 篇文寫左八個鐘"></a>後記 - 篇文寫左八個鐘</h1><p>筆者我本身係個唔玩 Minecraft 既人，係上個月先開始接觸，之前係有開過 CS1.6 Server，諗住大同小異啦，點知寫今篇文個陣遇到好多問題，個問題重點都係因為唔夠 ram 先行唔到，我由一開始用緊 512mb 行，發現係唔得，咁查下發現原來係唔夠 ram，之後我再試埋將個 ram 升到去 1GB，都係唔得，但係至小個 error 小左，但行到去最後個 Step 之後，又出 Error，最後我用左 2GB Ram 終於冇再出 Error …</p>
+<p>講返轉頭 Minecraft 真係好撚高需求 … 冇乜錢真係唔好用 VPS 黎開，計返港錢既話要成 $84HKD 一個月，真係搵返啲轉用黎開 Game Server 既 Serivce 開 server 啦 =.= …</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="CLSSS.png"></p>
+<h1 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h1><p><a target="_blank" rel="noopener" href="https://www.shells.com/l/en-US/tutorial/0-A-Guide-to-Installing-a-Minecraft-Server-on-Linux-Ubuntu">https://www.shells.com/l/en-US/tutorial/0-A-Guide-to-Installing-a-Minecraft-Server-on-Linux-Ubuntu</a><br><a target="_blank" rel="noopener" href="https://www.digitalocean.com/community/tutorials/how-to-create-a-minecraft-server-on-ubuntu-20-04">https://www.digitalocean.com/community/tutorials/how-to-create-a-minecraft-server-on-ubuntu-20-04</a><br><a target="_blank" rel="noopener" href="https://gaming.stackexchange.com/questions/198779/ubuntu-minecraft-server-says-eula-isnt-true-but-is">https://gaming.stackexchange.com/questions/198779/ubuntu-minecraft-server-says-eula-isnt-true-but-is</a><br><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3Z46DxQbAK0">https://www.youtube.com/watch?v=3Z46DxQbAK0</a><br><a target="_blank" rel="noopener" href="https://www.reddit.com/r/Minecraft/comments/nv92fg/error_while_launcher_a_117_minecraft_server_fix/">https://www.reddit.com/r/Minecraft/comments/nv92fg/error_while_launcher_a_117_minecraft_server_fix/</a><br><a target="_blank" rel="noopener" href="https://help.minecraft.net/hc/en-us/articles/360058525452-How-to-Setup-a-Minecraft-Java-Edition-Server">https://help.minecraft.net/hc/en-us/articles/360058525452-How-to-Setup-a-Minecraft-Java-Edition-Server</a><br><a target="_blank" rel="noopener" href="https://minecraft.fandom.com/wiki/Server/Requirements/Dedicated#Unix_(Linux,_BSD,_macOS)">https://minecraft.fandom.com/wiki/Server/Requirements/Dedicated#Unix_(Linux,_BSD,_macOS)</a><br><a target="_blank" rel="noopener" href="https://www.shells.com/l/en-US/tutorial/0-A-Guide-to-Installing-a-Minecraft-Server-on-Linux-Ubuntu">https://www.shells.com/l/en-US/tutorial/0-A-Guide-to-Installing-a-Minecraft-Server-on-Linux-Ubuntu</a></p>
+<h1 id="檔案下載網站"><a href="#檔案下載網站" class="headerlink" title="檔案下載網站"></a>檔案下載網站</h1><p><a target="_blank" rel="noopener" href="https://mcversions.net/">https://mcversions.net/</a><br><a target="_blank" rel="noopener" href="https://www.minecraft.net/en-us/download/server">https://www.minecraft.net/en-us/download/server</a></p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Games/">Games</a><a class="post-meta__tags" href="/tags/Server/">Server</a><a class="post-meta__tags" href="/tags/Digitalocean/">Digitalocean</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2022/07/08/programming-cpp-Basic-practice-The-sum-of-first-10-natural-numbers/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/CPP/cover.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">C++ 基礎練習 - 找出 10 個數字相加的總和</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相關推薦</span></div><div class="relatedPosts-list"><div><a href="/2022/06/07/Counter-Strike-1-6-AMXX-Upgrade-to-1-9-0/" title="Counter Strike 1.6 - AMX X Mod 升級至 1.9.0"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/06/07/Counter-Strike-1-6-AMXX-Upgrade-to-1-9-0/cover.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-07</div><div class="title">Counter Strike 1.6 - AMX X Mod 升級至 1.9.0</div></div></a></div><div><a href="/2022/05/31/Counter-Strike-1-6-Create-Server-with-steamcmd-and-install-AMXX-Windows/" title="Counter-Strike 1.6 - SteamCMD 建立伺服器並安裝 AMX X Mod (Windows)"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/05/31/Counter-Strike-1-6-Create-Server-with-steamcmd-and-install-AMXX-Windows/steamcmd.exe.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-31</div><div class="title">Counter-Strike 1.6 - SteamCMD 建立伺服器並安裝 AMX X Mod (Windows)</div></div></a></div><div><a href="/2022/06/07/Counter-Strike-1-6-Pawn-dynamic-light/" title="Counter Strike 1.6 - Pawn dynamic light"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/06/07/Counter-Strike-1-6-Pawn-dynamic-light/cover.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-07</div><div class="title">Counter Strike 1.6 - Pawn dynamic light</div></div></a></div><div><a href="/2022/06/01/Counter-Strike-1-6-Server-ADD-Admin/" title="Counter-Strike 1.6 - 於伺服器新增管理員"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/06/01/Counter-Strike-1-6-Server-ADD-Admin/cover.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-01</div><div class="title">Counter-Strike 1.6 - 於伺服器新增管理員</div></div></a></div><div><a href="/2022/05/31/Counter-Strike-1-6-Server-INSTALL-ZombiePlague/" title="Counter-Strike 1.6 - 安裝喪屍模式於伺服器"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/05/31/Counter-Strike-1-6-Server-INSTALL-ZombiePlague/cover.gif" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-31</div><div class="title">Counter-Strike 1.6 - 安裝喪屍模式於伺服器</div></div></a></div><div><a href="/2022/06/07/Counter-Strike-1-6-Commands-line/" title="Counter-Strike 1.6 - 主控台指令說明"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/06/07/Counter-Strike-1-6-Commands-line/cover.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-07</div><div class="title">Counter-Strike 1.6 - 主控台指令說明</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/lala.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Halohalo :3</div><div class="author-info__description">一個中學生既電腦筆記簿 :p</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">291</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">標籤</div><div class="length-num">92</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分類</div><div class="length-num">65</div></a></div></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">我中學雞黎架炸 xD</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目錄</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%96%8B%E5%95%9F%E4%BC%BA%E6%9C%8D%E5%99%A8%E9%9C%80%E6%B1%82"><span class="toc-number">1.</span> <span class="toc-text">開啟伺服器需求</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5-%E6%96%B0%E5%A2%9E%E6%96%B0%E7%9A%84-Project"><span class="toc-number">2.</span> <span class="toc-text">第一步 - 新增新的 Project</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E6%96%B0%E5%A2%9E-VPS-Server"><span class="toc-number">2.1.</span> <span class="toc-text">第二步 - 新增 VPS Server</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5-%E9%81%B8%E6%93%87%E4%BC%BA%E6%9C%8D%E5%99%A8-Distro"><span class="toc-number">2.2.</span> <span class="toc-text">第三步 - 選擇伺服器 Distro</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5-%E9%81%B8%E6%93%87%E4%BC%BA%E6%9C%8D%E5%99%A8%E9%85%8D%E7%BD%AE"><span class="toc-number">2.3.</span> <span class="toc-text">第三步 - 選擇伺服器配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5-%E9%A1%8D%E5%A4%96%E7%A1%AC%E7%A2%9F%E7%A9%BA%E9%96%93"><span class="toc-number">2.4.</span> <span class="toc-text">第四步 - 額外硬碟空間</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E6%AD%A5-%E9%81%B8%E6%93%87%E4%BC%BA%E6%9C%8D%E5%99%A8%E4%BD%8D%E7%BD%AE"><span class="toc-number">2.5.</span> <span class="toc-text">第五步 - 選擇伺服器位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E6%AD%A5-%E5%AF%86%E7%A2%BC%E8%AA%8D%E8%AD%89"><span class="toc-number">2.6.</span> <span class="toc-text">第六步 - 密碼認證</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E6%AD%A5-%E5%8F%A6%E5%A4%96%E9%81%B8%E9%A0%85"><span class="toc-number">2.7.</span> <span class="toc-text">第七步 - 另外選項</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E6%AD%A5-%E5%BB%BA%E7%AB%8B%E5%A4%9A%E5%B0%8F%E9%83%A8%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%92%8C%E6%B1%BA%E5%AE%9A%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%90%8D%E7%A8%B1"><span class="toc-number">2.8.</span> <span class="toc-text">第七步 - 建立多小部伺服器和決定伺服器名稱</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%BE%8C%E4%B8%80%E6%AD%A5-%E7%AD%89%E5%BE%85%E5%BB%BA%E7%AB%8B%E5%AE%8C%E6%88%90-VPS"><span class="toc-number">2.9.</span> <span class="toc-text">最後一步 - 等待建立完成 VPS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%88%90%E5%BB%BA%E7%AB%8B-VPS"><span class="toc-number">2.10.</span> <span class="toc-text">完成建立 VPS</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5-%E5%AE%89%E8%A3%9D-SSH-%E9%80%A3%E6%8E%A5%E5%B7%A5%E5%85%B7"><span class="toc-number">3.</span> <span class="toc-text">第一步 - 安裝 SSH 連接工具</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E7%99%BB%E5%85%A5-SSH-%E4%BC%BA%E6%9C%8D%E5%99%A8"><span class="toc-number">3.1.</span> <span class="toc-text">第二步 - 登入 SSH 伺服器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5-Accept-Port-22"><span class="toc-number">4.</span> <span class="toc-text">第三步 - Accept Port 22</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5-%E6%9B%B4%E6%96%B0%E5%A5%97%E8%A3%9D%E7%AE%A1%E7%90%86%E5%93%A1"><span class="toc-number">5.</span> <span class="toc-text">第四步 - 更新套裝管理員</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E6%AD%A5-%E5%AE%89%E8%A3%9D-Java-JDK"><span class="toc-number">5.1.</span> <span class="toc-text">第五步 - 安裝 Java JDK</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E6%AD%A5-%E5%AE%89%E8%A3%9D-Screen"><span class="toc-number">5.2.</span> <span class="toc-text">第六步 - 安裝 Screen</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E6%AD%A5-%E4%B8%8B%E8%BC%89%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC-Minecraft-%E4%BC%BA%E6%9C%8D%E5%99%A8%E6%AA%94%E6%A1%88"><span class="toc-number">5.3.</span> <span class="toc-text">第七步 - 下載最新版本 Minecraft 伺服器檔案</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%85%AB%E6%AD%A5-%E8%A8%AD%E5%AE%9A-Firewall"><span class="toc-number">6.</span> <span class="toc-text">第八步 - 設定 Firewall</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B9%9D%E6%AD%A5-OpenPort-25565"><span class="toc-number">6.1.</span> <span class="toc-text">第九步 - OpenPort 25565</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E6%AD%A5-%E5%95%9F%E5%8B%95%E4%BC%BA%E6%9C%8D%E5%99%A8"><span class="toc-number">7.</span> <span class="toc-text">第十步 - 啟動伺服器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%B8%80%E6%AD%A5-%E4%BC%BA%E6%9C%8D%E5%99%A8%E9%8C%AF%E8%AA%A4"><span class="toc-number">7.1.</span> <span class="toc-text">第十一步 - 伺服器錯誤</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%BA%8C%E6%AD%A5-%E4%BF%AE%E6%94%B9-eula-txt-%E6%AA%94%E6%A1%88"><span class="toc-number">8.</span> <span class="toc-text">第十二步 - 修改 eula.txt 檔案</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%B8%89%E6%AD%A5-%E4%BF%AE%E6%94%B9-server-properties-%E6%AA%94%E6%A1%88"><span class="toc-number">9.</span> <span class="toc-text">第十三步 - 修改 server.properties 檔案</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%80%E5%BE%8C%E4%B8%80%E6%AD%A5-%E4%BD%BF%E7%94%A8-Screen-%E4%BF%9D%E6%8C%81%E4%BC%BA%E6%9C%8D%E5%99%A8%E9%81%8B%E8%A1%8C%E4%B8%AD"><span class="toc-number">10.</span> <span class="toc-text">最後一步 - 使用 Screen 保持伺服器運行中</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%80%E7%B5%82%E6%AD%A5%E9%A9%9F-%E9%96%8B%E5%95%9F-Minecraft%E9%80%B2%E5%85%A5%E4%BC%BA%E6%9C%8D%E5%99%A8"><span class="toc-number">11.</span> <span class="toc-text">最終步驟 - 開啟 Minecraft進入伺服器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BE%8C%E8%A8%98-%E7%AF%87%E6%96%87%E5%AF%AB%E5%B7%A6%E5%85%AB%E5%80%8B%E9%90%98"><span class="toc-number">12.</span> <span class="toc-text">後記 - 篇文寫左八個鐘</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="toc-number">13.</span> <span class="toc-text">參考資料</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AA%94%E6%A1%88%E4%B8%8B%E8%BC%89%E7%B6%B2%E7%AB%99"><span class="toc-number">14.</span> <span class="toc-text">檔案下載網站</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章 / 更新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/07/09/Ubuntu-20-04-LTS-VPS-create-a-minecraft-24hr-open/" title="Ubuntu 20.04 LTS VPS - 建立 Minecraft 伺服器並廿四小時開放不停止"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/Ubuntu/cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Ubuntu 20.04 LTS VPS - 建立 Minecraft 伺服器並廿四小時開放不停止"/></a><div class="content"><a class="title" href="/2022/07/09/Ubuntu-20-04-LTS-VPS-create-a-minecraft-24hr-open/" title="Ubuntu 20.04 LTS VPS - 建立 Minecraft 伺服器並廿四小時開放不停止">Ubuntu 20.04 LTS VPS - 建立 Minecraft 伺服器並廿四小時開放不停止</a><time datetime="2022-07-09T18:00:31.843Z" title="更新於 2022-07-10 02:00:31">2022-07-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/09/minecraft-change-version/" title="Minecraft - 更改版本方法"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/06/09/minecraft-change-version/cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Minecraft - 更改版本方法"/></a><div class="content"><a class="title" href="/2022/06/09/minecraft-change-version/" title="Minecraft - 更改版本方法">Minecraft - 更改版本方法</a><time datetime="2022-07-09T17:06:52.652Z" title="更新於 2022-07-10 01:06:52">2022-07-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/28/yt-dlp-commands/" title="yt-dlp - 下載影片或音樂"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/05/28/yt-dlp-commands/cover.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="yt-dlp - 下載影片或音樂"/></a><div class="content"><a class="title" href="/2022/05/28/yt-dlp-commands/" title="yt-dlp - 下載影片或音樂">yt-dlp - 下載影片或音樂</a><time datetime="2022-07-08T10:48:45.216Z" title="更新於 2022-07-08 18:48:45">2022-07-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/12/11/youtube-dl-commands/" title="Youtube-dl - 下載影片或音樂"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2021/12/11/youtube-dl-commands/youtube.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Youtube-dl - 下載影片或音樂"/></a><div class="content"><a class="title" href="/2021/12/11/youtube-dl-commands/" title="Youtube-dl - 下載影片或音樂">Youtube-dl - 下載影片或音樂</a><time datetime="2022-07-08T10:46:56.942Z" title="更新於 2022-07-08 18:46:56">2022-07-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/08/programming-cpp-Basic-practice-The-sum-of-first-10-natural-numbers/" title="C++ 基礎練習 - 找出 10 個數字相加的總和"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/CPP/cover.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++ 基礎練習 - 找出 10 個數字相加的總和"/></a><div class="content"><a class="title" href="/2022/07/08/programming-cpp-Basic-practice-The-sum-of-first-10-natural-numbers/" title="C++ 基礎練習 - 找出 10 個數字相加的總和">C++ 基礎練習 - 找出 10 個數字相加的總和</a><time datetime="2022-07-08T09:51:16.985Z" title="更新於 2022-07-08 17:51:16">2022-07-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/08/Linux-7z-commands/" title="Linux - 7z 壓縮檔案工具"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/07/08/Linux-7z-commands/7ziplogo.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux - 7z 壓縮檔案工具"/></a><div class="content"><a class="title" href="/2022/07/08/Linux-7z-commands/" title="Linux - 7z 壓縮檔案工具">Linux - 7z 壓縮檔案工具</a><time datetime="2022-07-08T06:44:25.505Z" title="更新於 2022-07-08 14:44:25">2022-07-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/06/Windows-start-menu/" title="Windows Start Menu 說明"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/Windows/cover.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Windows Start Menu 說明"/></a><div class="content"><a class="title" href="/2022/07/06/Windows-start-menu/" title="Windows Start Menu 說明">Windows Start Menu 說明</a><time datetime="2022-07-06T12:25:39.998Z" title="更新於 2022-07-06 20:25:39">2022-07-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/06/Windows-delete-startup-program-with-regedit/" title="Windows - 刪除開機啟動程式 (Regedit 登錄檔)"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/Regedit/Registry_Editor_icon.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Windows - 刪除開機啟動程式 (Regedit 登錄檔)"/></a><div class="content"><a class="title" href="/2022/07/06/Windows-delete-startup-program-with-regedit/" title="Windows - 刪除開機啟動程式 (Regedit 登錄檔)">Windows - 刪除開機啟動程式 (Regedit 登錄檔)</a><time datetime="2022-07-06T09:02:31.481Z" title="更新於 2022-07-06 17:02:31">2022-07-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/21/windows-default-program/" title="Windows - 預設程式名稱列表"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/Windows/cover.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Windows - 預設程式名稱列表"/></a><div class="content"><a class="title" href="/2022/01/21/windows-default-program/" title="Windows - 預設程式名稱列表">Windows - 預設程式名稱列表</a><time datetime="2022-07-06T08:17:20.064Z" title="更新於 2022-07-06 16:17:20">2022-07-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/13/disabled-Discord-startup/" title="Discord - 關閉開機自動開啟程式"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/06/13/disabled-Discord-startup/discord-icon.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Discord - 關閉開機自動開啟程式"/></a><div class="content"><a class="title" href="/2022/06/13/disabled-Discord-startup/" title="Discord - 關閉開機自動開啟程式">Discord - 關閉開機自動開啟程式</a><time datetime="2022-07-06T08:09:09.590Z" title="更新於 2022-07-06 16:09:09">2022-07-06</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/2022/07/09/Ubuntu-20-04-LTS-VPS-create-a-minecraft-24hr-open/top_img.png')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By Halohalo :3</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="閱讀模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="淺色和深色模式轉換"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="單欄和雙欄切換"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="設定"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目錄"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到頂部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search Somethings ...</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Data loading</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search Post" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.3" zIndex="-1" mobile="true" data-click="false"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: true,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '[object Object]', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script></div></body></html>
