@@ -1,0 +1,278 @@
+<!DOCTYPE html><html lang="zh-TW" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Digitalocean - 儲存現時狀態和還原狀態 | Halohalo :3</title><meta name="keywords" content="Server,Digitalocean,VPS Server,廣東話粵文講解"><meta name="author" content="Halohalo :3"><meta name="copyright" content="Halohalo :3"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="咩係 Snapshots？首先喺用之前，你要明白咩係 Snapshots，我會用一個情況黎解釋呢個 terms，喺現實世界，好多野你做左冇得返轉頭，你冇得打回原型，例如食左既野冇得再喺個胃拎返出黎，做左啲戇鳩野俾人笑一世，總之一句講哂，就係你冇得返去你未做之前既狀態。 電腦 Snapshots 就係一個可以俾你打回原型，返返去 save point 個個位，即係好似打機咁，你喺呢度 creat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Digitalocean - 儲存現時狀態和還原狀態">
+<meta property="og:url" content="https://bmjvvhbuen9d7upw.github.io/2022/07/12/Digitalocean-take-snapshots-and-restore/index.html">
+<meta property="og:site_name" content="Halohalo :3">
+<meta property="og:description" content="咩係 Snapshots？首先喺用之前，你要明白咩係 Snapshots，我會用一個情況黎解釋呢個 terms，喺現實世界，好多野你做左冇得返轉頭，你冇得打回原型，例如食左既野冇得再喺個胃拎返出黎，做左啲戇鳩野俾人笑一世，總之一句講哂，就係你冇得返去你未做之前既狀態。 電腦 Snapshots 就係一個可以俾你打回原型，返返去 save point 個個位，即係好似打機咁，你喺呢度 creat">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://bmjvvhbuen9d7upw.github.io/img/Post/image/digitalocean/digitalocean-logo-2.svg">
+<meta property="article:published_time" content="2022-07-11T17:00:33.000Z">
+<meta property="article:modified_time" content="2022-07-11T18:27:57.408Z">
+<meta property="article:author" content="Halohalo :3">
+<meta property="article:tag" content="Server">
+<meta property="article:tag" content="Digitalocean">
+<meta property="article:tag" content="VPS Server">
+<meta property="article:tag" content="廣東話粵文講解">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bmjvvhbuen9d7upw.github.io/img/Post/image/digitalocean/digitalocean-logo-2.svg"><link rel="shortcut icon" href="/img/lala.png"><link rel="canonical" href="https://bmjvvhbuen9d7upw.github.io/2022/07/12/Digitalocean-take-snapshots-and-restore/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-4975299875131134',
+  enable_page_level_ads: 'true'
+});</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-76ZCQXT5Q5"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-76ZCQXT5Q5');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查詢的內容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":500},
+  copy: {
+    success: '複製成功',
+    error: '複製錯誤',
+    noSupport: '瀏覽器不支援'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '剛剛',
+    min: '分鐘前',
+    hour: '小時前',
+    day: '天前',
+    month: '個月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Digitalocean - 儲存現時狀態和還原狀態',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-07-12 02:27:57'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" /><meta name="generator" content="Hexo 6.0.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">Loading ...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/lala.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">294</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">標籤</div><div class="length-num">95</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分類</div><div class="length-num">67</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Post</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> Linux</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Kali/"><span> Kali Linux</span></a></li><li><a class="site-page child" href="/categories/Arch-Linux/"><span> Arch Linux</span></a></li><li><a class="site-page child" href="/categories/Debian/"><span> Debian Linux</span></a></li><li><a class="site-page child" href="/categories/Manjaro/"><span> Manjaro Linux</span></a></li><li><a class="site-page child" href="/categories/Gnome/"><span> Gnome</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> Hacking</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Kali/"><span> Kali Linux</span></a></li><li><a class="site-page child" href="/categories/Metasploit/"><span> Metasploit</span></a></li><li><a class="site-page child" href="/categories/Reverse-engineering/"><span> Reverse Engineering</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> Programming</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Android-Studio/"><i class="fa-fw fa-brands fa-android"></i><span> Android Studio</span></a></li><li><a class="site-page child" href="/tags/Python/"><i class="fa-fw fa-brands fa-python"></i><span> Python</span></a></li><li><a class="site-page child" href="/tags/Java/"><i class="fa-fw fa-brands fa-java"></i><span> Java</span></a></li><li><a class="site-page child" href="/tags/CSharp/"><span> C#</span></a></li><li><a class="site-page child" href="/tags/C/"><span> C++</span></a></li><li><a class="site-page child" href="/tags/Javascript/"><i class="fa-fw fa-brands fa-js"></i><span> Javascript</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> Games</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Counter-Strike-1-6/"><span> Counter Strike 1.6</span></a></li><li><a class="site-page child" href="/categories/Counter-Strike-Global-Offensive/"><span> Counter-Strike Global Offensive</span></a></li><li><a class="site-page child" href="/categories/Minecraft/"><span> Minecraft</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/nothing/"><i class="fa-fw fa fa-clipboard"></i><span> Todo</span></a></div><div class="menus_item"><a class="site-page" href="/thisav/"><span> AV list</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-user"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/Post/image/digitalocean/digitalocean-logo-2.svg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Halohalo :3</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Post</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> Linux</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Kali/"><span> Kali Linux</span></a></li><li><a class="site-page child" href="/categories/Arch-Linux/"><span> Arch Linux</span></a></li><li><a class="site-page child" href="/categories/Debian/"><span> Debian Linux</span></a></li><li><a class="site-page child" href="/categories/Manjaro/"><span> Manjaro Linux</span></a></li><li><a class="site-page child" href="/categories/Gnome/"><span> Gnome</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> Hacking</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Kali/"><span> Kali Linux</span></a></li><li><a class="site-page child" href="/categories/Metasploit/"><span> Metasploit</span></a></li><li><a class="site-page child" href="/categories/Reverse-engineering/"><span> Reverse Engineering</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> Programming</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Android-Studio/"><i class="fa-fw fa-brands fa-android"></i><span> Android Studio</span></a></li><li><a class="site-page child" href="/tags/Python/"><i class="fa-fw fa-brands fa-python"></i><span> Python</span></a></li><li><a class="site-page child" href="/tags/Java/"><i class="fa-fw fa-brands fa-java"></i><span> Java</span></a></li><li><a class="site-page child" href="/tags/CSharp/"><span> C#</span></a></li><li><a class="site-page child" href="/tags/C/"><span> C++</span></a></li><li><a class="site-page child" href="/tags/Javascript/"><i class="fa-fw fa-brands fa-js"></i><span> Javascript</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> Games</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Counter-Strike-1-6/"><span> Counter Strike 1.6</span></a></li><li><a class="site-page child" href="/categories/Counter-Strike-Global-Offensive/"><span> Counter-Strike Global Offensive</span></a></li><li><a class="site-page child" href="/categories/Minecraft/"><span> Minecraft</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/nothing/"><i class="fa-fw fa fa-clipboard"></i><span> Todo</span></a></div><div class="menus_item"><a class="site-page" href="/thisav/"><span> AV list</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-user"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Digitalocean - 儲存現時狀態和還原狀態</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">發表於</span><time class="post-meta-date-created" datetime="2022-07-11T17:00:33.000Z" title="發表於 2022-07-12 01:00:33">2022-07-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新於</span><time class="post-meta-date-updated" datetime="2022-07-11T18:27:57.408Z" title="更新於 2022-07-12 02:27:57">2022-07-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Digitalocean-info/">Digitalocean info</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Digitalocean-info/Droplet/">Droplet</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/digitalocean/DigitalOcean_logo.svg" width="200px"/>
+
+<h1 id="咩係-Snapshots？"><a href="#咩係-Snapshots？" class="headerlink" title="咩係 Snapshots？"></a>咩係 Snapshots？</h1><p>首先喺用之前，你要明白咩係 Snapshots，我會用一個情況黎解釋呢個 terms，喺現實世界，好多野你做左冇得返轉頭，你冇得打回原型，例如食左既野冇得再喺個胃拎返出黎，做左啲戇鳩野俾人笑一世，總之一句講哂，就係你冇得返去你未做之前既狀態。</p>
+<p>電腦 Snapshots 就係一個可以俾你打回原型，返返去 save point 個個位，即係好似打機咁，你喺呢度 create 一個 point，你想之後返返去讀點？無問題。你想返返去之前個位？無問題。<br>你只要有 save 到個 point 就可以返去喇.</p>
+<h1 id="留意返-用呢個功能其實係收錢㗎-xd"><a href="#留意返-用呢個功能其實係收錢㗎-xd" class="headerlink" title="留意返 用呢個功能其實係收錢㗎 xd"></a>留意返 用呢個功能其實係收錢㗎 xd</h1><p>其實如果要用呢個功能既話 DigitalOcean 係會計你錢㗎，佢係 0.06 美金/GiB/月費，然後 Droplet 每GB 既 Data 會最多需要用一分鐘時間去進行處理，仲有就係會根據你而加部機入面有幾多 GB 再計 0.06 美金/Gib/月.<br>不過我呢篇文都係做個示範講解下點用 Snapshots 姐 haha</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="OF.png"></p>
+<h1 id="第一步-入-DigitalOcean-Droplets-主頁"><a href="#第一步-入-DigitalOcean-Droplets-主頁" class="headerlink" title="第一步 - 入 DigitalOcean Droplets 主頁"></a>第一步 - 入 DigitalOcean Droplets 主頁</h1><p>呢度我會預你本身已經起好左一部機黎用，至於點樣起部機唔講啦，<br>如果唔識既話可以睇返我以前呢篇文：<a href="/2022/07/10/Digitalocean-create-droplets-cloud-server-vps/">Digitalocean - 建立 Droplets VPS Server</a></p>
+<p>返返黎先，我地入呢個位，喺左邊既咩料入面撳 <code>Droplets</code>，然後撳返你要整 <code>Snapshots</code> 個部機.</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="1.gif"></p>
+<h1 id="第二步-Dashboard-入-Snapshots-個位"><a href="#第二步-Dashboard-入-Snapshots-個位" class="headerlink" title="第二步 - Dashboard 入 Snapshots 個位"></a>第二步 - Dashboard 入 Snapshots 個位</h1><p>黎到呢個位會入左去你部機既 Dashboard，喺下面張圖你會見到我紅色圈起左 <code>Snapshots</code>，撳佢一下之後就去下一步.</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="dashboard_1.gif"></p>
+<h1 id="第三步-Take-live-snapshot"><a href="#第三步-Take-live-snapshot" class="headerlink" title="第三步 - Take live snapshot"></a>第三步 - Take live snapshot</h1><p>喺 save point 之前，俾大家睇下我部機入面有乜野先，之後會加啲 file 喺部機入面，再試下 restore 佢返去 save point 位.</p>
+<p>我喺部機既 shell 打 <code>ls -la</code> 睇下呢個 path 有乜料到先.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -la</span><br></pre></td></tr></table></figure>
+
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="lsla.gif"></p>
+<p>我地可以睇到寫住 total 得 <code>32</code>，而加我地將部機熄左先，咁做係確保數據係一致性，打呢句指令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo shutdown -h now</span><br></pre></td></tr></table></figure>
+
+<p>而加我地去返 snapshot 個位，幫呢個 snapshot 改個名，然後再撳 <code>take live snapshot</code>，撳完之後等佢 load 一陣就可以見到架啦 ~</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="tk.gif"></p>
+<p>load 好喇 ~~</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="tk-2.gif"></p>
+<h1 id="第四步-試下起啲野"><a href="#第四步-試下起啲野" class="headerlink" title="第四步 - 試下起啲野"></a>第四步 - 試下起啲野</h1><p>我地而加登入返個 shelll，然後試下起野，我會起一個 folder 叫 <code>testing</code>.</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="mkdir.gif"></p>
+<h1 id="第五步-Restore-Droplets"><a href="#第五步-Restore-Droplets" class="headerlink" title="第五步 - Restore Droplets"></a>第五步 - Restore Droplets</h1><p>而加我地返返去 take snapshot 個位，喺頭先起左一個 snapshots 個度，最右邊撳 <code>More</code>，撳完之後你會見到 <code>Restore Droplet</code>.</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="restore.gif"></p>
+<p>撳完之後佢會問你係咪 confirm 要 restroe? 你撳 <code>Restore Droplet</code> 繼續.</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="restore-3.gif"></p>
+<p>呢個 moment 只需要等一陣就得 (大概廿秒)，而喺同一時間，你會發現你個 shell 係打唔到野，然後過一陣會顯示 Connection reset，個原因係 digitalocean 個系統收到風要將你部機 restore，咁佢就會幫你熄機進行呢個程序.</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="restore-4.gif"></p>
+<h1 id="最後一步-登入系統睇下係咪真係成功左"><a href="#最後一步-登入系統睇下係咪真係成功左" class="headerlink" title="最後一步 - 登入系統睇下係咪真係成功左"></a>最後一步 - 登入系統睇下係咪真係成功左</h1><p>我地登入再打 <code>ls -la</code> 睇下係咪未 save 左個陣既狀態先.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -la</span><br></pre></td></tr></table></figure>
+
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="loginlala.gif"></p>
+<p>成功左喇，可以見到我頭先 create 既 folder <code>testing</code> 已經唔見左，證明左已經將個狀態變返去之前個個狀態 :3<br>教學完畢 :3</p>
+<h1 id="剷-Snapshots"><a href="#剷-Snapshots" class="headerlink" title="剷 Snapshots"></a>剷 Snapshots</h1><p>話哂都要計錢，咁假設你唔想再 hold 住既話，我地去返 digitalocean snapshots 個位，撳 <code>More</code> 之後撳 <code>Delete</code> 就得㗎啦.</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="delete.gif"></p>
+<p>之後佢會問你係咪真係要 <code>delete</code>，因為呢個操作係冇得返轉頭，delete 左就冇，撳 <code>Delete Snapshot</code> 繼續.</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="delete-2.gif"></p>
+<p>已經成功剷左呢個 snapshot 啦</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="delete-done.png"></p>
+<h1 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h1><p><a target="_blank" rel="noopener" href="https://docs.digitalocean.com/products/droplets/how-to/resize/#estimated-downtime">https://docs.digitalocean.com/products/droplets/how-to/resize/#estimated-downtime</a><br><a target="_blank" rel="noopener" href="https://docs.digitalocean.com/products/images/snapshots/">https://docs.digitalocean.com/products/images/snapshots/</a><br><a target="_blank" rel="noopener" href="https://docs.digitalocean.com/products/images/snapshots/quickstart/">https://docs.digitalocean.com/products/images/snapshots/quickstart/</a></p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Server/">Server</a><a class="post-meta__tags" href="/tags/Digitalocean/">Digitalocean</a><a class="post-meta__tags" href="/tags/VPS-Server/">VPS Server</a><a class="post-meta__tags" href="/tags/%E5%BB%A3%E6%9D%B1%E8%A9%B1%E7%B2%B5%E6%96%87%E8%AC%9B%E8%A7%A3/">廣東話粵文講解</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2022/07/11/Digitalocean-ssh-keys-login-without-password/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/digitalocean/digitalocean-logo-2.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Digitalocean - 使用 SSH Keys 登入免用密碼加強你的伺服器安全性</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相關推薦</span></div><div class="relatedPosts-list"><div><a href="/2021/12/11/Cs1-6-server-create-vps-wan/" title="Ubuntu VPS Server - 建立 Counter Strike 1.6 伺服器並廿四小時開放不停止"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/Ubuntu/cover.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-11</div><div class="title">Ubuntu VPS Server - 建立 Counter Strike 1.6 伺服器並廿四小時開放不停止</div></div></a></div><div><a href="/2022/07/10/Digitalocean-create-droplets-cloud-server-vps/" title="Digitalocean - 建立 Droplets VPS Server"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/digitalocean/digitalocean-logo-2.svg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-10</div><div class="title">Digitalocean - 建立 Droplets VPS Server</div></div></a></div><div><a href="/2022/07/11/Digitalocean-ssh-keys-login-without-password/" title="Digitalocean - 使用 SSH Keys 登入免用密碼加強你的伺服器安全性"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/digitalocean/digitalocean-logo-2.svg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-11</div><div class="title">Digitalocean - 使用 SSH Keys 登入免用密碼加強你的伺服器安全性</div></div></a></div><div><a href="/2022/07/09/Ubuntu-20-04-LTS-VPS-create-a-minecraft-24hr-open/" title="Ubuntu VPS Server - 建立 Minecraft 伺服器並廿四小時開放不停止"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/Ubuntu/cover.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-09</div><div class="title">Ubuntu VPS Server - 建立 Minecraft 伺服器並廿四小時開放不停止</div></div></a></div><div><a href="/2022/06/07/Counter-Strike-1-6-AMXX-Upgrade-to-1-9-0/" title="Counter Strike 1.6 - AMX X Mod 升級至 1.9.0"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/06/07/Counter-Strike-1-6-AMXX-Upgrade-to-1-9-0/cover.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-07</div><div class="title">Counter Strike 1.6 - AMX X Mod 升級至 1.9.0</div></div></a></div><div><a href="/2022/06/07/Counter-Strike-1-6-Commands-line/" title="Counter-Strike 1.6 - 主控台指令說明"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/06/07/Counter-Strike-1-6-Commands-line/cover.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-07</div><div class="title">Counter-Strike 1.6 - 主控台指令說明</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/lala.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Halohalo :3</div><div class="author-info__description">一個中學生既電腦筆記簿 :p</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">294</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">標籤</div><div class="length-num">95</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分類</div><div class="length-num">67</div></a></div></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">我中學雞黎架炸 xD</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目錄</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%92%A9%E4%BF%82-Snapshots%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">咩係 Snapshots？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%95%99%E6%84%8F%E8%BF%94-%E7%94%A8%E5%91%A2%E5%80%8B%E5%8A%9F%E8%83%BD%E5%85%B6%E5%AF%A6%E4%BF%82%E6%94%B6%E9%8C%A2%E3%97%8E-xd"><span class="toc-number">2.</span> <span class="toc-text">留意返 用呢個功能其實係收錢㗎 xd</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5-%E5%85%A5-DigitalOcean-Droplets-%E4%B8%BB%E9%A0%81"><span class="toc-number">3.</span> <span class="toc-text">第一步 - 入 DigitalOcean Droplets 主頁</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5-Dashboard-%E5%85%A5-Snapshots-%E5%80%8B%E4%BD%8D"><span class="toc-number">4.</span> <span class="toc-text">第二步 - Dashboard 入 Snapshots 個位</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5-Take-live-snapshot"><span class="toc-number">5.</span> <span class="toc-text">第三步 - Take live snapshot</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5-%E8%A9%A6%E4%B8%8B%E8%B5%B7%E5%95%B2%E9%87%8E"><span class="toc-number">6.</span> <span class="toc-text">第四步 - 試下起啲野</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E6%AD%A5-Restore-Droplets"><span class="toc-number">7.</span> <span class="toc-text">第五步 - Restore Droplets</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%80%E5%BE%8C%E4%B8%80%E6%AD%A5-%E7%99%BB%E5%85%A5%E7%B3%BB%E7%B5%B1%E7%9D%87%E4%B8%8B%E4%BF%82%E5%92%AA%E7%9C%9F%E4%BF%82%E6%88%90%E5%8A%9F%E5%B7%A6"><span class="toc-number">8.</span> <span class="toc-text">最後一步 - 登入系統睇下係咪真係成功左</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%B7-Snapshots"><span class="toc-number">9.</span> <span class="toc-text">剷 Snapshots</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="toc-number">10.</span> <span class="toc-text">參考資料</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章 / 更新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/07/12/Digitalocean-take-snapshots-and-restore/" title="Digitalocean - 儲存現時狀態和還原狀態"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/digitalocean/digitalocean-logo-2.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Digitalocean - 儲存現時狀態和還原狀態"/></a><div class="content"><a class="title" href="/2022/07/12/Digitalocean-take-snapshots-and-restore/" title="Digitalocean - 儲存現時狀態和還原狀態">Digitalocean - 儲存現時狀態和還原狀態</a><time datetime="2022-07-11T18:27:57.408Z" title="更新於 2022-07-12 02:27:57">2022-07-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/10/Digitalocean-create-droplets-cloud-server-vps/" title="Digitalocean - 建立 Droplets VPS Server"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/digitalocean/digitalocean-logo-2.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Digitalocean - 建立 Droplets VPS Server"/></a><div class="content"><a class="title" href="/2022/07/10/Digitalocean-create-droplets-cloud-server-vps/" title="Digitalocean - 建立 Droplets VPS Server">Digitalocean - 建立 Droplets VPS Server</a><time datetime="2022-07-11T17:06:24.024Z" title="更新於 2022-07-12 01:06:24">2022-07-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/11/Digitalocean-ssh-keys-login-without-password/" title="Digitalocean - 使用 SSH Keys 登入免用密碼加強你的伺服器安全性"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/digitalocean/digitalocean-logo-2.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Digitalocean - 使用 SSH Keys 登入免用密碼加強你的伺服器安全性"/></a><div class="content"><a class="title" href="/2022/07/11/Digitalocean-ssh-keys-login-without-password/" title="Digitalocean - 使用 SSH Keys 登入免用密碼加強你的伺服器安全性">Digitalocean - 使用 SSH Keys 登入免用密碼加強你的伺服器安全性</a><time datetime="2022-07-11T17:01:52.105Z" title="更新於 2022-07-12 01:01:52">2022-07-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/09/Ubuntu-20-04-LTS-VPS-create-a-minecraft-24hr-open/" title="Ubuntu VPS Server - 建立 Minecraft 伺服器並廿四小時開放不停止"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/Ubuntu/cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Ubuntu VPS Server - 建立 Minecraft 伺服器並廿四小時開放不停止"/></a><div class="content"><a class="title" href="/2022/07/09/Ubuntu-20-04-LTS-VPS-create-a-minecraft-24hr-open/" title="Ubuntu VPS Server - 建立 Minecraft 伺服器並廿四小時開放不停止">Ubuntu VPS Server - 建立 Minecraft 伺服器並廿四小時開放不停止</a><time datetime="2022-07-11T16:57:59.357Z" title="更新於 2022-07-12 00:57:59">2022-07-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/12/11/Cs1-6-server-create-vps-wan/" title="Ubuntu VPS Server - 建立 Counter Strike 1.6 伺服器並廿四小時開放不停止"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/Ubuntu/cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Ubuntu VPS Server - 建立 Counter Strike 1.6 伺服器並廿四小時開放不停止"/></a><div class="content"><a class="title" href="/2021/12/11/Cs1-6-server-create-vps-wan/" title="Ubuntu VPS Server - 建立 Counter Strike 1.6 伺服器並廿四小時開放不停止">Ubuntu VPS Server - 建立 Counter Strike 1.6 伺服器並廿四小時開放不停止</a><time datetime="2022-07-11T16:57:39.293Z" title="更新於 2022-07-12 00:57:39">2022-07-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/24/DuckDuckgo-SearchEngine/" title="DuckDuckgo - 反追蹤器的網路搜索引擎"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/05/24/DuckDuckgo-SearchEngine/cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DuckDuckgo - 反追蹤器的網路搜索引擎"/></a><div class="content"><a class="title" href="/2022/05/24/DuckDuckgo-SearchEngine/" title="DuckDuckgo - 反追蹤器的網路搜索引擎">DuckDuckgo - 反追蹤器的網路搜索引擎</a><time datetime="2022-07-11T16:25:05.827Z" title="更新於 2022-07-12 00:25:05">2022-07-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/07/Counter-Strike-1-6-AMXX-Upgrade-to-1-9-0/" title="Counter Strike 1.6 - AMX X Mod 升級至 1.9.0"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/06/07/Counter-Strike-1-6-AMXX-Upgrade-to-1-9-0/cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Counter Strike 1.6 - AMX X Mod 升級至 1.9.0"/></a><div class="content"><a class="title" href="/2022/06/07/Counter-Strike-1-6-AMXX-Upgrade-to-1-9-0/" title="Counter Strike 1.6 - AMX X Mod 升級至 1.9.0">Counter Strike 1.6 - AMX X Mod 升級至 1.9.0</a><time datetime="2022-07-11T16:18:01.159Z" title="更新於 2022-07-12 00:18:01">2022-07-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/28/yt-dlp-commands/" title="yt-dlp - 下載影片或音樂"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/05/28/yt-dlp-commands/cover.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="yt-dlp - 下載影片或音樂"/></a><div class="content"><a class="title" href="/2022/05/28/yt-dlp-commands/" title="yt-dlp - 下載影片或音樂">yt-dlp - 下載影片或音樂</a><time datetime="2022-07-11T14:33:31.812Z" title="更新於 2022-07-11 22:33:31">2022-07-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/12/11/youtube-dl-commands/" title="Youtube-dl - 下載影片或音樂"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2021/12/11/youtube-dl-commands/youtube.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Youtube-dl - 下載影片或音樂"/></a><div class="content"><a class="title" href="/2021/12/11/youtube-dl-commands/" title="Youtube-dl - 下載影片或音樂">Youtube-dl - 下載影片或音樂</a><time datetime="2022-07-11T14:17:29.735Z" title="更新於 2022-07-11 22:17:29">2022-07-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/05/Github-Pages-Verified-domains/" title="Github Pages - 驗證網域"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/Github/Github.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Github Pages - 驗證網域"/></a><div class="content"><a class="title" href="/2022/07/05/Github-Pages-Verified-domains/" title="Github Pages - 驗證網域">Github Pages - 驗證網域</a><time datetime="2022-07-10T09:12:39.225Z" title="更新於 2022-07-10 17:12:39">2022-07-10</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/Post/image/digitalocean/digitalocean-logo-2.svg')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By Halohalo :3</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="閱讀模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="淺色和深色模式轉換"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="單欄和雙欄切換"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="設定"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目錄"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到頂部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search Somethings ...</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Data loading</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search Post" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.3" zIndex="-1" mobile="true" data-click="false"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: true,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '[object Object]', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script></div></body></html>
