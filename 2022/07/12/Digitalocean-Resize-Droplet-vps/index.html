@@ -1,0 +1,293 @@
+<!DOCTYPE html><html lang="zh-TW" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Digitalocean - Droplet 更改伺服器 Spec (Resize) | Halohalo :3</title><meta name="keywords" content="Server,Digitalocean,VPS Server,廣東話粵文講解"><meta name="author" content="Halohalo :3"><meta name="copyright" content="Halohalo :3"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="咩係 Resize？當你起完部 VPS 用左一排，用用下發現唔夠位裝野 wor 屌，又或者你部機裝野裝到 lag，你想加多條 ram 等佢行得順啲，但係又唔想由頭裝過哂啲野。呢個時候我地可以用 Digitalocean 提供左既 Droplet 功能，佢叫 Resize。好似字面咁解，就係將你而加呢部 Droplet 既 spec 改做其他 plan，假設係由本身既 512RAM 轉做 1G">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Digitalocean - Droplet 更改伺服器 Spec (Resize)">
+<meta property="og:url" content="https://bmjvvhbuen9d7upw.github.io/2022/07/12/Digitalocean-Resize-Droplet-vps/index.html">
+<meta property="og:site_name" content="Halohalo :3">
+<meta property="og:description" content="咩係 Resize？當你起完部 VPS 用左一排，用用下發現唔夠位裝野 wor 屌，又或者你部機裝野裝到 lag，你想加多條 ram 等佢行得順啲，但係又唔想由頭裝過哂啲野。呢個時候我地可以用 Digitalocean 提供左既 Droplet 功能，佢叫 Resize。好似字面咁解，就係將你而加呢部 Droplet 既 spec 改做其他 plan，假設係由本身既 512RAM 轉做 1G">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://bmjvvhbuen9d7upw.github.io/img/Post/image/digitalocean/digitalocean-logo-2.svg">
+<meta property="article:published_time" content="2022-07-12T10:40:50.000Z">
+<meta property="article:modified_time" content="2022-07-12T14:36:44.976Z">
+<meta property="article:author" content="Halohalo :3">
+<meta property="article:tag" content="Server">
+<meta property="article:tag" content="Digitalocean">
+<meta property="article:tag" content="VPS Server">
+<meta property="article:tag" content="廣東話粵文講解">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bmjvvhbuen9d7upw.github.io/img/Post/image/digitalocean/digitalocean-logo-2.svg"><link rel="shortcut icon" href="/img/lala.png"><link rel="canonical" href="https://bmjvvhbuen9d7upw.github.io/2022/07/12/Digitalocean-Resize-Droplet-vps/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-4975299875131134',
+  enable_page_level_ads: 'true'
+});</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-76ZCQXT5Q5"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-76ZCQXT5Q5');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查詢的內容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":500},
+  copy: {
+    success: '複製成功',
+    error: '複製錯誤',
+    noSupport: '瀏覽器不支援'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '剛剛',
+    min: '分鐘前',
+    hour: '小時前',
+    day: '天前',
+    month: '個月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Digitalocean - Droplet 更改伺服器 Spec (Resize)',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-07-12 22:36:44'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" /><meta name="generator" content="Hexo 6.0.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">Loading ...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/lala.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">297</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">標籤</div><div class="length-num">95</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分類</div><div class="length-num">67</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Post</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> Linux</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Kali/"><span> Kali Linux</span></a></li><li><a class="site-page child" href="/categories/Arch-Linux/"><span> Arch Linux</span></a></li><li><a class="site-page child" href="/categories/Debian/"><span> Debian Linux</span></a></li><li><a class="site-page child" href="/categories/Manjaro/"><span> Manjaro Linux</span></a></li><li><a class="site-page child" href="/categories/Gnome/"><span> Gnome</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> Hacking</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Kali/"><span> Kali Linux</span></a></li><li><a class="site-page child" href="/categories/Metasploit/"><span> Metasploit</span></a></li><li><a class="site-page child" href="/categories/Reverse-engineering/"><span> Reverse Engineering</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> Programming</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Android-Studio/"><i class="fa-fw fa-brands fa-android"></i><span> Android Studio</span></a></li><li><a class="site-page child" href="/tags/Python/"><i class="fa-fw fa-brands fa-python"></i><span> Python</span></a></li><li><a class="site-page child" href="/tags/Java/"><i class="fa-fw fa-brands fa-java"></i><span> Java</span></a></li><li><a class="site-page child" href="/tags/CSharp/"><span> C#</span></a></li><li><a class="site-page child" href="/tags/C/"><span> C++</span></a></li><li><a class="site-page child" href="/tags/Javascript/"><i class="fa-fw fa-brands fa-js"></i><span> Javascript</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> Games</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Counter-Strike-1-6/"><span> Counter Strike 1.6</span></a></li><li><a class="site-page child" href="/categories/Counter-Strike-Global-Offensive/"><span> Counter-Strike Global Offensive</span></a></li><li><a class="site-page child" href="/categories/Minecraft/"><span> Minecraft</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/nothing/"><i class="fa-fw fa fa-clipboard"></i><span> Todo</span></a></div><div class="menus_item"><a class="site-page" href="/thisav/"><span> AV list</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-user"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/Post/image/digitalocean/digitalocean-logo-2.svg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Halohalo :3</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Post</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> Linux</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Kali/"><span> Kali Linux</span></a></li><li><a class="site-page child" href="/categories/Arch-Linux/"><span> Arch Linux</span></a></li><li><a class="site-page child" href="/categories/Debian/"><span> Debian Linux</span></a></li><li><a class="site-page child" href="/categories/Manjaro/"><span> Manjaro Linux</span></a></li><li><a class="site-page child" href="/categories/Gnome/"><span> Gnome</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> Hacking</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Kali/"><span> Kali Linux</span></a></li><li><a class="site-page child" href="/categories/Metasploit/"><span> Metasploit</span></a></li><li><a class="site-page child" href="/categories/Reverse-engineering/"><span> Reverse Engineering</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> Programming</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Android-Studio/"><i class="fa-fw fa-brands fa-android"></i><span> Android Studio</span></a></li><li><a class="site-page child" href="/tags/Python/"><i class="fa-fw fa-brands fa-python"></i><span> Python</span></a></li><li><a class="site-page child" href="/tags/Java/"><i class="fa-fw fa-brands fa-java"></i><span> Java</span></a></li><li><a class="site-page child" href="/tags/CSharp/"><span> C#</span></a></li><li><a class="site-page child" href="/tags/C/"><span> C++</span></a></li><li><a class="site-page child" href="/tags/Javascript/"><i class="fa-fw fa-brands fa-js"></i><span> Javascript</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> Games</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/Counter-Strike-1-6/"><span> Counter Strike 1.6</span></a></li><li><a class="site-page child" href="/categories/Counter-Strike-Global-Offensive/"><span> Counter-Strike Global Offensive</span></a></li><li><a class="site-page child" href="/categories/Minecraft/"><span> Minecraft</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/nothing/"><i class="fa-fw fa fa-clipboard"></i><span> Todo</span></a></div><div class="menus_item"><a class="site-page" href="/thisav/"><span> AV list</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-user"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Digitalocean - Droplet 更改伺服器 Spec (Resize)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">發表於</span><time class="post-meta-date-created" datetime="2022-07-12T10:40:50.000Z" title="發表於 2022-07-12 18:40:50">2022-07-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新於</span><time class="post-meta-date-updated" datetime="2022-07-12T14:36:44.976Z" title="更新於 2022-07-12 22:36:44">2022-07-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Digitalocean-info/">Digitalocean info</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Digitalocean-info/Droplet/">Droplet</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/digitalocean/DigitalOcean_logo.svg" width="200px"/>
+
+<h1 id="咩係-Resize？"><a href="#咩係-Resize？" class="headerlink" title="咩係 Resize？"></a>咩係 Resize？</h1><p>當你起完部 VPS 用左一排，用用下發現唔夠位裝野 wor 屌，又或者你部機裝野裝到 lag，你想加多條 ram 等佢行得順啲，但係又唔想由頭裝過哂啲野。<br>呢個時候我地可以用 Digitalocean 提供左既 Droplet 功能，佢叫 Resize。好似字面咁解，就係將你而加呢部 Droplet 既 spec 改做其他 plan，假設係由本身既 512RAM 轉做 1G RAM。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="resize-d.png"></p>
+<h1 id="第一步-入-DigitalOcean-Droplets-主頁"><a href="#第一步-入-DigitalOcean-Droplets-主頁" class="headerlink" title="第一步 - 入 DigitalOcean Droplets 主頁 "></a>第一步 - 入 DigitalOcean Droplets 主頁 <i class="fa-solid fa-house"></i></h1><p>呢度我會預你本身已經起好一部 VPS，係後期想改個 Spec，如果唔識點樣起 VPS 既人可以參考返相關既文章：<br>第一篇係講點樣起部 Droplet (VPS)：<a target="_blank" rel="noopener" href="http://localhost:4000/2022/07/10/Digitalocean-create-droplets-cloud-server-vps/">Digitalocean - 建立 Droplets VPS Server</a><br>第二篇係講點樣用內建既 SSH 登入功能起一部 Drople (VPS)：<a href="/2022/07/11/Digitalocean-ssh-keys-login-without-password/">Digitalocean - 使用 SSH Keys 登入免用密碼加強你的伺服器安全性</a></p>
+<p>我地入呢個位，喺左邊既咩料入面撳 <code>Droplets</code>，然後撳返你要整 <code>Resize</code> 個部機.</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="SETT-DROP.gif"></p>
+<h1 id="第二步-熄左你部機先"><a href="#第二步-熄左你部機先" class="headerlink" title="第二步 - 熄左你部機先 "></a>第二步 - 熄左你部機先 <i class="fa-solid fa-power-off"></i></h1><p>留意返，喺改 Spec 之前我地需要將你部機熄左先，咁先可以改到，然後熄左要等佢一分鐘，再 F5 refresh 一次個 page.</p>
+<p>點解要熄機？我用個情況黎比如，你屋企部實機要加多條 RAM，咁你冇理由部機開緊咁拆個電腦黎裝 RAM 㗎嘛，正常諗一諗都知應該將電源完全斷開之後先進行呢個步驟，如果唔咁樣做，一黎唔安全 (有機會電親自己，嚴重可以電死，上網搵單新聞黎睇是但都搵到幾單係咁樣死 … )，二黎有機會搞到啲資料死左.</p>
+<p>熄機係有兩種方法，一種係喺 Dashboard 度熄，一種用 SSH 登入入去 用 command line 熄.</p>
+<div class="note warning flat">
+    注意：我地平時既熄機係會開返，咁係理所當然係咪先，但係你遠控一部 SERVER 既時候，好多新手岩岩整既時候，有時入唔到係有可能係你未開返部機，你係需要去返 Dashborad 睇下部機係咪開左。另外，poweroff 係熄機，但係你熄左之後係需要開返㗎，如果唔係你入唔到㗎，除非你係 reboot ~
+</div>
+
+<h2 id="熄機方法一-Dashboard-控制"><a href="#熄機方法一-Dashboard-控制" class="headerlink" title="熄機方法一 - Dashboard 控制 "></a>熄機方法一 - Dashboard 控制 <i class="fa-solid fa-chart-line"></i></h2><p>去返你既 Dashboard 位置，你會喺右邊見到粒 toggle 係熄機開機既掣，撳佢一下.</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="poweroff-1.png"></p>
+<p>佢會問你係咪真係要熄機，你撳 <code>Turn off</code>.</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="poweroff-2.gif"></p>
+<p>佢會 load 一陣.</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="poweroff-3.png"></p>
+<p>部機已熄左.</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="poweroff-4.png"></p>
+<h2 id="熄機方法二-SSH-登入用指令熄"><a href="#熄機方法二-SSH-登入用指令熄" class="headerlink" title="熄機方法二 - SSH 登入用指令熄 "></a>熄機方法二 - SSH 登入用指令熄 <i class="fa-solid fa-terminal"></i></h2><p>首先你登入返你部機先，之後用打下面呢句熄部機.</p>
+<div class="note info flat">
+    呢兩個方法去到最後開返部機都係要入返去部機既 Dashboard 撳返開機，個分別只係系統幫你熄同你入去熄機，所以實際上係冇分別 =.=
+</div>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo shutdown -h now</span><br></pre></td></tr></table></figure>
+
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="shutdown-hnow.gif"></p>
+<p>之後你去返 Dashborad 睇就會見到佢個 toggle Status 變左做 <code>OFF</code>.</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="poweroff-4.png"></p>
+<h1 id="第三步-Dashboard-入-Resize-個位"><a href="#第三步-Dashboard-入-Resize-個位" class="headerlink" title="第三步 - Dashboard 入 Resize 個位 "></a>第三步 - Dashboard 入 Resize 個位 <i class="fa-solid fa-chart-line"></i></h1><p>黎到呢個位會入左去你部機既 Dashboard，喺下面張圖你會見到我紅色圈起左 <code>Resize</code>，撳佢一下之後就去下一步.</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="resize-droplet.gif"></p>
+<h1 id="第四步-揀你想要既-Spec"><a href="#第四步-揀你想要既-Spec" class="headerlink" title="第四步 - 揀你想要既 Spec "></a>第四步 - 揀你想要既 Spec <i class="fa-solid fa-computer"></i></h1><p>我地可以睇到佢寫住你而加既 Spec 係：Basic / 512 MB / 1 vCPU</p>
+<p>今篇文我會做示範所以我就是但揀個最 Cheap 雞既 spec 啦，就揀 $6/mo 個個 plan.</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="spec-1.gif"></p>
+<h1 id="第五步-確定改-Spec"><a href="#第五步-確定改-Spec" class="headerlink" title="第五步 - 確定改 Spec "></a>第五步 - 確定改 Spec <i class="fa-solid fa-square-check"></i></h1><p>你確定係想改呢個 Spec 既話就撳 <code>Resize</code></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="confirm-1.gif"></p>
+<p>Resize 會需要小小時間去做處理 …</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="confirm-2.png"></p>
+<p>當成功既時候系統會喺右上 display 一個 alert 提你已經整好左.</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="done-1.png"></p>
+<p>我地可以見到已經成功由原本既 512MB RAM 轉左做 1GB RAM.</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="done-2.gif"></p>
+<h1 id="第六步-開返部機"><a href="#第六步-開返部機" class="headerlink" title="第六步 - 開返部機 "></a>第六步 - 開返部機 <i class="fa-solid fa-power-off"></i></h1><p>我地而加將部機開返先，喺部機既 Droplet 既右邊你會見到粒 toggle 係 <code>OFF</code> 撳佢一下，佢會 load 一陣 …</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="poweron.png"></p>
+<p>當你 load 好就會咁樣 display：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="poweron-2.png"></p>
+<h1 id="最後一步-登入返個-Server"><a href="#最後一步-登入返個-Server" class="headerlink" title="最後一步 - 登入返個 Server "></a>最後一步 - 登入返個 Server <i class="fa-solid fa-right-to-bracket"></i></h1><p>而加我地開返個 shell 登入返個 server：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh username@your_ipadress</span><br></pre></td></tr></table></figure>
+
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="login-1.gif"></p>
+<p>我地可以打呢句指令睇下而加部機既 ram 係有幾多：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">free -m # -m 係解 mb, 如果你打 -g 就係 GB, 你打 -k 就會係 kb.</span><br></pre></td></tr></table></figure>
+
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="free-m.gif"></p>
+<h1 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h1><p><a target="_blank" rel="noopener" href="https://docs.digitalocean.com/products/droplets/how-to/resize/#estimated-downtime">https://docs.digitalocean.com/products/droplets/how-to/resize/#estimated-downtime</a><br><a target="_blank" rel="noopener" href="https://www.cyberciti.biz/faq/ram-size-linux/">https://www.cyberciti.biz/faq/ram-size-linux/</a></p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Server/">Server</a><a class="post-meta__tags" href="/tags/Digitalocean/">Digitalocean</a><a class="post-meta__tags" href="/tags/VPS-Server/">VPS Server</a><a class="post-meta__tags" href="/tags/%E5%BB%A3%E6%9D%B1%E8%A9%B1%E7%B2%B5%E6%96%87%E8%AC%9B%E8%A7%A3/">廣東話粵文講解</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/07/12/Digitalocean-take-snapshots-and-restore/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/digitalocean/digitalocean-logo-2.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Digitalocean - Droplet 儲存現時狀態和還原狀態 (Snapshot)</div></div></a></div><div class="next-post pull-right"><a href="/2022/07/12/Digitalocean-Rebuild-Droplet-vps/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/digitalocean/digitalocean-logo-2.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Digitalocean - Droplet 重置伺服器 (Rebuild)</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相關推薦</span></div><div class="relatedPosts-list"><div><a href="/2022/07/12/Digitalocean-Destory-Droplet-vps/" title="Digitalocean - Droplet 刪除伺服器 (Destory)"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/digitalocean/digitalocean-logo-2.svg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-12</div><div class="title">Digitalocean - Droplet 刪除伺服器 (Destory)</div></div></a></div><div><a href="/2022/07/12/Digitalocean-Rebuild-Droplet-vps/" title="Digitalocean - Droplet 重置伺服器 (Rebuild)"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/digitalocean/digitalocean-logo-2.svg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-12</div><div class="title">Digitalocean - Droplet 重置伺服器 (Rebuild)</div></div></a></div><div><a href="/2022/07/12/Digitalocean-take-snapshots-and-restore/" title="Digitalocean - Droplet 儲存現時狀態和還原狀態 (Snapshot)"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/digitalocean/digitalocean-logo-2.svg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-12</div><div class="title">Digitalocean - Droplet 儲存現時狀態和還原狀態 (Snapshot)</div></div></a></div><div><a href="/2021/12/11/Cs1-6-server-create-vps-wan/" title="Ubuntu VPS Server - 建立 Counter Strike 1.6 伺服器並廿四小時開放不停止"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/Ubuntu/cover.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-11</div><div class="title">Ubuntu VPS Server - 建立 Counter Strike 1.6 伺服器並廿四小時開放不停止</div></div></a></div><div><a href="/2022/07/10/Digitalocean-create-droplets-cloud-server-vps/" title="Digitalocean - 建立 Droplets VPS Server"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/digitalocean/digitalocean-logo-2.svg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-10</div><div class="title">Digitalocean - 建立 Droplets VPS Server</div></div></a></div><div><a href="/2022/07/11/Digitalocean-ssh-keys-login-without-password/" title="Digitalocean - 使用 SSH Keys 登入免用密碼加強伺服器安全性 (Droplet)"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/digitalocean/digitalocean-logo-2.svg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-11</div><div class="title">Digitalocean - 使用 SSH Keys 登入免用密碼加強伺服器安全性 (Droplet)</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/lala.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Halohalo :3</div><div class="author-info__description">一個中學生既電腦筆記簿 :p</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">297</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">標籤</div><div class="length-num">95</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分類</div><div class="length-num">67</div></a></div></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">我中學雞黎架炸 xD</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目錄</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%92%A9%E4%BF%82-Resize%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">咩係 Resize？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5-%E5%85%A5-DigitalOcean-Droplets-%E4%B8%BB%E9%A0%81"><span class="toc-number">2.</span> <span class="toc-text">第一步 - 入 DigitalOcean Droplets 主頁 </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E7%86%84%E5%B7%A6%E4%BD%A0%E9%83%A8%E6%A9%9F%E5%85%88"><span class="toc-number">3.</span> <span class="toc-text">第二步 - 熄左你部機先 </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%86%84%E6%A9%9F%E6%96%B9%E6%B3%95%E4%B8%80-Dashboard-%E6%8E%A7%E5%88%B6"><span class="toc-number">3.1.</span> <span class="toc-text">熄機方法一 - Dashboard 控制 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%86%84%E6%A9%9F%E6%96%B9%E6%B3%95%E4%BA%8C-SSH-%E7%99%BB%E5%85%A5%E7%94%A8%E6%8C%87%E4%BB%A4%E7%86%84"><span class="toc-number">3.2.</span> <span class="toc-text">熄機方法二 - SSH 登入用指令熄 </span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5-Dashboard-%E5%85%A5-Resize-%E5%80%8B%E4%BD%8D"><span class="toc-number">4.</span> <span class="toc-text">第三步 - Dashboard 入 Resize 個位 </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5-%E6%8F%80%E4%BD%A0%E6%83%B3%E8%A6%81%E6%97%A2-Spec"><span class="toc-number">5.</span> <span class="toc-text">第四步 - 揀你想要既 Spec </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E6%AD%A5-%E7%A2%BA%E5%AE%9A%E6%94%B9-Spec"><span class="toc-number">6.</span> <span class="toc-text">第五步 - 確定改 Spec </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E6%AD%A5-%E9%96%8B%E8%BF%94%E9%83%A8%E6%A9%9F"><span class="toc-number">7.</span> <span class="toc-text">第六步 - 開返部機 </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%80%E5%BE%8C%E4%B8%80%E6%AD%A5-%E7%99%BB%E5%85%A5%E8%BF%94%E5%80%8B-Server"><span class="toc-number">8.</span> <span class="toc-text">最後一步 - 登入返個 Server </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="toc-number">9.</span> <span class="toc-text">參考資料</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章 / 更新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/07/12/Digitalocean-Destory-Droplet-vps/" title="Digitalocean - Droplet 刪除伺服器 (Destory)"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/digitalocean/digitalocean-logo-2.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Digitalocean - Droplet 刪除伺服器 (Destory)"/></a><div class="content"><a class="title" href="/2022/07/12/Digitalocean-Destory-Droplet-vps/" title="Digitalocean - Droplet 刪除伺服器 (Destory)">Digitalocean - Droplet 刪除伺服器 (Destory)</a><time datetime="2022-07-12T14:37:06.964Z" title="更新於 2022-07-12 22:37:06">2022-07-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/11/Digitalocean-ssh-keys-login-without-password/" title="Digitalocean - 使用 SSH Keys 登入免用密碼加強伺服器安全性 (Droplet)"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/digitalocean/digitalocean-logo-2.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Digitalocean - 使用 SSH Keys 登入免用密碼加強伺服器安全性 (Droplet)"/></a><div class="content"><a class="title" href="/2022/07/11/Digitalocean-ssh-keys-login-without-password/" title="Digitalocean - 使用 SSH Keys 登入免用密碼加強伺服器安全性 (Droplet)">Digitalocean - 使用 SSH Keys 登入免用密碼加強伺服器安全性 (Droplet)</a><time datetime="2022-07-12T14:37:02.229Z" title="更新於 2022-07-12 22:37:02">2022-07-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/12/Digitalocean-Resize-Droplet-vps/" title="Digitalocean - Droplet 更改伺服器 Spec (Resize)"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/digitalocean/digitalocean-logo-2.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Digitalocean - Droplet 更改伺服器 Spec (Resize)"/></a><div class="content"><a class="title" href="/2022/07/12/Digitalocean-Resize-Droplet-vps/" title="Digitalocean - Droplet 更改伺服器 Spec (Resize)">Digitalocean - Droplet 更改伺服器 Spec (Resize)</a><time datetime="2022-07-12T14:36:44.976Z" title="更新於 2022-07-12 22:36:44">2022-07-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/12/Digitalocean-Rebuild-Droplet-vps/" title="Digitalocean - Droplet 重置伺服器 (Rebuild)"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/digitalocean/digitalocean-logo-2.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Digitalocean - Droplet 重置伺服器 (Rebuild)"/></a><div class="content"><a class="title" href="/2022/07/12/Digitalocean-Rebuild-Droplet-vps/" title="Digitalocean - Droplet 重置伺服器 (Rebuild)">Digitalocean - Droplet 重置伺服器 (Rebuild)</a><time datetime="2022-07-12T14:36:37.865Z" title="更新於 2022-07-12 22:36:37">2022-07-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/12/Digitalocean-take-snapshots-and-restore/" title="Digitalocean - Droplet 儲存現時狀態和還原狀態 (Snapshot)"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/digitalocean/digitalocean-logo-2.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Digitalocean - Droplet 儲存現時狀態和還原狀態 (Snapshot)"/></a><div class="content"><a class="title" href="/2022/07/12/Digitalocean-take-snapshots-and-restore/" title="Digitalocean - Droplet 儲存現時狀態和還原狀態 (Snapshot)">Digitalocean - Droplet 儲存現時狀態和還原狀態 (Snapshot)</a><time datetime="2022-07-12T14:36:28.547Z" title="更新於 2022-07-12 22:36:28">2022-07-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/09/Ubuntu-20-04-LTS-VPS-create-a-minecraft-24hr-open/" title="Ubuntu VPS Server - 建立 Minecraft 伺服器並廿四小時開放不停止"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/Ubuntu/cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Ubuntu VPS Server - 建立 Minecraft 伺服器並廿四小時開放不停止"/></a><div class="content"><a class="title" href="/2022/07/09/Ubuntu-20-04-LTS-VPS-create-a-minecraft-24hr-open/" title="Ubuntu VPS Server - 建立 Minecraft 伺服器並廿四小時開放不停止">Ubuntu VPS Server - 建立 Minecraft 伺服器並廿四小時開放不停止</a><time datetime="2022-07-12T13:29:46.158Z" title="更新於 2022-07-12 21:29:46">2022-07-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/10/Digitalocean-create-droplets-cloud-server-vps/" title="Digitalocean - 建立 Droplets VPS Server"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/digitalocean/digitalocean-logo-2.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Digitalocean - 建立 Droplets VPS Server"/></a><div class="content"><a class="title" href="/2022/07/10/Digitalocean-create-droplets-cloud-server-vps/" title="Digitalocean - 建立 Droplets VPS Server">Digitalocean - 建立 Droplets VPS Server</a><time datetime="2022-07-11T17:06:24.024Z" title="更新於 2022-07-12 01:06:24">2022-07-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/12/11/Cs1-6-server-create-vps-wan/" title="Ubuntu VPS Server - 建立 Counter Strike 1.6 伺服器並廿四小時開放不停止"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/Post/image/Ubuntu/cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Ubuntu VPS Server - 建立 Counter Strike 1.6 伺服器並廿四小時開放不停止"/></a><div class="content"><a class="title" href="/2021/12/11/Cs1-6-server-create-vps-wan/" title="Ubuntu VPS Server - 建立 Counter Strike 1.6 伺服器並廿四小時開放不停止">Ubuntu VPS Server - 建立 Counter Strike 1.6 伺服器並廿四小時開放不停止</a><time datetime="2022-07-11T16:57:39.293Z" title="更新於 2022-07-12 00:57:39">2022-07-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/24/DuckDuckgo-SearchEngine/" title="DuckDuckgo - 反追蹤器的網路搜索引擎"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/05/24/DuckDuckgo-SearchEngine/cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DuckDuckgo - 反追蹤器的網路搜索引擎"/></a><div class="content"><a class="title" href="/2022/05/24/DuckDuckgo-SearchEngine/" title="DuckDuckgo - 反追蹤器的網路搜索引擎">DuckDuckgo - 反追蹤器的網路搜索引擎</a><time datetime="2022-07-11T16:25:05.827Z" title="更新於 2022-07-12 00:25:05">2022-07-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/07/Counter-Strike-1-6-AMXX-Upgrade-to-1-9-0/" title="Counter Strike 1.6 - AMX X Mod 升級至 1.9.0"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2022/06/07/Counter-Strike-1-6-AMXX-Upgrade-to-1-9-0/cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Counter Strike 1.6 - AMX X Mod 升級至 1.9.0"/></a><div class="content"><a class="title" href="/2022/06/07/Counter-Strike-1-6-AMXX-Upgrade-to-1-9-0/" title="Counter Strike 1.6 - AMX X Mod 升級至 1.9.0">Counter Strike 1.6 - AMX X Mod 升級至 1.9.0</a><time datetime="2022-07-11T16:18:01.159Z" title="更新於 2022-07-12 00:18:01">2022-07-12</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/Post/image/digitalocean/digitalocean-logo-2.svg')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By Halohalo :3</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="閱讀模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="淺色和深色模式轉換"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="單欄和雙欄切換"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="設定"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目錄"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到頂部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search Somethings ...</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Data loading</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search Post" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.3" zIndex="-1" mobile="true" data-click="false"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: true,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '[object Object]', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script></div></body></html>
